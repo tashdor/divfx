@@ -1,7 +1,3 @@
----
-title: DI VFX
----
-
 This document presents various studio-level production and post-production practices and implimentation menthods relevant to independent feature films and short-form projects.
 
 [Digital Intermediates and Visual Effects for Independent Film Production (pdf, ?.?MB)](#)
