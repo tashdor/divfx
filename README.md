@@ -2,7 +2,7 @@ This document presents various studio-level production and post-production pract
 
 [Digital Intermediates and Visual Effects for Independent Film Production (pdf, ?.?MB)](#)
 
-Authored by Tashi Trieu. Questions, comments, and errata related to this document can be address to [divfx@tashitrieu.com](mailto:divfx@tashitrieu.com)
+Authored by Tashi Trieu. Questions, comments, and errata related to this document can be addressed to [divfx@tashitrieu.com](mailto:divfx@tashitrieu.com)
 
 ### Topic Listing
 
