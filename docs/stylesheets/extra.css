@@ -76,20 +76,26 @@
   max-width: 620px;
   margin: 0 auto;
 }
+/* The static SVG sits in normal flow and sizes the box. */
+.cp-embed-static { display: block; width: 100%; height: auto; }
+/* The iframe overlays the static — never display:none (which would deadlock a
+   lazy iframe's load event) — starting transparent and fading in once it loads.
+   If it never loads (service down / no JS), the static shows through. */
 .cp-embed-frame {
-  display: block;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  aspect-ratio: 900 / 820;
+  height: 100%;
   border: 1px solid var(--md-default-fg-color--lightest);
   border-radius: 4px;
   background: transparent;
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
-.cp-embed:not(.cp-embed-live) .cp-embed-frame { display: none; }
-.cp-embed.cp-embed-live .cp-embed-static { display: none !important; }
+.cp-embed.cp-embed-live .cp-embed-frame { opacity: 1; }
 .cp-embed-hint { color: var(--md-default-fg-color--light); }
 
-/* Print and no-JS never show the iframe; keep the static figure. */
+/* Print never shows the iframe; keep the static figure. */
 @media print {
   .cp-embed-frame { display: none !important; }
-  .cp-embed.cp-embed-live .cp-embed-static { display: inline !important; }
 }

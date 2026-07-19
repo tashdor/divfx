@@ -29,11 +29,14 @@
 
     var frame = document.createElement('iframe');
     frame.className = 'cp-embed-frame';
-    frame.loading = 'lazy';
+    // NOTE: deliberately no loading="lazy". A lazy iframe that is display:none
+    // (or has no layout box) has its load deferred indefinitely and never fires
+    // its load event, so it would never be revealed — a deadlock. The iframe is
+    // overlaid at opacity:0 instead, so it always has a layout box and loads.
     frame.setAttribute('scrolling', 'no');
     frame.setAttribute('title', fig.getAttribute('data-cp-title') || 'Interactive color plot');
     frame.addEventListener('load', function () {
-      fig.classList.add('cp-embed-live'); // CSS reveals the frame, hides the static img
+      fig.classList.add('cp-embed-live'); // CSS fades the frame in over the static
     });
     frame.src = isDark() ? dark : light;
     mount.appendChild(frame);
