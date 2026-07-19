@@ -75,9 +75,20 @@
   display: block;
   max-width: 620px;
   margin: 0 auto;
+  /* Match the embed's plot aspect (fragment view 900x820) so the plot canvas
+     fills the iframe edge to edge. Any mismatch letterboxes, and the embed's
+     page background is dark regardless of theme, so a mismatch shows as dark
+     bars around a light plot. */
+  aspect-ratio: 900 / 820;
 }
-/* The static SVG sits in normal flow and sizes the box. */
-.cp-embed-static { display: block; width: 100%; height: auto; }
+/* The static SVG and the iframe both fill the aspect box, stacked. */
+.cp-embed-static {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 /* The iframe overlays the static — never display:none (which would deadlock a
    lazy iframe's load event) — starting transparent and fading in once it loads.
    If it never loads (service down / no JS), the static shows through. */
