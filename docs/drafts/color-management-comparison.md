@@ -122,7 +122,7 @@ Baselight and Daylight.
 | **Neutral archival encoding** | No | **Yes** (ACES2065-1) | No | No |
 | **In-app setup (single facility)** | None | A little config | Low (if in Resolve) | Low–moderate (if in Baselight) |
 | **Multi-camera normalization** | Poor | Strong | Strong | Strong — *equal labor to ACES* |
-| **Multi-vendor VFX (total effort)** | Fails | **Low — vendors already speak it** | High — colorist authors LUTs/guidance per vendor | High — same, despite portable files |
+| **Multi-vendor VFX (total effort)** | Fails | **Low — vendors already speak it** | High — colorist authors LUTs or transforms + guidance per vendor | High — same, despite portable files |
 | **Interoperates with ACES** | — | is ACES | Yes (Resolve has ACES modes) | Yes (v7 ACES 2.0) |
 
 Sources: the [ACES](aces.md) and [vendor color management](vendor-color-management.md) chapters and

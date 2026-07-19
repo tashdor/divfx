@@ -145,7 +145,7 @@ reverses in the one that matters:
 | --- | --- | --- |
 | **Assigning input color spaces** (camera normalization) | The same metadata-driven menu | The same metadata-driven menu — **virtually identical labor** |
 | **Single-app, single-facility finish** | On by a project setting | Also a project setting; runs in one app just as well |
-| **Multi-vendor VFX interchange** | **More work** — no vendor pathway; the colorist hand-authors LUTs and workflow guidance for each vendor | **Less work** — VFX tools already ship OCIO/ACES configs; vendors are already set up |
+| **Multi-vendor VFX interchange** | **More work** — no vendor pathway; the colorist hand-authors LUTs or transforms and workflow guidance for each vendor | **Less work** — VFX tools already ship OCIO/ACES configs; vendors are already set up |
 | **Neutral archival master** | No — a working space, not an interchange encoding | Yes — ACES2065-1 |
 
 Two corrections to the usual telling:
@@ -155,7 +155,7 @@ Two corrections to the usual telling:
 - **ACES is not inherently "more setup."** Because ACES is the interchange standard almost every
   tool already supports, a VFX vendor is *already configured* for it; you hand them a version and a
   couple of transform names. There is no equivalent vendor-facing distribution for RCM or TCS: to
-  run a vendor system across a VFX chain, the *colorist* has to produce LUTs and written workflow
+  run a vendor system across a VFX chain, the *colorist* has to produce LUTs or transforms and written workflow
   guidance for each vendor to emulate in their own tools. In a multi-vendor pipeline, that makes the
   vendor system the *higher*-effort option, not ACES.
 
