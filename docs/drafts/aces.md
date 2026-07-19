@@ -73,20 +73,18 @@ All ACES encodings share a white point of **x = 0.32168, y = 0.33767**.
 
 This is the single most-questioned number in ACES, and reasonably so. Cameras are balanced and
 characterized around daylight; Rec.709, sRGB, Rec.2020, and BT.2100 all specify **D65**; HDR
-home video masters in **P3-D65**. Digital cinema projection uses the DCI white point. Almost
-nothing else in the chain is D60. So why is the interchange encoding?
+home video masters in **P3-D65**. Theatrical digital cinema calibrates its projectors to the DCI
+reference white (x 0.314, y 0.351 — a slightly green ≈6300 K point that is neither D60 nor D65),
+but the format carries arbitrary creative white points, and Dolby Cinema masters to **D65**.
+Across the whole chain, almost nothing lands on D60. So why is the interchange encoding?
 
 #### It does not constrain your image
 
-Start here, because it dissolves most of the confusion. Academy
-[TB-2018-001](https://docs.acescentral.com/white-point/) is explicit:
-
-!!! quote
+!!! quote "Academy [TB-2018-001](https://docs.acescentral.com/white-point/), *Derivation of the ACES White Point CIE Chromaticity Coordinates*"
     "It is important to note that the ACES white point does not dictate the chromaticity of the
-    reproduction neutral axis. Using various techniques beyond the scope of this document the
-    chromaticity of the equal red, green and blue (ACES2065-1 R=G=B) may match the ACES white
-    point, the display calibration white point, or any other white point preferred for technical
-    or aesthetic reasons."
+    reproduction neutral axis. […] the chromaticity of the equal red, green and blue
+    (ACES2065-1 R=G=B) may match the ACES white point, the display calibration white point, or any
+    other white point preferred for technical or aesthetic reasons."
 
 The encoding white point is the chromaticity you get when R = G = B **in the encoding**. It is a
 property of the coordinate system, not an instruction about how your film should look. A show
