@@ -24,16 +24,23 @@ and a colorist inheriting the consequences.
 
 ACES is not a look, and it is not a LUT. It is four things:
 
-1. **A scene-referred interchange encoding** — ACES2065-1, standardized as SMPTE ST 2065-1.
+1. **A scene-referred interchange encoding** — [ACES2065-1](https://docs.acescentral.com/encodings/aces2065-1/),
+   standardized as SMPTE ST 2065-1.
 2. **Working spaces** derived from it for compositing and grading.
-3. **Defined transforms** at the input and output of the pipeline.
+3. **Defined transforms** at the [input](https://docs.acescentral.com/system-components/input-transforms/)
+   and [output](https://docs.acescentral.com/system-components/output-transforms/) of the pipeline.
 4. **A container** for the image data, standardized as SMPTE ST 2065-4.
 
 The Academy's own framing is that ACES is "a free, open, device-independent color management
-and image interchange system that can be applied to almost any current or future workflow."[^ac1]
+and image interchange system that can be applied to almost any current or future workflow"
+(Academy Technical Bulletin
+[TB-2018-001](https://docs.acescentral.com/white-point/), Introduction).
 
-[^ac1]: Academy Technical Bulletin TB-2018-001, *Derivation of the ACES White Point CIE
-        Chromaticity Coordinates*, Introduction.
+Primary references: the [ACES documentation](https://docs.acescentral.com/),
+the [aces-aswf/aces](https://github.com/aces-aswf/aces) repository (formerly
+[ampas/aces-dev](https://github.com/ampas/aces-dev)), and the
+[SMPTE ACES standards](https://www.smpte.org/standards/aces-standards) — ST 2065-1 through
+ST 2065-5, which are normative and paywalled.
 
 ### Color primary sets
 
@@ -45,13 +52,14 @@ ACES-related pipeline errors.
 | **AP0** | The ST 2065-1 encoding primaries. Encompasses the entire CIE 1931 visible spectrum; the primaries are non-physical. | R (0.73470, 0.26530) · G (0.00000, 1.00000) · B (0.00010, −0.07700) |
 | **AP1** | Working-space primaries, closer to achievable display primaries. Basis of ACEScg, ACEScc, and ACEScct. | R (0.713, 0.293) · G (0.165, 0.830) · B (0.128, 0.044) |
 
-Source: TB-2014-004 (informative notes on ST 2065-1) and S-2014-004 (ACEScg).
+Sources: Academy TB-2014-004 (informative notes on ST 2065-1) and S-2014-004, published as
+[ACEScg](https://docs.acescentral.com/encodings/acescg/).
 
 AP0's blue primary has a **negative y coordinate** and its green sits at (0, 1). These are not
 colors; they are a mathematical basis chosen so that the encoding can represent every visible
 chromaticity without clipping. That is the right property for an archival interchange space and
-the wrong property for a working space — which is exactly why AP1 exists. As S-2014-004 puts it,
-render and compositing operations "sometimes do not work well with very wide-gamut primaries."
+the wrong property for a working space — which is exactly why AP1 exists. As [S-2014-004](https://docs.acescentral.com/encodings/acescg/) puts it, render and compositing
+operations "sometimes do not work well with very wide-gamut primaries."
 
 !!! warning "The most common ACES mistake"
     Rendering or compositing in **AP0** because it is "the ACES space." Lighting and shading math
@@ -59,21 +67,92 @@ render and compositing operations "sometimes do not work well with very wide-gam
     get chased as one. Composite in **ACEScg** (AP1). Reserve ACES2065-1 (AP0) for interchange,
     delivery between vendors, and archival.
 
-### The white point
+### The white point — and why ACES is "D60" in a D65 world
 
 All ACES encodings share a white point of **x = 0.32168, y = 0.33767**.
 
-This is commonly called "D60", and it is not D60. TB-2018-001 exists specifically to address the
-confusion: the ACES white point is a "D60-like" chromaticity that does not match the coordinates
-CIE D-series equations produce for 6000 K (x = 0.32169, y = 0.33780) — close, but not equal.[^ac2]
+This is the single most-questioned number in ACES, and reasonably so. Cameras are balanced and
+characterized around daylight; Rec.709, sRGB, Rec.2020, and BT.2100 all specify **D65**; HDR
+home video masters in **P3-D65**. Digital cinema projection uses the DCI white point. Almost
+nothing else in the chain is D60. So why is the interchange encoding?
 
-[^ac2]: TB-2018-001, §4.1 "Comparison of the ACES white point and CIE D60" and §4.3 "Reasons why
-        the ACES white point doesn't match the CIE D60 chromaticity coordinates."
+#### It does not constrain your image
 
-For a production this matters in one concrete way: when your deliverable is P3-D65 or Rec.709
-(D65), the Output Transform is doing a white-point adaptation, not just a gamut mapping. If
-neutrals drift warm or cool between your grading display and a deliverable, that adaptation is
-where to look first.
+Start here, because it dissolves most of the confusion. Academy
+[TB-2018-001](https://docs.acescentral.com/white-point/) is explicit:
+
+!!! quote
+    "It is important to note that the ACES white point does not dictate the chromaticity of the
+    reproduction neutral axis. Using various techniques beyond the scope of this document the
+    chromaticity of the equal red, green and blue (ACES2065-1 R=G=B) may match the ACES white
+    point, the display calibration white point, or any other white point preferred for technical
+    or aesthetic reasons."
+
+The encoding white point is the chromaticity you get when R = G = B **in the encoding**. It is a
+property of the coordinate system, not an instruction about how your film should look. A show
+working in ACES can grade to a D65 neutral axis and deliver a D65 master; nothing about the
+encoding prevents it. TB-2018-001 notes this misreading is common enough that the Committee
+worried about it when choosing the coordinates in the first place.
+
+The useful analogy is the [DCI-X'Y'Z'](../color.md#dci-xyz) encoding white point, which is the
+Equal Energy point and deliberately not the projector white point. Encoding white and
+reproduction white are separate things, and conflating them causes trouble in both systems.
+
+#### Why 6000 K specifically
+
+The ACES white point was set by the Academy's ACES Project Committee in 2008 (Academy
+S-2008-001, later standardized as SMPTE ST 2065-1) after months of debate. The candidates were
+the obvious ones, and both were rejected:
+
+- **D55** — historically the design illuminant for daylight color negative stocks.
+- **D65** — the display calibration white point of television and computer graphics.
+
+They chose the less common 6000 K instead, on three grounds:
+
+1. **A measurement of what film actually does.** The Committee ran an experiment: expose a
+   spectrally non-selective neutral gray scale onto color negative, print it to color print
+   stock, project it with a xenon projector, and measure the colorimetry off the screen. The
+   projected LAD patch came back at approximately **x = 0.32170, y = 0.33568**. Compared in
+   CIE u′v′, that measured film-system neutral was closest to CIE daylight at a CCT of
+   **6000 K** — closer than to D55 or D65.
+2. **Viewing conditions and preference.** The discussion centred on viewer adaptation, dark
+   surround viewing, and "cinematic look". Imagery reproduced with that white point was felt to
+   look right in a theatre.
+3. **Familiarity to a film heritage.** The Committee wanted a neutral that would feel correct to
+   people who had spent careers looking at projected print film.
+
+In short: **ACES is not D60 because displays are D60. It is D60-like because that is where
+projected print film's neutral actually sits**, measured off a screen. ACES was designed as the
+successor to a film-based pipeline, and its encoding neutral was chosen to match what that
+pipeline delivered to the eye in a dark theatre.
+
+#### Why not exactly CIE D60
+
+Because it is not D60 — it is D60-*like*. The CIE daylight equations at 6000 K give
+x = 0.32169, y = 0.33780. ACES specifies x = 0.32168, y = 0.33767. Close, but deliberately not
+equal.
+
+TB-2018-001 §4.3 gives the reason as "somewhat precautionary": the Committee was concerned that
+publishing an exact CIE D-series coordinate would imply the reproduction neutral axis was
+*required* to be that illuminant — the very misreading described above. Choosing coordinates
+that are near a daylight illuminant without being one signals that the encoding white is a
+reference, not a mandate.
+
+This is why writing "D60" without qualification is imprecise, and why colour scientists tend to
+say "the ACES white point" instead.
+
+#### What it means in practice
+
+- **You do not grade to D60.** Set your grading display to its calibrated white point — P3-D65
+  or DCI for theatrical, D65 for home video — and grade normally.
+- **The Output Transform handles the adaptation.** Converting ACES to a D65 output applies a
+  chromatic adaptation. That is expected behaviour, not an error.
+- **When neutrals drift, look here first.** If greys read warm or cool between the grading
+  display and a deliverable, a mismatched or doubled white-point adaptation in the transform
+  chain is the usual cause — more often than a monitor calibration fault.
+- **Do not "correct" the ACES white point.** Productions occasionally try to force ACES to D65
+  by inserting an adaptation before the Output Transform. This double-adapts and produces exactly
+  the neutral drift it was meant to fix.
 
 ### Encodings
 
@@ -85,14 +164,18 @@ where to look first.
 | **ACEScct** | AP1 | Logarithmic with a toe | As ACEScc, with a film-like toe near black that makes lift/offset behave the way colorists expect. |
 | **ACESproxy** | AP1 | Log, integer | On-set look management and transmission over HD-SDI. **Not** for storage, production imagery, or final grading. |
 
-Sources: TB-2014-012 (component names), S-2014-004 (ACEScg), S-2014-003 (ACEScc),
-S-2013-001 (ACESproxy).
+Specifications: [ACES2065-1](https://docs.acescentral.com/encodings/aces2065-1/) (ST 2065-1) ·
+[ACEScg](https://docs.acescentral.com/encodings/acescg/) (S-2014-004) ·
+[ACEScc](https://docs.acescentral.com/encodings/acescc/) (S-2014-003) ·
+[ACEScct](https://docs.acescentral.com/encodings/acescct/) (S-2016-001) ·
+ACESproxy (S-2013-001). Component naming follows Academy TB-2014-012.
 
 ACES2065-1 values are 16-bit floating point — 1 sign bit, 5 exponent, 10 mantissa — encoding
 relative exposure values linearly.[^ac3]
 
-[^ac3]: TB-2014-004, §5.6 and the color encoding description: "ACES values are encoded as 16-bit
-        floating-point numbers."
+[^ac3]: Academy TB-2014-004, §5.6 and the color encoding description: "ACES values are encoded as
+        16-bit floating-point numbers." See
+        [ACES2065-1](https://docs.acescentral.com/encodings/aces2065-1/).
 
 !!! note "ACEScc vs ACEScct"
     Use **ACEScct** unless you have a specific reason not to. ACEScc is purely logarithmic to
@@ -108,13 +191,14 @@ old and new names, and explicitly deprecates "RRT" in end-user documentation:
 
 | Current name | Formerly | Does |
 | --- | --- | --- |
-| **Input Transform** | Input Device Transform (IDT) | Converts camera-native data to ACES2065-1 |
-| **Look Transform** | Look Modification Transform (LMT) | Applies a global, show-wide look upstream of the Output Transform |
-| **Output Transform** | "RRT plus ODT" | Converts ACES data to display code values |
+| **[Input Transform](https://docs.acescentral.com/system-components/input-transforms/)** | Input Device Transform (IDT) | Converts camera-native data to ACES2065-1 |
+| **[Look Transform](https://docs.acescentral.com/system-components/look-transforms/)** | Look Modification Transform (LMT) | Applies a global, show-wide look upstream of the Output Transform |
+| **[Output Transform](https://docs.acescentral.com/system-components/output-transforms/)** | "RRT plus ODT" | Converts ACES data to display code values |
 
 The Look Transform is the ACES equivalent of the concept this handbook already calls the
 [Show LUT](../digital-intermediates.md#the-show-lut) — a single show-wide creative
-transformation that everyone works beneath. TB-2014-010 covers their design and integration.
+transformation that everyone works beneath. Academy TB-2014-010 covers their design and
+integration; see also [Look Transforms](https://docs.acescentral.com/system-components/look-transforms/).
 
 The important structural property, and the reason ACES fits the workflow this handbook
 describes: **grading happens under the Output Transform, not baked into the render**. That is the
@@ -141,8 +225,16 @@ arbitrary EXR.[^ac4]
     This is worth pinning down, because "it opened in Nuke" is not evidence of conformance, and a
     non-conformant archival master is the kind of error that surfaces years later.
 
-Related: clip-level metadata travels in an **ACESclip** file (TB-2014-009), and LUTs in the
-**Academy-ASC Common LUT Format** (CLF, S-2014-006).
+Related: clip-level metadata travels in an **ACES Metadata File**
+([AMF specification](https://docs.acescentral.com/amf/specification/); the earlier ACESclip form
+is described in Academy TB-2014-009), and LUTs in the **Academy-ASC Common LUT Format**
+([CLF specification](https://docs.acescentral.com/clf/specification/), S-2014-006).
+
+Also worth knowing: the **Reference Gamut Compression**
+([RGC specification](https://docs.acescentral.com/rgc/specification/)) added in ACES 1.3 handles
+out-of-gamut camera values — the negative-primary excursions that produce artifacts when a
+saturated highlight lands outside AP1. If your show has strong practical lights or lasers, this
+is the tool for it.
 
 ## ACES 2.0
 

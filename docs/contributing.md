@@ -22,6 +22,14 @@ python3 -m venv .venv
 
 The site will be available at <http://127.0.0.1:8000> and reloads as you edit.
 
+To preview the exact published layout — the original PDF landing page at the root, this wiki
+under `/wiki` — build both together:
+
+```bash
+./scripts/build-site.sh
+python3 -m http.server 8899 --directory publish
+```
+
 ## Structure
 
 ```
@@ -31,6 +39,7 @@ docs/
   *.md                  one file per chapter
   figures/              figure images
   stylesheets/extra.css theme overrides
+landing/                the published landing page, served at the site root
 mkdocs.yml              nav, theme, and Markdown extension config
 ```
 

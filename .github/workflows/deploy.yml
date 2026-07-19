@@ -26,8 +26,23 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Build and deploy to gh-pages
+      # The published site is the original PDF landing page at the root, with the
+      # in-progress wiki under /wiki. Assemble both into one publish directory.
+      - name: Build
+        run: |
+          rm -rf publish
+          mkdir -p publish
+          cp -R landing/. publish/
+          mkdocs build --strict -d publish/wiki
+          touch publish/.nojekyll
+          test -f publish/index.html
+          test -f publish/CNAME
+          test -f publish/wiki/index.html
+
+      - name: Deploy to gh-pages
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          mkdocs gh-deploy --force --strict
+          pip install ghp-import
+          ghp-import --no-jekyll --push --force --no-history \
+            --message "Deploy: landing page + /wiki" publish
