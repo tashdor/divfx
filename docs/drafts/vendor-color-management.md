@@ -9,12 +9,11 @@ tags:
     This chapter is new material, not part of v1.0.1. See [Drafts for v1.1](index.md).
 
 [ACES](aces.md) is not the only way to run a scene-referred, color-managed pipeline. The two
-grading systems a production is most likely to encounter — Blackmagic's
-**DaVinci Resolve** and FilmLight's **Baselight** — each ship their own end-to-end color
-management, with their own working space and their own display rendering transform. They solve the
-same problem ACES solves — keep the image scene-referred, apply the display transform once at the
-end, and let footage from many cameras share a common working space — but they solve it *inside a
-product* rather than as an open standard.
+grading systems a production is most likely to encounter — Blackmagic's **DaVinci Resolve** and
+FilmLight's **Baselight** — each ship their own end-to-end color management, with their own working
+space and their own display rendering transform. They solve the same problem ACES solves — keep the
+image scene-referred, apply the display transform once at the end, and let footage from many cameras
+share a common working space — but they solve it *inside a product* rather than as an open standard.
 
 These vendor systems are not proprietary "black boxes." DaVinci Wide Gamut has a published white
 paper, and FilmLight's color spaces are downloadable files you can use outside Baselight. But
@@ -22,6 +21,27 @@ neither is a SMPTE-style open standard the way ACES is
 ([ST 2065-1](aces.md#what-aces-actually-is)), and neither is natively implemented across the whole
 VFX tool ecosystem the way ACES is via [OpenColorIO](color-management.md). The accurate framing is
 **published and partially portable, but single-vendor** — not "secret," and not "an open standard."
+
+Each system works in its own wide-gamut internal space. The three you will meet — ACES's **AP1**
+(the ACEScg working gamut), **DaVinci Wide Gamut**, and FilmLight's **E-Gamut** (what T-CAM renders
+from) — are all deliberately larger than any camera or display, with virtual primaries that fall
+outside the spectral locus:
+
+<figure class="cp-embed"
+  style="--cp-embed-aspect: 820 / 1000"
+  data-cp-title="Working color spaces — ACES AP1, DaVinci Wide Gamut, FilmLight E-Gamut"
+  data-cp-light="https://ditools.videovillage.com/embed/color_plotter#p=eyJwcm9qZWN0Ijp7Im5hbWUiOiJXb3JraW5nIENvbG9yIFNwYWNlcyIsImRlc2MiOiIiLCJuYW1lQXV0byI6ZmFsc2UsImRlc2NBdXRvIjpmYWxzZSwic2hvd1RpdGxlIjpmYWxzZSwiZGlhZ3JhbSI6IjE5MzEiLCJtb2RlIjoiMmQiLCJzcGFjZTNkIjoiY2hyb21hIiwibG9nWSI6ZmFsc2UsInNwYWNlcyI6W3siaWQiOiJpZDE3IiwiZW5hYmxlZCI6dHJ1ZSwia2luZCI6ImdhbXV0IiwicmVmIjoiYXAxIiwibGFiZWwiOiJBQ0VTIEFQMSAoQUNFU2NnKSIsImNvbG9yIjoiIzRjNmVmNSIsImZpbGwiOmZhbHNlLCJmaWxsQWxwaGEiOjAuMTIsImxpbmVXaWR0aCI6MS44LCJsaW5lU3R5bGUiOiJzb2xpZCIsInNob3dXaGl0ZSI6dHJ1ZSwid2hpdGUiOiIiLCJtYXhOaXRzIjoxMDAsIm1pbk5pdHMiOjAuMX0seyJpZCI6ImlkMTgiLCJlbmFibGVkIjp0cnVlLCJraW5kIjoiZ2FtdXQiLCJyZWYiOiJkYXZpbmNpd2ciLCJsYWJlbCI6IkRhVmluY2kgV2lkZSBHYW11dCIsImNvbG9yIjoiI2U4NTkwYyIsImZpbGwiOmZhbHNlLCJmaWxsQWxwaGEiOjAuMTIsImxpbmVXaWR0aCI6MS44LCJsaW5lU3R5bGUiOiJzb2xpZCIsInNob3dXaGl0ZSI6dHJ1ZSwid2hpdGUiOiIiLCJtYXhOaXRzIjoxMDAsIm1pbk5pdHMiOjAuMX0seyJpZCI6ImlkMTkiLCJlbmFibGVkIjp0cnVlLCJraW5kIjoiZ2FtdXQiLCJyZWYiOiJlZ2FtdXQiLCJsYWJlbCI6IkZpbG1MaWdodCBFLUdhbXV0IiwiY29sb3IiOiIjMmY5ZTQ0IiwiZmlsbCI6ZmFsc2UsImZpbGxBbHBoYSI6MC4xMiwibGluZVdpZHRoIjoxLjgsImxpbmVTdHlsZSI6InNvbGlkIiwic2hvd1doaXRlIjp0cnVlLCJ3aGl0ZSI6IiIsIm1heE5pdHMiOjEwMCwibWluTml0cyI6MC4xfV0sInBvaW50cyI6W10sIndoaXRlcyI6W10sImFubm90YXRpb25zIjpbXSwicGxhbmNrIjp7InNob3ciOmZhbHNlLCJrTWluIjoxNTAwLCJrTWF4IjoxNTAwMCwiaXNvdGhlcm1zIjpmYWxzZX0sImxvY3VzIjp7InNob3ciOnRydWUsIndhdmVsZW5ndGhUaWNrcyI6dHJ1ZX0sImxhYmVsUHJpbWFyaWVzIjpmYWxzZSwibGFiZWxTcGFjZXMiOmZhbHNlLCJmaWxsIjp7InNob3ciOnRydWV9LCJjb250YWluIjp7InNob3ciOmZhbHNlLCJyZWZlcmVuY2VJZCI6bnVsbCwiY29sb3IiOiIjZmY0ZDRkIiwiaGF0Y2giOmZhbHNlLCJvcGFjaXR5IjowLjg1LCJjb3ZlcmFnZSI6ZmFsc2V9LCJ0aXRsZU91dHNpZGUiOmZhbHNlLCJpbWFnZSI6bnVsbH0sInZpZXciOnsidngwIjotMC4wNTUsInZ4MSI6MC44NTUsInZ5MCI6LTAuMTUsInZ5MSI6MS4wMiwiY2FtZXJhIjp7InRoZXRhIjozLjkyLCJwaGkiOjAuNjIsImRpc3QiOjMuNCwidGFyZ2V0IjpbMCwwLDBdfSwidGhlbWUiOiJsaWdodCIsInRyYW5zcGFyZW50IjpmYWxzZSwid2lkdGgiOjgyMCwiaGVpZ2h0IjoxMDAwLCJzY2FsZSI6MiwiZ3JpZCI6dHJ1ZSwiYXhlcyI6dHJ1ZSwibGFiZWxzIjp0cnVlLCJsZWdlbmQiOnRydWV9fQ"
+  data-cp-dark="https://ditools.videovillage.com/embed/color_plotter#p=eyJwcm9qZWN0Ijp7Im5hbWUiOiJXb3JraW5nIENvbG9yIFNwYWNlcyIsImRlc2MiOiIiLCJuYW1lQXV0byI6ZmFsc2UsImRlc2NBdXRvIjpmYWxzZSwic2hvd1RpdGxlIjpmYWxzZSwiZGlhZ3JhbSI6IjE5MzEiLCJtb2RlIjoiMmQiLCJzcGFjZTNkIjoiY2hyb21hIiwibG9nWSI6ZmFsc2UsInNwYWNlcyI6W3siaWQiOiJpZDIwIiwiZW5hYmxlZCI6dHJ1ZSwia2luZCI6ImdhbXV0IiwicmVmIjoiYXAxIiwibGFiZWwiOiJBQ0VTIEFQMSAoQUNFU2NnKSIsImNvbG9yIjoiIzRjNmVmNSIsImZpbGwiOmZhbHNlLCJmaWxsQWxwaGEiOjAuMTIsImxpbmVXaWR0aCI6MS44LCJsaW5lU3R5bGUiOiJzb2xpZCIsInNob3dXaGl0ZSI6dHJ1ZSwid2hpdGUiOiIiLCJtYXhOaXRzIjoxMDAsIm1pbk5pdHMiOjAuMX0seyJpZCI6ImlkMjEiLCJlbmFibGVkIjp0cnVlLCJraW5kIjoiZ2FtdXQiLCJyZWYiOiJkYXZpbmNpd2ciLCJsYWJlbCI6IkRhVmluY2kgV2lkZSBHYW11dCIsImNvbG9yIjoiI2U4NTkwYyIsImZpbGwiOmZhbHNlLCJmaWxsQWxwaGEiOjAuMTIsImxpbmVXaWR0aCI6MS44LCJsaW5lU3R5bGUiOiJzb2xpZCIsInNob3dXaGl0ZSI6dHJ1ZSwid2hpdGUiOiIiLCJtYXhOaXRzIjoxMDAsIm1pbk5pdHMiOjAuMX0seyJpZCI6ImlkMjIiLCJlbmFibGVkIjp0cnVlLCJraW5kIjoiZ2FtdXQiLCJyZWYiOiJlZ2FtdXQiLCJsYWJlbCI6IkZpbG1MaWdodCBFLUdhbXV0IiwiY29sb3IiOiIjMmY5ZTQ0IiwiZmlsbCI6ZmFsc2UsImZpbGxBbHBoYSI6MC4xMiwibGluZVdpZHRoIjoxLjgsImxpbmVTdHlsZSI6InNvbGlkIiwic2hvd1doaXRlIjp0cnVlLCJ3aGl0ZSI6IiIsIm1heE5pdHMiOjEwMCwibWluTml0cyI6MC4xfV0sInBvaW50cyI6W10sIndoaXRlcyI6W10sImFubm90YXRpb25zIjpbXSwicGxhbmNrIjp7InNob3ciOmZhbHNlLCJrTWluIjoxNTAwLCJrTWF4IjoxNTAwMCwiaXNvdGhlcm1zIjpmYWxzZX0sImxvY3VzIjp7InNob3ciOnRydWUsIndhdmVsZW5ndGhUaWNrcyI6dHJ1ZX0sImxhYmVsUHJpbWFyaWVzIjpmYWxzZSwibGFiZWxTcGFjZXMiOmZhbHNlLCJmaWxsIjp7InNob3ciOnRydWV9LCJjb250YWluIjp7InNob3ciOmZhbHNlLCJyZWZlcmVuY2VJZCI6bnVsbCwiY29sb3IiOiIjZmY0ZDRkIiwiaGF0Y2giOmZhbHNlLCJvcGFjaXR5IjowLjg1LCJjb3ZlcmFnZSI6ZmFsc2V9LCJ0aXRsZU91dHNpZGUiOmZhbHNlLCJpbWFnZSI6bnVsbH0sInZpZXciOnsidngwIjotMC4wNTUsInZ4MSI6MC44NTUsInZ5MCI6LTAuMTUsInZ5MSI6MS4wMiwiY2FtZXJhIjp7InRoZXRhIjozLjkyLCJwaGkiOjAuNjIsImRpc3QiOjMuNCwidGFyZ2V0IjpbMCwwLDBdfSwidGhlbWUiOiJkYXJrIiwidHJhbnNwYXJlbnQiOmZhbHNlLCJ3aWR0aCI6ODIwLCJoZWlnaHQiOjEwMDAsInNjYWxlIjoyLCJncmlkIjp0cnVlLCJheGVzIjp0cnVlLCJsYWJlbHMiOnRydWUsImxlZ2VuZCI6dHJ1ZX19">
+  <span class="cp-embed-mount">
+    <img class="cp-embed-static" src="../../figures/svg/figure-working-gamuts-light.svg#only-light" alt="ACES AP1, DaVinci Wide Gamut, and FilmLight E-Gamut on the CIE 1931 diagram" loading="lazy">
+    <img class="cp-embed-static" src="../../figures/svg/figure-working-gamuts-dark.svg#only-dark" alt="" loading="lazy">
+  </span>
+  <figcaption>The three managed working color spaces on the CIE 1931 diagram: ACES AP1 (ACEScg),
+  DaVinci Wide Gamut, and FilmLight E-Gamut — the gamut T-CAM renders from. DaVinci Wide Gamut is the
+  widest; all three use virtual primaries beyond the spectral locus (note the negative blue-y and
+  greens near y = 1). <span class="cp-embed-hint">Interactive — drag to pan, scroll to zoom.</span>
+  <a href="../../figures/svg/figure-working-gamuts-light.svg">Static version</a>.</figcaption>
+</figure>
 
 ## DaVinci Resolve Color Management (RCM)
 
@@ -31,20 +51,26 @@ deliverable, without leaving Resolve. Instead of grading log footage into shape 
 profile and it maps that source into a working space and out to the deliverable using the
 manufacturer's known log curve and gamut (*scene-referred*).[^dg1]
 
-The working space Blackmagic recommends is **DaVinci Wide Gamut (DWG)** with the **DaVinci
-Intermediate** log curve — a gamut Blackmagic describes as larger than BT.2020, ARRI Wide Gamut,
-and ACES AP-1, so nothing clips whatever camera it came from.[^dg2] Two things worth knowing about
-how open it is:
+**RCM is an alternative to ACES, not the opposite of it.** Both are the same *kind* of system —
+"automatic," scene-referred color management, where you assign each clip its source camera format /
+input color space and the tool maps it into a common working space and out through a display
+transform. The difference is that RCM is a configurable, single-vendor *framework*: you choose among
+many working spaces (DaVinci Wide Gamut, Rec.2020, camera-native wide gamuts — and Resolve can even
+run ACES itself as its color science) and among several **output tone-mapping methods** (the Output
+DRT — the DaVinci default, RED IPP2, saturation-preserving variants, or *None*). ACES is essentially
+*one standardized configuration* of that same idea, available inside Resolve alongside the
+DaVinci-native one; choosing between them is a project setting, so "we grade in Resolve" and "the
+show is ACES" are not mutually exclusive.[^dg3]
 
-- **The encoding is fully specified; the rendering is not.** DWG-the-color-space — its virtual
-  primaries, D65 white point, RGB↔XYZ matrices, and the DaVinci Intermediate log equations — is
-  published in a Blackmagic white paper, so it can be rebuilt *exactly* in an OCIO config or a LUT
-  tool. The DaVinci display rendering transform — how Resolve tone- and gamut-maps DWG to an output
-  — is internal, not a separately published spec. "DWG is published" is true of the color space,
-  not the look.
-- **Resolve also contains full ACES modes** (ACEScc/ACEScct, with ACES AMF 2.0 metadata), so "we
-  grade in Resolve" and "the show is ACES" are not mutually exclusive — the choice is a project
-  setting.[^dg3]
+The working space Blackmagic recommends is **DaVinci Wide Gamut (DWG)** with the **DaVinci
+Intermediate** log curve — a gamut Blackmagic describes as larger than BT.2020, ARRI Wide Gamut, and
+ACES AP-1, so nothing clips whatever camera it came from.[^dg2] Worth knowing about how open it is:
+**the encoding is fully specified; the rendering is not.** DWG-the-color-space — its virtual
+primaries, D65 white point, RGB↔XYZ matrices, and the DaVinci Intermediate log equations — is
+published in a Blackmagic white paper, so it can be rebuilt *exactly* in an OCIO config or a LUT
+tool. The DaVinci display rendering transform — how Resolve tone- and gamut-maps DWG to an output —
+is internal, not a separately published spec. "DWG is published" is true of the color space, not the
+look.
 
 [^dg1]: *DaVinci Resolve 21 Reference Manual* (Blackmagic Design, July 2026), Ch. 9, "Data Levels,
         Color Management, and ACES," pp. 225–290 — the authoritative reference; and *The Colorist
@@ -60,18 +86,9 @@ how open it is:
         grey (middle grey → 0.336043). Its revision history notes the green-x coordinate was
         corrected in v1.1 (2021) — pre-v1.1 reconstructions circulating online carry the old value.
 
-[^dg3]: *DaVinci Resolve 21 Reference Manual*, Ch. 9, covers Resolve's ACES signal flow, working
-        space, and AMF 2.0 support.
-
-**What RCM makes easier:** getting a color-managed grade running inside Resolve with almost no
-setup — its *Automatic* mode detects each clip's input space from the media and normalizes mixed
-cameras to one output on its own. Nothing to license or configure; retargeting SDR/HDR or
-Rec.709/P3/Rec.2020 is a menu change.
-
-**What RCM makes harder:** anything that leaves Resolve. A VFX vendor working in Nuke is not "in
-RCM"; the DaVinci rendering is not a spec another facility reproduces identically; and DWG is a
-working space, not a neutral archival interchange master. It is an excellent *in-application*
-pipeline, not an *interchange* one.
+[^dg3]: *DaVinci Resolve 21 Reference Manual*, Ch. 9, covers the two color-science modes, the Output
+        DRT tone-mapping options (incl. *None*), Resolve's ACES signal flow, working space, and
+        AMF 2.0 support.
 
 ## FilmLight: Baselight, Daylight, and the Truelight Color Spaces
 
@@ -100,34 +117,89 @@ detail.[^fl1]
         and "simplest model" argument are in the reference library. The E-Gamut/T-Log/T-CAM-v2
         product names and the portability specifics below are web-sourced beyond it.
 
-**What FilmLight makes easier:** a well-regarded rendering and, unusually for a vendor system, real
-portability — FilmLight publishes its color-space and transform files (`.flspace` / `.fltransform`),
-a Truelight OCIO config, and an Autodesk Flame color policy, so TCS can travel outside Baselight.
-And, exactly as with Resolve, choosing FilmLight's tools is not choosing against ACES: **Baselight
-can run a full ACES pipeline** as its color-managed workflow (v7 added ACES 2.0), so "we finish at a
-Baselight house" and "the show is ACES" are equally compatible. **[web-sourced.]**
+FilmLight's system is, unusually for a vendor, genuinely portable: FilmLight publishes its
+color-space and transform files (`.flspace` / `.fltransform`), a Truelight OCIO config, and an
+Autodesk Flame color policy, so TCS can travel outside Baselight. And exactly as with Resolve,
+choosing FilmLight's tools is not choosing against ACES: **Baselight can run a full ACES pipeline**
+as its color-managed workflow (v7 added ACES 2.0), and FilmLight is an ACES product partner — so "we
+finish at a Baselight house" and "the show is ACES" are equally compatible. Its portable files are
+still FilmLight's, under FilmLight's control — useful, but not a SMPTE/Academy specification that
+many vendors implement and certify against independently. **[web-sourced.]**
 
-**What FilmLight makes harder:** it is still single-vendor in origin. Those portable files are
-FilmLight's, under FilmLight's control — not a SMPTE/Academy specification that many vendors
-implement and certify against independently. And you most often encounter it because you are
-finishing at a Baselight house, not because a small production chose it from scratch.
+## Vendor color management vs. ACES: easier and harder
 
-## What the vendor systems make easier — and harder — than ACES
-
-Both vendor systems trade the same way against ACES, and it is worth stating plainly because it
-drives the decision:
+It is tempting to say a vendor system is "easier to set up" and ACES "harder," but that is only true
+in one narrow case and backwards in the one that matters. The honest comparison:
 
 | | Vendor CM (RCM / TCS) | ACES |
 | --- | --- | --- |
-| **Setup cost** | Low — on by a project setting, no external config | Higher — configs, transforms, vendor discipline |
-| **Normalize many cameras** | Easy, in-app | Also strong, but with more overhead |
-| **Cross-app / cross-vendor interchange** | Weak — the rendering does not leave the app | The whole point — an open standard everyone implements |
-| **Neutral archival master** | No (a working space, not an interchange encoding) | Yes (ACES2065-1) |
-| **Retarget deliverables (SDR/HDR/theatrical)** | Easy | Easy |
+| **Assigning input color spaces** (camera normalization) | The same metadata-driven menu | The same metadata-driven menu — **virtually identical labor** |
+| **Single-app, single-facility finish** | On by a project setting | Also a project setting; runs in one app just as well |
+| **Multi-vendor VFX interchange** | **More work** — no vendor pathway; the colorist hand-authors LUTs and workflow guidance for each vendor | **Less work** — VFX tools already ship OCIO/ACES configs; vendors are already set up |
+| **Neutral archival master** | No — a working space, not an interchange encoding | Yes — ACES2065-1 |
 
-The short version: a vendor system makes the *in-application* finish easier and the *interchange*
-harder; ACES makes the interchange easier at the cost of setup. Neither is "better" — they optimize
-for different shapes of production.
+Two corrections to the usual telling:
+
+- **Normalizing many cameras is not harder in ACES.** In both systems it is the same menu,
+  auto-assigned from camera metadata — the same labor either way. That is not a differentiator.
+- **ACES is not inherently "more setup."** Because ACES is the interchange standard almost every
+  tool already supports, a VFX vendor is *already configured* for it; you hand them a version and a
+  couple of transform names. There is no equivalent vendor-facing distribution for RCM or TCS: to
+  run a vendor system across a VFX chain, the *colorist* has to produce LUTs and written workflow
+  guidance for each vendor to emulate in their own tools. In a multi-vendor pipeline, that makes the
+  vendor system the *higher*-effort option, not ACES.
+
+So the real axis is not setup cost — it is whether the pipeline crosses vendors and applications. A
+vendor system makes the single-facility, in-application finish marginally simpler and offers no path
+to hand a VFX vendor a matching pipeline; ACES makes cross-vendor interchange and a neutral archive
+easy, at the cost of a little in-app configuration when you are *not* interchanging.
+
+## Why choose vendor color management over ACES?
+
+If ACES is the interchange standard, why would anyone pick RCM or FilmLight's color management
+instead? There are real, defensible reasons — and industry commentary bears them out.
+
+- **You are not in a multi-vendor, ACES-driven pipeline.** For a single-facility finish with no VFX
+  houses to coordinate — a documentary, a commercial, a Resolve-only grade — ACES's interchange
+  advantage goes unused, and a vendor system is simpler and more predictable. As Frame.io's guide
+  puts it, if you have "no overwhelming reason to go to ACES," RCM is "a slightly easier and more
+  predictable path," giving the benefits of color management while keeping "the feel that the DaVinci
+  Resolve Color page controls have always had."[^why1]
+- **Grading-tool behavior and working-space preference.** Colorists often choose a timeline space
+  because the grading controls *behave* the way they like in it — you can set RCM's timeline space to
+  DaVinci Wide Gamut or any log format for exactly this reason.[^why1]
+- **The rendering itself.** A display transform is a creative instrument, not just plumbing. FilmLight
+  developed T-CAM with "particular emphasis on look-development flexibility, grading-tool behaviour,
+  minimisation of image artefacts and visual consistency," founded on the same ideas as ACES but
+  "optimised by FilmLight based on feedback from users."[^why2] Some colorists simply prefer its
+  rendering to the ACES Output Transform — a legitimate reason to run TCS, and the same debate the
+  [ACES chapter](aces.md#aces-20) raises about whether a full CAM belongs in the DRT.
+- **It is rarely all-or-nothing.** Because both systems *contain* ACES, choosing a vendor system is
+  often really choosing its working-space and DRT defaults while keeping ACES available for the parts
+  of the job that need it.
+
+[^why1]: [*Resolve Color Management vs ACES — Which Should You Choose?*](https://blog.frame.io/2024/02/12/davinci-resolve-color-management-vs-aces-which-should-you-choose/)
+        (Frame.io Insider, 2024); see also [Mixing Light](https://mixinglight.com/color-grading-tutorials/aces-vs-rcm-2026/)
+        and the [ACESCentral RCM-vs-ACEScct discussion](https://community.acescentral.com/t/davinci-reslove-color-sceince-rcm-vs-acescct/2883).
+        Both RCM and ACES are scene-referred systems solving the same problem. **[web-sourced.]**
+
+[^why2]: [FilmLight — Colour Management / Truelight](https://www.filmlight.ltd.uk/workflow/truelight.php)
+        and [Baselight v7 Truelight Colour Space improvements](https://www.newsshooter.com/2026/02/03/filmlight-baselight-v7-truelight-colour-space-improvements/).
+        **[web-sourced.]**
+
+!!! note "Using a managed pipeline for input only — and what it costs in ACES"
+    Because the input-and-working-space stage is separable from the output rendering, either system
+    can be used for *just* the front half: assign inputs, work in a common scene-referred space, and
+    then — instead of the built-in display transform — apply your own DRT (in RCM, set the Output DRT
+    to *None* and supply a LUT or DCTL; in ACES, substitute your own output). That is a legitimate
+    creative choice.
+
+    But doing it in ACES **breaks the ACES archival model.** The value of an ACES2065-1 master is
+    that a neutral, scene-referred archive plus the *standard* ACES transforms reproduces the
+    delivered look. Swap in a proprietary display rendering and the archive no longer reconstructs
+    your show through standard ACES — you keep the neutral master but lose the reproducibility that
+    was the reason to archive in ACES in the first place. If you are going to supply your own DRT,
+    a vendor working space costs you nothing extra; in ACES it forfeits the archival guarantee.
 
 ## Documentary vs. single-camera narrative
 
@@ -136,20 +208,21 @@ applications" are *different* axes, and they often point opposite ways.
 
 - **Non-scripted documentary.** Typically *many heterogeneous sources* — archival, several
   shooters, phones, stock, footage from different eras and formats — but usually *one* finishing
-  facility and little or no VFX. The dominant pain is normalizing disparate sources quickly. That is
-  exactly what a vendor system, and RCM's Automatic mode in particular, makes trivial. With no
-  multi-vendor VFX chain to serve, ACES's interchange advantage goes largely unused, and its setup
-  cost buys little. **Vendor color management is often the better fit for documentary finishing.**
-- **Single-camera scripted narrative.** Usually *one* camera format — so the multi-source
-  normalization a vendor system excels at matters less — but frequently VFX spread across multiple
-  vendors and applications, an archival master, and theatrical-plus-HDR-plus-SDR deliverables. A
-  Nuke or Flame VFX chain is precisely the case only an open standard spans, and a neutral archive
-  is exactly what ACES2065-1 provides. **ACES tends to earn its keep on VFX-heavy narrative work.**
+  facility and little or no VFX. Normalizing those sources is the same easy, metadata-driven step in
+  either system, and with no VFX chain to coordinate, ACES's interchange advantage is unused. A
+  vendor system is a clean, low-friction fit — and RCM's Automatic mode in particular is built for
+  exactly this. **Vendor color management is often the natural choice for documentary finishing.**
+- **Single-camera scripted narrative.** Usually *one* camera format — so multi-source normalization
+  matters less — but frequently VFX spread across multiple vendors and applications, an archival
+  master, and theatrical-plus-HDR-plus-SDR deliverables. A Nuke or Flame VFX chain is precisely the
+  case only an open standard spans, and where a vendor system would force the colorist to hand-author
+  LUTs for each vendor; ACES2065-1 also gives the neutral archive such shows expect. **ACES tends to
+  earn its keep on VFX-heavy narrative work.**
 
-The inversion is the point: *many cameras* favors vendor color management; *many vendors,
-applications, deliverables, or an archival requirement* favors ACES. A simple single-camera
-narrative with no VFX and one deliverable may need no managed pipeline at all — a well-run
-camera-native grade is fine.
+The inversion is the point: *many cameras* does not favor ACES over a vendor system — normalization
+is equal — but *many vendors, applications, deliverables, or an archival requirement* does. A simple
+single-camera narrative with no VFX and one deliverable may need no managed pipeline at all; a
+well-run camera-native grade is fine.
 
 ## When to decide
 

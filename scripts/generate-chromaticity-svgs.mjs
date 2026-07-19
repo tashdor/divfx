@@ -108,16 +108,26 @@ const fig19 = () => mkProject([
   sp('p3dci',  'DCI-P3',             '#d62828')
 ], 'Camera and Delivery Color Spaces');
 
+// Working color spaces — ACES AP1, DaVinci Wide Gamut, FilmLight E-Gamut (T-CAM).
+// Wide gamuts with virtual primaries reaching ~y=0.99 and negative blue-y, so a
+// taller (portrait) viewport and canvas.
+const figWG = () => mkProject([
+  sp('ap1',      'ACES AP1 (ACEScg)',            '#4c6ef5'),
+  sp('davinciwg','DaVinci Wide Gamut',           '#e8590c'),
+  sp('egamut',   'FilmLight E-Gamut',   '#2f9e44')
+], 'Working Color Spaces');
+
 const jobs = [
-  ['figure-18-display-gamuts', fig18, { vx0: -0.06, vx1: 0.83, vy0: -0.06, vy1: 0.90 }],
-  ['figure-19-camera-gamuts',  fig19, { vx0: -0.06, vx1: 0.83, vy0: -0.12, vy1: 0.90 }]
+  ['figure-18-display-gamuts', fig18, { vx0: -0.06, vx1: 0.83, vy0: -0.06, vy1: 0.90 }, 1000, 900],
+  ['figure-19-camera-gamuts',  fig19, { vx0: -0.06, vx1: 0.83, vy0: -0.12, vy1: 0.90 }, 1000, 900],
+  ['figure-working-gamuts',    figWG, { vx0: -0.055, vx1: 0.855, vy0: -0.15, vy1: 1.02 }, 820, 1000]
 ];
 
 const manifest = [];
-for (const [base, mk, vp] of jobs) {
+for (const [base, mk, vp, W, H] of jobs) {
   for (const theme of ['light', 'dark']) {
     const project = mk();
-    const view = mkView(vp, theme);
+    const view = mkView(vp, theme, W || 1000, H || 900);
     const scene = buildScene(project, view);
     const svg = renderSVG(scene, 1);
     const pr = projector(scene);

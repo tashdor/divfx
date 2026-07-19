@@ -32,9 +32,9 @@ const project = (spaces, name) => ({
   contain: { show: false, referenceId: null, color: '#ff4d4d', hatch: false, opacity: 0.85, coverage: false },
   titleOutside: false, image: null,
 });
-const view = (vp, theme) => Object.assign({}, vp, {
+const view = (vp, theme, w = 900, h = 820) => Object.assign({}, vp, {
   camera: { theta: 3.92, phi: 0.62, dist: 3.4, target: [0, 0, 0] },
-  theme, transparent: false, width: 900, height: 820, scale: 2,
+  theme, transparent: false, width: w, height: h, scale: 2,
   grid: true, axes: true, labels: true, legend: true,
 });
 
@@ -57,16 +57,24 @@ const FIGS = {
     ], 'Camera and Delivery Color Spaces'),
     vp: { vx0: -0.06, vx1: 0.83, vy0: -0.12, vy1: 0.90 },
   },
+  'fig-working-gamuts': {
+    make: () => project([
+      sp('ap1', 'ACES AP1 (ACEScg)', '#4c6ef5'),
+      sp('davinciwg', 'DaVinci Wide Gamut', '#e8590c'),
+      sp('egamut', 'FilmLight E-Gamut', '#2f9e44'),
+    ], 'Working Color Spaces'),
+    vp: { vx0: -0.055, vx1: 0.855, vy0: -0.15, vy1: 1.02 }, w: 820, h: 1000,
+  },
 };
 
-const frag = (proj, vp, theme) =>
-  Buffer.from(JSON.stringify({ project: proj, view: view(vp, theme) }), 'utf8').toString('base64url');
+const frag = (proj, vp, theme, w, h) =>
+  Buffer.from(JSON.stringify({ project: proj, view: view(vp, theme, w, h) }), 'utf8').toString('base64url');
 
 const out = {};
 for (const [key, def] of Object.entries(FIGS)) {
   out[key] = {};
   for (const theme of ['light', 'dark']) {
-    const url = `${HOST}/embed/color_plotter#p=${frag(def.make(), def.vp, theme)}`;
+    const url = `${HOST}/embed/color_plotter#p=${frag(def.make(), def.vp, theme, def.w, def.h)}`;
     out[key][theme] = url;
     if (url.length > 60000) throw new Error(`${key}/${theme}: fragment exceeds 60k`);
   }

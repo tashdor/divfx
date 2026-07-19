@@ -120,9 +120,9 @@ Baselight and Daylight.
 | **Published?** | n/a | Fully (paywalled SMPTE + open CTL) | Encoding yes (white paper); rendering no | Color-space/DRT files + OCIO config; not a spec |
 | **Cross-app native support** | n/a | **Broad** via OCIO | In-application (Resolve) | Via published files / OCIO config / Flame policy |
 | **Neutral archival encoding** | No | **Yes** (ACES2065-1) | No | No |
-| **Setup cost** | None | Highest | Low (if in Resolve) | Low–moderate (if in Baselight) |
-| **Multi-camera** | Poor | Strong | Strong | Strong |
-| **Multi-vendor / multi-app** | Fails | **Strong** | Weak (single app) | Moderate (portable files) |
+| **In-app setup (single facility)** | None | A little config | Low (if in Resolve) | Low–moderate (if in Baselight) |
+| **Multi-camera normalization** | Poor | Strong | Strong | Strong — *equal labor to ACES* |
+| **Multi-vendor VFX (total effort)** | Fails | **Low — vendors already speak it** | High — colorist authors LUTs/guidance per vendor | High — same, despite portable files |
 | **Interoperates with ACES** | — | is ACES | Yes (Resolve has ACES modes) | Yes (v7 ACES 2.0) |
 
 Sources: the [ACES](aces.md) and [vendor color management](vendor-color-management.md) chapters and

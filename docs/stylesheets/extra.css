@@ -75,11 +75,11 @@
   display: block;
   max-width: 620px;
   margin: 0 auto;
-  /* Match the embed's plot aspect (fragment view 900x820) so the plot canvas
-     fills the iframe edge to edge. Any mismatch letterboxes, and the embed's
-     page background is dark regardless of theme, so a mismatch shows as dark
-     bars around a light plot. */
-  aspect-ratio: 900 / 820;
+  /* Match the embed's plot aspect (the fragment view width/height) so the plot
+     canvas fills the iframe edge to edge. Any mismatch letterboxes, and the
+     embed's page background is dark regardless of theme, so a mismatch shows as
+     dark bars around a light plot. Per-figure override via --cp-embed-aspect. */
+  aspect-ratio: var(--cp-embed-aspect, 900 / 820);
 }
 /* The static SVG and the iframe both fill the aspect box, stacked. */
 .cp-embed-static {
