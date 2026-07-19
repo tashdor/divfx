@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="900" viewBox="0 0 1000 900" font-family="ui-sans-serif, system-ui, sans-serif">
+<title>Color Plotter — CIE 1931 xy</title>
+<rect x="0" y="0" width="1000" height="900" fill="#ffffff"/>
+<defs><clipPath id="cp-plot"><rect x="131.5" y="22.02" width="775" height="835.96"/></clipPath></defs>
+<g clip-path="url(#cp-plot)">
+<line x1="183.75" y1="857.98" x2="183.75" y2="22.02" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<line x1="270.83" y1="857.98" x2="270.83" y2="22.02" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<line x1="357.9" y1="857.98" x2="357.9" y2="22.02" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<line x1="444.98" y1="857.98" x2="444.98" y2="22.02" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<line x1="532.06" y1="857.98" x2="532.06" y2="22.02" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<line x1="619.14" y1="857.98" x2="619.14" y2="22.02" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<line x1="706.22" y1="857.98" x2="706.22" y2="22.02" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<line x1="793.3" y1="857.98" x2="793.3" y2="22.02" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<line x1="880.38" y1="857.98" x2="880.38" y2="22.02" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<line x1="131.5" y1="805.73" x2="906.5" y2="805.73" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<line x1="131.5" y1="718.65" x2="906.5" y2="718.65" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<line x1="131.5" y1="631.57" x2="906.5" y2="631.57" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<line x1="131.5" y1="544.49" x2="906.5" y2="544.49" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<line x1="131.5" y1="457.42" x2="906.5" y2="457.42" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<line x1="131.5" y1="370.34" x2="906.5" y2="370.34" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<line x1="131.5" y1="283.26" x2="906.5" y2="283.26" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<line x1="131.5" y1="196.18" x2="906.5" y2="196.18" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<line x1="131.5" y1="109.1" x2="906.5" y2="109.1" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<line x1="131.5" y1="22.02" x2="906.5" y2="22.02" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+<path d="M335.36 801.41 L334.32 800.92 L333.28 800.46 L332.25 800.01 L331.21 799.51 L330.15 798.95 L329.08 798.28 L327.65 797.22 L326.19 796 L324.71 794.65 L323.22 793.22 L321.69 791.76 L320.15 790.31 L318.34 788.66 L316.44 786.94 L314.52 785.17 L312.62 783.38 L310.8 781.61 L309.11 779.87 L307.73 778.35 L306.4 776.82 L305.14 775.29 L303.93 773.8 L302.8 772.36 L301.74 771 L301.01 770.07 L300.35 769.21 L299.72 768.39 L299.11 767.55 L298.48 766.66 L297.82 765.67 L296.89 764.22 L295.95 762.69 L294.99 761.06 L293.99 759.31 L292.94 757.43 L291.83 755.4 L289.96 751.92 L287.93 748.05 L285.78 743.87 L283.57 739.43 L281.35 734.82 L279.18 730.11 L276.55 724.11 L273.91 717.82 L271.26 711.27 L268.6 704.46 L265.93 697.43 L263.24 690.18 L259.97 681.13 L256.65 671.72 L253.31 661.97 L250 651.91 L246.74 641.56 L243.58 630.94 L240 618.19 L236.49 604.99 L233.07 591.4 L229.72 577.47 L226.45 563.27 L223.27 548.87 L219.81 532.52 L216.41 515.73 L213.12 498.6 L209.96 481.26 L206.97 463.8 L204.18 446.35 L201.47 428.3 L198.91 410.02 L196.52 391.63 L194.35 373.24 L192.45 354.95 L190.86 336.88 L189.56 319.66 L188.44 302.45 L187.56 285.33 L186.99 268.41 L186.82 251.77 L187.11 235.52 L187.67 220.95 L188.46 206.46 L189.56 192.21 L191.09 178.35 L193.14 165.05 L195.83 152.48 L198.46 142.31 L201.38 132.26 L204.67 122.6 L208.41 113.6 L212.68 105.52 L217.58 98.64 L221.97 93.97 L226.81 89.82 L231.99 86.24 L237.39 83.31 L242.91 81.09 L248.45 79.67 L254.01 79.2 L259.75 79.64 L265.62 80.78 L271.53 82.41 L277.4 84.32 L283.16 86.28 L289.33 88.67 L295.67 91.61 L301.98 94.86 L308.03 98.17 L313.6 101.3 L318.48 104 L321.06 105.4 L323.32 106.66 L325.4 107.85 L327.42 109.04 L329.51 110.3 L331.78 111.71 L334.84 113.65 L337.99 115.7 L341.24 117.87 L344.61 120.16 L348.09 122.56 L351.7 125.1 L356.63 128.61 L361.87 132.4 L367.31 136.4 L372.84 140.53 L378.33 144.71 L383.7 148.87 L389.01 153.09 L394.28 157.37 L399.54 161.72 L404.77 166.11 L409.98 170.54 L415.18 175 L420.42 179.55 L425.64 184.15 L430.84 188.79 L436.03 193.46 L441.21 198.16 L446.38 202.88 L451.59 207.67 L456.79 212.49 L461.99 217.34 L467.17 222.22 L472.35 227.11 L477.52 232.01 L482.72 236.97 L487.91 241.94 L493.1 246.93 L498.29 251.94 L503.46 256.95 L508.64 261.97 L513.82 267 L519 272.05 L524.18 277.11 L529.35 282.18 L534.51 287.24 L539.67 292.31 L544.81 297.37 L549.95 302.43 L555.08 307.5 L560.21 312.57 L565.32 317.63 L570.43 322.69 L575.49 327.71 L580.55 332.73 L585.59 337.75 L590.63 342.76 L595.65 347.76 L600.66 352.75 L605.58 357.65 L610.5 362.55 L615.4 367.44 L620.29 372.32 L625.16 377.18 L630.01 382.01 L634.75 386.73 L639.46 391.43 L644.17 396.11 L648.85 400.77 L653.51 405.41 L658.14 410.02 L662.61 414.46 L667.06 418.88 L671.49 423.29 L675.89 427.66 L680.25 432 L684.58 436.31 L688.7 440.42 L692.79 444.5 L696.85 448.56 L700.88 452.58 L704.85 456.55 L708.77 460.47 L712.37 464.05 L715.93 467.6 L719.44 471.1 L722.92 474.56 L726.36 477.98 L729.76 481.37 L732.93 484.52 L736.07 487.65 L739.17 490.74 L742.24 493.79 L745.26 496.8 L748.22 499.74 L750.87 502.37 L753.47 504.95 L756.04 507.49 L758.57 510 L761.05 512.46 L763.49 514.88 L765.65 517.03 L767.79 519.16 L769.89 521.25 L771.95 523.31 L773.97 525.32 L775.95 527.3 L777.69 529.03 L779.39 530.73 L781.07 532.41 L782.71 534.05 L784.32 535.65 L785.9 537.23 L787.28 538.61 L788.64 539.95 L789.97 541.28 L791.28 542.58 L792.56 543.85 L793.83 545.1 L794.94 546.21 L796.05 547.29 L797.13 548.36 L798.19 549.41 L799.24 550.44 L800.26 551.46 L801.16 552.36 L802.02 553.22 L802.86 554.07 L803.71 554.93 L804.59 555.81 L805.52 556.75 L806.74 557.97 L808.05 559.28 L809.4 560.63 L810.76 561.98 L812.09 563.31 L813.35 564.57 L814.41 565.62 L815.44 566.65 L816.45 567.66 L817.45 568.65 L818.43 569.62 L819.39 570.59 L820.32 571.52 L821.29 572.49 L822.25 573.44 L823.14 574.34 L823.91 575.11 L824.51 575.71 L824.7 575.9 L824.86 576.05 L824.99 576.19 L825.12 576.31 L825.24 576.44 L825.38 576.58 Z" fill="none" stroke="rgba(0,0,0,0.62)" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="334.87" cy="801.17" r="1.6" fill="#6a6a72"/>
+<circle cx="320.15" cy="790.31" r="1.6" fill="#6a6a72"/>
+<circle cx="291.83" cy="755.4" r="1.6" fill="#6a6a72"/>
+<circle cx="263.24" cy="690.18" r="1.6" fill="#6a6a72"/>
+<circle cx="223.27" cy="548.87" r="1.6" fill="#6a6a72"/>
+<circle cx="190.86" cy="336.88" r="1.6" fill="#6a6a72"/>
+<circle cx="195.83" cy="152.48" r="1.6" fill="#6a6a72"/>
+<circle cx="248.45" cy="79.67" r="1.6" fill="#6a6a72"/>
+<circle cx="383.7" cy="148.87" r="1.6" fill="#6a6a72"/>
+<circle cx="508.64" cy="261.97" r="1.6" fill="#6a6a72"/>
+<circle cx="630.01" cy="382.01" r="1.6" fill="#6a6a72"/>
+<circle cx="729.76" cy="481.37" r="1.6" fill="#6a6a72"/>
+<circle cx="785.9" cy="537.23" r="1.6" fill="#6a6a72"/>
+<circle cx="823.5" cy="574.7" r="1.6" fill="#6a6a72"/>
+<path d="M741.05 518.37 L444.98 283.26 L314.37 753.48 Z" fill="none" stroke="#6a5acd" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="741.05" cy="518.37" r="2.2" fill="#6a5acd" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+<circle cx="444.98" cy="283.26" r="2.2" fill="#6a5acd" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+<circle cx="314.37" cy="753.48" r="2.2" fill="#6a5acd" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+<path d="M456.04 516.64L458.64 519.24L456.04 521.84L453.44 519.24Z" fill="#6a5acd" stroke="#ffffff" stroke-width="1"/>
+<path d="M775.88 527.08 L414.51 204.89 L314.37 753.48 Z" fill="none" stroke="#3cb371" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="775.88" cy="527.08" r="2.2" fill="#3cb371" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+<circle cx="414.51" cy="204.89" r="2.2" fill="#3cb371" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+<circle cx="314.37" cy="753.48" r="2.2" fill="#3cb371" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+<path d="M457.17 497.48L459.77 500.08L457.17 502.68L454.57 500.08Z" fill="#3cb371" stroke="#ffffff" stroke-width="1"/>
+<path d="M800.26 551.46 L331.78 111.71 L297.82 765.67 Z" fill="none" stroke="#e03131" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="800.26" cy="551.46" r="2.2" fill="#e03131" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+<circle cx="331.78" cy="111.71" r="2.2" fill="#e03131" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+<circle cx="297.82" cy="765.67" r="2.2" fill="#e03131" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+<path d="M456.04 516.64L458.64 519.24L456.04 521.84L453.44 519.24Z" fill="#e03131" stroke="#ffffff" stroke-width="1"/>
+<text x="328.04" y="815.64" font-size="10" fill="#6a6a72" text-anchor="end" dominant-baseline="hanging">400</text>
+<text x="309.2" y="801.98" font-size="10" fill="#6a6a72" text-anchor="end" dominant-baseline="hanging">450</text>
+<text x="277.73" y="762.96" font-size="10" fill="#6a6a72" text-anchor="end" dominant-baseline="hanging">470</text>
+<text x="248.24" y="695.72" font-size="10" fill="#6a6a72" text-anchor="end" dominant-baseline="hanging">480</text>
+<text x="207.65" y="552.32" font-size="10" fill="#6a6a72" text-anchor="end" dominant-baseline="middle">490</text>
+<text x="174.92" y="338.28" font-size="10" fill="#6a6a72" text-anchor="end" dominant-baseline="middle">500</text>
+<text x="180.18" y="149.14" font-size="10" fill="#6a6a72" text-anchor="end" dominant-baseline="middle">510</text>
+<text x="244.46" y="64.17" font-size="10" fill="#6a6a72" text-anchor="middle" dominant-baseline="auto">520</text>
+<text x="393.51" y="136.23" font-size="10" fill="#6a6a72" text-anchor="start" dominant-baseline="auto">540</text>
+<text x="519.78" y="250.48" font-size="10" fill="#6a6a72" text-anchor="start" dominant-baseline="auto">560</text>
+<text x="641.31" y="370.68" font-size="10" fill="#6a6a72" text-anchor="start" dominant-baseline="auto">580</text>
+<text x="741.05" y="470.03" font-size="10" fill="#6a6a72" text-anchor="start" dominant-baseline="auto">600</text>
+<text x="797.19" y="525.89" font-size="10" fill="#6a6a72" text-anchor="start" dominant-baseline="auto">620</text>
+<text x="834.82" y="563.39" font-size="10" fill="#6a6a72" text-anchor="start" dominant-baseline="auto">700</text>
+</g>
+<rect x="131.5" y="22.02" width="775" height="835.96" fill="none" stroke="rgba(0,0,0,0.30)" stroke-width="1"/>
+<g font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#6a6a72">
+<line x1="183.75" y1="857.98" x2="183.75" y2="861.98" stroke="rgba(0,0,0,0.30)"/>
+<text x="183.75" y="871.98" text-anchor="middle">0.00</text>
+<line x1="270.83" y1="857.98" x2="270.83" y2="861.98" stroke="rgba(0,0,0,0.30)"/>
+<text x="270.83" y="871.98" text-anchor="middle">0.10</text>
+<line x1="357.9" y1="857.98" x2="357.9" y2="861.98" stroke="rgba(0,0,0,0.30)"/>
+<text x="357.9" y="871.98" text-anchor="middle">0.20</text>
+<line x1="444.98" y1="857.98" x2="444.98" y2="861.98" stroke="rgba(0,0,0,0.30)"/>
+<text x="444.98" y="871.98" text-anchor="middle">0.30</text>
+<line x1="532.06" y1="857.98" x2="532.06" y2="861.98" stroke="rgba(0,0,0,0.30)"/>
+<text x="532.06" y="871.98" text-anchor="middle">0.40</text>
+<line x1="619.14" y1="857.98" x2="619.14" y2="861.98" stroke="rgba(0,0,0,0.30)"/>
+<text x="619.14" y="871.98" text-anchor="middle">0.50</text>
+<line x1="706.22" y1="857.98" x2="706.22" y2="861.98" stroke="rgba(0,0,0,0.30)"/>
+<text x="706.22" y="871.98" text-anchor="middle">0.60</text>
+<line x1="793.3" y1="857.98" x2="793.3" y2="861.98" stroke="rgba(0,0,0,0.30)"/>
+<text x="793.3" y="871.98" text-anchor="middle">0.70</text>
+<line x1="880.38" y1="857.98" x2="880.38" y2="861.98" stroke="rgba(0,0,0,0.30)"/>
+<text x="880.38" y="871.98" text-anchor="middle">0.80</text>
+<line x1="127.5" y1="805.73" x2="131.5" y2="805.73" stroke="rgba(0,0,0,0.30)"/>
+<text x="124.5" y="805.73" text-anchor="end" dominant-baseline="middle">0.00</text>
+<line x1="127.5" y1="718.65" x2="131.5" y2="718.65" stroke="rgba(0,0,0,0.30)"/>
+<text x="124.5" y="718.65" text-anchor="end" dominant-baseline="middle">0.10</text>
+<line x1="127.5" y1="631.57" x2="131.5" y2="631.57" stroke="rgba(0,0,0,0.30)"/>
+<text x="124.5" y="631.57" text-anchor="end" dominant-baseline="middle">0.20</text>
+<line x1="127.5" y1="544.49" x2="131.5" y2="544.49" stroke="rgba(0,0,0,0.30)"/>
+<text x="124.5" y="544.49" text-anchor="end" dominant-baseline="middle">0.30</text>
+<line x1="127.5" y1="457.42" x2="131.5" y2="457.42" stroke="rgba(0,0,0,0.30)"/>
+<text x="124.5" y="457.42" text-anchor="end" dominant-baseline="middle">0.40</text>
+<line x1="127.5" y1="370.34" x2="131.5" y2="370.34" stroke="rgba(0,0,0,0.30)"/>
+<text x="124.5" y="370.34" text-anchor="end" dominant-baseline="middle">0.50</text>
+<line x1="127.5" y1="283.26" x2="131.5" y2="283.26" stroke="rgba(0,0,0,0.30)"/>
+<text x="124.5" y="283.26" text-anchor="end" dominant-baseline="middle">0.60</text>
+<line x1="127.5" y1="196.18" x2="131.5" y2="196.18" stroke="rgba(0,0,0,0.30)"/>
+<text x="124.5" y="196.18" text-anchor="end" dominant-baseline="middle">0.70</text>
+<line x1="127.5" y1="109.1" x2="131.5" y2="109.1" stroke="rgba(0,0,0,0.30)"/>
+<text x="124.5" y="109.1" text-anchor="end" dominant-baseline="middle">0.80</text>
+<line x1="127.5" y1="22.02" x2="131.5" y2="22.02" stroke="rgba(0,0,0,0.30)"/>
+<text x="124.5" y="22.02" text-anchor="end" dominant-baseline="middle">0.90</text>
+</g>
+<text x="519" y="879.98" text-anchor="middle" font-style="italic" font-size="11" fill="#6a6a72">x</text>
+<text x="88.5" y="440" text-anchor="middle" font-style="italic" font-size="11" fill="#6a6a72" transform="rotate(-90 88.5 440)">y</text>
+<g font-family="ui-sans-serif, system-ui, sans-serif">
+<rect x="801.7" y="32.02" width="94.8" height="56" fill="#ffffff" fill-opacity="0.82" stroke="rgba(0,0,0,0.30)"/>
+<line x1="809.7" y1="46.02" x2="825.7" y2="46.02" stroke="#6a5acd" stroke-width="2.4"/>
+<text x="832.7" y="46.02" font-size="11" fill="#1c1c22" dominant-baseline="middle">Rec. 709</text>
+<line x1="809.7" y1="62.02" x2="825.7" y2="62.02" stroke="#3cb371" stroke-width="2.4"/>
+<text x="832.7" y="62.02" font-size="11" fill="#1c1c22" dominant-baseline="middle">DCI-P3</text>
+<line x1="809.7" y1="78.02" x2="825.7" y2="78.02" stroke="#e03131" stroke-width="2.4"/>
+<text x="832.7" y="78.02" font-size="11" fill="#1c1c22" dominant-baseline="middle">Rec. 2020</text>
+</g>
+</svg>

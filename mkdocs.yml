@@ -114,6 +114,7 @@ nav:
       - Color Management and OpenColorIO: drafts/color-management.md
       - HDR Mastering: drafts/hdr.md
       - IMF: drafts/imf.md
+      - Figure Review — Chromaticity Diagrams: drafts/figure-review.md
   - Reference:
       - Glossary: glossary.md
       - Change List: changelog.md

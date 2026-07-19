@@ -10,6 +10,7 @@ than folded into the chapters, so that what is original and what is new stays vi
 | [Color Management and OpenColorIO](color-management.md) | OCIO is absent entirely |
 | [HDR Mastering](hdr.md) | v1.0.1 has one passing reference to "EDR / HDR" |
 | [IMF](imf.md) | v1.0.1 covers IMF in three sentences |
+| [Figure Review](figure-review.md) | Vector replacements for the two chromaticity diagrams — for approval |
 
 ## Sourcing
 
