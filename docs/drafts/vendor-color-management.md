@@ -9,7 +9,7 @@ tags:
     This chapter is new material, not part of v1.0.1. See [Drafts for v1.1](index.md).
 
 [ACES](aces.md) is not the only way to run a scene-referred, color-managed pipeline. The two
-grading systems an independent production is most likely to sit in front of — Blackmagic's
+grading systems a production is most likely to encounter — Blackmagic's
 **DaVinci Resolve** and FilmLight's **Baselight** — each ship their own end-to-end color
 management, with their own working space and their own display rendering transform. They solve the
 same problem ACES solves — keep the image scene-referred, apply the display transform once at the
@@ -36,10 +36,12 @@ Intermediate** log curve — a gamut Blackmagic describes as larger than BT.2020
 and ACES AP-1, so nothing clips whatever camera it came from.[^dg2] Two things worth knowing about
 how open it is:
 
-- **The encoding is documented; the rendering is not.** DWG-the-color-space (primaries + the log
-  curve) is published, so it can be rebuilt in an OCIO config or a LUT tool. The DaVinci display
-  rendering transform — how Resolve tone- and gamut-maps DWG to an output — is internal, not a
-  separately published spec. "DWG is published" is true of the color space, not the look.
+- **The encoding is fully specified; the rendering is not.** DWG-the-color-space — its virtual
+  primaries, D65 white point, RGB↔XYZ matrices, and the DaVinci Intermediate log equations — is
+  published in a Blackmagic white paper, so it can be rebuilt *exactly* in an OCIO config or a LUT
+  tool. The DaVinci display rendering transform — how Resolve tone- and gamut-maps DWG to an output
+  — is internal, not a separately published spec. "DWG is published" is true of the color space,
+  not the look.
 - **Resolve also contains full ACES modes** (ACEScc/ACEScct, with ACES AMF 2.0 metadata), so "we
   grade in Resolve" and "the show is ACES" are not mutually exclusive — the choice is a project
   setting.[^dg3]
@@ -50,10 +52,13 @@ how open it is:
         workflow has evolved since the *Definitive Guide to Resolve 15* (2018) this chapter first
         cited.
 
-[^dg2]: *DaVinci Resolve 21 Reference Manual*, Ch. 9, "DaVinci Wide Gamut Color Space and DaVinci
-        Intermediate Gamma," pp. 241–243 ("greater than BT.2020, ARRI Wide Gamut, and even ACES");
-        corroborated by *Colorist Guide to Resolve 20*, Lesson 7. Both are Blackmagic's framing;
-        the numeric DWG primaries live in a separate 2021 white paper. **[web-sourced.]**
+[^dg2]: Qualitative comparison: *DaVinci Resolve 21 Reference Manual*, Ch. 9, pp. 241–243 ("greater
+        than BT.2020, ARRI Wide Gamut, and even ACES"). Numeric definition: *DaVinci Resolve 17 —
+        Wide Gamut Intermediate* white paper (Blackmagic, Aug 2021) — DWG CIE 1931 xy primaries
+        R (0.8000, 0.3130), G (0.1682, 0.9877), B (0.0790, −0.1155), white D65 (0.3127, 0.3290),
+        with RGB↔XYZ matrices; DaVinci Intermediate is a log OETF encoding > 9.1 stops above 18%
+        grey (middle grey → 0.336043). Its revision history notes the green-x coordinate was
+        corrected in v1.1 (2021) — pre-v1.1 reconstructions circulating online carry the old value.
 
 [^dg3]: *DaVinci Resolve 21 Reference Manual*, Ch. 9, covers Resolve's ACES signal flow, working
         space, and AMF 2.0 support.
@@ -97,8 +102,10 @@ detail.[^fl1]
 
 **What FilmLight makes easier:** a well-regarded rendering and, unusually for a vendor system, real
 portability — FilmLight publishes its color-space and transform files (`.flspace` / `.fltransform`),
-a Truelight OCIO config, and an Autodesk Flame color policy, so TCS can travel outside Baselight,
-and it interoperates with ACES (Baselight v7 added ACES 2.0). **[web-sourced.]**
+a Truelight OCIO config, and an Autodesk Flame color policy, so TCS can travel outside Baselight.
+And, exactly as with Resolve, choosing FilmLight's tools is not choosing against ACES: **Baselight
+can run a full ACES pipeline** as its color-managed workflow (v7 added ACES 2.0), so "we finish at a
+Baselight house" and "the show is ACES" are equally compatible. **[web-sourced.]**
 
 **What FilmLight makes harder:** it is still single-vendor in origin. Those portable files are
 FilmLight's, under FilmLight's control — not a SMPTE/Academy specification that many vendors

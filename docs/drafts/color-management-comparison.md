@@ -126,11 +126,11 @@ Baselight and Daylight.
 | **Interoperates with ACES** | — | is ACES | Yes (Resolve has ACES modes) | Yes (v7 ACES 2.0) |
 
 Sources: the [ACES](aces.md) and [vendor color management](vendor-color-management.md) chapters and
-their citations. The reference library corroborates the RCM workflow and DWG's design intent via
-the *DaVinci Resolve 21 Reference Manual* (2026) and *Colorist Guide to Resolve 20* (2025), and the
-T-CAM philosophy via Kirk's FilmLight book; the DWG numeric primaries and the E-Gamut/T-Log/T-CAM-v2
-product names remain **[web-sourced]** — see those chapters for exactly which lines each source
-supports.
+their citations. The reference library corroborates the RCM workflow and DWG (design intent via the
+*DaVinci Resolve 21 Reference Manual* (2026) and *Colorist Guide to Resolve 20* (2025); the numeric
+DWG/Intermediate spec via the *Resolve 17 Wide Gamut Intermediate* white paper) and the T-CAM
+philosophy via Kirk's FilmLight book. Only the FilmLight E-Gamut/T-Log/T-CAM-v2 product names remain
+**[web-sourced]** — see those chapters for exactly which lines each source supports.
 
 ## Which should an independent production choose?
 
