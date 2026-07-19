@@ -16,7 +16,7 @@ solve the same problem ACES solves — keep the image scene-referred, apply the 
 once at the end, and let footage from many cameras share a common working space — but they solve
 it *inside a product* rather than as an open standard.
 
-These vendor systems are more open than "proprietary black box" suggests: DaVinci Wide
+These vendor systems are not proprietary "black boxes." DaVinci Wide
 Gamut has a published white paper, and FilmLight's color spaces are downloadable files you can use
 outside Baselight. But neither is a SMPTE-style open standard the way ACES is
 ([ST 2065-1](aces.md#what-aces-actually-is)), and neither is natively implemented across the whole
