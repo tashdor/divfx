@@ -4,7 +4,7 @@
 
 | Version | Notes |
 | --- | --- |
-| Wiki (2026) | Ported from v1.0.1 to a MkDocs site. Full copy-editing pass; typo and grammar corrections listed in [Notes for v1.1](v1.1-notes.md#minor-corrections-already-applied-in-this-port). Technical content unchanged from v1.0.1 — outdated and incorrect passages are flagged inline rather than rewritten. |
+| Wiki (2026) | Figures rebuilt from the original source artwork in the `.docx` — vector diagrams re-rendered at 400 DPI from their true bounds, and multi-panel figures recomposed from the embedded originals. Ported from v1.0.1 to a MkDocs site. Full copy-editing pass; typo and grammar corrections listed in [Notes for v1.1](v1.1-notes.md#minor-corrections-already-applied-in-this-port). Technical content unchanged from v1.0.1 — outdated and incorrect passages are flagged inline rather than rewritten. |
 
 ## Original document
 

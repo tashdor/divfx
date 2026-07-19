@@ -48,7 +48,11 @@ To add a chapter, create the Markdown file in `docs/` and add it to the `nav:` l
   — record it.
 - **Cite sources** for factual claims, particularly specifications, standards numbers, and dates.
 - **Figures** live in `docs/figures/` and use the `<figure markdown>` pattern with a
-  `<figcaption>`.
+  `<figcaption>`. They were rebuilt from the original artwork embedded in the v1.0.1 `.docx`:
+  the ten vector diagrams are re-rendered from the PDF at 400 DPI, and the multi-panel figures
+  (4, 20, 21, 22, 23) are recomposed from the original images at their intended proportions.
+  Figures 8, 18, 19, and 20 are at their source resolution — do not upscale them, as that adds
+  no real detail.
 
 ## Reporting errata
 
