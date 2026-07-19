@@ -26,68 +26,99 @@ VFX tool ecosystem the way ACES is via [OpenColorIO](color-management.md). The a
 
 ## DaVinci Resolve Color Management (RCM)
 
-Resolve can run in several color-science modes. The managed one is called **DaVinci YRGB Color
-Managed**, selected under Project Settings → Color Management → Color science.[^dg1] Turning it on
-does not change the image; it activates three menus that define the pipeline:
+Blackmagic frames the choice as **display-referred vs. scene-referred** color management. Grading
+log footage into shape by hand with the primary tools — as the [DI](../digital-intermediates.md)
+chapter's manual approach does — is *display-referred*: Resolve is given no information about what
+the source is meant to look like, so luminance and saturation are the colorist's problem.
+*Scene-referred* color management instead tells Resolve the camera's color profile and lets it map
+that source into a working space and out to the deliverable, using the manufacturer's known log
+curve and gamut rather than eyeballed primaries.[^dg1]
 
-[^dg1]: *The Definitive Guide to DaVinci Resolve 15* (Blackmagic Design, 2018), Lesson 11, "Using
-        DaVinci Resolve color management," p. 304–306: choose "DaVinci YRGB Color Managed" in the
-        Color science menu, then set **Input Color Space**, **Timeline Color Space**, and **Output
-        Color Space**.
+[^dg1]: *The Colorist Guide to DaVinci Resolve 20* (Daria Fissoun, Blackmagic Design, 2025),
+        Lesson 4, "Setting Up Color Management," printed pp. 168–173 — the current authoritative
+        walkthrough. The workflow it describes has evolved since the older *Definitive Guide to
+        Resolve 15* (2018) this chapter first cited.
 
-- **Input Color Space** — what the footage actually is (e.g. `Blackmagic Design 4.6K Film v3`,
-  `ARRI LogC4`, `Sony S-Log3 / S-Gamut3.Cine`). Set per clip or per camera.
-- **Timeline Color Space** — the working space everything is graded in.
-- **Output Color Space** — the deliverable encoding (e.g. `Rec.709 Gamma 2.4`, `P3-D65`).
+The scene-referred mode is **DaVinci YRGB Color Managed**, under Project Settings → Color
+Management → Color science. It comes in two tiers:
+
+- **Automatic color management** (the default when RCM is switched on) reduces the whole thing to a
+  single SDR-or-HDR preset with a plain-language description — the low-friction path.
+- Deselect it and set **Color processing mode** to **Custom** to expose the full parameter set:
+
+    - **Input Color Space** — what the footage actually is (e.g. `REDWideGamutRGB/Log3G10`,
+      `ARRI LogC4`, `Blackmagic Design 4.6K Film`). Set per clip or per camera; a clip keeps the
+      default `Rec.709 (Scene)` until you override it, so tagging inputs is a required step, not an
+      automatic one.
+    - **Timeline Color Space** — the working space everything is graded in.
+    - **Output Color Space** — the deliverable encoding (e.g. `Rec.709 Gamma 2.4`, `P3-D65`).
+    - **Timeline working luminance** — how HDR maps into the timeline (e.g. `HDR 1000`), separate
+      from gamut.
+    - **Input / Output DRT** — the display rendering transforms that roll off gamut and highlights
+      when mapping between very different gamut sizes and dynamic ranges. The default **DaVinci**
+      option gives smooth shadow/highlight roll-off and controlled desaturation of the extremes;
+      a **RED IPP2** option adds output tone-map type, highlight roll-off intensity, and HDR peak
+      nits.
 
 Resolve converts each clip from its input space into the timeline space, you grade there, and it
-converts to the output space on the way to the display and the render. This is the same
-scene-referred discipline the [Digital Intermediates](../digital-intermediates.md) chapter argues
-for: the display transform is applied once, at the end, and grading happens beneath it.
+converts to the output space on the way to the display and the render — the same scene-referred
+discipline the [Digital Intermediates](../digital-intermediates.md) chapter argues for: the
+display transform is applied once, at the end, and grading happens beneath it.
 
 !!! warning "Set Input and Timeline before you grade, not after"
-    The Definitive Guide is explicit: "never change the Input or Timeline Color Space once you have
-    started color grading your clips" (p. 306). Changing the working space mid-grade re-interprets
-    every correction you have already made. Output space you *can* change per deliverable — that is
-    the point of the design.
+    Changing the working space mid-grade re-interprets every correction you have already made — the
+    guides are explicit that you should not change the Input or Timeline Color Space once grading
+    has started. Output space you *can* change per deliverable; that is the point of the design.
 
 ### The working space: DaVinci Wide Gamut + DaVinci Intermediate
 
-The modern default timeline space is **DaVinci Wide Gamut (DWG)** primaries with the **DaVinci
-Intermediate (DI)** log transfer function, introduced with Resolve 17.
-**[web-sourced — postdates the reference library; the newest Blackmagic doc in the library is
-*The Definitive Guide to Resolve 15* (2018), which predates DWG.]**
+The recommended timeline space for wide-gamut, multi-camera work is **DaVinci Wide Gamut (DWG)**
+primaries with the **DaVinci Intermediate (DI)** log transfer function. Blackmagic describes DWG as
+an internal working space large enough to "encompass the maximum value of image data that any given
+camera can capture" — a gamut **greater than BT.2020, ARRI Wide Gamut, and ACES AP-1** — so source
+data is not compressed or clipped whatever camera it came from; DaVinci Intermediate is its
+companion log encoding, designed for internal luminance mapping across SDR and HDR delivery.[^dg2]
 
-Blackmagic *did* publish a white paper on it —
-*DaVinci Wide Gamut / Intermediate* (August 2021), hosted at
-`documents.blackmagicdesign.com`. Per that paper, DWG is a large gamut chosen to contain every
-current professional camera gamut plus every current and anticipated display/delivery gamut
-(Rec.709 through Rec.2020), and DaVinci Intermediate is a logarithmic encoding of relative scene
-light. The primaries and white point are documented in the paper (white point D65). **[web-sourced
-— from the Blackmagic white paper, not corroborated by the reference library.]**
+[^dg2]: *The Colorist Guide to DaVinci Resolve 20*, Lesson 7, "What Is DaVinci Wide Gamut?",
+        printed pp. 279–280. The "greater than BT.2020 / ARRI Wide Gamut / ACES AP-1" comparison is
+        Blackmagic's framing. Numeric primaries below are from the separate white paper, not this
+        guide.
 
-!!! note "The white paper is published — the full DRT is not the same thing"
+Blackmagic also published a white paper, *DaVinci Wide Gamut / Intermediate* (August 2021), giving
+the numeric primaries and D65 white point. **[web-sourced — the numeric primaries and the white
+paper are not in the reference library; the guide describes DWG qualitatively but not by
+coordinates.]**
+
+!!! note "The encoding is documented — the full DRT is not the same thing"
     Two separate questions get conflated. **DWG-as-a-color-space** (primaries + the DI transfer
     function) is documented, and can therefore be reconstructed and defined in other tools — people
     have added it to OCIO configs and LUT calculators. **The DaVinci display rendering transform**
-    — how Resolve tone-maps and gamut-maps from DWG to a given output — is an internal part of the
-    application, not a separately published spec. So "DWG is published" is true of the encoding and
-    not, in the same sense, of the rendering. Independent reconstructions of the DWG primaries from
-    the white paper have also turned up small discrepancies against the values Resolve uses
-    internally, which is the kind of thing worth round-tripping rather than trusting on paper.
-    **[web-sourced.]**
+    — the Input/Output DRT that tone-maps and gamut-maps from DWG to a given output — is an internal
+    part of the application, not a separately published spec. So "DWG is published" is true of the
+    encoding and not, in the same sense, of the rendering. Independent reconstructions of the DWG
+    primaries have also turned up small discrepancies against the values Resolve uses internally,
+    which is worth round-tripping rather than trusting on paper. **[web-sourced.]**
+
+!!! tip "Project-level RCM vs. the CST node"
+    The same transforms are available two ways. **Project-level RCM** color-manages every clip from
+    its tagged Input Color Space. The node-based **Color Space Transform (CST)** effect does the
+    same mapping per node — an explicit `input → DWG` CST to grade in, then a `DWG → output` CST to
+    monitor — which is how you color-manage a single clip, mix managed and unmanaged clips, or build
+    the transform into a group's pre/post-clip node. The CST also carries per-clip **Tone Mapping**
+    and **Gamut Mapping** controls. Same math; different granularity.
 
 ### Resolve also does ACES
 
 RCM is not an either/or with ACES. Resolve has a separate **ACEScct** color-science mode, so the
 same application can run a full ACES pipeline — Input Transform, ACEScct grading, Output Transform
 — instead of the DaVinci-native one. Choosing "DaVinci YRGB Color Managed" versus "ACEScct" is a
-project setting.[^dg2] A production that wants ACES for interchange reasons but likes grading in
+project setting.[^dg3] A production that wants ACES for interchange reasons but likes grading in
 Resolve does not have to give up either.
 
-[^dg2]: The Color science menu in Project Settings offers DaVinci YRGB, DaVinci YRGB Color Managed,
-        and ACES modes (ACEScc and ACEScct). *Definitive Guide to Resolve 15*, Lesson 11, and
-        general product documentation. **[Resolve's ACES modes are web-sourced beyond the library.]**
+[^dg3]: The Color science menu offers DaVinci YRGB, DaVinci YRGB Color Managed, and ACES modes
+        (ACEScc / ACEScct). ACES project setup is *The Colorist Guide to DaVinci Resolve 20*,
+        Lesson 9 ("Setting Up Raw Projects"); the specific ACEScc/ACEScct mode names are
+        **[web-sourced beyond the library]**.
 
 ### What RCM can and cannot do
 
