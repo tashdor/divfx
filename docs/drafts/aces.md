@@ -291,8 +291,7 @@ widely deployed.
 
 Whether a full color appearance model belongs inside a display rendering transform is an open
 argument in the field, with ACES 2.0 on one side and approaches like FilmLight's TCAM on the
-other. A handbook at this level should note the debate exists rather than present ACES 2.0's
-approach as settled.
+other. It is not a settled question.
 
 ## Should an independent production use ACES?
 

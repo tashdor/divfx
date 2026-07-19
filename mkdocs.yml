@@ -96,6 +96,9 @@ extra:
 extra_css:
   - stylesheets/extra.css
 
+extra_javascript:
+  - javascripts/color-plot-embed.js
+
 nav:
   - Home: index.md
   - Introduction: introduction.md

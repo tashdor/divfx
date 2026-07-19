@@ -6,10 +6,12 @@ tags:
 
 # Figure Review — Chromaticity Diagrams
 
-!!! info "Review document — not part of the handbook"
-    Side-by-side comparison of the original v1.0.1 chromaticity diagrams against SVG
-    replacements generated with [Color Plotter](https://ditools.videovillage.com/color_plotter).
-    Nothing here has replaced anything in the chapters. Approve or reject per figure.
+!!! success "Now live in the chapter — interactive"
+    [Color Spaces → Display Color Spaces](../color.md#display-color-spaces) now embeds these as
+    **live, interactive** [Color Plotter](https://ditools.videovillage.com/color_plotter) plots —
+    drag to pan, scroll to zoom — with the static SVG kept as the print/offline/no-JS fallback.
+    This page documents how that works, the accuracy check, and the tradeoffs. See
+    [Interactive embeds](#interactive-embeds) below.
 
 The two chromaticity figures are the strongest candidates for replacement with vector art:
 
@@ -21,7 +23,34 @@ The two chromaticity figures are the strongest candidates for replacement with v
   primaries. Regenerating them from a current tool means the numbers can be verified rather than
   trusted.
 
-## How these were generated
+## Interactive embeds
+
+Each figure is now a live iframe running the full Color Plotter engine read-only, from
+`ditools.videovillage.com/embed/color_plotter`. The plot travels entirely in the URL fragment
+(`#p=<base64url(project+view)>`), so there is no server-side state and the URLs are reproducible
+from `scripts/generate-chromaticity-embeds.mjs`.
+
+It is built as **progressive enhancement**, so nothing is lost relative to a static figure:
+
+- **No JS, print, or offline** → the static SVG shows, theme-matched, exactly as before.
+- **JS + service reachable** → `docs/javascripts/color-plot-embed.js` upgrades the figure to the
+  iframe, and only hides the static image once the iframe actually loads. If the embed is blocked
+  or the service is down, the static figure stays.
+- **Theme** → the fragment carries the plot theme, and the script swaps the light/dark fragment
+  when you toggle the Material palette, so the plot follows the page.
+
+Tradeoffs worth naming, since they are real:
+
+- **External dependency.** The interactive layer loads from `ditools.videovillage.com`. That is a
+  cross-origin iframe and third-party JS — acceptable for an interactive widget, and the static
+  SVG remains the fallback, but the wiki is no longer fully self-contained for these two figures.
+- **Not in the PDF or in print.** Interactivity can't exist there; both degrade to the static SVG.
+- **The embed route is deployed but not yet merged.** It lives on the `claude/colorplot-embed*`
+  branches of the tools repo. `/embed/color_plotter` is live in production today, but a rebuild of
+  the tool from `master` without that branch would remove it — at which point the wiki silently
+  falls back to the static SVG. Merging the branch makes the interactive layer durable.
+
+## How the static fallback was generated
 
 Rendered headlessly from Color Plotter's own scene/SVG modules, so the output is identical to
 what the web tool exports:
@@ -181,10 +210,13 @@ RED's green. If you would rather they match the original crop exactly, that is a
 
 ## Recommendation
 
-Adopt both SVGs **if** you are content to lose the spectral wash. The accuracy is verifiable, the
-files are 40x smaller, they stay sharp at any zoom, and they can be regenerated whenever a
-primary set changes — which matters given that ARRI, RED, and Sony have all revised their color
-science since 2017.
+Live in the chapter now: **interactive plot, static SVG fallback.** The reader gets a diagram
+they can pan and zoom, with the spectral wash present in both; anyone printing, offline, or
+without JS gets the theme-matched SVG. The accuracy is verifiable, both layers regenerate from
+committed scripts whenever a primary set changes — which matters given that ARRI, RED, and Sony
+have all revised their color science since 2017.
 
-If the wash matters to you, the better path is a high-resolution PNG export from Color Plotter
-rather than keeping the 2017 raster.
+The one thing that needs a decision from you: **merge the `claude/colorplot-embed*` branch** in
+the tools repo so the `/embed/color_plotter` route is durable. Until then the interactive layer
+depends on that branch staying deployed; if it is ever dropped, these two figures quietly revert
+to the static SVG — no breakage, just no interactivity.
