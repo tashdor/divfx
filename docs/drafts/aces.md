@@ -126,10 +126,9 @@ successor to a film-based pipeline, and its encoding neutral was chosen to match
 pipeline delivered to the eye in a dark theatre.
 
 !!! question "If the white point doesn't dictate the look, why did aesthetics decide it?"
-    This is the apparent contradiction in TB-2018-001, and the document resolves it in one
-    sentence: *"Because the exact white point chromaticity would not prohibit users from achieving
-    any reproduction white point, the Committee ultimately decided to use the less common CCT of
-    6000 K."*
+    *"Because the exact white point chromaticity would not prohibit users from achieving any
+    reproduction white point, the Committee ultimately decided to use the less common CCT of
+    6000 K."* — TB-2018-001
 
     The override-freedom is precisely what **licensed** the aesthetic choice, rather than
     conflicting with it. The encoding white is the system's *default* neutral: the un-graded look
