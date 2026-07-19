@@ -86,10 +86,11 @@ Across the whole chain, almost nothing lands on D60. So why is the interchange e
     (ACES2065-1 R=G=B) may match the ACES white point, the display calibration white point, or any
     other white point preferred for technical or aesthetic reasons."
 
-The encoding white point is the chromaticity you get when R = G = B **in the encoding**. It is a
-property of the coordinate system, not an instruction about how your film should look. A show
-working in ACES can grade to a D65 neutral axis and deliver a D65 master; nothing about the
-encoding prevents it. TB-2018-001 notes this misreading is common enough that the Committee
+The encoding white point is the chromaticity you get when R = G = B **in the encoding**. It is the
+system's *default* neutral — the reference the standard rendering and your grading tools are built
+around — not a *mandate* on the final image. A show working in ACES can grade to a D65 neutral
+axis and deliver a D65 master; nothing about the encoding prevents it. TB-2018-001 notes this
+misreading — that the number fixes the delivered look — is common enough that the Committee
 worried about it when choosing the coordinates in the first place.
 
 The useful analogy is the [DCI-X'Y'Z'](../color.md#dci-xyz) encoding white point, which is the
@@ -123,6 +124,22 @@ In short: **ACES is not D60 because displays are D60. It is D60-like because tha
 projected print film's neutral actually sits**, measured off a screen. ACES was designed as the
 successor to a film-based pipeline, and its encoding neutral was chosen to match what that
 pipeline delivered to the eye in a dark theatre.
+
+!!! question "If the white point doesn't dictate the look, why did aesthetics decide it?"
+    This is the apparent contradiction in TB-2018-001, and the document resolves it in one
+    sentence: *"Because the exact white point chromaticity would not prohibit users from achieving
+    any reproduction white point, the Committee ultimately decided to use the less common CCT of
+    6000 K."*
+
+    The override-freedom is precisely what **licensed** the aesthetic choice, rather than
+    conflicting with it. The encoding white is the system's *default* neutral: the un-graded look
+    a standard Output Transform produces, and the reference a colorist balances toward. That
+    default has a real feel — which is exactly why the Committee cared that it read as "cinematic"
+    and sat where film people's instincts expected. But because you can always move the final
+    reproduction white — a different Output Transform, a chromatic adaptation, or simply grading —
+    choosing a pleasant default costs you nothing. A good default you can override is not a
+    constraint. That is the whole reason a number with "no instruction on how your film should
+    look" was still worth choosing on how it looks.
 
 #### Why not exactly CIE D60
 
