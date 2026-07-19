@@ -35,8 +35,8 @@ VFX tool ecosystem the way ACES is via [OpenColorIO](color-management.md). The a
 
 Each system works in its own wide-gamut internal space. The three you will meet — ACES's **AP1**
 (the ACEScg working gamut), **DaVinci Wide Gamut**, and FilmLight's **E-Gamut** (what T-CAM renders
-from) — are all deliberately larger than any camera or display, with virtual primaries that fall
-outside the spectral locus:
+from) — are all deliberately wide, encompassing most camera and display gamuts, with virtual
+primaries that fall outside the spectral locus:
 
 <figure class="cp-embed"
   style="--cp-embed-aspect: 820 / 1000"
