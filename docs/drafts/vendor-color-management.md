@@ -10,10 +10,21 @@ tags:
 
 [ACES](aces.md) is not the only way to run a scene-referred, color-managed pipeline. The two
 grading systems a production is most likely to encounter — Blackmagic's **DaVinci Resolve** and
-FilmLight's **Baselight** — each ship their own end-to-end color management, with their own working
-space and their own display rendering transform. They solve the same problem ACES solves — keep the
-image scene-referred, apply the display transform once at the end, and let footage from many cameras
-share a common working space — but they solve it *inside a product* rather than as an open standard.
+FilmLight's **Baselight** — each ship their own **automatic, holistic color-management framework**:
+a single system that assigns every source its input color space, maps everything into one working
+space, and renders to the deliverable through one display transform, applied to every clip without
+per-shot intervention. Like ACES, they keep the image scene-referred and apply the display transform
+once at the end — but they do it *inside a product* rather than as an open standard.
+
+The words *automatic* and *framework* carry the weight here, because that is what you are actually
+choosing. Color management is, underneath, just a chain of transforms, and a colorist can always
+build a **manual** pipeline by hand instead — input/output **color space transforms (CSTs)**, **LUTs**, **DCTLs**, and
+a display rendering transform or look tool of their choosing, such as Video Village's
+[**Filmbox**](https://videovillage.com/filmbox/) (a Kodak Vision3 film-print-emulation DRT that runs
+in Resolve, Baselight, and Premiere, and coexists with ACES or RCM). That trades a framework's
+automation and consistency for total control over every stage. What ACES, RCM, and FilmLight give
+you is that chain **pre-built, standardized, and applied automatically** — which is the whole point
+of a framework, and the thing you give up if you assemble the pipeline yourself.
 
 These vendor systems are not proprietary "black boxes." DaVinci Wide Gamut has a published white
 paper, and FilmLight's color spaces are downloadable files you can use outside Baselight. But
