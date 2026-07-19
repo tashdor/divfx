@@ -34,8 +34,19 @@ const scene = buildScene(project, view);
 const svg   = renderSVG(scene, 1);
 ```
 
-CIE 1931 xy, light theme, transparent background, locus with wavelength ticks, legend on.
-The generation script is reproducible and can be re-run if the palette or viewport needs changing.
+CIE 1931 xy, locus with wavelength ticks, legend on. Each figure is rendered twice — light and
+dark — and the page serves whichever matches your theme, via Material's `#only-light` /
+`#only-dark` suffixes. Try the theme toggle in the header.
+
+**The spectral fill needed extra work.** Color Plotter's SVG backend deliberately omits the
+per-pixel chromaticity wash — `render_svg.js` notes it is "the PNG path". So the pipeline is two
+steps: the Node script emits the vector plot plus the fill as a raw tile computed with the tool's
+own `xyToSRGBByte`/`diagramToXy`, and `scripts/embed_spectral_fill.py` encodes that tile as PNG
+and embeds it as a data URI clipped to the spectral locus, beneath the grid and traces.
+
+The result is a hybrid: **every line, label and legend is vector; only the wash is raster.** It is
+the same gradient the Canvas renderer draws, so it matches what the web tool exports as PNG. At
+~74 KB it is still roughly 9x smaller than the 660 KB originals.
 
 ---
 
@@ -49,9 +60,11 @@ The generation script is reproducible and can be re-run if the palette or viewpo
 
 === "SVG replacement"
 
-    ![Figure 18 SVG](../figures/svg/figure-18-display-gamuts.svg)
+    ![Figure 18 SVG](../figures/svg/figure-18-display-gamuts-light.svg#only-light)
+    ![Figure 18 SVG](../figures/svg/figure-18-display-gamuts-dark.svg#only-dark)
 
-    vector · 14 KB · scales to any size
+    vector geometry + embedded spectral fill · 73 KB · scales to any size ·
+    follows the page theme
 
 **Plots:** Rec. 709, DCI-P3, Rec. 2020 — matching the original exactly.
 
@@ -79,9 +92,11 @@ put the primaries in the same places.
 
 === "SVG replacement"
 
-    ![Figure 19 SVG](../figures/svg/figure-19-camera-gamuts.svg)
+    ![Figure 19 SVG](../figures/svg/figure-19-camera-gamuts-light.svg#only-light)
+    ![Figure 19 SVG](../figures/svg/figure-19-camera-gamuts-dark.svg#only-dark)
 
-    vector · 16 KB · scales to any size
+    vector geometry + embedded spectral fill · 75 KB · scales to any size ·
+    follows the page theme
 
 **Plots:** ARRI Wide Gamut 3, REDWideGamutRGB, Sony S-Gamut3, Rec. 709, DCI-P3 — matching the
 original's five traces.
@@ -110,19 +125,21 @@ where the cyan lines are going.
 These are genuine differences between the original and the replacement, not errors. Each is your
 call.
 
-### 1. No spectral fill
+### 1. The spectral fill is raster inside a vector file
 
-The originals have the familiar rainbow wash inside the horseshoe. **The SVG does not, by
-design** — Color Plotter's SVG backend is vector-clean and omits the per-pixel spectral fill,
-which only exists in the Canvas/PNG path.
+The wash is a 495x560 PNG embedded as a data URI and clipped to the locus. That is a deliberate
+compromise — SVG has no portable way to express a smooth 2D chromaticity gradient (mesh gradients
+exist in the SVG 2 spec but no browser ships them), so the choices were a raster tile, tens of
+thousands of tiny coloured polygons, or no wash at all.
 
-This is the one substantive visual difference. Options:
+Consequences worth knowing:
 
-- **Accept it.** The wash is decorative; the figure's information is in the traces and the locus.
-  A clean diagram arguably reads better in a technical document, and prints better.
-- **Export PNG from Color Plotter instead**, which keeps the spectral fill but returns you to
-  raster — though at whatever resolution you choose, so still a large improvement on 1075 px.
-- **Keep the originals.** They are legible; they are simply low-resolution.
+- Zoom in far enough and the **wash** softens, while the lines and text stay sharp. At normal
+  reading sizes it is not visible.
+- Print output is fine — the tile is ~500 px across a ~5 in figure, roughly 100 dpi for a smooth
+  gradient with no detail in it.
+- If you would rather have a fully vector file, say so and I will drop the fill; the geometry
+  version is 14 KB.
 
 ### 2. Naming
 
@@ -149,7 +166,13 @@ in Fig. 18; ARRI violet, RED cyan, Sony green in Fig. 19) but they are not sampl
 to adjust — say the word and I will match them precisely, or move to a palette that is
 colour-blind safe, which the current red/green pairing is not.
 
-### 5. Viewport
+### 5. Dark mode
+
+The dark variants use the tool's dark palette with the fill at 92% opacity — matching what the
+Canvas renderer does over a dark background, so the wash does not overpower the traces. If the
+handbook will only ever be read in one theme, half of these files are unnecessary.
+
+### 6. Viewport
 
 The SVGs use a slightly wider view than the originals so no trace touches the frame edge except
 RED's green. If you would rather they match the original crop exactly, that is a one-line change.
