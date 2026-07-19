@@ -1,0 +1,115 @@
+site_name: Digital Intermediates and Visual Effects
+site_description: >-
+  A production handbook on digital intermediate finishing and visual effects
+  workflows for independent film production, by Tashi Trieu.
+site_author: Tashi Trieu
+site_url: https://divfx.tashitrieu.com/
+
+repo_url: https://github.com/tashdor/divfx
+repo_name: tashdor/divfx
+edit_uri: edit/master/docs/
+
+copyright: Copyright &copy; 2016–2026 Tashi Trieu
+
+theme:
+  name: material
+  language: en
+  logo: assets/logo.png
+  favicon: icons/favicon-32x32.png
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.action.edit
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Follow system theme
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+  - tags
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.smartsymbols
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/tashdor/divfx
+      name: divfx on GitHub
+    - icon: fontawesome/solid/envelope
+      link: mailto:divfx@tashitrieu.com
+      name: Questions, comments, and errata
+  version:
+    provider: null
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Introduction: introduction.md
+  - Generalized Production Workflow: production-workflow.md
+  - An Overview of Digital Intermediates: digital-intermediates.md
+  - Editorial Turnover for Digital Intermediates: turnover-di.md
+  - Editorial Turnover for VFX Plate Pulls: turnover-vfx.md
+  - Common Working Formats: working-formats.md
+  - Working and Delivery Resolutions: resolutions.md
+  - Color Spaces and Transfer Functions: color.md
+  - Visual Effects Quality Control: vfx-quality-control.md
+  - Visual Effects Production Management: vfx-production-management.md
+  - Reference:
+      - Glossary: glossary.md
+      - Change List: changelog.md
+      - Notes for v1.1: v1.1-notes.md
+      - Contributing: contributing.md
