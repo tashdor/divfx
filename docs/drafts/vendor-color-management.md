@@ -34,17 +34,20 @@ the source is meant to look like, so luminance and saturation are the colorist's
 that source into a working space and out to the deliverable, using the manufacturer's known log
 curve and gamut rather than eyeballed primaries.[^dg1]
 
-[^dg1]: *The Colorist Guide to DaVinci Resolve 20* (Daria Fissoun, Blackmagic Design, 2025),
-        Lesson 4, "Setting Up Color Management," printed pp. 168–173 — the current authoritative
-        walkthrough. The workflow it describes has evolved since the older *Definitive Guide to
+[^dg1]: *DaVinci Resolve 21 Reference Manual* (Blackmagic Design, July 2026), Ch. 9, "Data Levels,
+        Color Management, and ACES," pp. 225–290 — the authoritative reference; and *The Colorist
+        Guide to DaVinci Resolve 20* (Daria Fissoun, Blackmagic Design, 2025), Lesson 4, for the
+        step-by-step walkthrough. The workflow has evolved since the older *Definitive Guide to
         Resolve 15* (2018) this chapter first cited.
 
 The scene-referred mode is **DaVinci YRGB Color Managed**, under Project Settings → Color
 Management → Color science. It comes in two tiers:
 
 - **Automatic color management** (the default when RCM is switched on) reduces the whole thing to a
-  single SDR-or-HDR preset with a plain-language description — the low-friction path.
-- Deselect it and set **Color processing mode** to **Custom** to expose the full parameter set:
+  single SDR-or-HDR choice: Resolve auto-selects each clip's input color space from the Media Pool
+  codecs and offers a short list of common output spaces — the low-friction path.
+- Deselect it (or pick a specific **Resolve Color Management preset**) and set **Color processing
+  mode** to **Custom** to expose the full parameter set:
 
     - **Input Color Space** — what the footage actually is (e.g. `REDWideGamutRGB/Log3G10`,
       `ARRI LogC4`, `Blackmagic Design 4.6K Film`). Set per clip or per camera; a clip keeps the
@@ -79,10 +82,10 @@ camera can capture" — a gamut **greater than BT.2020, ARRI Wide Gamut, and ACE
 data is not compressed or clipped whatever camera it came from; DaVinci Intermediate is its
 companion log encoding, designed for internal luminance mapping across SDR and HDR delivery.[^dg2]
 
-[^dg2]: *The Colorist Guide to DaVinci Resolve 20*, Lesson 7, "What Is DaVinci Wide Gamut?",
-        printed pp. 279–280. The "greater than BT.2020 / ARRI Wide Gamut / ACES AP-1" comparison is
-        Blackmagic's framing. Numeric primaries below are from the separate white paper, not this
-        guide.
+[^dg2]: *DaVinci Resolve 21 Reference Manual*, Ch. 9, "DaVinci Wide Gamut Color Space and DaVinci
+        Intermediate Gamma," pp. 241–243 ("greater than BT.2020, ARRI Wide Gamut, and even ACES");
+        corroborated by *The Colorist Guide to DaVinci Resolve 20*, Lesson 7. Both are Blackmagic's
+        framing. Numeric primaries below are from the separate white paper, not these.
 
 Blackmagic also published a white paper, *DaVinci Wide Gamut / Intermediate* (August 2021), giving
 the numeric primaries and D65 white point. **[web-sourced — the numeric primaries and the white
@@ -111,14 +114,15 @@ coordinates.]**
 
 RCM is not an either/or with ACES. Resolve has a separate **ACEScct** color-science mode, so the
 same application can run a full ACES pipeline — Input Transform, ACEScct grading, Output Transform
-— instead of the DaVinci-native one. Choosing "DaVinci YRGB Color Managed" versus "ACEScct" is a
-project setting.[^dg3] A production that wants ACES for interchange reasons but likes grading in
+— instead of the DaVinci-native one, and Resolve 21 handles **ACES metadata files (AMF 2.0)** for
+carrying that setup between systems.[^dg3] Choosing "DaVinci YRGB Color Managed" versus "ACEScct"
+is a project setting. A production that wants ACES for interchange reasons but likes grading in
 Resolve does not have to give up either.
 
 [^dg3]: The Color science menu offers DaVinci YRGB, DaVinci YRGB Color Managed, and ACES modes
-        (ACEScc / ACEScct). ACES project setup is *The Colorist Guide to DaVinci Resolve 20*,
-        Lesson 9 ("Setting Up Raw Projects"); the specific ACEScc/ACEScct mode names are
-        **[web-sourced beyond the library]**.
+        (ACEScc / ACEScct); *DaVinci Resolve 21 Reference Manual*, Ch. 9, covers the ACES signal
+        flow, working color space, and **AMF 2.0** support. ACES project setup is also *The Colorist
+        Guide to DaVinci Resolve 20*, Lesson 9.
 
 ### What RCM can and cannot do
 

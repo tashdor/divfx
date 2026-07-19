@@ -127,9 +127,10 @@ Baselight and Daylight.
 
 Sources: the [ACES](aces.md) and [vendor color management](vendor-color-management.md) chapters and
 their citations. The reference library corroborates the RCM workflow and DWG's design intent via
-*The Colorist Guide to DaVinci Resolve 20* (2025) and the T-CAM philosophy via Kirk's FilmLight
-book; the DWG numeric primaries and the E-Gamut/T-Log/T-CAM-v2 product names remain **[web-sourced]**
-— see those chapters for exactly which lines each source supports.
+the *DaVinci Resolve 21 Reference Manual* (2026) and *Colorist Guide to Resolve 20* (2025), and the
+T-CAM philosophy via Kirk's FilmLight book; the DWG numeric primaries and the E-Gamut/T-Log/T-CAM-v2
+product names remain **[web-sourced]** — see those chapters for exactly which lines each source
+supports.
 
 ## Which should an independent production choose?
 
