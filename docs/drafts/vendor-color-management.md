@@ -16,15 +16,14 @@ space, and renders to the deliverable through one display transform, applied to 
 per-shot intervention. Like ACES, they keep the image scene-referred and apply the display transform
 once at the end — but they do it *inside a product* rather than as an open standard.
 
-The words *automatic* and *framework* carry the weight here, because that is what you are actually
-choosing. Color management is, underneath, just a chain of transforms, and a colorist can always
-build a **manual** pipeline by hand instead — input/output **color space transforms (CSTs)**, **LUTs**, **DCTLs**, and
+*Automatic* and *framework* are the operative words. Color management is just a chain of transforms,
+and a colorist can build a **manual** pipeline by hand instead — input/output **color space transforms (CSTs)**, **LUTs**, **DCTLs**, and
 a display rendering transform or look tool of their choosing, such as Video Village's
 [**Filmbox**](https://videovillage.com/filmbox/) (a Kodak Vision3 film-print-emulation DRT that runs
 in Resolve, Baselight, and Premiere, and coexists with ACES or RCM). That trades a framework's
-automation and consistency for total control over every stage. What ACES, RCM, and FilmLight give
-you is that chain **pre-built, standardized, and applied automatically** — which is the whole point
-of a framework, and the thing you give up if you assemble the pipeline yourself.
+automation and consistency for total control over every stage. ACES, RCM, and FilmLight give
+you that chain **pre-built, standardized, and applied automatically** to every clip. Assemble the
+pipeline yourself and you give that up.
 
 These vendor systems are not proprietary "black boxes." DaVinci Wide Gamut has a published white
 paper, and FilmLight's color spaces are downloadable files you can use outside Baselight. But
@@ -139,8 +138,8 @@ many vendors implement and certify against independently. **[web-sourced.]**
 
 ## Vendor color management vs. ACES: easier and harder
 
-It is tempting to say a vendor system is "easier to set up" and ACES "harder," but that is only true
-in one narrow case and backwards in the one that matters. The honest comparison:
+A vendor system is often called easier to set up than ACES. That holds in one narrow case and
+reverses in the one that matters:
 
 | | Vendor CM (RCM / TCS) | ACES |
 | --- | --- | --- |

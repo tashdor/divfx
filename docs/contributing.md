@@ -52,7 +52,7 @@ To add a chapter, create the Markdown file in `docs/` and add it to the `nav:` l
   [Change List](changelog.md).
 - **Flag rather than silently rewrite.** Where 2017 content is out of date or incorrect, the
   practice in this port is to leave the original text and add an admonition linking to
-  [Notes for v1.1](v1.1-notes.md). This keeps the port honest about what is original and what is
+  [Notes for v1.1](v1.1-notes.md). This keeps the port faithful about what is original and what is
   editorial. If you are making a substantive technical revision, that becomes a versioned change
   — record it.
 - **Cite sources** for factual claims, particularly specifications, standards numbers, and dates.

@@ -14,7 +14,7 @@ scene-referred or display-referred — and never crossing that boundary by accid
 industry's standardized answer to that problem. It fixes a single scene-referred interchange
 encoding, a single set of working spaces derived from it, and a defined transform at each end.
 
-The practical argument for an independent production is narrow and worth stating plainly: ACES
+The practical argument for an independent production is narrow: ACES
 gives you a pipeline that multiple vendors can implement identically without negotiating a
 bespoke color workflow for every show. That is precisely the failure mode this handbook opens
 by describing — plates pulled in the wrong space, work done under an unknown viewing transform,
@@ -231,7 +231,7 @@ ST 2065-4:2023 lists ten required attributes, one of which is `compression`.[^ac
         attributes). The 2023 edition revises ST 2065-4:2013.
 
 !!! warning "The uncompressed rule is about the ST 2065-4 *container* — not every EXR in the pipeline"
-    This trips people up, so it is worth scoping precisely. **SMPTE ST 2065-4:2023 §8.19 is
+    This trips people up. **SMPTE ST 2065-4:2023 §8.19 is
     explicit:**
 
     > "The compression attribute shall be of type compression and shall contain the value 0,

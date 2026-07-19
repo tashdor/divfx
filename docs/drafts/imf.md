@@ -71,7 +71,7 @@ one that matters for streaming delivery. Per ST 2067-21, it uses image essence c
 SMPTE ST 379-1 and ST 422, and picture essence described by a CDCI descriptor (for Y′C′BC′R) or
 an RGBA descriptor (for R′G′B′).
 
-The choice of JPEG 2000 rather than a long-GOP codec is deliberate and worth noting: it is
+The choice of JPEG 2000 rather than a long-GOP codec is deliberate: it is
 intra-frame, mathematically lossless at high rates, and frame-addressable — the same properties
 that make it right for [DCP](../production-workflow.md#dcp-digital-cinema-package). A mastering
 format must be editable at any frame, which rules out temporal compression.

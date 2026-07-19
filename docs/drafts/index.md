@@ -20,7 +20,7 @@ Claims here are checked against a color-science reference library — ITU, SMPTE
 Dolby primary documents, plus *Color and Mastering for Digital Cinema* and
 *Cinematic Color* — and cited inline where a specific value or wording depends on a source.
 
-Two honesty notes carried through every page:
+Two rules carried through every page:
 
 - **Where the library corroborates a claim, it is cited.** Where a claim rests only on current
   web sources — principally anything about ACES 2.0, which postdates the library's newest ACES

@@ -40,7 +40,7 @@ This is the distinction that most often goes wrong in a delivery conversation.
 **PQ** — standardized as **SMPTE ST 2084** — is an *absolute* transfer function. A code value
 maps to a specific luminance in cd/m², up to 10 000. A PQ signal says "this pixel is 400 nits."
 That is what makes it right for cinematic mastering: the creative intent is pinned to measurable
-light, and the display's job is to reproduce it or tone-map it down honestly.
+light, and the display's job is to reproduce it or tone-map it down faithfully.
 
 **HLG** is a *relative* transfer function, with the OETF operating on scene linear light. It is
 designed for live production and broadcast, and is substantially backward-compatible with SDR
