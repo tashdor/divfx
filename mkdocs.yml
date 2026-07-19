@@ -108,6 +108,12 @@ nav:
   - Color Spaces and Transfer Functions: color.md
   - Visual Effects Quality Control: vfx-quality-control.md
   - Visual Effects Production Management: vfx-production-management.md
+  - Drafts for v1.1:
+      - drafts/index.md
+      - ACES: drafts/aces.md
+      - Color Management and OpenColorIO: drafts/color-management.md
+      - HDR Mastering: drafts/hdr.md
+      - IMF: drafts/imf.md
   - Reference:
       - Glossary: glossary.md
       - Change List: changelog.md

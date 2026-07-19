@@ -137,6 +137,7 @@ thus used as a deliverable and projection format only, not as an intermediate wo
 DCDMs (Digital Cinema Distribution Masters) and DCPs (Digital Cinema Packages) are produced
 in DCI-X'Y'Z' space.
 
-!!! note "Worth stating precisely"
-    The "compensation factor" has a specific derivation worth spelling out. See
+!!! note "Correct, and worth spelling out"
+    The "compensation factor" is exactly what the sentence says it is — the constant 52.37 is
+    what allows D65 to be encoded at 48 cd/m². The derivation is in
     [Notes for v1.1](v1.1-notes.md#dci-xyz-encoding).
