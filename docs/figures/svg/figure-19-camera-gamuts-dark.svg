@@ -48,10 +48,10 @@
 <circle cx="303.24" cy="-464.28" r="2.2" fill="#1f8fd0" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
 <circle cx="281.96" cy="828.74" r="2.2" fill="#1f8fd0" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
 <path d="M459.78 487.37L462.38 489.97L459.78 492.57L457.18 489.97Z" fill="#1f8fd0" stroke="#ffffff" stroke-width="1"/>
-<path d="M801.59 530.1 L318.32 59.12 L285.56 800.4 Z" fill="none" stroke="#1f9d55" stroke-width="1.8" stroke-linejoin="round"/>
-<circle cx="801.59" cy="530.1" r="2.2" fill="#1f9d55" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
-<circle cx="318.32" cy="59.12" r="2.2" fill="#1f9d55" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
-<circle cx="285.56" cy="800.4" r="2.2" fill="#1f9d55" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+<path d="M831.08 534.2 L387.94 104.17 L276.55 830.71 Z" fill="none" stroke="#1f9d55" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="831.08" cy="534.2" r="2.2" fill="#1f9d55" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+<circle cx="387.94" cy="104.17" r="2.2" fill="#1f9d55" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+<circle cx="276.55" cy="830.71" r="2.2" fill="#1f9d55" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
 <path d="M459.78 487.37L462.38 489.97L459.78 492.57L457.18 489.97Z" fill="#1f9d55" stroke="#ffffff" stroke-width="1"/>
 <path d="M727.87 489.15 L449.38 267.99 L326.51 710.3 Z" fill="none" stroke="#e07b1f" stroke-width="1.8" stroke-linejoin="round"/>
 <circle cx="727.87" cy="489.15" r="2.2" fill="#e07b1f" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
@@ -124,16 +124,16 @@
 <text x="519" y="879.74" text-anchor="middle" font-style="italic" font-size="11" fill="#7a7a88">x</text>
 <text x="105.5" y="440" text-anchor="middle" font-style="italic" font-size="11" fill="#7a7a88" transform="rotate(-90 105.5 440)">y</text>
 <g font-family="ui-sans-serif, system-ui, sans-serif">
-<rect x="729.1" y="32.26" width="144.4" height="88" fill="#0f0f0f" fill-opacity="0.82" stroke="rgba(255,255,255,0.22)"/>
-<line x1="737.1" y1="46.26" x2="753.1" y2="46.26" stroke="#7b3fe4" stroke-width="2.4"/>
-<text x="760.1" y="46.26" font-size="11" fill="#c8c8d0" dominant-baseline="middle">ARRI Wide Gamut 3</text>
-<line x1="737.1" y1="62.26" x2="753.1" y2="62.26" stroke="#1f8fd0" stroke-width="2.4"/>
-<text x="760.1" y="62.26" font-size="11" fill="#c8c8d0" dominant-baseline="middle">REDWideGamutRGB</text>
-<line x1="737.1" y1="78.26" x2="753.1" y2="78.26" stroke="#1f9d55" stroke-width="2.4"/>
-<text x="760.1" y="78.26" font-size="11" fill="#c8c8d0" dominant-baseline="middle">Sony S-Gamut3</text>
-<line x1="737.1" y1="94.26" x2="753.1" y2="94.26" stroke="#e07b1f" stroke-width="2.4"/>
-<text x="760.1" y="94.26" font-size="11" fill="#c8c8d0" dominant-baseline="middle">Rec. 709</text>
-<line x1="737.1" y1="110.26" x2="753.1" y2="110.26" stroke="#d62828" stroke-width="2.4"/>
-<text x="760.1" y="110.26" font-size="11" fill="#c8c8d0" dominant-baseline="middle">DCI-P3</text>
+<rect x="722.9" y="32.26" width="150.6" height="88" fill="#0f0f0f" fill-opacity="0.82" stroke="rgba(255,255,255,0.22)"/>
+<line x1="730.9" y1="46.26" x2="746.9" y2="46.26" stroke="#7b3fe4" stroke-width="2.4"/>
+<text x="753.9" y="46.26" font-size="11" fill="#c8c8d0" dominant-baseline="middle">ARRI Wide Gamut 3</text>
+<line x1="730.9" y1="62.26" x2="746.9" y2="62.26" stroke="#1f8fd0" stroke-width="2.4"/>
+<text x="753.9" y="62.26" font-size="11" fill="#c8c8d0" dominant-baseline="middle">REDWideGamutRGB</text>
+<line x1="730.9" y1="78.26" x2="746.9" y2="78.26" stroke="#1f9d55" stroke-width="2.4"/>
+<text x="753.9" y="78.26" font-size="11" fill="#c8c8d0" dominant-baseline="middle">Sony S-Gamut3.Cine</text>
+<line x1="730.9" y1="94.26" x2="746.9" y2="94.26" stroke="#e07b1f" stroke-width="2.4"/>
+<text x="753.9" y="94.26" font-size="11" fill="#c8c8d0" dominant-baseline="middle">Rec. 709</text>
+<line x1="730.9" y1="110.26" x2="746.9" y2="110.26" stroke="#d62828" stroke-width="2.4"/>
+<text x="753.9" y="110.26" font-size="11" fill="#c8c8d0" dominant-baseline="middle">DCI-P3</text>
 </g>
 </svg>

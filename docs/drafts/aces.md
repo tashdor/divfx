@@ -224,38 +224,52 @@ the end.
 
 ACES image data is carried in the ACES Image Container, SMPTE ST 2065-4. It is
 OpenEXR-compatible but **feature-restricted** — a constrained profile of EXR rather than
-arbitrary EXR.[^ac4]
+arbitrary EXR. It stores 16-bit half-float pixels and mandates a fixed set of header attributes;
+ST 2065-4:2023 lists ten required attributes, one of which is `compression`.[^ac4]
 
-[^ac4]: TB-2014-006, *Informative Notes on SMPTE ST 2065-4*. Note that TB-2014-006 is deliberately
-        thin: it explains what the container is and when to use it, but the file layout, channel
-        naming, and compression constraints live in the SMPTE standard itself, which must be
-        purchased.
+[^ac4]: SMPTE ST 2065-4:2023, *ACES Image Container File Layout*, §6.5.3 and Table 5 (required
+        attributes). The 2023 edition revises ST 2065-4:2013.
 
-!!! warning "The compression rule is stricter than working EXR practice"
-    The Academy's own presentation of ST 2065-4:2013 lists the container's required attributes,
-    and for compression it gives a single value: **`compression = 0`, i.e. NO_COMPRESSION**.[^ac5]
-    So the original ACES container permitted **uncompressed data only** — not ZIP or ZIPS, but
-    also not PIZ, B44A, or anything else.
+!!! warning "The uncompressed rule is about the ST 2065-4 *container* — not every EXR in the pipeline"
+    This trips people up, so it is worth scoping precisely. **SMPTE ST 2065-4:2023 §8.19 is
+    explicit:**
 
-    That is counter-intuitive, because ZIP/ZIPS are the workhorses of everyday VFX EXRs. But the
-    ACES container is an *archival interchange* format, a different job from a working render.
-    Uncompressed guarantees any reader opens the file identically, with no decoder dependency,
-    version skew, or ambiguity — fidelity and universal readability over file size. There is a
-    second reason ZIP specifically was never the pick even where compression was later allowed:
-    ACES material was historically film-scanned and grainy, and ZIP's deflate compresses
-    high-entropy grain poorly, whereas PIZ's wavelet handles it well — so when a lossless scheme
-    is wanted, PIZ beats ZIP on exactly the imagery ACES was built around.
+    > "The compression attribute shall be of type compression and shall contain the value 0,
+    > indicating no compression."
 
-    The spec has been revised since 2013, and later characterizations (and OpenEXR's own ACES
-    writer, which defaults to PIZ) are more permissive than uncompressed-only. **The current
-    permitted set needs the paywalled ST 2065-4 to confirm** — the free bulletins omit it. The
-    practical point stands either way: "it opened in Nuke" is not evidence of conformance, because
-    a ZIP-compressed file is still valid EXR and opens everywhere regardless of what the container
-    spec permits.
+    It is a *required* attribute (§6.5.3) fixed at 0 — in both the 2013 and 2023 editions, not a
+    rule that was later relaxed. So a conformant **ACES container is uncompressed, full stop.**
 
-[^ac5]: G. Joblove (AMPAS), *ACES — The Academy Color Encoding System*, SMPTE Montréal/Québec
-        Chapter, 28 May 2013, slide 52 ("Metadata → Required"). `0` is `NO_COMPRESSION` in the
-        OpenEXR compression enumeration.
+    But note *what* that container is. ST 2065-4 §1 scopes it to "the exchange of digital images
+    encoded according to SMPTE ST 2065-1" — i.e. **ACES2065-1 (AP0, linear)**, the full-fidelity
+    interchange and archival encoding. The standard nails this down: its required `chromaticities`
+    attribute (§8.17) is fixed to the AP0 primaries and white point, so you literally **cannot put
+    ACEScg (AP1) data in a conformant ST 2065-4 container.**
+
+    So the rule applies to what you would actually deliver *as* an ACES container:
+
+    | File | Typical encoding | ST 2065-4 container? | Compression |
+    | --- | --- | --- | --- |
+    | Archival / source master | ACES2065-1 (AP0) | Yes | **Uncompressed** (mandated) |
+    | Full-fidelity vendor interchange | ACES2065-1 (AP0) | Yes | **Uncompressed** (mandated) |
+    | VFX plate pull | ACEScg or camera-log EXR | No | Compress freely (ZIP/PIZ/DWA) |
+    | VFX render back to the DI | ACEScg (AP1) EXR | No | Compress freely |
+    | Comp working files | ACEScg (AP1) EXR | No | Compress freely |
+
+    Your ACEScg renders and plates are ordinary OpenEXR files — compress them normally; nobody
+    ships uncompressed ACEScg. They are simply **not ST 2065-4 ACES containers**, and the rule
+    never claimed they were.
+
+    Why uncompressed for the container itself? It is an archival interchange format. Fixing it to
+    uncompressed 16-bit half means any reader opens any ACES container identically — no decoder
+    dependency, version skew, or ambiguity (the standard's own security note points out the file
+    carries no executable code and is not compressed). Fidelity and universal readability over
+    file size.
+
+    The practical trap: **"it opened in Nuke" is not evidence of container conformance.** A ZIP- or
+    PIZ-compressed ACES2065-1 EXR is still valid *OpenEXR* and opens everywhere — but it is **not a
+    conformant ST 2065-4 ACES container**. When you are writing the ACES2065-1 archival/interchange
+    master specifically, the compression setting is a conformance requirement, not a preference.
 
 Related: clip-level metadata travels in an **ACES Metadata File**
 ([AMF specification](https://docs.acescentral.com/amf/specification/); the earlier ACESclip form
@@ -295,13 +309,27 @@ other. It is not a settled question.
 
 ## Should an independent production use ACES?
 
-**Yes, if** you have multiple VFX vendors, multiple camera systems, or a deliverable set that
-includes both theatrical and HDR home video. ACES gives you a specified pipeline that vendors can
-implement without a bespoke negotiation, and an archival master in a standardized space.
+**Yes** when:
 
-**Probably not, if** you are a single-camera show finishing Rec.709 with one artist, and your
-colorist already has a camera-native workflow they trust. ACES is not free — it costs setup,
-testing, and vendor discipline. Adopting it badly is worse than a well-run camera-native pipeline.
+- You are working with **multiple camera systems and multiple VFX vendors**. ACES gives everyone a
+  specified pipeline to implement, so plates and renders interchange without a bespoke negotiation
+  per vendor.
+- You **lack the color-science infrastructure or resources to produce and vet a custom workflow**.
+  A standardized, documented pipeline you can adopt is safer than a homemade one you cannot fully
+  test.
+
+**Maybe not** when:
+
+- You have a **single camera acquisition format**. Much of what ACES buys you is interchange across
+  disparate sources; with one source, a well-run camera-native workflow may be simpler.
+- You have a **strong creative reason to deviate from the ACES Output Transform**. If the look you
+  want fights the standard rendering, you are working against the system rather than with it.
+- You have a **fixed, well-understood set of deliverables and the preparation to accommodate
+  them**. If nothing about the job needs neutral interchange or archival, the setup cost may not
+  pay for itself.
+
+Adopting ACES badly is worse than a well-run camera-native pipeline. It is not free — it costs
+setup, testing, and vendor discipline.
 
 **Either way**, the decision belongs in pre-production, alongside the
 [three format specifications](../turnover-vfx.md#format-specification) — acquisition, plate

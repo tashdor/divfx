@@ -127,8 +127,9 @@ put the primaries in the same places.
     vector geometry + embedded spectral fill · 75 KB · scales to any size ·
     follows the page theme
 
-**Plots:** ARRI Wide Gamut 3, REDWideGamutRGB, Sony S-Gamut3, Rec. 709, DCI-P3 — matching the
-original's five traces.
+**Plots:** ARRI Wide Gamut 3, REDWideGamutRGB, Sony S-Gamut3.Cine, Rec. 709, DCI-P3. (The v1.1
+chapter plots S-Gamut3.Cine — the de facto Sony working space — rather than the original's
+S-Gamut3.)
 
 ### Primaries used
 
@@ -136,7 +137,7 @@ original's five traces.
 | --- | --- | --- | --- | --- |
 | ARRI Wide Gamut 3 | 0.684, 0.313 | 0.221, 0.848 | 0.0861, −0.102 | D65 |
 | REDWideGamutRGB | 0.780308, 0.304253 | 0.121595, 1.493994 | 0.095612, −0.084589 | D65 |
-| Sony S-Gamut3 | 0.730, 0.280 | 0.140, 0.855 | 0.100, −0.050 | D65 |
+| Sony S-Gamut3.Cine | 0.766, 0.275 | 0.225, 0.800 | 0.089, −0.087 | D65 |
 | Rec. 709 | 0.640, 0.330 | 0.300, 0.600 | 0.150, 0.060 | D65 |
 | DCI-P3 | 0.680, 0.320 | 0.265, 0.690 | 0.150, 0.060 | DCI |
 
@@ -179,14 +180,10 @@ ARRI's current styling, the rename is consistent — but it is a change from the
 
 ### 3. The chapter table lists a space the figure never plotted
 
-[Camera Color Spaces](../color.md#camera-color-spaces) lists four spaces: ARRI Wide Gamut,
-**RED DRAGONcolor2**, REDWideGamutRGB, and Sony S-Gamut3. Figure 19 plots ARRI, REDWideGamutRGB,
-S-Gamut3 — **and not DRAGONcolor2** — plus two delivery spaces the table does not mention.
-
-This is a pre-existing inconsistency in v1.0.1, not something introduced here. Since the figure
-is being regenerated anyway, v1.1 could resolve it by either adding DRAGONcolor2 to the plot or
-dropping it from the table. Given RED's current line has moved to REDWideGamutRGB, dropping it
-is probably right.
+*Resolved.* v1.0.1 listed **RED DRAGONcolor2**, which the figure never plotted and which RED has
+retired in favour of REDWideGamutRGB. It has been dropped from the
+[Camera Color Spaces](../color.md#camera-color-spaces) table, and the Sony entry updated from
+S-Gamut3 to **S-Gamut3.Cine** (the de facto working space). Table and figure now agree.
 
 ### 4. Colour assignments
 

@@ -103,7 +103,7 @@ const fig18 = () => mkProject([
 const fig19 = () => mkProject([
   sp('awg3',   'ARRI Wide Gamut 3',  '#7b3fe4'),
   sp('redwg',  'REDWideGamutRGB',    '#1f8fd0'),
-  sp('sgamut3','Sony S-Gamut3',      '#1f9d55'),
+  sp('sgamut3cine','Sony S-Gamut3.Cine','#1f9d55'),
   sp('rec709', 'Rec. 709',           '#e07b1f'),
   sp('p3dci',  'DCI-P3',             '#d62828')
 ], 'Camera and Delivery Color Spaces');
