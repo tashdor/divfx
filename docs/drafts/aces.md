@@ -231,13 +231,31 @@ arbitrary EXR.[^ac4]
         naming, and compression constraints live in the SMPTE standard itself, which must be
         purchased.
 
-!!! warning "Verify before relying on this"
-    The specific set of permitted compression schemes is defined in ST 2065-4, not in the free
-    Academy bulletins. Commonly cited guidance is that the container permits only uncompressed,
-    PIZ, and B44A — which would make DWAA/DWAB **non-conformant** in a ST 2065-4 file even though
-    any EXR reader will open one. **[web-sourced — confirm against ST 2065-4 before print.]**
-    This is worth pinning down, because "it opened in Nuke" is not evidence of conformance, and a
-    non-conformant archival master is the kind of error that surfaces years later.
+!!! warning "The compression rule is stricter than working EXR practice"
+    The Academy's own presentation of ST 2065-4:2013 lists the container's required attributes,
+    and for compression it gives a single value: **`compression = 0`, i.e. NO_COMPRESSION**.[^ac5]
+    So the original ACES container permitted **uncompressed data only** — not ZIP or ZIPS, but
+    also not PIZ, B44A, or anything else.
+
+    That is counter-intuitive, because ZIP/ZIPS are the workhorses of everyday VFX EXRs. But the
+    ACES container is an *archival interchange* format, a different job from a working render.
+    Uncompressed guarantees any reader opens the file identically, with no decoder dependency,
+    version skew, or ambiguity — fidelity and universal readability over file size. There is a
+    second reason ZIP specifically was never the pick even where compression was later allowed:
+    ACES material was historically film-scanned and grainy, and ZIP's deflate compresses
+    high-entropy grain poorly, whereas PIZ's wavelet handles it well — so when a lossless scheme
+    is wanted, PIZ beats ZIP on exactly the imagery ACES was built around.
+
+    The spec has been revised since 2013, and later characterizations (and OpenEXR's own ACES
+    writer, which defaults to PIZ) are more permissive than uncompressed-only. **The current
+    permitted set needs the paywalled ST 2065-4 to confirm** — the free bulletins omit it. The
+    practical point stands either way: "it opened in Nuke" is not evidence of conformance, because
+    a ZIP-compressed file is still valid EXR and opens everywhere regardless of what the container
+    spec permits.
+
+[^ac5]: G. Joblove (AMPAS), *ACES — The Academy Color Encoding System*, SMPTE Montréal/Québec
+        Chapter, 28 May 2013, slide 52 ("Metadata → Required"). `0` is `NO_COMPRESSION` in the
+        OpenEXR compression enumeration.
 
 Related: clip-level metadata travels in an **ACES Metadata File**
 ([AMF specification](https://docs.acescentral.com/amf/specification/); the earlier ACESclip form
