@@ -7,76 +7,121 @@ methods for implementing them — in a form relevant to independent feature film
 short-form projects. It covers the path an image takes from acquisition through dailies,
 editorial, visual effects, digital intermediate finishing, and distribution.
 
-It is written for independent producers, editors, and freelance visual effects artists who
-want to adapt studio practice to productions that do not have studio budgets or staffing.
+## Why this matters, even on a small production
 
-[Start reading :material-arrow-right:](introduction.md){ .md-button .md-button--primary }
-[Browse the workflow :material-arrow-right:](production-workflow.md){ .md-button }
+Visual effects are no longer the preserve of tentpole films. Invisible cleanup, set
+extensions, sky and screen replacements, beauty work, composited elements, and full CG shots
+now appear in the smallest independent features, documentaries, and even short-form and social
+content — usually without the audience ever noticing they are there. VFX has trickled all the
+way down.
 
----
+What has *not* trickled down is the studio infrastructure that keeps those shots on budget:
+scene-referred color pipelines, shot-naming and turnover conventions, format discipline, and
+clear communication between editorial, the vendor, and the finish. On an independent
+production, the difference between a visual effects shot that costs a few hundred dollars and
+one that spirals is almost always decided *before a single frame is pulled* — in planning,
+format choices, and how cleanly the hand-offs are organized.
 
-## This is the wiki edition
+This handbook is about that forethought: making studio-grade decisions early, when they cost
+almost nothing, instead of paying to unwind them later. It is written for independent
+producers, editors, colorists, and freelance visual effects artists who want to adapt studio
+practice to productions that do not have studio budgets or staffing.
 
-The handbook was originally published as a PDF. This site is the same material restructured
-as a searchable, linkable wiki that can be corrected and extended over time. Every page has
-an :material-file-edit-outline: edit link that opens the underlying Markdown on GitHub.
+## Where to start
 
-Use the search box at the top of the page — it indexes the full text of every chapter.
+Not everyone should read this front to back. Pick the thread that matches your role or your
+question:
 
-## Download the PDF
+- **New here, or want the big picture** → [Introduction](introduction.md), then the
+  [Generalized Production Workflow](production-workflow.md).
+- **Editors & assistant editors** → [Editorial Turnover for DI](turnover-di.md) and
+  [for VFX Plate Pulls](turnover-vfx.md).
+- **VFX artists & vendors** → [VFX Plate Pulls](turnover-vfx.md),
+  [Common Working Formats](working-formats.md),
+  [Color Management](color-management.md), [Visual Effects QC](vfx-quality-control.md), and
+  [VFX Production Management](vfx-production-management.md).
+- **Colorists & finishing artists** → [An Overview of Digital Intermediates](digital-intermediates.md),
+  [Color Spaces and Transfer Functions](color.md), [ACES](aces.md), and [HDR Mastering](hdr.md).
+- **Producers & post supervisors** → [Generalized Production Workflow](production-workflow.md),
+  [Distribution Deliverables](distribution-deliverables.md), and
+  [VFX Production Management](vfx-production-management.md).
+- **Delivering to theaters or platforms** → [IMF](imf.md), [DCP](dcp.md), and
+  [Distribution Deliverables for Independent Film](distribution-deliverables.md).
+- **Just need a quick answer** → use the **search box** at the top of the page (it indexes every
+  chapter), or jump to the [Glossary](glossary.md) or
+  [Supplemental Reading & Resources](resources.md).
 
-The original typeset editions remain available:
+## Full contents
+
+**Foundations**
+
+- [Introduction](introduction.md) — what the handbook covers and who it is for.
+- [Generalized Production Workflow](production-workflow.md) — the full path from previsualization
+  through archival, and where things typically go wrong.
+- [An Overview of Digital Intermediates](digital-intermediates.md) — the colorist's role, Camera
+  RAW, scene-referred vs. display-referred imagery, and LUTs.
+
+**Editorial Turnover**
+
+- [For Digital Intermediates](turnover-di.md) — preparing timelines, generating edit lists, and
+  delivering media for conform.
+- [For VFX Plate Pulls](turnover-vfx.md) — shot naming, frame numbering, handles, versioning, and
+  format specification.
+
+**Formats & Resolution**
+
+- [Common Working Formats](working-formats.md) — ProRes, Avid DNx, H.264/H.265, DPX, OpenEXR, and TIFF.
+- [Working and Delivery Resolutions](resolutions.md) — HD, UHD, digital cinema containers, frame
+  padding, and anamorphic workflows.
+
+**Color & Color Management**
+
+- [Color Spaces and Transfer Functions](color.md) — display and camera gamuts, log encodings, and DCI-X'Y'Z'.
+- [ACES](aces.md) — the Academy Color Encoding System as an interchange and finishing standard.
+- [Color Management and OpenColorIO](color-management.md) — how OCIO implements ACES in practice.
+- [Application-Native Color Management](application-native-color-management.md) — DaVinci RCM and FilmLight TCS.
+- [Choosing a Color Management Approach](color-management-comparison.md) — which system fits your pipeline.
+- [HDR Mastering](hdr.md) — PQ and HLG, mastering displays, and SDR derivation.
+
+**Mastering & Delivery**
+
+- [IMF — The Interoperable Master Format](imf.md) — the studio/streamer interchange master.
+- [DCP — The Digital Cinema Package](dcp.md) — the theatrical deliverable and festival delivery.
+- [Distribution Deliverables for Independent Film](distribution-deliverables.md) — what real indie
+  distributor delivery schedules actually require.
+
+**Visual Effects**
+
+- [Visual Effects Quality Control](vfx-quality-control.md) — scaling, concatenated transforms, and
+  gamma, exposure, and difference checking.
+- [Visual Effects Production Management](vfx-production-management.md) — asset management, production
+  tracking, and running a virtual studio.
+
+**Reference**
+
+- [Supplemental Reading & Resources](resources.md) — every standard, white paper, and document the
+  wiki cites, with links.
+- [Glossary](glossary.md) — the terminology, defined.
+- [Change List](changelog.md) and [Notes for v1.1](v1.1-notes.md) — what has changed and what is
+  being revised.
+
+## A living edition
+
+The handbook was originally published as a PDF. This site is the same material restructured as a
+searchable, linkable wiki that is corrected and extended over time — so it can stay current with
+cameras, codecs, color standards, and delivery specs in a way a fixed PDF cannot. Use the search
+box at the top of any page to jump straight to a term or format.
+
+The original typeset editions remain available for download:
 
 - [English (PDF, 21 MB)](https://github.com/tashdor/divfx/releases/download/1.0.1/DigitalIntermediates_VisualEffects_Independent_v1.0.1.pdf) — v1.0.1, Fall 2017
 - [Simplified Chinese 简体中文 (PDF, 24 MB)](https://github.com/tashdor/divfx/releases/download/1.0.1_cn/DigitalIntermediates_VisualEffects_Independent_v1.0.1_cn.pdf) — translation by Xiyu Fan
 
 !!! note "Version status"
-    This wiki is derived from **v1.0.1 (Fall 2017)**. The text has had a copy-editing pass,
-    but its technical content still reflects 2017 practice. Sections that have since gone out
-    of date are tracked in [Notes for v1.1](v1.1-notes.md) — read that page before relying on
-    any specific product name, camera model, or delivery specification.
-
-## Contents
-
-<div class="grid cards" markdown>
-
--   :material-timeline-outline: **[Generalized Production Workflow](production-workflow.md)**
-
-    The full path from previsualization through archival, and where things typically go wrong.
-
--   :material-palette-outline: **[An Overview of Digital Intermediates](digital-intermediates.md)**
-
-    The colorist's role, Camera RAW, scene-referred vs. display-referred imagery, and LUTs.
-
--   :material-file-tree-outline: **[Editorial Turnover for DI](turnover-di.md)**
-
-    Preparing timelines, generating edit lists, and delivering media for conform.
-
--   :material-content-cut: **[Editorial Turnover for VFX Plate Pulls](turnover-vfx.md)**
-
-    Shot naming, frame numbering, handles, versioning, and format specification.
-
--   :material-file-video-outline: **[Common Working Formats](working-formats.md)**
-
-    ProRes, DNxHR, H.264/H.265, DPX, OpenEXR, and TIFF.
-
--   :material-aspect-ratio: **[Working and Delivery Resolutions](resolutions.md)**
-
-    HD, UHD, digital cinema containers, frame padding, and anamorphic workflows.
-
--   :material-invert-colors: **[Color Spaces and Transfer Functions](color.md)**
-
-    Display and camera gamuts, log encodings, and DCI-X'Y'Z'.
-
--   :material-check-decagram-outline: **[Visual Effects Quality Control](vfx-quality-control.md)**
-
-    Scaling, concatenated transforms, and gamma, exposure, and difference checking.
-
--   :material-account-group-outline: **[VFX Production Management](vfx-production-management.md)**
-
-    Asset management, production tracking, and running a virtual studio.
-
-</div>
+    This wiki began as **v1.0.1 (Fall 2017)** and is being revised chapter by chapter toward a
+    modern edition. Where a section still reflects older practice it is flagged, and
+    [Notes for v1.1](v1.1-notes.md) tracks what is changing — worth a glance before you rely on a
+    specific product name, camera model, or delivery specification.
 
 ## Contact
 

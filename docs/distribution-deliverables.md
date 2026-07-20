@@ -58,7 +58,7 @@ Underneath the codec choice, the surveyed schedules agree on a remarkably consis
   HD or HD to 4K. A 4K master is accepted only for a film actually *finished* in 4K — and one
   distributor requires the 4K and HD masters to be delivered as two separate sets.
 - **Color.** **Rec.709** is the HD standard. 4K and HDR masters move to **BT.2020 with the
-  [PQ / ST 2084](hdr.md#pq-the-hdr-eotf) EOTF**, with **Dolby Vision** the most commonly named HDR
+  [PQ / ST 2084](hdr.md#pq-and-hlg-are-not-interchangeable) EOTF**, with **Dolby Vision** the most commonly named HDR
   flavor; those tiers ask for 10- to 16-bit and, at the top end, a full HDR master with an SDR
   derivation. See [HDR Mastering](hdr.md).
 - **Heads and tails — read the specific document.** Modern file-based schedules (2019–2025) want the
