@@ -20,34 +20,29 @@ editorial and mastering.
 
 ### Apple ProRes
 
-Apple ProRes codecs are resolution-independent, professional video codecs almost exclusively
-in QuickTime (`.mov`) wrappers. Avid Media Composer is capable of rewrapping ProRes as MXF
-OP-Atom per its media management system.
+Apple ProRes codecs are resolution-independent, professional video codecs almost exclusively in
+QuickTime (`.mov`) wrappers. Avid Media Composer can rewrap ProRes as MXF OP-Atom per its media
+management system.
 
-ProRes 4444 and ProRes 4444 XQ are commonly used as camera acquisition formats,[^9]
-intermediate color grading formats, as well as visual effects plate and delivery formats. They
-sustain multiple generations of encoding without meaningful image degradation and are
-visually indistinguishable from equivalent uncompressed alternatives. Both are 12-bit codecs
-capable of embedded alpha channel and supporting either RGBA or 4:4:4 Y'CbCrA image data.
+| Variant | Encoding | Typical use |
+| --- | --- | --- |
+| **ProRes 4444 XQ** | 12-bit 4:4:4 (RGBA / Y′CbCrA), with alpha | Highest quality — camera acquisition, intermediate grading, VFX plates and delivery |
+| **ProRes 4444** | 12-bit 4:4:4, with alpha | Camera acquisition, intermediate grading, VFX plates and delivery |
+| **ProRes 422 HQ** | 10-bit 4:2:2 | High-quality mastering and delivery |
+| **ProRes 422** | 10-bit 4:2:2 | Mastering and delivery |
+| **ProRes 422 LT** | 10-bit 4:2:2 | Lighter editorial |
+| **ProRes 422 Proxy** | 10-bit 4:2:2 | Offline dailies and editorial proxies |
+
+The **4444** variants sustain multiple generations of encoding without meaningful image degradation
+and are visually indistinguishable from equivalent uncompressed alternatives, which is why they
+serve as camera acquisition,[^9] intermediate grading, and VFX plate and delivery formats. See the
+[Apple ProRes white paper](https://www.apple.com/final-cut-pro/docs/Apple_ProRes.pdf) for details.
+
+ProRes also has a RAW variant (**ProRes RAW**, 2018), but it is a camera-acquisition format only —
+like ARRIRAW or R3D — and is not applicable to transcoded VFX plate pulls.
 
 [^9]: ARRI ALEXA ProRes, RED V-RAPTOR, Blackmagic URSA Cine, a variety of external
       third-party recorders, and more…
-
-ProRes 422 HQ and ProRes 422 are frequently used as mastering formats for 10-bit 4:2:2 Y'CbCr
-deliverables.
-
-ProRes 422 LT and ProRes 422 Proxy, while also 10-bit 4:2:2, are significantly more compressed
-and ideal for offline dailies and editorial proxies.
-
-For more information on the Apple ProRes codecs, see the
-[Apple ProRes white paper](https://www.apple.com/final-cut-pro/docs/Apple_ProRes.pdf).
-
-Apple introduced **ProRes RAW** in 2018. Unlike the ProRes codecs above, it is a
-**camera-acquisition RAW format** — Bayer sensor data recorded in-camera or via compatible external
-recorders (e.g. Atomos), carrying the same develop-later flexibility as ARRIRAW or R3D. It is an
-acquisition codec only: it is not an intermediate or mastering format, and it is **not used to
-generate or deliver VFX plates**, which are developed out to scene-referred EXR (or DPX) for the
-pipeline.
 
 ### Avid DNx
 
@@ -72,12 +67,6 @@ that (444 ≈ 42 MB/s, LB ≈ 4 MB/s). Avid Media Composer manages DNx media nat
 OP-Atom**, and Avid also ships DNx **QuickTime** codecs. The codec is
 standardized as **SMPTE ST 2019-1 (VC-3)**; its 2026 revision folds in the two RGB levels Avid had
 shipped as "DNx GX."[^dnx]
-
-!!! warning "Compression artifacts and log material"
-    Compression artifacts present in Avid DNx, even at high bit rates, adversely affect log
-    footage, producing keying artifacts. DNx is not an advisable codec for camera log material. It
-    is well suited to delivering final, graded, display-referred content, but is not a recommended
-    intermediate format for color grading and visual effects.
 
 [^dnx]: Avid, [*Avid DNx naming scheme and data rates*](https://kb.avid.com/pkb/articles/en_US/Knowledge/Avid-DNx-naming-scheme-and-data-rates)
     and [*DNxHR Codec Bandwidth Specifications*](https://kb.avid.com/pkb/articles/en_US/white_paper/DNxHR-Codec-Bandwidth-Specifications);
