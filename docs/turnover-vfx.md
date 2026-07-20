@@ -164,7 +164,7 @@ the number of comp handle frames is subject to production budget and schedule.
 
 A common example of how visual effects plates might be pulled and numbered:
 
-<figure class="fseq-fig" markdown="span">
+<figure class="fseq-fig">
 <div class="fseq"><span class="fcell h">1001</span><span class="fcell h">1002</span><span class="fcell h">1003</span><span class="fcell h">1004</span><span class="fcell e">1005</span><span class="fcell e">1006</span><span class="fcell e">1007</span><span class="fcell e">1008</span><span class="fcell e">1009</span><span class="fcell e">1010</span><span class="fcell e">1011</span><span class="fcell e">1012</span><span class="fcell e">1013</span><span class="fcell e">1014</span><span class="fcell e">1015</span><span class="fcell h">1016</span><span class="fcell h">1017</span><span class="fcell h">1018</span><span class="fcell h">1019</span></div>
 <p class="fseq-key"><span class="sw" style="background:#e0912f26;border-color:#e0912f8c"></span> plate/comp handle frames<span class="sw" style="background:#4c7ef526;border-color:#4c7ef58c"></span> edit frames</p>
 </figure>
@@ -174,7 +174,7 @@ slate frame containing information about the shot, revisions made, the company n
 initials, and a framing chart. In this case, the slate frame is prepended to the file sequence
 without offsetting the frame numbering.
 
-<figure class="fseq-fig" markdown="span">
+<figure class="fseq-fig">
 <div class="fseq"><span class="fcell s">1000</span><span class="fcell h">1001</span><span class="fcell h">1002</span><span class="fcell h">1003</span><span class="fcell h">1004</span><span class="fcell e">1005</span><span class="fcell e">1006</span><span class="fcell e">1007</span><span class="fcell e">1008</span><span class="fcell e">1009</span><span class="fcell e">1010</span><span class="fcell e">1011</span><span class="fcell e">1012</span><span class="fcell e">1013</span><span class="fcell e">1014</span><span class="fcell e">1015</span><span class="fcell h">1016</span><span class="fcell h">1017</span><span class="fcell h">1018</span><span class="fcell h">1019</span></div>
 <p class="fseq-key"><span class="sw" style="background:#e0912f26;border-color:#e0912f8c"></span> plate/comp handle frames<span class="sw" style="background:#4c7ef526;border-color:#4c7ef58c"></span> edit frames<span class="sw" style="background:#7a869544;border-color:#7a8695aa"></span> slate frame</p>
 </figure>
@@ -189,7 +189,7 @@ frame 1034 will still be the same frame as in the initial pull.
 Alternatively, it may be desired that the first main frame (first frame of the edit) is 1001 with
 handles working backwards.
 
-<figure class="fseq-fig" markdown="span">
+<figure class="fseq-fig">
 <div class="fseq"><span class="fcell h">0997</span><span class="fcell h">0998</span><span class="fcell h">0999</span><span class="fcell h">1000</span><span class="fcell e">1001</span><span class="fcell e">1002</span><span class="fcell e">1003</span><span class="fcell e">1004</span><span class="fcell e">1005</span><span class="fcell e">1006</span><span class="fcell e">1007</span><span class="fcell e">1008</span><span class="fcell e">1009</span><span class="fcell e">1010</span><span class="fcell e">1011</span><span class="fcell h">1012</span><span class="fcell h">1013</span><span class="fcell h">1014</span><span class="fcell h">1015</span></div>
 <p class="fseq-key"><span class="sw" style="background:#e0912f26;border-color:#e0912f8c"></span> plate/comp handle frames<span class="sw" style="background:#4c7ef526;border-color:#4c7ef58c"></span> edit frames</p>
 </figure>
@@ -297,19 +297,27 @@ Example plate pull directory structure:
 ## Turnovers and Count Sheets
 
 The plate pull produces the media; the turnover is how that media, and the information that goes
-with it, reaches the vendor. Each turnover packages the pulled plates, the relevant reference and
-support files, and a count sheet that tells the vendor exactly what they are receiving.
+with it, reaches the vendor. Each turnover packages the pulled plates, a locked reference video of
+the cut, the relevant reference and support files, and a count sheet that tells the vendor exactly
+what they are receiving.
 
-The count sheet is the master list of every shot in the turnover. At a minimum it carries, per
-shot:
+The count sheet is the master list of every shot in the turnover. It tells the vendor about every
+shot being requested, what materials they will need, where to find them, and exactly what each shot
+involves. Per shot it typically carries:[^countsheet]
 
-- The VFX shot code (see [Visual Effects Shot Naming](#visual-effects-shot-naming) above).
-- The scene and reel, or the sequence the shot belongs to.
-- The source timecode and the frame range of the pull.
-- The number of handle frames on the head and tail.
-- The plate ID or IDs that make up the shot.
-- A brief description of the work.
-- The shot's current status.
+- **Shot code** (see [Visual Effects Shot Naming](#visual-effects-shot-naming) above), and the
+  **sequence, scene, and reel** it belongs to.
+- **Master (record) timecode** — where the shot sits in the cut — and the **source timecode** of
+  the plate, plus the frame range, duration, and the number of **handle frames** on head and tail.
+- The **plate ID or IDs** that make up the shot and where to find them (path or drive), and a
+  **thumbnail** so the shot is identifiable at a glance.
+- A description of the shot and, more usefully, a description of the **effect** required — broken
+  out per element when a shot combines several.
+- Technical notes that change the scope of the work: **retimes / speed changes**, **resizes and
+  repositions**, **frame extensions**, split-screens, and any **elements arriving from another
+  vendor**.
+- The **assigned vendor**, the current **version**, and the shot's **status** (bid, awarded, in
+  progress, in review, final).
 
 The count sheet travels with the plates so the vendor can reconcile what they were told against
 what actually landed on their drive, and it is the production's own record of what went out, to
@@ -322,6 +330,10 @@ enough to transmit efficiently.
 In practice the count sheet is rarely a separate document at all — it is a view of the same tracking
 sheet the production is already using to manage the show, filtered down to the shots in that
 turnover.
+
+[^countsheet]: Expected count-sheet (or "turnover sheet" / "lineup sheet") content follows common
+    feature practice — see, for example, [Evan Schiff, *Feature Turnover Guide — VFX*](https://www.evanschiff.com/articles/feature-turnover-guide-vfx/)
+    and Park Road Post's [*Guide to VFX Handovers*](https://workflow.deganz.co.nz/wp-content/uploads/2020/08/PRPP_Guide_to_VFXHandovers_v0.4_20200222.pdf). **[web-sourced.]**
 
 ## Coordination and Tracking
 
