@@ -47,7 +47,7 @@ The practical rule: **an OCAP version is the fallback that always works**, becau
 
 ## Delivering to a festival
 
-**Physical media** is still the workhorse. The historical standard is a **CRU DX115** dataport drive; festivals increasingly also accept USB 3.0 drives and SSDs (SSD preferred for reliability).[^dcp-fest] DCP drives are conventionally formatted **Linux ext2/ext3** — the format every server reads, as required by the DCI specification — though some venues now accept exFAT or NTFS. Check, rather than assume.
+**Physical media** is still the workhorse. The historical standard is a **CRU DX115** dataport drive; festivals increasingly also accept USB 3.0 drives and SSDs (SSD preferred for reliability).[^dcp-fest] DCP drives are conventionally formatted **Linux ext2/ext3** — the format every server reads, as required by the DCI specification (format with a **128-byte inode size**; modern Linux defaults to 256 bytes, which older servers reject) — though some festivals now also accept exFAT or NTFS.[^dcp-drive] Check, rather than assume.
 
 **Electronic delivery** is rising: Venice takes files by **Aspera**, Berlinale through its own **Digital Cinema Portal**, and services such as CineSend and Massive move DCPs over managed transfers.[^dcp-fest] It removes shipping, but a feature DCP is tens to hundreds of gigabytes, so it is a significant transfer, and time and resources must be budgeted to ensure the upload completes within the delivery window.
 
@@ -55,7 +55,7 @@ Whatever the medium, the package title must follow the **ISDCF Digital Cinema Na
 
 ## QC on a real cinema server
 
-The step that separates a DCP that *builds* from a DCP that *screens*: **play it off an actual cinema server, on a real projector, before it ships.** A package that ingests and plays in a desktop tool (DCP-o-matic, easyDCP) can still fail in a theater, and the failures a laptop cannot surface are exactly the ones that ruin a screening.
+The step that separates a DCP that *builds* from a DCP that *screens*: **play it off an actual cinema server, on a real projector, before it ships.** A package that ingests and plays in a desktop tool (DCP-o-matic, easyDCP) can still fail in a theater.
 
 A theater QC pass — on a DCI media block (Dolby, GDC, Sony, Barco Alchemy, Qube) and projector — is the only place to catch:
 
@@ -82,5 +82,7 @@ Play it start to finish, listen to the full mix, and verify captions on the real
 [^dcp-cap]: Festival accessibility expectations summarized from Sundance and Toronto requirements and practitioner guidance ([Cinematiq — *Making a DCP: Accessibility*](https://www.cinematiq.com/posts/things-to-consider-before-making-a-dcp-accessibility)). **[web-sourced.]**
 
 [^dcp-isdcf]: ISDCF, [Open and Closed Captions](https://registry-page.isdcf.com/openandclosedcaptions/) and the [Digital Cinema Naming Convention](https://registry-page.isdcf.com/). **[web-sourced.]**
+
+[^dcp-drive]: EXT2/EXT3 with a **128-byte inode size** is the required delivery-drive format under the DCI specification and the [ISDCF](https://www.isdcf.com/) recommendation; modern Linux tooling defaults to 256-byte inodes, which older Doremi/Dolby servers reject outright. **[web-sourced.]**
 
 [^dcp-fest]: Unencrypted preference, KDM window rules, and delivery-media requirements from the 2024 festival technical specifications of the [Venice Biennale](https://static.labiennale.org/files/cinema/2024/Documenti/specs-dcp-2024.pdf), the [Berlinale](https://www.berlinale.de/en/film-entry/technical-specifications/festival-media.html), and [Sundance](https://www.sundance.org/wp-content/uploads/2022/11/Technical-Specifications-For-Festival-Presentation.pdf). Specs change yearly — confirm the current edition. **[web-sourced.]**
