@@ -499,3 +499,76 @@ be provided.
 Flattened EDLs of the finalized DI timeline, matching the master and archival renders, are
 generated so that they may be easily split (or notched) at edit points in a later session, possibly
 on a different platform than the initial DI.
+
+### Storage: LTO, cloud, and the trouble with hard drives
+
+An archive is only as good as the medium it lives on and the number of copies you keep. There are
+three realistic media for holding finished masters and project files: **LTO tape**, **cloud cold
+storage**, and **hard drives**. They differ enormously in cost *structure* — and the sticker price is
+usually the least important number.
+
+The table below models one common scenario — **100 TB archived once, held for three years, then fully
+restored** — at mid-2026 prices. It is a planning aid, not a quote: cloud rates and egress tiers
+change often, and the LTO figures fold in labor and a one-time drive.[^ltocost]
+
+| Option | Archive / ingest | 3-yr storage | Restore / egress | ~3-yr total |
+| --- | --- | --- | --- | --- |
+| **LTO-9** (own drive or service) | ~$5,750 | ~$0 | ~$5,000 | **~$10,700** |
+| **AWS Glacier Deep Archive** | $0 | ~$3,600 | ~$8,100–8,300 | **~$11,700–11,900** |
+| **Azure Blob Archive** | $0 | ~$6,600 | ~$9,300–11,300 | **~$15,900–17,900** |
+| **Google Cloud Archive** | $0 | ~$4,200–8,700 | ~$13,000–16,000 | **~$17,200–24,700** |
+| **AWS Glacier Flexible Retrieval** | $0 | ~$12,960 | ~$7,790 | **~$20,750** |
+| **Backblaze B2** | $0 | ~$25,020 | ~$0 | **~$25,020** |
+| **Wasabi** | $0 | ~$28,764 | ~$0 | **~$28,764** |
+
+[^ltocost]: LTO-9 holds 18 TB native per tape, so 100 TB needs ~6 cartridges at roughly $120–150 each
+    (~$750 of media). The rest of the LTO figure is human time to write, verify, and later restore the
+    tapes — plus a one-time LTO-9 drive (~$4,000–7,000) amortized across every project you archive, or
+    a per-TB fee if a post house or archival service writes the tapes for you. Cloud storage assumes
+    the cold/archive tier of each provider; egress figures assume a single full 100 TB download to the
+    open internet and are where the "cheap to store" tiers get expensive. Prices as of mid-2026 —
+    verify current rates before budgeting.
+
+**Read the total, not the headline rate.** Cold-cloud tiers advertise roughly $1/TB/month to *store*
+but bill heavily to get the data back — retrieval plus internet egress is the real cost, and a full
+restore can dwarf three years of storage. The flat-rate clouds (Backblaze, Wasabi) invert this: egress
+is free or included, but storage is 5–7× more, so a multi-year hold costs the most overall. For an
+archive you write once and hope never to restore in a hurry, **LTO and Glacier Deep Archive are the
+cost-competitive options.**
+
+**LTO's cost is mostly labor and a shared drive — the media is nearly free to keep.** At about $5/TB,
+tapes on a shelf incur no monthly bill and draw no power. That structural difference is why, over
+years, tape beats every monthly-billed cloud tier on total cost.
+
+**Hard drives are the wrong medium for a master archive.** They are fine as a working or nearline
+copy, but dangerous as your *only* long-term one:
+
+- They are not designed to sit unpowered for years. Bearings can seize ("stiction"), lubricants
+  migrate, and the magnetic charge fades; the safe retention of an unpowered consumer drive is a few
+  years at best, not decades.
+- They are mechanical, shock-sensitive single points of failure — one drop kills the copy.
+- Bit rot is silent without checksums.
+
+If you must use HDDs, keep **at least two copies**, power them up and verify them periodically, and
+never let a lone drive be the archive.
+
+**LTO is the film-industry archival standard — with a format treadmill.** LTO media is rated for
+~15–30 years in controlled storage, is offline and air-gapped (ransomware cannot reach a tape on a
+shelf), self-describing through **LTFS**, and available as write-once **WORM**. The catch: LTO drives
+read only about one to two generations back (an LTO-9 drive reads LTO-8 and 9 only), and the roadmap
+keeps advancing, so plan to **migrate to a newer generation roughly every 7–10 years**, before the
+drive generation you own goes unsupported.
+
+**Cloud's strength is offsite; its risks are ongoing.** Cold cloud (Glacier Deep Archive is the
+cost-competitive one) gives geographic redundancy and very high durability with no hardware to own or
+migrate — the provider handles that. But it is a permanent operating cost, exposed to price hikes
+(Backblaze and Wasabi both raised rates in 2026) and to vendor and account risk (a lapsed card or a
+closed account can mean lost data), and a full 100 TB restore is a large, slow, sometimes costly
+download. Model the egress cost *and* the transfer time before you depend on it.
+
+!!! tip "The smart default: 3-2-1, not one of anything"
+    Keep **three copies, on two different media, with one offsite.** For an independent film that
+    usually means **two LTO copies — or one LTO plus a cold-cloud copy for the offsite** — each
+    verified with checksums (an **MHL**, media hash list), holding the graded and ungraded archival
+    masters, textless elements, the audio stems and M&E, and the conform project. Whatever you choose,
+    do not let a single hard drive be the only thing standing between you and a future remaster.
