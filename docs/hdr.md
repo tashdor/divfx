@@ -1,8 +1,6 @@
 # HDR Mastering
 
-First, terminology: "EDR" (extended dynamic range) is legacy vendor language and should be dropped — the industry says HDR. The bit-depth argument sometimes attached to it still holds (10-bit log is not enough; 12-bit is the floor), but that is a consequence of HDR, not a definition of it.
-
-HDR is not a look and not a grade setting. It is a different display referring — a different EOTF, a wider container gamut, and an explicit statement of the display the master was made on.
+HDR is not a look or grade setting. It uses a different EOTF, a wider container gamut, and metadata describing the mastering display. Use "HDR," not the legacy vendor term "EDR."
 
 ## The standard: ITU-R BT.2100
 
@@ -18,11 +16,9 @@ HDR is not a look and not a grade setting. It is a different display referring �
 
 Source: ITU-R BT.2100-2 (July 2018), Table 1 and Table 3.
 
-Note what BT.2100 does *not* do: it does not tell you to grade to the primaries. The gamut is a **container**. See [mastering in practice](#mastering-in-practice) below.
+BT.2100 defines a **container gamut**, not a requirement to grade to the BT.2020 primaries.
 
 ### PQ and HLG are not interchangeable
-
-It is the parameter most often confused when a delivery is specified.
 
 **PQ** — standardized as **SMPTE ST 2084** — is an *absolute* transfer function. A code value maps to a specific luminance in cd/m², up to 10 000. A PQ signal says "this pixel is 400 nits." That is what makes it right for cinematic mastering: the creative intent is pinned to measurable light, and the display's job is to reproduce it or tone-map it down faithfully.
 
@@ -30,8 +26,6 @@ It is the parameter most often confused when a delivery is specified.
 
 For a scripted feature or series destined for streaming, **PQ is effectively the answer**. HLG matters if you are delivering live or broadcast content, or a distributor asks for it.
 
-!!! note "Where the OOTF lives"
-    The [Rec.709 note](v1.1-notes.md#rec709-and-the-oetfeotf-conflation) elsewhere in these materials explains that SDR has no explicitly specified OOTF — it exists only as the cascade of the BT.709 OETF and the BT.1886 EOTF. BT.2100 is more rigorous: it specifies an OETF, an EOTF, *and* an OOTF explicitly for HLG, and defines PQ in terms of the display EOTF directly. HDR standards give a clean answer to where the rendering intent is applied; SDR does not.
 ## Metadata
 
 An HDR master is incomplete without metadata describing the display it was made on. This is a genuine change from SDR practice, where the mastering display was implied by the standard.
@@ -52,7 +46,7 @@ ST 2086 describes *the display you graded on*, not the content. MaxCLL and MaxFA
 | **HDR10+** | Dynamic (ST 2094-40) | Scene-by-scene metadata without a proprietary grading step. |
 | **Dolby Vision** | Dynamic (ST 2094-10) | Adds an authored trim pass. The most common premium deliverable. |
 
-**Dolby Vision** is the one that changes your schedule, because it adds creative work rather than just an export setting. The workflow is: grade the HDR master, then author **trims** — a colorist-guided derivation of how the image should look on lower-capability displays and in SDR. Dolby's own grading guidance treats the trim pass as a creative session, not a technical conversion.[^hdr1]
+**Dolby Vision changes the schedule.** Grade the HDR master, then have the colorist author **trims** for lower-capability displays and SDR. This is a creative pass, not an export setting.[^hdr1]
 
 [^hdr1]: Dolby *Vision Color Grading Best Practices Guide* v4.0 and the *Dolby Vision Professional Tools User Manual* v4.0.0 cover trim workflow and the metadata levels in detail.
 
@@ -64,15 +58,9 @@ The key point BT.2100 does not state outright:
 
 > HDR is mastered in **P3-D65, limited inside a Rec.2100/BT.2020 container**, at a stated peak luminance — typically 1 000 or 4 000 cd/m² — not graded to the BT.2020 primaries.
 
-No consumer or reference display reproduces the full BT.2020 gamut — its primaries are *monochromatic*, single-wavelength points (roughly 630, 532, and 467 nm) that only laser or near-laser sources approach.[^hdr2] High-end 2025–26 panels measure roughly **75–85% of BT.2020** while covering **nearly all of DCI-P3** (~97–99%); the best QD-OLED sits at the top of that range, and the newest 2026 panels are announced higher still.[^hdr3] Coverage is also measurement-space-dependent — the same panel scores higher in CIE 1931 *xy* than in CIE 1976 *u′v′* — so a quoted percentage means little without its color space attached.[^hdr4] The container is wider than any display, so the encoding does not constrain future displays; the grade is made inside a volume that displays can actually show.
+No consumer or reference display reproduces the full BT.2020 gamut; its monochromatic primaries require laser or near-laser sources.[^hdr2] Grade within the mastering display's measured volume, typically P3-D65, while encoding in the wider Rec.2100 container.
 
 [^hdr2]: ITU-R BT.2020 (adopted by BT.2100 for HDR) defines the wide-gamut primaries as monochromatic single-wavelength points, which is why only laser-pure primaries can approach full coverage.
-
-[^hdr3]: Public per-display measurements are catalogued by [RTINGS](https://www.rtings.com/), which reports "Rec. 2020 Coverage" and "DCI-P3 Coverage" for every panel it tests. Announcements of ~90–95% Rec.2020 QD-OLED / tandem-RGB panels appeared in 2025–26 (e.g. [FlatpanelsHD](https://www.flatpanelshd.com/news.php?subaction=showfull&id=1725855010), [TechRadar](https://www.techradar.com/televisions/this-new-oled-panel-hits-95-color-gamut-outshining-some-of-the-best-lg-and-samsung-tvs-by-10-25)), but those are panel specs ahead of shipping reference displays.
-
-[^hdr4]: Gamut coverage is an area ratio on a chromaticity diagram; CIE 1931 *xy* and CIE 1976 *u′v′* give different numbers for the same display. RTINGS reports the *xy* figure, which runs higher than *u′v′*.
-
-The handbook's [Rec.2020 entry](color.md#display-color-spaces) — "few displays are capable of reproducing many of the colors" — is substantially accurate. What it lacks is the consequence: Rec.2020 is a container you encode into, not a gamut you grade to.
 
 A typical deliverable set for a streaming feature:
 

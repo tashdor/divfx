@@ -52,42 +52,7 @@ AP0's blue primary has a **negative y coordinate** and its green sits at (0, 1).
 
 All ACES encodings share a white point of **x = 0.32168, y = 0.33767**.
 
-This is the single most-questioned number in ACES, and reasonably so. Cameras are balanced and characterized around daylight; Rec.709, sRGB, Rec.2020, and BT.2100 all specify **D65**; HDR home video masters in **P3-D65**. Theatrical digital cinema calibrates its projectors to the DCI reference white (x 0.314, y 0.351 — a slightly green ≈6300 K point that is neither D60 nor D65), but the format carries arbitrary creative white points, and Dolby Cinema masters to **D65**. Across the whole chain, almost nothing lands on D60. So why is the interchange encoding?
-
-#### It does not constrain your image
-
-!!! quote "Academy [TB-2018-001](https://docs.acescentral.com/white-point/), *Derivation of the ACES White Point CIE Chromaticity Coordinates*"
-    "It is important to note that the ACES white point does not dictate the chromaticity of the reproduction neutral axis. […] the chromaticity of the equal red, green and blue (ACES2065-1 R=G=B) may match the ACES white point, the display calibration white point, or any other white point preferred for technical or aesthetic reasons."
-The encoding white point is the chromaticity you get when R = G = B **in the encoding**. It is the system's *default* neutral — the reference the standard rendering and your grading tools are built around — not a *mandate* on the final image. A show working in ACES can grade to a D65 neutral axis and deliver a D65 master; nothing about the encoding prevents it. TB-2018-001 notes this misreading — that the number fixes the delivered look — is common enough that the Committee worried about it when choosing the coordinates in the first place.
-
-The useful analogy is the [DCI-X'Y'Z'](color.md#dci-xyz) encoding white point, which is the Equal Energy point and deliberately not the projector white point. Encoding white and reproduction white are separate things, and conflating them causes trouble in both systems.
-
-#### Why 6000 K specifically
-
-The ACES white point was set by the Academy's ACES Project Committee in 2008 (Academy S-2008-001, later standardized as SMPTE ST 2065-1) after months of debate. The candidates were the obvious ones, and both were rejected:
-
-- **D55** — historically the design illuminant for daylight color negative stocks.
-- **D65** — the display calibration white point of television and computer graphics.
-
-They chose the less common 6000 K instead, on three grounds:
-
-1. **A measurement of what film actually does.** The Committee ran an experiment: expose a spectrally non-selective neutral gray scale onto color negative, print it to color print stock, project it with a xenon projector, and measure the colorimetry off the screen. The projected LAD patch came back at approximately **x = 0.32170, y = 0.33568**. Compared in CIE u′v′, that measured film-system neutral was closest to CIE daylight at a CCT of **6000 K** — closer than to D55 or D65.
-2. **Viewing conditions and preference.** The discussion centered on viewer adaptation, dark surround viewing, and "cinematic look". Imagery reproduced with that white point was felt to look right in a theatre.
-3. **Familiarity to a film heritage.** The Committee wanted a neutral that would feel correct to people who had spent careers looking at projected print film.
-
-In short: **ACES is not D60 because displays are D60. It is D60-like because that is where projected print film's neutral actually sits**, measured off a screen. ACES was designed as the successor to a film-based pipeline, and its encoding neutral was chosen to match what that pipeline delivered to the eye in a dark theatre.
-
-!!! question "If the white point doesn't dictate the look, why did aesthetics decide it?"
-    *"Because the exact white point chromaticity would not prohibit users from achieving any reproduction white point, the Committee ultimately decided to use the less common CCT of 6000 K."* — TB-2018-001
-
-    The override-freedom is precisely what **licensed** the aesthetic choice, rather than conflicting with it. The encoding white is the system's *default* neutral: the un-graded look a standard Output Transform produces, and the reference a colorist balances toward. That default has a real feel — which is exactly why the Committee cared that it read as "cinematic" and sat where film people's instincts expected. But because you can always move the final reproduction white — a different Output Transform, a chromatic adaptation, or simply grading — choosing a pleasant default costs you nothing. A good default you can override is not a constraint. That is the whole reason a number with "no instruction on how your film should look" was still worth choosing on how it looks.
-#### Why not exactly CIE D60
-
-Because it is not D60 — it is D60-*like*. The CIE daylight equations at 6000 K give x = 0.32169, y = 0.33780. ACES specifies x = 0.32168, y = 0.33767. Close, but deliberately not equal.
-
-TB-2018-001 §4.3 gives the reason as "somewhat precautionary": the Committee was concerned that publishing an exact CIE D-series coordinate would imply the reproduction neutral axis was *required* to be that illuminant — the very misreading described above. Choosing coordinates that are near a daylight illuminant without being one signals that the encoding white is a reference, not a mandate.
-
-This is why writing "D60" without qualification is imprecise, and why color scientists tend to say "the ACES white point" instead.
+The ACES white point is D60-like but is not CIE D60. It was derived from measurements of projected print film and serves as the encoding neutral, not a required display or creative white. A show can grade and deliver at D65 or the calibrated theatrical white; the Output Transform handles the adaptation. See Academy [TB-2018-001](https://docs.acescentral.com/white-point/) for the derivation.
 
 #### What it means in practice
 
@@ -134,16 +99,8 @@ ACES image data is carried in the ACES Image Container, SMPTE ST 2065-4. It is O
 
 [^ac4]: SMPTE ST 2065-4:2023, *ACES Image Container File Layout*, §6.5.3 and Table 5 (required attributes). The 2023 edition revises ST 2065-4:2013.
 
-!!! warning "The uncompressed rule is about the ST 2065-4 *container* — not every EXR in the pipeline"
-    This trips people up. **SMPTE ST 2065-4:2023 §8.19 is explicit:**
-
-    > "The compression attribute shall be of type compression and shall contain the value 0, indicating no compression."
-
-    It is a *required* attribute (§6.5.3) fixed at 0 — in both the 2013 and 2023 editions, not a rule that was later relaxed. So a conformant **ACES container is uncompressed, full stop.**
-
-    But note *what* that container is. ST 2065-4 §1 scopes it to "the exchange of digital images encoded according to SMPTE ST 2065-1" — i.e. **ACES2065-1 (AP0, linear)**, the full-fidelity interchange and archival encoding. The standard nails this down: its required `chromaticities` attribute (§8.17) is fixed to the AP0 primaries and white point, so you literally **cannot put ACEScg (AP1) data in a conformant ST 2065-4 container.**
-
-    So the rule applies to what you would actually deliver *as* an ACES container:
+!!! warning "ST 2065-4 containers are uncompressed"
+    SMPTE ST 2065-4 applies only to **ACES2065-1 (AP0, linear)** interchange and archival files. It requires uncompressed 16-bit half-float EXR. ACEScg plates, renders, and working files are ordinary OpenEXR files and may use normal ZIP, PIZ, or DWA compression.
 
     | File | Typical encoding | ST 2065-4 container? | Compression |
     | --- | --- | --- | --- |
@@ -153,14 +110,10 @@ ACES image data is carried in the ACES Image Container, SMPTE ST 2065-4. It is O
     | VFX render back to the DI | ACEScg (AP1) EXR | No | Compress freely |
     | Comp working files | ACEScg (AP1) EXR | No | Compress freely |
 
-    Your ACEScg renders and plates are ordinary OpenEXR files — compress them normally; nobody ships uncompressed ACEScg. They are simply **not ST 2065-4 ACES containers**, and the rule never claimed they were.
-
-    Why uncompressed for the container itself? It is an archival interchange format. Fixing it to uncompressed 16-bit half means any reader opens any ACES container identically — no decoder dependency, version skew, or ambiguity (the standard's own security note points out the file carries no executable code and is not compressed). Fidelity and universal readability over file size.
-
-    The practical trap: **"it opened in Nuke" is not evidence of container conformance.** A ZIP- or PIZ-compressed ACES2065-1 EXR is still valid *OpenEXR* and opens everywhere — but it is **not a conformant ST 2065-4 ACES container**. When you are writing the ACES2065-1 archival/interchange master specifically, the compression setting is a conformance requirement, not a preference.
+    A compressed ACES2065-1 EXR may open normally but is not a conformant ST 2065-4 container.
 Related: clip-level metadata travels in an **ACES Metadata File** ([AMF specification](https://docs.acescentral.com/amf/specification/); the earlier ACESclip form is described in Academy TB-2014-009), and LUTs in the **Academy-ASC Common LUT Format** ([CLF specification](https://docs.acescentral.com/clf/specification/), S-2014-006).
 
-Also worth knowing: the **Reference Gamut Compression** ([RGC specification](https://docs.acescentral.com/rgc/specification/)) added in ACES 1.3 handles out-of-gamut camera values — the negative-primary excursions that produce artifacts when a saturated highlight lands outside AP1. If your show has strong practical lights or lasers, this is the tool for it.
+The **Reference Gamut Compression** ([RGC specification](https://docs.acescentral.com/rgc/specification/)) added in ACES 1.3 handles out-of-gamut camera values. Use it when saturated practical lights or lasers produce artifacts outside AP1.
 
 ## ACES 2.0
 

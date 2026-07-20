@@ -1,19 +1,11 @@
 # Distribution Deliverables for Independent Film
 
-Between finishing a film and earning revenue from it stands a document usually called the
-*delivery schedule* or *schedule of deliverables*. It is the distributor's itemized list of
-everything — picture masters, audio stems, caption files, artwork, and a long tail of legal
-paperwork — that must be created, quality-controlled, and handed over before the film can be
-sold. For an independent production the deliverables package is frequently underestimated: the
-video file is a small fraction of the work, and the schedule routinely gates the release date and
-the first payment.
+A distributor's *delivery schedule* lists every picture master, audio stem, caption file, artwork
+asset, and legal document required before release and payment. Treat it as a production schedule,
+not a handoff checklist.
 
-This chapter is built from a survey of real independent-distributor delivery schedules and
-filmmaker handbooks spanning 2016–2025 — theatrical/VOD aggregators, home-video and TVOD
-labels, and a couple of per-title contractual schedules at the studio-specialty tier. The specifics
-below (formats, loudness targets, insurance limits) are drawn directly from those documents; the
-point is not any one distributor's rules but the pattern across them, and where that pattern
-diverges enough to hurt you.
+The guidance below summarizes independent-distributor schedules from 2016–2025. Requirements vary;
+the signed schedule controls.
 
 !!! note "What this is not"
     A delivery schedule is a contract exhibit, and the numbers move year to year and label to
@@ -22,16 +14,11 @@ diverges enough to hurt you.
 
 ## The master format reality: ProRes, not IMF
 
-The single most useful thing to know is that **the independent world runs on Apple ProRes, not
-[IMF](imf.md).** Across every distributor surveyed, the required picture master is a self-contained
-ProRes QuickTime (`.mov`) delivered on a hard drive or by upload. Not one of these independent
-schedules requires an IMF package as a deliverable. IMF is real and it matters — but it is a
-*studio-and-streamer* interchange format (Netflix, the major broadcasters, the large catalog
-aggregators). The label releasing an independent feature to iTunes, Amazon, and the TVOD
-platforms almost always wants a ProRes file, and its own house does the platform-specific
-encoding downstream. Very few independent distributors want, or can even ingest, an IMP.
+**Independent distributors generally require a self-contained ProRes QuickTime (`.mov`), not an
+[IMF](imf.md) package.** They create platform-specific encodes downstream. Deliver IMF only when a
+studio, streamer, broadcaster, or catalog aggregator specifically requires it.
 
-Which flavor of ProRes varies, and it is worth getting right:
+Confirm the required ProRes flavor:
 
 | Distributor (tier) | Required picture master |
 | --- | --- |
@@ -42,10 +29,8 @@ Which flavor of ProRes varies, and it is worth getting right:
 | Utopia (theatrical + VOD) | **ProRes 4444, 16-bit** for *every* video master, plus a **SMPTE DCP** |
 | Studio-specialty per-title (theatrical) | **ProRes 4444** OAR master + **ProRes 422 HQ** marketing master, over a DPX/EXR archival tier |
 
-The takeaway: **ProRes 422 HQ is the workhorse deliverable**, ProRes 4444 (or 4444 XQ) is what you
-supply when there is an alpha, a higher-end finish, or a distributor like Utopia that standardizes
-on it, and 4K masters move up to 4444. See [Common Working Formats](working-formats.md#apple-prores)
-for the codec details.
+**ProRes 422 HQ is the common default.** Use ProRes 4444 or 4444 XQ when the schedule requires it,
+for alpha, or for a higher-bit-depth finish. See [Common Working Formats](working-formats.md#apple-prores).
 
 ## The technical baseline of a master
 
@@ -71,7 +56,7 @@ Underneath the codec choice, the surveyed schedules agree on a remarkably consis
 
 ## Audio: 5.1 + stereo, stems, and fully-filled M&E
 
-Audio is where independent deliverables get laborious. The near-universal baseline is **linear PCM,
+The common baseline is **linear PCM,
 48 kHz, 24-bit** (16-bit is sometimes still permitted), and a **5.1 mix plus a two-channel
 stereo/Lt-Rt fold-down is expected as the floor** — with the stereo pair required to be present
 *even when 5.1 exists*, and to be a true two-channel mix, not dual mono.
@@ -162,9 +147,8 @@ after it.
 
 ## The paperwork is most of the package
 
-The audiovisual files are the visible part; the legal and metadata deliverables are the bulk of the
-list and the most common cause of a stalled delivery. A representative documents list runs to
-**thirty-plus items** and typically includes:
+Legal and metadata deliverables often control acceptance. A schedule may contain **thirty-plus
+items**, including:
 
 - **E&O insurance** (errors & omissions) — universal, and the limits cluster tightly:
 
@@ -194,28 +178,6 @@ rating cards unless requested; no release dates, URLs, social handles, or "comin
 in; and, increasingly, a **vertical 9:16 cutdown** for social platforms alongside the standard
 16:9. Key art is specified per platform (iTunes/Apple, Amazon, Google Play, Fandango/Vudu, Tubi, and
 others) with exact pixel dimensions, and an H.264 screener is often requested for review.
-
-## Recommendations and warnings
-
-- **Master to ProRes, not IMF, for independent distribution.** Deliver ProRes 422 HQ as the
-  workhorse; supply ProRes 4444 / 4444 XQ where an alpha, a higher-end finish, a 4K master, or a
-  4444-standardized distributor requires it. Reserve IMF for a studio or major-streamer deal that
-  actually asks for it.
-- **Build the audio ladder early.** A 5.1 mix, a true stereo fold-down, discrete DME stems, and a
-  *fully-filled* M&E are the difference between a domestic-only sale and an international one. Retrofitting
-  M&E after the mix is dismantled is expensive.
-- **Never deliver a single subtitle-burned master.** Keep titles, forced-narrative subtitles, and
-  creative text separable so you can produce texted, non-subtitled, and fully-textless versions.
-- **Confirm the loudness number in your own schedule** and re-measure — there is no universal indie
-  target, and "−24 LKFS" is a broadcast/streamer figure, not a given here.
-- **Read the head/tail spec for each distributor** — modern file masters want clean black and no
-  slate; tape-lineage schedules want a full bars/tone/slate head.
-- **Use approved captioning and QC vendors, and budget for a re-QC.** Auto/AI captions and
-  non-approved labs get rejected, and failures are charged back to you.
-- **Start the paperwork with the film, not after it.** E&O, chain of title, copyright and title
-  reports, cue sheets, and clearances gate the release as hard as the picture master does.
-- **Hire a post-production supervisor or delivery coordinator** if the schedule is large. The
-  handbooks themselves recommend it; the deliverables list is a project unto itself.
 
 ## Catalog of surveyed delivery schedules
 

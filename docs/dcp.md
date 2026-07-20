@@ -1,7 +1,7 @@
 # DCP — The Digital Cinema Package
 
 
-The DCP is the theatrical deliverable — a package muxed from the DCDM, with KDMs to unlock encrypted playback; the [production workflow](production-workflow.md#dcp-digital-cinema-package) chapter covers that mastering path. This chapter adds everything an independent production actually trips over getting a film onto a festival screen: whether to encrypt at all, the accessibility tracks festivals now expect, how the package physically or electronically reaches the venue, and why none of it is trusted until it has played off a real cinema server.
+A DCP is the theatrical deliverable muxed from the DCDM. This chapter covers the decisions that affect festival delivery: format, resolution, audio, encryption, accessibility, transport, and QC. See [Generalized Production Workflow](production-workflow.md#dcp-digital-cinema-package) for the mastering path.
 
 ## What a DCP is
 
@@ -17,11 +17,11 @@ Two package flavors exist, and the difference matters at ingest. **Interop (IOP)
 
 ## Resolution: 2K, 4K, and the bit-rate cap
 
-DCPs come in two resolution classes — **2K** (2048 pixels across) and **4K** (4096 across) — each in a **Flat** (1.85:1) or **Scope** (2.39:1) container. Which one matters less than it appears, because of the DCI **bit-rate cap**: the JPEG 2000 image essence is limited to a **maximum of 250 Mbit/s**, and that ceiling is identical for 2K and 4K.[^dcp-res] A 4K DCP packs four times the pixels into the same data budget, so 4K's per-pixel advantage over 2K is far smaller than the pixel count suggests — and on most screens, from most seats, not visible.
+DCPs come in two resolution classes — **2K** (2048 pixels across) and **4K** (4096 across) — each in a **Flat** (1.85:1) or **Scope** (2.39:1) container. DCI caps JPEG 2000 image essence at **250 Mbit/s** for both 2K and 4K.[^dcp-res] A 4K DCP therefore packs four times the pixels into the same data budget; its practical advantage is smaller than the pixel count suggests.
 
-The more useful property is **interoperability**. JPEG 2000 is a wavelet codec and resolution-scalable: a 4K codestream *contains* a 2K version as a lower resolution level. A server feeding a 2K projector simply extracts and plays that 2K image out of the 4K DCP, with no transcode — so a single **4K DCP plays on both 4K and 2K systems**, and a 2K DCP plays on 4K systems too. You do not author a separate package per resolution; digital cinema is single-inventory by design. (The one catch: 4K is limited to 24 fps under the DCI spec — higher frame rates are 2K-only.)[^dcp-res]
+JPEG 2000 is resolution-scalable: a 2K system can extract a 2K image from a 4K codestream without transcoding. A single **4K DCP plays on both 4K and 2K systems**, while a 2K DCP also plays on 4K systems. Under the DCI specification, 4K is limited to 24 fps; higher frame rates require 2K.[^dcp-res]
 
-For a festival, unless a venue specifically calls for 4K, a well-made **2K DCP is often the pragmatic choice** — smaller, universally playable, and visually indistinguishable in the room. If you do master 4K, its built-in 2K compatibility means you are not locking out older screens.
+Unless the venue requires 4K, deliver a **2K DCP**: it is smaller and universally playable. A 4K package remains compatible with 2K systems.
 
 ## Audio: channels and how it was mixed
 
@@ -35,7 +35,7 @@ DCP audio is discrete, uncompressed multichannel PCM — but *how many* channels
 
 ## Encrypted or unencrypted
 
-An encrypted DCP has its MXF essence scrambled with **AES-128**; a server can only play it with a **KDM** (Key Delivery Message) — an XML file carrying the content keys, encrypted to one specific server's certificate and valid only for a stated date-and-time window. Unencrypted DCPs carry no keys and play on any compliant server.
+An encrypted DCP uses **AES-128**. Playback requires a **KDM** (Key Delivery Message) encrypted to one server certificate and valid for a specified time window. An unencrypted DCP plays on any compliant server.
 
 Encryption is decided at authoring, not at delivery. An unencrypted DCP cannot be encrypted after the fact without re-wrapping its essence — effectively a re-encode and a re-author — and turning an encrypted DCP back into an unencrypted one likewise costs the keys plus authoring labor and machine time. Neither direction is a toggle, so the choice has to be made before you master, not when a venue asks.
 
@@ -56,21 +56,21 @@ SDH differs from ordinary translation subtitles: beyond the dialogue, it carries
 
 **Described audio, for blind and low-vision viewers**, is a separate narrated track (audio description / VI-N) describing key visual action between lines. Alongside it, a **Hearing Impaired (HI)** track carries a dialogue-boosted mix. Both ride the DCP's audio channel map — HI and VI-N conventionally on channels 15 and 16.[^dcp-dtdc]
 
-The practical rule: **an OCAP version is the fallback that always works**, because it needs nothing from the venue. Provide the specific tracks the festival's spec names; when in doubt, an open-caption version is the safe accessible deliverable.
+Provide the tracks named in the festival specification. When venue capability is unknown, an **OCAP version** is the safest accessible deliverable because it requires no caption hardware.
 
 ## Delivering to a festival
 
 **Physical media** is still the workhorse. The historical standard is a **CRU DX115** dataport drive; festivals increasingly also accept USB 3.0 drives and SSDs (SSD preferred for reliability).[^dcp-fest] DCP drives are conventionally formatted **Linux ext2/ext3** — the format every server reads, as required by the DCI specification (format with a **128-byte inode size**; modern Linux defaults to 256 bytes, which older servers reject) — though some festivals now also accept exFAT or NTFS.[^dcp-drive] Check, rather than assume.
 
-**Electronic delivery** is rising: Venice takes files by **Aspera**, Berlinale through its own **Digital Cinema Portal**, and services such as CineSend and Massive move DCPs over managed transfers.[^dcp-fest] It removes shipping, but a feature DCP is tens to hundreds of gigabytes, so it is a significant transfer, and time and resources must be budgeted to ensure the upload completes within the delivery window.
+**Electronic delivery** is rising: Venice takes files by **Aspera**, Berlinale through its own **Digital Cinema Portal**, and services such as CineSend and Massive move DCPs over managed transfers.[^dcp-fest] A feature DCP may be hundreds of gigabytes, so budget enough upload time and bandwidth to meet the deadline.
 
 Whatever the medium, the package title must follow the **ISDCF Digital Cinema Naming Convention (DCNC)** — the string that encodes title, content type, aspect ratio, language and subtitle territory, audio, resolution, studio, and date so that a server and a programmer can parse the film unambiguously.[^dcp-isdcf] But renaming the delivery folder is not enough: a server takes the display name from the **ContentTitleText** field — and often the **AnnotationText** — *inside* the CPL (and PKL), not from the folder name, so the ISDCF title has to be written into the CPL metadata when the DCP is authored. A folder whose name disagrees with the CPL shows the wrong title on the ingest screen and in every playlist editor. A misnamed DCP is a support call at the projection booth.
 
 ## QC on a real cinema server
 
-The step that separates a DCP that *builds* from a DCP that *screens*: **play it off an actual cinema server, on a real projector, before it ships.** A package that ingests and plays in a desktop tool (DCP-o-matic, easyDCP) can still fail in a theater.
+Before delivery, **play the DCP from a cinema server through a cinema projector.** Desktop playback does not prove that the package will ingest or screen correctly.
 
-Software validation is the cheap first line of defense. Run the package through a **DCP validator** before booking a screening — a tool such as the [MOSAIC DCP Inspector](https://tools.colorbymosaic.com/dcp_inspector) checks the CPL, PKL, ASSETMAP, asset hashes, reel structure, frame rate, audio layout, and subtitle/caption references against the standards, flags configuration errors, and helps fix them. It does not replace playback on a real server, but it catches the structural and metadata faults up front, so an expensive theater QC confirms the picture instead of discovering a broken package.
+Run a **DCP validator** before the theater QC. A tool such as [MOSAIC DCP Inspector](https://tools.colorbymosaic.com/dcp_inspector) checks the CPL, PKL, ASSETMAP, hashes, reel structure, frame rate, audio layout, and timed-text references. Validation catches structural faults but does not replace cinema-server playback.
 
 A theater QC pass — on a DCI media block (Dolby, GDC, Sony, Barco Alchemy, Qube) and projector — is the only place to catch:
 

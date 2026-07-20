@@ -1,8 +1,6 @@
 # Color Management and OpenColorIO
 
-[ACES](aces.md) defines *what* the color transforms are. Something has to define *how* every application in the pipeline finds and applies them consistently. That is the job of a color management system, and in visual effects the de facto answer is **OpenColorIO** (OCIO).
-
-This matters to a production for a reason that is easy to miss: a color pipeline is only as consistent as its least-configured application. A show can specify ACES precisely and still get mismatched renders because one artist's Nuke was pointed at a different config than everyone else's. OCIO is the mechanism by which "the show's color pipeline" becomes a single artifact that can be distributed, versioned, and checked.
+[ACES](aces.md) defines the transforms; **OpenColorIO** (OCIO) distributes and applies them consistently across applications. A show can specify ACES correctly and still produce mismatched renders if one artist uses a different config.
 
 ## What OCIO is
 
@@ -14,17 +12,14 @@ The unit of configuration is an **OCIO config** — a file (plus, historically, 
 - **Roles** — abstract names that decouple applications from specific spaces. `scene_linear`, `compositing_log`, `color_picking`, `data`. An application asks for `scene_linear`; the config decides what that means on this show.
 - **Displays and views** — the viewing transforms available in an artist's viewer.
 
-*Cinematic Color* — already cited in this handbook as further reading — describes the motivation directly: color management exists so that image encoding is explicit and consistent across the applications and vendors that touch a shot, rather than being an assumption each tool makes independently.
-
-!!! note "Why roles matter more than they look"
-    Roles are what let a config change without every artist changing their scripts. If the show moves from ACES 1.3 to a different working space, `scene_linear` is redefined once in the config rather than in every Nuke script on the show. On a distributed production this is the difference between a workflow change costing an afternoon and costing a week.
+Roles allow a working space to change without editing every artist's scripts. Redefine `scene_linear` once in the config instead of changing it in each Nuke script.
 ## How ACES is actually delivered
 
-This is the practical point an independent production needs, and it is not obvious from the ACES documentation: **facilities do not implement ACES from the CTL reference transforms.** They consume it as an OCIO config.
+**Facilities consume ACES as an OCIO config**, not by implementing the CTL reference transforms directly.
 
 The Academy publishes ACES as reference transforms in the Color Transformation Language (CTL), which is a specification language, not a production renderer. What ships to artists is an OCIO config that implements those transforms efficiently. In current practice these are the ACES **built-in configs** — commonly a `cg-config` (a smaller set aimed at CGI and compositing) and a `studio-config` (a fuller set including more camera vendors and display encodings). (The built-in config naming and split is documented by the [OCIO ACES config project](https://github.com/AcademySoftwareFoundation/OpenColorIO-Config-ACES), not the core ACES standards.)
 
-So the sentence "the show is ACES" resolves, in practice, to: *every application on the show is pointed at the same OCIO config, at the same version.*
+"The show is ACES" therefore requires every application to use the same OCIO config and version.
 
 ## What to specify on a show
 
@@ -43,10 +38,7 @@ Distribute the config itself with the plates, in `support_files/` alongside the 
 
 ## Versions
 
-OCIO 2.x is a substantial rewrite of the 1.x line, with a proper transform architecture, GPU and CPU processing paths that match, and native support for the ACES transforms rather than baked LUT approximations. The **VFX Reference Platform** — the annual specification most facilities build against — pins the versions of the color stack for each calendar year: **ACES itself, OpenColorIO, and OpenEXR** are all named components, alongside Python and the rest of the stack. That ACES appears as a tracked component in its own right — not merely as something OCIO can be configured to do — is a fair measure of how settled it is as *the* interchange standard. (CY2026 specifies ACES 2.0, OCIO 2.5.x, and OpenEXR 3.4.x — see [vfxplatform.com](https://vfxplatform.com/).)
-
-!!! tip "The VFX Reference Platform is a useful negotiating tool"
-    When a vendor and a facility disagree about library versions, the Reference Platform year is a neutral reference both can point at. For an independent production it is also a quick way to sanity-check that a vendor's stack is not several years stale — which usually predicts other problems.
+OCIO 2.x replaces baked LUT approximations with native ACES transforms and matching GPU and CPU processing paths. Use the annual [VFX Reference Platform](https://vfxplatform.com/) to align ACES, OCIO, and OpenEXR versions across vendors. CY2026 specifies ACES 2.0, OCIO 2.5.x, and OpenEXR 3.4.x.
 ## Checking that it works
 
 Color management is testable, and should be tested before shot work — this is what a [confidence package](production-workflow.md#visual-effects-production_1) is for. Three checks catch most pipeline faults:

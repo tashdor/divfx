@@ -1,6 +1,6 @@
 # Choosing a Color Management Approach
 
-The [ACES](aces.md), [OpenColorIO](color-management.md), and [application-native color management](application-native-color-management.md) chapters each describe one way to run color. This chapter puts five approaches side by side so an independent production can pick deliberately rather than by default. The five are:
+Choose one of five color-management approaches:
 
 1. **Display Referred, un-color-managed** — the look is baked into the grade, no working space, no route back to a scene-referred graded master. Listed here to be ruled out, not encouraged.
 2. **Manually Color Managed** — a hand-made pipeline: a consistent scene-referred working space with color-space transforms in, node- or layer-based grading, and a standard or bespoke display transform out. This is typically what people mean when they talk about "node-based color management" in Resolve.
@@ -8,7 +8,7 @@ The [ACES](aces.md), [OpenColorIO](color-management.md), and [application-native
 4. **DaVinci Resolve Color Management (RCM)** — Blackmagic's in-application managed workflow on DaVinci Wide Gamut / Intermediate.
 5. **FilmLight Truelight Color Spaces (TCS) + T-CAM** — FilmLight's managed workflow on E-Gamut / T-Log with a color-appearance display transform.
 
-The same discipline applies to all of them: knowing, at every step, whether you are [scene-referred or display-referred](digital-intermediates.md), and applying the display transform only at the end of the grading pipeline. Four of these five keep a consistent scene-referred working space and a recoverable master, with varying degrees of freedom, complexity, and labor — the frameworks enforce it automatically, and a manually color-managed pipeline relies heavily on the colorist's discipline. Only the first abandons it, which is why it is here as a cautionary category rather than an endorsement.
+In every managed approach, track whether the image is [scene-referred or display-referred](digital-intermediates.md) and apply the display transform last. All but the first approach retain a scene-referred working space and recoverable master.
 
 !!! note "This is a choice about interchange, not image quality"
     None of the managed systems guarantee a "better picture" on its own. What they buy you is a framework for consistency across cameras, vendors, applications, and deliverables — and, for ACES, a standard graded archival deliverable. A good colorist could arrive at approximately identical results under any of these frameworks, but the differences in ease of workflow or flexibility become apparent when multiple software products, tools, vendors, or deliverables are introduced.
@@ -21,8 +21,8 @@ You grade the footage more or less as the camera and monitor present it — a ca
 - **What it is not.** This is not the same as a simple job done well. A single-camera short graded on a consistent working space with the display transform applied last is [Manually Color Managed](#manually-color-managed), not this — it keeps a recoverable master at almost no extra cost. Truly un-color-managed means that when a new deliverable, a new display, or an HDR pass is asked for later, the only source is a baked image.
 - **Why it fails.** Technical and creative decisions are entangled. It does not scale to multi-camera, multi-vendor, or multi-deliverable work, and it fails quietly rather than loudly — you discover the cost only when someone needs the scene-referred master that cannot be produced.
 
-!!! warning "Un-color-managed is not a responsible option"
-    It is tempting to treat "no color management" as the zero-cost default for a simple job. For any production that intends to deliver professionally it is not a defensible choice — the moment anyone asks for a second deliverable, a re-grade, VFX pre-visualization, a show-LUT, or an archival master, the workflow falls apart. A naive approach is the opposite of "keep it simple". A **manually color-managed** pipeline with a consistent scene-referred working space costs almost nothing more to set up and retains incredible flexibility. Requirements, deliverables, and workflow are a conversation to have with the colorist **before you commit to working with them** — not details to work out later.
+!!! warning "Avoid an un-color-managed finish"
+    A second deliverable, re-grade, show LUT, VFX preview, or archival master requires a recoverable scene-referred source. Establish the working space and deliverables with the colorist before engagement.
 ### Manually Color Managed
 
 A hand-built managed pipeline. The colorist assigns each source into a **common — or at least semi-consistent — scene-referred working space** with color-space transforms, grades with node- or layer-based tools, and renders through a display transform of their choosing: a **standard** DRT (an ACES Output Transform, a print emulation such as Video Village's [Filmbox](https://videovillage.com/filmbox/)) or a **bespoke** one. No vendor framework is doing this automatically; the colorist assembles and maintains the pipeline by hand with CSTs, LUTs, and DCTLs — the manual pipeline the [application-native chapter](application-native-color-management.md) describes.
