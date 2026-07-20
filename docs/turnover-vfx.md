@@ -205,7 +205,7 @@ Comp:        0996 … 1000 1001 … 1015
 ## Versioning
 
 A costly mistake in visual effects shot management is losing track of versions, or not having
-version names at all. It is impossible to have complete confidence in a conform — that is, that
+version numbers at all. It is impossible to have complete confidence in a conform — that is, that
 the intended versions of shots are in a film — if there are no version numbers.[^7]
 Version numbering practices are generally ubiquitous among artists and vendors, but occasionally there
 is confusion.

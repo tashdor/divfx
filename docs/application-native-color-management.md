@@ -28,21 +28,18 @@ Each system works in its own wide-gamut internal space. The three you will meet 
 
 **Objective:** normalize many cameras into one scene-referred working space and retarget to any deliverable, without leaving Resolve. Instead of grading log footage into shape by hand (*display-referred* — Resolve knows nothing about the source), you tell it each clip's camera profile and it maps that source into a working space and out to the deliverable using the manufacturer's known log curve and gamut (*scene-referred*).[^dg1]
 
-```mermaid
-%%{init: {'flowchart': {'curve': 'linear'}}}%%
-graph LR
-  subgraph R["Inside DaVinci Resolve — one application"]
-    direction LR
-    C("Source clips<br/>camera metadata") -->|assign Input Color Space| W("DaVinci Wide Gamut / Intermediate<br/>timeline working space")
-    W -->|"Output space + DRT (applied last)"| D("Deliverables<br/>Rec.709 · P3 · Rec.2100")
-  end
-  classDef src fill:#7a869522,stroke:#7a8695,stroke-width:1.5px;
-  classDef dwg fill:#e8590c22,stroke:#e8590c,stroke-width:1.5px;
-  classDef del fill:#2fb45722,stroke:#2fb457,stroke-width:1.5px;
-  class C src;
-  class W dwg;
-  class D del;
-```
+<figure class="wfd-fig">
+<div class="wfd-wrap resolve">
+<div class="wlabel">Inside DaVinci Resolve — one application</div>
+<div class="wfd">
+<div class="wbox src"><b>Source clips</b><small>camera metadata</small></div>
+<div class="warr">assign Input Color Space</div>
+<div class="wbox dwg"><b>DaVinci Wide Gamut / Intermediate</b><small>timeline working space</small></div>
+<div class="warr">Output Color Space + DRT (applied last)</div>
+<div class="wbox del"><b>Deliverables</b><small>Rec.709 · P3 · Rec.2100</small></div>
+</div>
+</div>
+</figure>
 
 *RCM in one application: per-clip input assignment into DaVinci Wide Gamut / Intermediate, then an output space per deliverable with the display transform applied last.*
 
@@ -60,21 +57,18 @@ The working space Blackmagic recommends is **DaVinci Wide Gamut (DWG)** with the
 
 **Objective:** a high-end managed grade whose display transform is built on a color appearance model. FilmLight's systems (**Baselight**, and the on-set/dailies tool **Daylight**) work in the **Truelight Color Spaces (TCS)** — an **E-Gamut / T-Log** working space — and render to display through **T-CAM** (the Truelight Color Appearance Model, currently v2), which maps scene-referred data to a display without baking in a specific look. **[web-sourced — E-Gamut / T-Log / T-CAM-v2 are FilmLight product names, not standardized designations; see [FilmLight — Truelight](https://www.filmlight.ltd.uk/workflow/truelight.php).]**
 
-```mermaid
-%%{init: {'flowchart': {'curve': 'linear'}}}%%
-graph LR
-  subgraph B["Inside Baselight / Daylight — one application"]
-    direction LR
-    C("Source clips<br/>camera metadata") -->|assign Truelight input| W("E-Gamut / T-Log<br/>timeline working space")
-    W -->|"T-CAM v2 display transform (last)"| D("Deliverables<br/>Rec.709 · P3-D65 · Rec.2100")
-  end
-  classDef src fill:#7a869522,stroke:#7a8695,stroke-width:1.5px;
-  classDef tcs fill:#12b3a622,stroke:#12b3a6,stroke-width:1.5px;
-  classDef del fill:#2fb45722,stroke:#2fb457,stroke-width:1.5px;
-  class C src;
-  class W tcs;
-  class D del;
-```
+<figure class="wfd-fig">
+<div class="wfd-wrap baselight">
+<div class="wlabel">Inside Baselight / Daylight — one application</div>
+<div class="wfd">
+<div class="wbox src"><b>Source clips</b><small>camera metadata</small></div>
+<div class="warr">assign Truelight input</div>
+<div class="wbox tcs"><b>E-Gamut / T-Log</b><small>timeline working space</small></div>
+<div class="warr">T-CAM v2 display transform (applied last)</div>
+<div class="wbox del"><b>Displays</b><small>Rec.709 · P3-D65 · Rec.2100</small></div>
+</div>
+</div>
+</figure>
 
 *The same shape as RCM — a single-application managed workflow — on E-Gamut / T-Log, rendered to display through T-CAM.*
 
