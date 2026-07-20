@@ -33,9 +33,9 @@ graph LR
     HUB -->|plates| VFX
     VFX -->|renders| HUB
   end
-  HUB -->|grade| GR("Grade<br/>ACEScct")
-  GR -->|Output Transform| DEL("Deliverables<br/>Rec.709 · P3-D65<br/>Rec.2100 PQ · DCDM")
-  GR -.->|render to ACES2065-1| GAM("Graded Archival Master<br/>ACES2065-1, from ACEScct")
+  HUB -->|convert to ACEScct| GR("Grade<br/>graded in ACEScct")
+  GR -->|back to ACES2065-1| GAM("Graded Archival Master<br/>graded ACES2065-1")
+  GAM -->|Output Transform| DEL("Deliverables<br/>Rec.709 · P3-D65<br/>Rec.2100 PQ · DCDM")
   classDef src fill:#7a869522,stroke:#7a8695,stroke-width:1.5px;
   classDef aces fill:#4c7ef522,stroke:#4c7ef5,stroke-width:1.5px;
   classDef vfx fill:#9b6dff22,stroke:#9b6dff,stroke-width:1.5px;
@@ -48,7 +48,7 @@ graph LR
   class DEL del;
 ```
 
-*Everything converts to ACES2065-1; VFX round-trips through the interchange in ACEScg, and only the assembled result is graded (ACEScct). The Graded Archival Master is rendered from the grade back to ACES2065-1 — distinct from the ungraded assembly master at the hub.*
+*Everything converts to ACES2065-1; VFX round-trips through the interchange in ACEScg. Grading converts internally to ACEScct and back to ACES2065-1 — that graded ACES2065-1 is the Graded Archival Master, and the Output Transform derives each deliverable from it. The ungraded interchange is the non-graded assembly master.*
 
 Primary references: the [ACES documentation](https://docs.acescentral.com/), the [aces-aswf/aces](https://github.com/aces-aswf/aces) repository (formerly [ampas/aces-dev](https://github.com/ampas/aces-dev)), and the [SMPTE ACES standards](https://www.smpte.org/standards/aces-standards) — ST 2065-1 through ST 2065-5, which are normative and paywalled.
 

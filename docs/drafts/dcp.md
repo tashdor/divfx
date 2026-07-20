@@ -22,6 +22,24 @@ Structurally the DCP is the [IMF](imf.md)'s predecessor — and, in large part, 
 
 Two package flavors exist, and the difference matters at ingest. **Interop (IOP)** is the older de-facto format: narrower in what it allows, but understood by essentially every server ever deployed. **SMPTE DCP** is the standardized modern format (the ST 428/429 families) and is required for anything Interop never specified — high frame rates, immersive audio, and properly-signalled closed captions.[^dcp-dtdc] Most festivals accept both; some now expect SMPTE. Interop remains the safe universal when you do not know the venue's server age. Confirm which the festival wants before you master — the two are not interchangeable at the door.
 
+## Resolution: 2K, 4K, and the bit-rate cap
+
+DCPs come in two resolution classes — **2K** (2048 pixels across) and **4K** (4096 across) — each in a **Flat** (1.85:1) or **Scope** (2.39:1) container. Which one matters less than it appears, because of the DCI **bit-rate cap**: the JPEG 2000 image essence is limited to a **maximum of 250 Mbit/s**, and that ceiling is identical for 2K and 4K.[^dcp-res] A 4K DCP packs four times the pixels into the same data budget, so 4K's per-pixel advantage over 2K is far smaller than the pixel count suggests — and on most screens, from most seats, not visible.
+
+The more useful property is **interoperability**. JPEG 2000 is a wavelet codec and resolution-scalable: a 4K codestream *contains* a 2K version as a lower resolution level. A server feeding a 2K projector simply extracts and plays that 2K image out of the 4K DCP, with no transcode — so a single **4K DCP plays on both 4K and 2K systems**, and a 2K DCP plays on 4K systems too. You do not author a separate package per resolution; digital cinema is single-inventory by design. (The one catch: 4K is limited to 24 fps under the DCI spec — higher frame rates are 2K-only.)[^dcp-res]
+
+For a festival, unless a venue specifically calls for 4K, a well-made **2K DCP is often the pragmatic choice** — smaller, universally playable, and visually indistinguishable in the room. If you do master 4K, its built-in 2K compatibility means you are not locking out older screens.
+
+## Audio: channels and how it was mixed
+
+DCP audio is discrete, uncompressed multichannel PCM — but *how many* channels, and *how it was mixed*, matter more than the container.
+
+**Prefer 5.1 over 2.0.** A cinema routes discrete channels to fixed speaker arrays: screen Left / Center / Right behind the screen, surround arrays along the walls, and a subwoofer (LFE). A **5.1** mix (L, C, R, LFE, Ls, Rs) puts dialogue in a dedicated **center** channel anchored to the screen, where it stays locked to the picture for every seat in the house. A **2.0** mix has no center: dialogue sits as a *phantom* center between the L and R screen speakers, which are far apart in a theater — so it only holds together on the room's centerline and pulls toward the nearer speaker everywhere else. For theatrical presentation 5.1 is strongly preferred, and many festivals expect it.
+
+**2.0 is not Dolby Stereo.** A plain 2.0 (LoRo — discrete left / right) is exactly two channels and nothing more; there is no center or surround information in it. Historic **Dolby Stereo (Lt/Rt** — left-total / right-total**)** is different: it is a *matrix-encoded* two-channel mix that a cinema processor decodes back into L, C, R, and a surround. If you deliver a two-channel track, be clear which it is — a LoRo mix fed to a room expecting an Lt/Rt matrix (or the reverse) misplaces dialogue and surround.
+
+**Mix for the theater, not the nearfield.** A theatrical mix is made on a large, calibrated dubbing stage at **reference level** (each channel aligned to 85 dB SPL) and monitored through the cinema **X-curve** — the standardized high-frequency roll-off for large rooms (SMPTE ST 202 / ISO 2969).[^dcp-audio] A nearfield mix — small room, close monitors, no X-curve, whatever level felt right — does not translate. Played back in a theater at reference level it is typically **too loud and too bright**: the balance that sat well two feet from a monitor is punishing across a large room, and dialogue and effects that felt fine turn harsh. **Loudness is the most common failure** — a small-room stereo mix screened in a theater is usually far hotter than intended. If theatrical exhibition is on the horizon, budget a proper theatrical mix on a calibrated stage, not a nearfield bounce.
+
 ## Encrypted or unencrypted
 
 An encrypted DCP has its MXF essence scrambled with **AES-128**; a server can only play it with a **KDM** (Key Delivery Message) — an XML file carrying the content keys, encrypted to one specific server's certificate and valid only for a stated date-and-time window. Unencrypted DCPs carry no keys and play on any compliant server.
@@ -75,7 +93,7 @@ Play it start to finish, listen to the full mix, and verify captions on the real
 ## What this means for an independent production
 
 - **Decide encryption early**, and default to unencrypted for festivals unless a rights-holder demands otherwise.
-- **Build accessibility during the DI, not after** — an OCAP version, SDH, and described audio are increasingly required, and retrofitting them into a finished master is expensive.
+- **Plan the accessibility deliverables ahead of time.** OCAP/SDH captions and described audio are increasingly required, and they are valuable assets for the eventual sale of the film. Given enough lead time they are cheap to produce well — take the time to author quality timed-text files at the correct frame rate — so that a sudden festival request is not a scramble. Rushed against a deadline is where errors and unnecessary cost creep in.
 - **Get each festival's exact spec first.** "A DCP" is not a specification: Interop vs SMPTE, media and delivery method, naming, and which accessibility tracks all need to be settled before mastering.
 - **QC on real hardware.** A desktop player proves the package parses; only a cinema server proves it screens.
 
@@ -90,3 +108,7 @@ Play it start to finish, listen to the full mix, and verify captions on the real
 [^dcp-drive]: EXT2/EXT3 with a **128-byte inode size** is the required delivery-drive format under the DCI specification and the [ISDCF](https://www.isdcf.com/) recommendation; modern Linux tooling defaults to 256-byte inodes, which older Doremi/Dolby servers reject outright. **[web-sourced.]**
 
 [^dcp-fest]: Unencrypted preference, KDM window rules, and delivery-media requirements from the 2024 festival technical specifications of the [Venice Biennale](https://static.labiennale.org/files/cinema/2024/Documenti/specs-dcp-2024.pdf), the [Berlinale](https://www.berlinale.de/en/film-entry/technical-specifications/festival-media.html), and [Sundance](https://www.sundance.org/wp-content/uploads/2022/11/Technical-Specifications-For-Festival-Presentation.pdf). Specs change yearly — confirm the current edition. **[web-sourced.]**
+
+[^dcp-res]: The [DCI Digital Cinema System Specification](https://www.dcimovies.com/) caps the JPEG 2000 image essence at **250 Mbit/s** for both 2K and 4K; JPEG 2000's wavelet resolution-scalability lets a 2K system extract a 2K image from a 4K codestream, so 2K and 4K DCPs are interoperable ("single inventory"). 4K is constrained to 24 fps. **[web-sourced.]**
+
+[^dcp-audio]: Reference monitoring level (85 dB SPL per channel) and the cinema **X-curve** are standardized in SMPTE ST 202 / ISO 2969; DCP audio channel layouts (5.1, 7.1, and the HI/VI assignments) are covered in the DTDC delivery guidelines. Dolby Stereo Lt/Rt is the historical matrix-encoded two-channel theatrical format. **[web-sourced in part.]**
