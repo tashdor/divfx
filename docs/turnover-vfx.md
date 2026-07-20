@@ -349,6 +349,13 @@ favor is not meant to cover. A production that hands over clean, complete, well-
 keeps its notes and versions straight is asking a vendor to donate their craft, not their patience,
 and is far more likely to get the discount.
 
+The count sheet is a good example. It should be detailed but easy to read, well organized, and lead
+with the critical information. If it lists the source in and out timecodes of a plate but omits the
+frame count, every bidder has to do the arithmetic themselves to work out how many frames they are
+being asked to price. It is a small inconvenience, but a small inconvenience repeated across every
+shot and every vendor is exactly the kind of friction to remove when you are asking someone to work
+on your film for less than it is worth.
+
 ## The Creative Review Cycle
 
 While a shot is being built, the filmmakers review it in progress. These early and in-progress
