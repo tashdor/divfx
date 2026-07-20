@@ -78,7 +78,6 @@ The original typeset editions remain available:
 
 </div>
 
-## Contributing
+## Contact
 
-Corrections and additions are welcome — see [Contributing](contributing.md). Questions,
-comments, and errata can be sent to [divfx@tashitrieu.com](mailto:divfx@tashitrieu.com).
+Questions, comments, and errata can be sent to [divfx@tashitrieu.com](mailto:divfx@tashitrieu.com).
