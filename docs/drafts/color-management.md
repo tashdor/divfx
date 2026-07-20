@@ -29,7 +29,7 @@ The unit of configuration is an **OCIO config** — a file (plus, historically, 
 
 This is the practical point an independent production needs, and it is not obvious from the ACES documentation: **facilities do not implement ACES from the CTL reference transforms.** They consume it as an OCIO config.
 
-The Academy publishes ACES as reference transforms in the Color Transformation Language (CTL), which is a specification language, not a production renderer. What ships to artists is an OCIO config that implements those transforms efficiently. In current practice these are the ACES **built-in configs** — commonly a `cg-config` (a smaller set aimed at CGI and compositing) and a `studio-config` (a fuller set including more camera vendors and display encodings). **[web-sourced — the built-in config naming and split postdates the reference library.]**
+The Academy publishes ACES as reference transforms in the Color Transformation Language (CTL), which is a specification language, not a production renderer. What ships to artists is an OCIO config that implements those transforms efficiently. In current practice these are the ACES **built-in configs** — commonly a `cg-config` (a smaller set aimed at CGI and compositing) and a `studio-config` (a fuller set including more camera vendors and display encodings). **[web-sourced — the built-in config naming and split is documented by the [OCIO ACES config project](https://github.com/AcademySoftwareFoundation/OpenColorIO-Config-ACES), not the core ACES standards.]**
 
 So the sentence "the show is ACES" resolves, in practice, to: *every application on the show is pointed at the same OCIO config, at the same version.*
 

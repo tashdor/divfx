@@ -45,7 +45,7 @@ IMF is a framework with **applications** that constrain it to a usable profile. 
 
 The choice of JPEG 2000 rather than a long-GOP codec is deliberate: it is intra-frame, mathematically lossless at high rates, and frame-addressable — the same properties that make it right for [DCP](../production-workflow.md#dcp-digital-cinema-package). A mastering format must be editable at any frame, which rules out temporal compression.
 
-**Netflix requires IMF App #2E**, with immersive audio per ST 2067-201 (IAB). **[web-sourced — the specific Netflix requirement and revision years; the library holds ST 2067-21 itself but not current Netflix delivery specifications.]**
+**Netflix requires IMF App #2E**, with immersive audio per ST 2067-201 (IAB). **[web-sourced — the specific Netflix requirement and revision years; SMPTE ST 2067-21 defines Application #2E itself, but Netflix's current delivery specifications are not a public standard.]**
 
 ## What this means for an independent production
 

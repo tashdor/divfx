@@ -14,11 +14,11 @@ These pages are **new material**, not part of v1.0.1. They are drafted to fill t
 
 ## Sourcing
 
-Claims here are checked against a color-science reference library — ITU, SMPTE, AMPAS, and Dolby primary documents, plus *Color and Mastering for Digital Cinema* and *Cinematic Color* — and cited inline where a specific value or wording depends on a source.
+Claims here are checked against primary sources — ITU, SMPTE, and Academy (AMPAS) documents, Dolby's grading guides, and the books listed in [Supplemental Reading & Resources](../resources.md) — and cited inline where a specific value or wording depends on a source.
 
 Two rules carried through every page:
 
-- **Where the library corroborates a claim, it is cited.** Where a claim rests only on current web sources — principally anything about ACES 2.0, which postdates the library's newest ACES document (2018) — it is marked **[web-sourced]** and should be re-verified against the specification before print.
+- **Where a primary source supports a claim, it is cited.** Where a claim rests only on current web sources — principally anything about ACES 2.0, which postdates the newest Academy ACES document cited here (2018) — it is marked **[web-sourced]** and should be re-verified against the specification before print. See [Supplemental Reading & Resources](../resources.md) for every source in one place.
 - **Nothing here has been merged into the v1.0.1 chapters.** Adopting a draft is an editorial decision, and would make the wiki a genuine v1.1 rather than a port.
 
 ## Style
