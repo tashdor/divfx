@@ -508,19 +508,86 @@ three realistic media for holding finished masters and project files: **LTO tape
 storage**, and **hard drives**. They differ enormously in cost *structure* — and the sticker price is
 usually the least important number.
 
-The table below models one common scenario — **100 TB archived once, held for three years, then fully
-restored** — at mid-2026 prices. It is a planning aid, not a quote: cloud rates and egress tiers
-change often, and the LTO figures fold in per-TB service labor.[^ltocost]
+The calculator below estimates the cost of **archiving a given amount of data once, holding it, then
+fully restoring it** — drag the sliders for your data size and retention period. It is a planning aid,
+not a quote: cloud rates and egress tiers change often, and the LTO figures fold in per-TB service
+labor.[^ltocost]
 
-| Option | Archive / ingest | 3-yr storage | Restore / egress | ~3-yr total |
-| --- | --- | --- | --- | --- |
-| **AWS Glacier Deep Archive** | $0 | ~$3,600 | ~$8,100–8,300 | **~$11,700–11,900** |
-| **LTO-9** (you keep the tapes) | ~$8,250 | ~$0 | ~$7,500 | **~$15,750** |
-| **Azure Blob Archive** | $0 | ~$6,600 | ~$9,300–11,300 | **~$15,900–17,900** |
-| **Google Cloud Archive** | $0 | ~$4,200–8,700 | ~$13,000–16,000 | **~$17,200–24,700** |
-| **AWS Glacier Flexible Retrieval** | $0 | ~$12,960 | ~$7,790 | **~$20,750** |
-| **Backblaze B2** | $0 | ~$25,020 | ~$0 | **~$25,020** |
-| **Wasabi** | $0 | ~$28,764 | ~$0 | **~$28,764** |
+<style>
+.archive-calc{border:1px solid var(--md-default-fg-color--lightest);border-radius:6px;padding:1rem 1.1rem;margin:1.4em 0;}
+.archive-calc .ac-controls{display:flex;flex-wrap:wrap;gap:1.4rem;margin-bottom:1rem;}
+.archive-calc .ac-ctrl{flex:1 1 240px;}
+.archive-calc .ac-ctrl label{font-size:.78rem;font-weight:700;display:block;}
+.archive-calc .ac-ctrl input[type=range]{width:100%;margin-top:.45rem;accent-color:var(--md-accent-fg-color,#e0912f);}
+.archive-calc .ac-scroll{overflow-x:auto;}
+.archive-calc table{width:100%;margin:0;}
+.archive-calc th,.archive-calc td{text-align:right;white-space:nowrap;}
+.archive-calc th:first-child,.archive-calc td:first-child{text-align:left;white-space:normal;}
+.archive-calc tr.ac-best td{background:var(--md-accent-fg-color--transparent,rgba(224,145,47,.14));font-weight:600;}
+.archive-calc .ac-note{font-size:.7rem;color:var(--md-default-fg-color--light);margin:.7rem 0 0;line-height:1.45;}
+</style>
+
+<div class="archive-calc" id="archive-calc">
+  <div class="ac-controls">
+    <div class="ac-ctrl">
+      <label>Data archived: <span id="ac-tb-val">100</span> TB</label>
+      <input type="range" id="ac-tb" min="1" max="1000" step="1" value="100">
+    </div>
+    <div class="ac-ctrl">
+      <label>Retention: <span id="ac-yr-val">3</span> years</label>
+      <input type="range" id="ac-yr" min="1" max="15" step="1" value="3">
+    </div>
+  </div>
+  <div class="ac-scroll">
+    <table>
+      <thead><tr><th>Option</th><th>Ingest</th><th>Storage</th><th>Restore</th><th>Total</th></tr></thead>
+      <tbody id="ac-body"></tbody>
+    </table>
+  </div>
+  <p class="ac-note">Estimates at mid-2026 rates for a single full restore to the open internet; cloud storage is each provider's cold/archive tier. Egress tiers and provider rates vary — verify before budgeting. Backblaze and Wasabi assume the restore falls within their included free-egress ratio. LTO assumes you keep the tapes (no vault fee); see the footnote for the service-rate assumptions.</p>
+</div>
+
+<script>
+(function(){
+  var providers = [
+    {name:'LTO-9 (you keep the tapes)', ingest:function(T){return Math.ceil(T/18)*125 + 75*T;}, storage:function(){return 0;}, restore:function(T){return 75*T;}},
+    {name:'AWS Glacier Deep Archive', ingest:function(){return 0;}, storage:function(T,Y){return T*0.99*12*Y;}, restore:function(T){return T*82;}},
+    {name:'AWS Glacier Flexible Retrieval', ingest:function(){return 0;}, storage:function(T,Y){return T*3.6*12*Y;}, restore:function(T){return T*77.9;}},
+    {name:'Azure Blob Archive', ingest:function(){return 0;}, storage:function(T,Y){return T*1.833*12*Y;}, restore:function(T){return T*103;}},
+    {name:'Google Cloud Archive', ingest:function(){return 0;}, storage:function(T,Y){return T*1.2*12*Y;}, restore:function(T){return T*145;}},
+    {name:'Backblaze B2', ingest:function(){return 0;}, storage:function(T,Y){return T*6.95*12*Y;}, restore:function(){return 0;}},
+    {name:'Wasabi', ingest:function(){return 0;}, storage:function(T,Y){return T*7.99*12*Y;}, restore:function(){return 0;}}
+  ];
+  function fmt(n){ return '$'+Math.round(n).toLocaleString('en-US'); }
+  function init(){
+    var root = document.getElementById('archive-calc');
+    if(!root || root.dataset.acInit){ return; }
+    root.dataset.acInit = '1';
+    var tb = document.getElementById('ac-tb'), yr = document.getElementById('ac-yr');
+    var tbVal = document.getElementById('ac-tb-val'), yrVal = document.getElementById('ac-yr-val');
+    var body = document.getElementById('ac-body');
+    function render(){
+      var T = +tb.value, Y = +yr.value;
+      tbVal.textContent = T; yrVal.textContent = Y;
+      var rows = providers.map(function(p){
+        var i=p.ingest(T,Y), s=p.storage(T,Y), r=p.restore(T,Y);
+        return {name:p.name, i:i, s:s, r:r, total:i+s+r};
+      });
+      rows.sort(function(a,b){ return a.total-b.total; });
+      body.innerHTML = rows.map(function(row,idx){
+        return '<tr'+(idx===0?' class="ac-best"':'')+'><td>'+row.name+'</td><td>'+fmt(row.i)+'</td><td>'+fmt(row.s)+'</td><td>'+fmt(row.r)+'</td><td><b>'+fmt(row.total)+'</b></td></tr>';
+      }).join('');
+    }
+    tb.addEventListener('input', render);
+    yr.addEventListener('input', render);
+    render();
+  }
+  if (window.document$ && typeof window.document$.subscribe === 'function') {
+    if (!window.__acSub){ window.__acSub = true; window.document$.subscribe(init); } else { init(); }
+  } else if (document.readyState !== 'loading') { init(); }
+  else { document.addEventListener('DOMContentLoaded', init); }
+})();
+</script>
 
 [^ltocost]: LTO-9 holds 18 TB native per tape, so 100 TB needs ~6 cartridges at roughly $120–150 each
     (~$750 of media). The rest of the LTO figure is a service rate covering the facility's tape decks
@@ -536,16 +603,17 @@ change often, and the LTO figures fold in per-TB service labor.[^ltocost]
 **Read the total, not the headline rate.** Cold-cloud tiers advertise roughly $1/TB/month to *store*
 but bill heavily to get the data back — retrieval plus internet egress is the real cost, and a full
 restore can dwarf three years of storage. The flat-rate clouds (Backblaze, Wasabi) invert this: egress
-is free or included, but storage is 5–7× more, so a multi-year hold costs the most overall. **Glacier
-Deep Archive is the cheapest option for this exact three-year, single-restore scenario** — but it bills
-every month you hold and stings on egress.
+is free or included, but storage is 5–7× more, so a multi-year hold costs the most overall. At short
+retention — the calculator's three-year default — cold cloud like Glacier Deep Archive looks cheapest,
+but it bills every month you hold and stings on egress; **push the retention slider out and it climbs
+past LTO.**
 
 **LTO's cost is front- and back-loaded labor; the media costs almost nothing to keep.** You pay to
 write the tapes and to restore them, but at about $5/TB the cartridges sit on a shelf with no monthly
-bill and no power draw — so the LTO total barely moves whether you hold for three years or ten, while
-every monthly-billed cloud keeps climbing. Over the long retention a film archive actually needs, that
-structural difference is the whole case for tape: it pulls ahead of the cold clouds and carries none of
-their ongoing billing, vendor, or egress risk.
+bill and no power draw — so the LTO total barely moves whether you hold for three years or ten (drag
+the years slider and watch it stay put), while every monthly-billed cloud keeps climbing. Over the
+long retention a film archive actually needs, that structural difference is the whole case for tape: it
+pulls ahead of the cold clouds and carries none of their ongoing billing, vendor, or egress risk.
 
 **Hard drives are the wrong medium for a master archive.** They are fine as a working or nearline
 copy, but dangerous as your *only* long-term one:
@@ -558,6 +626,19 @@ copy, but dangerous as your *only* long-term one:
 
 If you must use HDDs, keep **at least two copies**, power them up and verify them periodically, and
 never let a lone drive be the archive.
+
+**Your financing may require proper archival, not merely recommend it.** On a bonded or
+investor-backed film, archival is a contractual matter, not just a technical one. A **completion
+guarantor** (the completion-bond company) guarantees the film will be finished and *delivered to the
+distributor's specification* — and the preservation and archival elements are part of that delivery, so
+the guarantor, the financiers, and the distributor all have a stake in the masters surviving intact. In
+practice that means archival masters on **LTO with verified checksums, redundant copies, and offsite or
+vaulted storage**; a lone hard drive satisfies neither a guarantor, a distributor's delivery QC, nor a
+media insurer. Productions also carry **negative / digital-media insurance** covering loss or damage to
+the recorded footage and masters, and both the bond and that coverage assume the material is stored to
+a professional standard — a data loss traceable to a single unpowered drive is exactly the avoidable
+negligence that complicates a claim. Even setting cost aside, the money above the production usually
+dictates LTO-grade archival.
 
 **LTO is the film-industry archival standard — with a format treadmill.** LTO media is rated for
 ~15–30 years in controlled storage, is offline and air-gapped (ransomware cannot reach a tape on a
