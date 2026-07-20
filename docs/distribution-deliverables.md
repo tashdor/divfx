@@ -50,9 +50,10 @@ the distributor makes its own platform-specific encodes downstream. IMF is a stu
 interchange format — produce it only when a studio, major streamer, broadcaster, or large catalog
 aggregator specifically asks for it.
 
-**ProRes 422 HQ is the common default.** Step up to ProRes 4444 or 4444 XQ when you need an alpha
-channel or a higher-bit-depth finish. Your high-quality archival master is what lets you output either
-flavor on request. See [Common Working Formats](working-formats.md#apple-prores).
+**ProRes 422 HQ is the common default.** Some distributors simply ask for ProRes 4444 or 4444 XQ
+because they want a higher-quality master — the choice is fairly arbitrary and varies by house, not a
+technical requirement of the deliverable itself. Your high-quality archival master is what lets you
+output either flavor on request. See [Common Working Formats](working-formats.md#apple-prores).
 
 ## The picture master baseline
 
