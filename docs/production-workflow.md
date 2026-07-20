@@ -540,7 +540,7 @@ not a quote: cloud rates and egress tiers change often, and the LTO figures sepa
   </div>
   <div class="ac-scroll">
     <table>
-      <thead><tr><th>Option</th><th>Hard costs</th><th>Ingest</th><th>Storage</th><th>Restore</th><th>Total</th></tr></thead>
+      <thead><tr><th>Option</th><th>Hard costs</th><th>Archive</th><th>Storage</th><th>Restore</th><th>Total</th></tr></thead>
       <tbody id="ac-body"></tbody>
     </table>
   </div>
@@ -590,7 +590,7 @@ not a quote: cloud rates and egress tiers change often, and the LTO figures sepa
 </script>
 
 [^ltocost]: The LTO **hard cost** is the tape stock alone: LTO-9 holds 18 TB native per cartridge, so
-    the calculator charges `ceil(TB ÷ 18)` cartridges at ~$105 each (~$5.80/TB). The **ingest** and
+    the calculator charges `ceil(TB ÷ 18)` cartridges at ~$105 each (~$5.80/TB). The **archive** and
     **restore** columns are a managed-service rate — the facility's decks, library/robot hardware,
     cataloguing, and the labor of writing, verifying, and later reading the tapes — modeled here at
     **~$50/TB each way**, in line with 2025–26 service rate cards. Most services set a **job minimum**
