@@ -1,6 +1,6 @@
 # Distribution Deliverables for Independent Film
 
-Finishing a film and getting paid for it are separated by a document usually called the
+Between finishing a film and earning revenue from it stands a document usually called the
 *delivery schedule* or *schedule of deliverables*. It is the distributor's itemized list of
 everything — picture masters, audio stems, caption files, artwork, and a long tail of legal
 paperwork — that must be created, quality-controlled, and handed over before the film can be
