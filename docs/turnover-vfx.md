@@ -10,6 +10,34 @@ them and ripples downstream to the various artists and vendors, rather than mult
 and vendors working autonomously in different resolutions and formats without a cohesive and
 compatible workflow.
 
+## The Bid Package
+
+Before any plate is pulled, a vendor needs enough information to understand the work and quote
+it accurately. On studio films the bid package is assembled by the VFX producer and their
+coordinators. On an independent production it usually falls to the acting VFX supervisor or the
+editor, and it is worth the effort, because a vague request produces a vague bid.
+
+A complete bid package, covering each shot or group of shots, includes:
+
+- Storyboards or previz that show the intended staging and action.
+- Reference photography — on-set stills, cleanplates, texture and lighting reference, and any
+  witness-camera or survey material captured during production.
+- Visual examples: temp composites (slap comps), frame grabs from other films, or concept art
+  that communicate the target look.
+- The relevant cut or edit, so the vendor can see each shot in the context of the scene and
+  understand its timing and its neighbors.
+- The plate or plates the shot will be built from, or at minimum representative frames at the
+  working resolution.
+- A detailed written description of the desired effect for every shot: what was shot practically,
+  what needs to be created or removed, how long it runs, and what the shot has to accomplish in
+  the story.
+
+When a vendor receives a complete package, they can bid against a clear scope rather than
+guessing. Guesses get padded — a careful vendor prices in the uncertainty, and a careless one
+underbids and discovers the real complexity halfway through the shot. Either way the production
+pays for the ambiguity. Describing each shot precisely up front produces accurate bids,
+comparable quotes across vendors, and far fewer surprises once the work is underway.
+
 ## Timeline Preparation
 
 In order to facilitate an accurate plate pull, edit lists must be derived from simplified timelines.
@@ -261,3 +289,90 @@ Example plate pull directory structure:
 ./kxn_0010_bg1/support_files/kxn_0010_bg1.cc
 ./kxn_0010_bg1/support_files/kxn_0010_bg1.cube
 ```
+
+## Turnovers and Count Sheets
+
+The plate pull produces the media; the turnover is how that media, and the information that goes
+with it, reaches the vendor. Each turnover packages the pulled plates, the relevant reference and
+support files, and a count sheet that tells the vendor exactly what they are receiving.
+
+The count sheet is the master list of every shot in the turnover. At a minimum it carries, per
+shot:
+
+- The VFX shot code (see [Visual Effects Shot Naming](#visual-effects-shot-naming) above).
+- The scene and reel, or the sequence the shot belongs to.
+- The source timecode and the frame range of the pull.
+- The number of handle frames on the head and tail.
+- The plate ID or IDs that make up the shot.
+- A brief description of the work.
+- The shot's current status.
+
+The count sheet travels with the plates so the vendor can reconcile what they were told against
+what actually landed on their drive, and it is the production's own record of what went out, to
+whom, and when. Turnovers are usually built per vendor, containing only the shots assigned to
+that vendor along with their plates, cleanplates, reference, and the Show LUT and CDL sidecars
+described under [Support Files](#support-files). Keeping each vendor's turnover self-contained
+avoids sending an artist material for shots they are not working on and keeps the delivery small
+enough to transmit efficiently.
+
+In practice the count sheet is rarely a separate document at all — it is a view of the same tracking
+sheet the production is already using to manage the show, filtered down to the shots in that
+turnover.
+
+## Coordination and Tracking
+
+None of this holds together without someone whose job is to keep it organized. On a large show
+that is the VFX coordinator, working under the VFX producer; on an independent production the
+role usually collapses into the VFX producer, the VFX editor, or whoever is acting as supervisor.
+Whatever the title, someone has to own the list of shots, the versions in play, the outstanding
+notes, and the deadlines, and keep all of it current as work comes and goes.
+
+Full production-tracking platforms — Autodesk Flow Production Tracking (formerly Shotgun, then
+ShotGrid) and ftrack — are built for exactly this and do it well, with shot databases, review
+tools, and pipeline APIs. They are also heavy and complex, and the overhead of running one
+rarely pays off on a show with a few dozen shots and a handful of artists. Most independent
+productions run the whole thing on a Google Sheet instead: one row per shot, columns for the
+information that would otherwise live on the count sheet, and a status column that everyone
+reads from. It is low-tech, but it is shared, it is current, and it is the single source of truth the
+count sheets and turnovers are drawn from. Production tracking is covered in more depth in
+[Visual Effects Production Management](vfx-production-management.md).
+
+## The Creative Review Cycle
+
+While a shot is being built, the filmmakers review it in progress. These early and in-progress
+creative reviews are not about technical quality control; they are about content, design, and
+whether the shot is working. The vendor renders a QuickTime with the Show LUT — the display
+transform — baked in, so that the director, VFX supervisor, and editor see the shot in its intended
+look rather than as a flat log image. The editor can cut that QuickTime into the timeline and
+review it in the context of the surrounding scene.
+
+Because the artists are usually remote, these reviews happen over the internet. Frame.io (now an
+Adobe product) and cineSync are the common platforms: the vendor uploads a version, the
+reviewers play it back and leave frame-accurate notes, and the vendor turns those notes into the
+next version. That loop repeats until the shot is approved.
+
+The loop is where things fall apart without discipline. Notes get left in an email, a text message,
+and a review platform all at once; two people refer to the same shot by two different names; a
+vendor delivers a new version against notes that have already been superseded. Every one of
+these is an organizational failure rather than a creative one, and every one of them costs a
+revision. The defenses are simple and non-negotiable: clear version numbers on every delivery
+(see [Versioning](#versioning) above), one source of truth for notes so nobody is working from a
+stale list, and unambiguous shot naming so there is never a question of which shot is being
+discussed. This is what the coordinator and the tracking sheet exist to enforce.
+
+## Final Turnover into the DI
+
+Creative approval is not the finish line. When a shot is creatively approved in review, the vendor
+turns it over in the agreed final format — typically EXR, at the delivery resolution, color space,
+and handle length settled on at the start of the show (see
+[Format Specification](#format-specification) above). That final render is conformed and cut into
+the DI against the offline reference, graded by the colorist in the context of the finished
+sequence, and put through quality control on the DI's calibrated pipeline.
+
+That last step matters because a shot can look finished in a review platform and still fail in the
+DI. Graded up on a theater screen or a reference monitor, matte lines, grain mismatches, and
+black-point errors that were invisible in a compressed QuickTime become obvious — the same
+issues covered under [Visual Effects Quality Control Practices](vfx-quality-control.md). A shot is
+only truly final once it has been conformed, graded, and QC'd in the DI and confirmed to work in
+the finished picture. Until then it is a creatively approved shot that has not yet proven itself in
+context.
