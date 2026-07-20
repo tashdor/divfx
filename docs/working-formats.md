@@ -70,7 +70,7 @@ shipped as "DNx GX."[^dnx]
 
 [^dnx]: Avid, [*Avid DNx naming scheme and data rates*](https://kb.avid.com/pkb/articles/en_US/Knowledge/Avid-DNx-naming-scheme-and-data-rates)
     and [*DNxHR Codec Bandwidth Specifications*](https://kb.avid.com/pkb/articles/en_US/white_paper/DNxHR-Codec-Bandwidth-Specifications);
-    rebrand announced at IBC 2025. **[web-sourced.]**
+    rebrand announced at IBC 2025.
 
 ### H.264 / H.265 (HEVC)
 
@@ -124,7 +124,7 @@ before using anything heavier.
 | **None** (uncompressed) | ✓ | ✓ | Largest files, no decode cost. **The only option permitted in the ACES2065-1 archival container** (ST 2065-4). |
 | **ZIP / ZIP1 (ZIPS)** | ✓ | ✓ | zlib; very efficient to decode and no real problem in modern DI systems — a safe default for VFX renders to the DI. |
 | **RLE** | ✓ | ✓ | Run-length; light, fast, modest savings. |
-| **PIZ** | ✓ | ✗ | Wavelet + Huffman; excellent on grainy / noisy plates, but slower to decode and can stall real-time playback in some DI systems. |
+| **PIZ** | ✓ | ✗ | Wavelet + Huffman; excellent on grainy / noisy plates, but slower to decode and can impact realtime playback on some systems. |
 | **PXR24** | ✓ half / ✗ 32-bit | ✓ | Good ratio; lossless for half-float and integer, lossy for 32-bit float. |
 | **B44 / B44A** | ✗ (lossy) | ✓ | Fixed-rate, designed for fast real-time playback. |
 | **DWAA / DWAB** | ✗ (lossy) | ⚠ | DCT, JPEG-like; the smallest files, but lossy and heavier to decode. |

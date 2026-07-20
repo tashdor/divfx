@@ -68,7 +68,7 @@ No consumer or reference display reproduces the full BT.2020 gamut — its prima
 
 [^hdr2]: ITU-R BT.2020 (adopted by BT.2100 for HDR) defines the wide-gamut primaries as monochromatic single-wavelength points, which is why only laser-pure primaries can approach full coverage.
 
-[^hdr3]: Public per-display measurements are catalogued by [RTINGS](https://www.rtings.com/), which reports "Rec. 2020 Coverage" and "DCI-P3 Coverage" for every panel it tests. Announcements of ~90–95% Rec.2020 QD-OLED / tandem-RGB panels appeared in 2025–26 (e.g. [FlatpanelsHD](https://www.flatpanelshd.com/news.php?subaction=showfull&id=1725855010), [TechRadar](https://www.techradar.com/televisions/this-new-oled-panel-hits-95-color-gamut-outshining-some-of-the-best-lg-and-samsung-tvs-by-10-25)), but those are panel specs ahead of shipping reference displays. **[web-sourced]**
+[^hdr3]: Public per-display measurements are catalogued by [RTINGS](https://www.rtings.com/), which reports "Rec. 2020 Coverage" and "DCI-P3 Coverage" for every panel it tests. Announcements of ~90–95% Rec.2020 QD-OLED / tandem-RGB panels appeared in 2025–26 (e.g. [FlatpanelsHD](https://www.flatpanelshd.com/news.php?subaction=showfull&id=1725855010), [TechRadar](https://www.techradar.com/televisions/this-new-oled-panel-hits-95-color-gamut-outshining-some-of-the-best-lg-and-samsung-tvs-by-10-25)), but those are panel specs ahead of shipping reference displays.
 
 [^hdr4]: Gamut coverage is an area ratio on a chromaticity diagram; CIE 1931 *xy* and CIE 1976 *u′v′* give different numbers for the same display. RTINGS reports the *xy* figure, which runs higher than *u′v′*.
 
@@ -89,7 +89,7 @@ Theatrical HDR is a separate presentation, not the home master, and it arrives t
 - **Dolby Vision Cinema** — dual-laser projection in Dolby Cinema auditoriums, with dynamic per-scene metadata (the theatrical sibling of the home Dolby Vision grade).
 - **HDR by Barco** — launched at CinemaCon 2024, built on Barco's patented **Lightsteering** (the LS4K projector), which redirects light toward highlights and away from shadows rather than blocking it. Barco cites roughly 6× brighter highlights, 5× deeper blacks, a ~60,000:1 simultaneous contrast ratio, and a Rec.2020 gamut (about 140% of DCI-P3), at power consumption comparable to a conventional projector.[^hdr5]
 
-[^hdr5]: [HDR by Barco](https://www.barco.com/en/solutions/cinema/hdr-by-barco) and the [LS4K projector](https://www.barco.com/en/product/ls4k); launched at CinemaCon, April 2024. The contrast and gamut figures are Barco's. **[web-sourced — manufacturer claims.]**
+[^hdr5]: [HDR by Barco](https://www.barco.com/en/solutions/cinema/hdr-by-barco) and the [LS4K projector](https://www.barco.com/en/product/ls4k); launched at CinemaCon, April 2024. The contrast and gamut figures are Barco's.
 
 **Emissive (direct-view LED) displays.** A newer paradigm replaces the projector and screen with a self-emissive LED wall — each pixel emits its own light, so there is no projection booth, no line-of-sight obstruction, and no screen-reflectance or ambient-bounce penalty. DCI publishes a direct-view display specification, and the DCI-certified HDR target for these screens is about **300 nits** peak, uniform across the whole wall — well above projected SDR's 48 cd/m², though still short of home HDR's 1 000+ nits. Common installations:[^hdr6]
 
@@ -97,7 +97,7 @@ Theatrical HDR is a separate presentation, not the home master, and it arrives t
 - **Cinity LED** — the LED screen of the Cinity premium format; its GDC media server passed DCI's Compliance Test Plan v1.4 for HDR in early 2025.
 - **LG Miraclass** — LG's direct-view LED cinema screen, Dolby-compatible.
 
-[^hdr6]: DCI direct-view display specification and certification; the ~300-nit HDR figure and the product details are from manufacturer and integrator sources ([GDC Technology](https://www.gdc-tech.com/blog-and-news/true-dci-certified-hdr-for-cinema/), [Samsung Onyx](https://www.avnetwork.com/avnetwork/samsung-leverages-led-strength-and-harman-to-launch-onyx-direct-view-led-cinema-screens), [LG Miraclass](https://www.lg.com/us/business/direct-view-led-signage/indoor-direct-view-led-signage/miraclass-cinema-dvled)). **[web-sourced.]**
+[^hdr6]: DCI direct-view display specification and certification; the ~300-nit HDR figure and the product details are from manufacturer and integrator sources ([GDC Technology](https://www.gdc-tech.com/blog-and-news/true-dci-certified-hdr-for-cinema/), [Samsung Onyx](https://www.avnetwork.com/avnetwork/samsung-leverages-led-strength-and-harman-to-launch-onyx-direct-view-led-cinema-screens), [LG Miraclass](https://www.lg.com/us/business/direct-view-led-signage/indoor-direct-view-led-signage/miraclass-cinema-dvled)).
 
 Either way, a theatrical HDR pass is its own grade, and its own line item.
 

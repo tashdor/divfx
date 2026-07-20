@@ -40,7 +40,7 @@ The choice of JPEG 2000 rather than a long-GOP codec is deliberate: it is intra-
 
 **Netflix requires IMF App #2E** — conformant to SMPTE ST 2067-21:2016, :2020, or :2023 — and immersive-audio packages must additionally conform to ST 2067-201:2019 (IAB) Level 0.[^imf-nflx]
 
-[^imf-nflx]: Netflix Partner Help Center — [*Interoperable Master Format (IMF): Overview*](https://partnerhelp.netflixstudios.com/hc/en-us/articles/360002018547-Interoperable-Master-Format-IMF-Overview) and [*Post Production Branded Delivery Specifications*](https://partnerhelp.netflixstudios.com/hc/en-us/articles/7262346654995-Post-Production-Branded-Delivery-Specifications). Netflix's delivery specifications are versioned and change over time — confirm current requirements before delivery. **[web-sourced.]**
+[^imf-nflx]: Netflix Partner Help Center — [*Interoperable Master Format (IMF): Overview*](https://partnerhelp.netflixstudios.com/hc/en-us/articles/360002018547-Interoperable-Master-Format-IMF-Overview) and [*Post Production Branded Delivery Specifications*](https://partnerhelp.netflixstudios.com/hc/en-us/articles/7262346654995-Post-Production-Branded-Delivery-Specifications). Netflix's delivery specifications are versioned and change over time — confirm current requirements before delivery.
 
 ## What this means for an independent production
 

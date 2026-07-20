@@ -59,7 +59,7 @@ record 16-bit **X-OCN**. RED — acquired by Nikon in 2024 — records **R3D (RE
 V-RAPTOR line. Blackmagic dropped CinemaDNG for **Blackmagic RAW (BRAW)** in 2018, now recorded
 across the **URSA Cine** family. Canon's current Cinema EOS bodies record **Cinema RAW Light**.[^cameras]
 
-[^cameras]: Current-generation bodies and formats as of 2025–26. **[web-sourced.]**
+[^cameras]: Current-generation bodies and formats as of 2025–26.
 
 Camera RAW recording has become a ubiquitous standard in studio productions. Camera RAW
 allows for greater workflow flexibility later in post while preserving the maximum image

@@ -406,6 +406,16 @@ An uncompressed, unencrypted, graded DCI-P3 render of the film in DCI-X'Y'Z' col
 the same as the DSM. 16-bit TIFF. The DCDM is only useful for producing a DCP and is typically not
 utilized in any other deliverables.
 
+Because those 16-bit TIFF sequences are enormous — on the order of 10 TB for a feature —
+exchanging a DCDM between facilities is slow and costly. [**SMPTE ST 428-24
+(2024)**](https://pub.smpte.org/pub/st428-24/) defines a *packed image* DCDM (**pDCDM**) to
+address this: it maps the DCDM into a **losslessly (reversibly) coded JPEG 2000** file sequence and
+packs the image's 12-bit code values directly instead of padding them into a 16-bit container. The
+baseband image reconstructs exactly — this is *not* a lossy proxy — while file size drops by roughly
+half from the reversible coding, plus a further ~25% from the 12-bit packing. It may optionally use
+the high-throughput JPEG 2000 (HTJ2K) block coder for much faster encode and decode. Think of it as
+a transport-efficient equivalent of the TIFF DCDM, not a substitute for the DCP's lossy essence.
+
 ### DCP (Digital Cinema Package)
 
 The DCP is a compressed, encrypted package muxed from the DCDM picture render, audio

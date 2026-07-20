@@ -3,7 +3,7 @@
 The documents, standards, books, and tools cited or referenced across this handbook, gathered in one place. Where a work is freely available, the link goes to the PDF or hosting page; where it is sold, the link goes to the publisher or vendor page that offers it.
 
 !!! note "How sourcing is marked in the text"
-    Claims in the newer chapters are checked against the primary sources below and cited inline. A claim that rests only on current web reporting — principally anything about **ACES 2.0**, which postdates the newest Academy ACES document cited here (2018) — is flagged **`[web-sourced]`** and should be re-verified against the primary specification before print.
+    Claims in the chapters are checked against the primary sources below and cited inline. Anything about **ACES 2.0** postdates the most recent Academy ACES document cited here (2018) — verify against the primary specification before print.
 
 ## Standards
 
@@ -20,6 +20,7 @@ As of 2025, SMPTE standards are **freely available** from the [SMPTE standards l
 - **[ST 2086](https://pub.smpte.org/pub/st2086/)** — Mastering-display color-volume metadata (static)
 - **ST 2094** — Dynamic metadata for color-volume transform (Dolby Vision, HDR10+): [-1](https://pub.smpte.org/pub/st2094-1/), [-10](https://pub.smpte.org/pub/st2094-10/), [-40](https://pub.smpte.org/pub/st2094-40/)
 - **[ST 428-1](https://pub.smpte.org/pub/st428-1/)** — D-Cinema Distribution Master (DCDM) X′Y′Z′ image encoding
+- **[ST 428-24](https://pub.smpte.org/pub/st428-24/)** — DCDM Packed Image (pDCDM): lossless JPEG 2000, 12-bit-packed DCDM exchange
 - **[ST 379-1](https://pub.smpte.org/pub/st379-1/)** and **[ST 422](https://pub.smpte.org/pub/st422/)** — MXF generic container and JPEG 2000 mapping
 - **[ST 2019-1](https://pub.smpte.org/pub/st2019-1/)** — VC-3 (Avid DNxHD) bitstream
 - **[RP 431-2](https://pub.smpte.org/pub/rp431-2/)** — D-Cinema projection reference (P3 / 48 cd/m²)

@@ -333,7 +333,7 @@ turnover.
 
 [^countsheet]: Expected count-sheet (or "turnover sheet" / "lineup sheet") content follows common
     feature practice — see, for example, [Evan Schiff, *Feature Turnover Guide — VFX*](https://www.evanschiff.com/articles/feature-turnover-guide-vfx/)
-    and Park Road Post's [*Guide to VFX Handovers*](https://workflow.deganz.co.nz/wp-content/uploads/2020/08/PRPP_Guide_to_VFXHandovers_v0.4_20200222.pdf). **[web-sourced.]**
+    and Park Road Post's [*Guide to VFX Handovers*](https://workflow.deganz.co.nz/wp-content/uploads/2020/08/PRPP_Guide_to_VFXHandovers_v0.4_20200222.pdf).
 
 ## Coordination and Tracking
 
