@@ -13,9 +13,9 @@ The [ACES](aces.md), [OpenColorIO](color-management.md), and
 one way to run color. This chapter puts five approaches side by side so an independent production can
 pick deliberately rather than by default. The five are:
 
-1. **Un-color-managed** — the look baked into the grade, no working space, no route back to a neutral
+1. **Display Referred, un-color-managed** — the look baked into the grade, no working space, no route back to a neutral
    master. Listed here to be ruled out, not chosen.
-2. **Custom color management** — a hand-built pipeline: a consistent scene-referred working space with
+2. **Manually Color Managed** — a hand-built pipeline: a consistent scene-referred working space with
    color-space transforms in, node- or layer-based grading, and a standard or bespoke display
    transform out.
 3. **ACES** — an open, standardized, scene-referred pipeline (SMPTE ST 2065).
@@ -27,7 +27,7 @@ pick deliberately rather than by default. The five are:
 The through-line of this handbook applies to all of them: the discipline that matters is knowing, at
 every step, whether you are [scene-referred or display-referred](../digital-intermediates.md), and
 applying the display transform once at the end. Four of these five keep a consistent scene-referred
-working space and a recoverable master — the frameworks enforce it automatically, and a custom
+working space and a recoverable master — the frameworks enforce it automatically, and a manually color-managed
 pipeline holds it by the colorist's discipline. Only the first abandons it, which is why it is here
 as a cautionary category rather than a real choice.
 
@@ -41,7 +41,7 @@ as a cautionary category rather than a real choice.
 
 ## The five approaches
 
-### Un-color-managed
+### Display Referred, un-color-managed
 
 You grade the footage more or less as the camera and monitor present it — a camera-native log or
 even a display-space signal — and bake the look directly into the grade. There is no defined working
@@ -51,7 +51,7 @@ re-render from.
 
 - **What it is not.** This is not the same as a simple job done well. A single-camera short graded on
   a consistent working space with the display transform applied last is
-  [custom color management](#custom-color-management), not this — it keeps a recoverable master at
+  [Manually Color Managed](#manually-color-managed), not this — it keeps a recoverable master at
   almost no extra cost. Truly un-color-managed means that when a new deliverable, a new display, or an
   HDR pass is asked for later, the only source is a baked image.
 - **Why it fails.** Technical and creative decisions are entangled: a white-balance fix and a look
@@ -63,12 +63,12 @@ re-render from.
     It is tempting to treat "no color management" as the zero-cost default for a simple job. For any
     production that intends to deliver professionally it is not a defensible choice — the moment
     anyone asks for a second deliverable, a re-grade, or an archival master, there is nothing neutral
-    to go back to. What people usually mean by "keep it simple" is a **custom** pipeline with a
+    to go back to. What people usually mean by "keep it simple" is a **manually color-managed** pipeline with a
     consistent working space and a recoverable master, which costs almost nothing more to stand up and
     keeps every door open. Requirements, deliverables, and workflow are a conversation to have **with
     the colorist before you commit to working with them** — not a default to drift into.
 
-### Custom color management
+### Manually Color Managed
 
 A hand-built managed pipeline. The colorist assigns each source into a **common — or at least
 semi-consistent — scene-referred working space** with color-space transforms, grades with node- or
@@ -104,7 +104,7 @@ the back, delivered in practice as an [OCIO config](color-management.md#how-aces
   ACES2065-1 gives a **neutral, documented archival encoding** independent of any display or look.
   It is free and vendor-independent.
 - **Drawbacks.** It is not free of *effort*: setup, testing, and vendor discipline cost real time,
-  and adopting ACES badly is worse than a well-run custom pipeline. The standard Output
+  and adopting ACES badly is worse than a well-run manually color-managed pipeline. The standard Output
   Transform is a strong opinion; a look that fights it means working against the system. There is a
   learning curve, and version discipline matters (do not
   [switch versions mid-show](aces.md#aces-20)). With a single camera and a single deliverable, much
@@ -145,7 +145,7 @@ Baselight and Daylight.
 
 ## Side-by-side
 
-| | Un-color-managed | Custom | ACES | Resolve RCM | FilmLight TCS |
+| | Display Referred, un-color-managed | Manually Color Managed | ACES | Resolve RCM | FilmLight TCS |
 | --- | --- | --- | --- | --- | --- |
 | **Working space** | None (camera-native / display) | Consistent scene-referred (colorist's choice) | ACEScg / ACEScct | DaVinci Wide Gamut + Intermediate | E-Gamut + T-Log |
 | **Display transform** | Baked into grade | Chosen — standard or bespoke DRT | ACES Output Transform | Resolve DRT (internal) | T-CAM v2 (CAM-based) |
@@ -173,7 +173,7 @@ The decision reuses the same framing as the
 first move is to rule one out.
 
 **Rule out truly un-color-managed.** For a production that will deliver professionally, a baked,
-unrecoverable master is not a real option. The floor is a **custom** pipeline: a consistent
+unrecoverable master is not a real option. The floor is a **manually color-managed** pipeline: a consistent
 scene-referred working space, the display transform applied last, and a documented master you can
 re-render from. That floor costs almost nothing over "just grading," and it is the difference between
 a show you can repurpose and one you cannot.
@@ -186,7 +186,7 @@ a show you can repurpose and one you cannot.
   OCIO-delivered standard is for.
 - You **lack the color-science resources to build and vet a bespoke workflow.** A documented,
   standardized pipeline you can adopt is safer than a homemade one you cannot fully test — a framework
-  gives you the discipline of a custom pipeline without having to author it.
+  gives you the discipline of a manually color-managed pipeline without having to author it.
 
 **Between the frameworks:**
 
@@ -200,7 +200,7 @@ a show you can repurpose and one you cannot.
   rendering; its published files and OCIO config make it more portable than Resolve's DRT, and it
   interoperates with ACES.
 
-**A custom (hand-built) pipeline earns its place** when:
+**A manually color-managed pipeline earns its place** when:
 
 - You have the **color-science resources** to design, document, and test it, and a specific reason to
   control the DRT or look by hand — a house print emulation like Filmbox, a bespoke show LUT — that a
@@ -215,7 +215,7 @@ a show you can repurpose and one you cannot.
     *How many sources, tools, vendors, and deliverables will touch this, and will anyone need a
     neutral master later?* The more of those that are plural or uncertain, the further toward a
     **framework** (and toward ACES) you should go. The fewer and more fixed they are, the more a
-    lean **custom** pipeline is defensible — but a consistent working space and a recoverable master
+    lean **manually color-managed** pipeline is defensible — but a consistent working space and a recoverable master
     are non-negotiable either way.
 
 Whatever you choose, the decision belongs in **pre-production**, written into the
