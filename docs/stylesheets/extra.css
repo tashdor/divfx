@@ -117,6 +117,13 @@
   .cp-embed-frame { display: none !important; }
 }
 
+/* The di|vfx wordmark is solid black; invert it to white in dark mode so it
+   stays visible on the dark header and nav drawer. */
+[data-md-color-scheme="slate"] .md-logo img,
+[data-md-color-scheme="slate"] .md-header__button.md-logo img {
+  filter: invert(1);
+}
+
 /* Mermaid workflow diagrams — Material themes the palette; these polish the
    geometry (rounder corners, slightly heavier links, tidier labels). */
 .md-typeset .mermaid {

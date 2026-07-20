@@ -1,12 +1,5 @@
----
-tags:
-  - draft
----
-
 # Color Management and OpenColorIO
 
-!!! info "Draft — new in v1.1"
-    This chapter is new material, not part of v1.0.1. See [Drafts for v1.1](index.md).
 [ACES](aces.md) defines *what* the color transforms are. Something has to define *how* every application in the pipeline finds and applies them consistently. That is the job of a color management system, and in visual effects the de facto answer is **OpenColorIO** (OCIO).
 
 This matters to a production for a reason that is easy to miss: a color pipeline is only as consistent as its least-configured application. A show can specify ACES precisely and still get mismatched renders because one artist's Nuke was pointed at a different config than everyone else's. OCIO is the mechanism by which "the show's color pipeline" becomes a single artifact that can be distributed, versioned, and checked.
@@ -35,7 +28,7 @@ So the sentence "the show is ACES" resolves, in practice, to: *every application
 
 ## What to specify on a show
 
-Alongside the [three format specifications](../turnover-vfx.md#format-specification), a color-managed show needs these written down:
+Alongside the [three format specifications](turnover-vfx.md#format-specification), a color-managed show needs these written down:
 
 | Item | Example | Why |
 | --- | --- | --- |
@@ -46,7 +39,7 @@ Alongside the [three format specifications](../turnover-vfx.md#format-specificat
 | Delivery color space | `ACES2065-1`, uncompressed EXR | The DI's requirement, not the vendor's preference |
 | Viewing transform | Output Transform, P3-D65 or Rec.709 | Artists must review under the same view the DI uses |
 
-Distribute the config itself with the plates, in `support_files/` alongside the Show LUT and CDLs as described in [Support Files](../turnover-vfx.md#support-files). A vendor who has to source their own config will source a different one.
+Distribute the config itself with the plates, in `support_files/` alongside the Show LUT and CDLs as described in [Support Files](turnover-vfx.md#support-files). A vendor who has to source their own config will source a different one.
 
 ## Versions
 
@@ -56,10 +49,10 @@ OCIO 2.x is a substantial rewrite of the 1.x line, with a proper transform archi
     When a vendor and a facility disagree about library versions, the Reference Platform year is a neutral reference both can point at. For an independent production it is also a quick way to sanity-check that a vendor's stack is not several years stale — which usually predicts other problems.
 ## Checking that it works
 
-Color management is testable, and should be tested before shot work — this is what a [confidence package](../production-workflow.md#visual-effects-production_1) is for. Three checks catch most pipeline faults:
+Color management is testable, and should be tested before shot work — this is what a [confidence package](production-workflow.md#visual-effects-production_1) is for. Three checks catch most pipeline faults:
 
-1. **Round-trip a plate.** Plate → working space → back to delivery encoding, with no operations applied. Difference the result against the original. Anything other than zero (allowing for float precision) is a pipeline fault, not an artistic one. This is the [zero net change](../production-workflow.md#visual-effects-production_1) principle stated as a test.
+1. **Round-trip a plate.** Plate → working space → back to delivery encoding, with no operations applied. Difference the result against the original. Anything other than zero (allowing for float precision) is a pipeline fault, not an artistic one. This is the [zero net change](production-workflow.md#visual-effects-production_1) principle stated as a test.
 2. **Round-trip an extreme.** Repeat with a plate containing genuine highlight clipping and deep shadow. Faults that are invisible on a mid-tone chart show up here as clamping.
 3. **Compare viewers.** The same frame, under the same view transform, in Nuke and in the DI system. If they differ, resolve it before anyone grades anything.
 
-The [difference check](../vfx-quality-control.md#difference-checking) technique this handbook already describes is exactly the right instrument for the first two.
+The [difference check](vfx-quality-control.md#difference-checking) technique this handbook already describes is exactly the right instrument for the first two.

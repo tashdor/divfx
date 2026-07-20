@@ -1,12 +1,5 @@
----
-tags:
-  - draft
----
-
 # HDR Mastering
 
-!!! info "Draft — new in v1.1"
-    This chapter is new material, not part of v1.0.1. See [Drafts for v1.1](index.md).
 First, terminology: "EDR" (extended dynamic range) is legacy vendor language and should be dropped — the industry says HDR. The bit-depth argument sometimes attached to it still holds (10-bit log is not enough; 12-bit is the floor), but that is a consequence of HDR, not a definition of it.
 
 HDR is not a look and not a grade setting. It is a different display referring — a different EOTF, a wider container gamut, and an explicit statement of the display the master was made on.
@@ -38,7 +31,7 @@ It is the parameter most often confused when a delivery is specified.
 For a scripted feature or series destined for streaming, **PQ is effectively the answer**. HLG matters if you are delivering live or broadcast content, or a distributor asks for it.
 
 !!! note "Where the OOTF lives"
-    The [Rec.709 note](../v1.1-notes.md#rec709-and-the-oetfeotf-conflation) elsewhere in these materials explains that SDR has no explicitly specified OOTF — it exists only as the cascade of the BT.709 OETF and the BT.1886 EOTF. BT.2100 is more rigorous: it specifies an OETF, an EOTF, *and* an OOTF explicitly for HLG, and defines PQ in terms of the display EOTF directly. HDR standards give a clean answer to where the rendering intent is applied; SDR does not.
+    The [Rec.709 note](v1.1-notes.md#rec709-and-the-oetfeotf-conflation) elsewhere in these materials explains that SDR has no explicitly specified OOTF — it exists only as the cascade of the BT.709 OETF and the BT.1886 EOTF. BT.2100 is more rigorous: it specifies an OETF, an EOTF, *and* an OOTF explicitly for HLG, and defines PQ in terms of the display EOTF directly. HDR standards give a clean answer to where the rendering intent is applied; SDR does not.
 ## Metadata
 
 An HDR master is incomplete without metadata describing the display it was made on. This is a genuine change from SDR practice, where the mastering display was implied by the standard.
@@ -79,7 +72,7 @@ No consumer or reference display reproduces the full BT.2020 gamut — its prima
 
 [^hdr4]: Gamut coverage is an area ratio on a chromaticity diagram; CIE 1931 *xy* and CIE 1976 *u′v′* give different numbers for the same display. RTINGS reports the *xy* figure, which runs higher than *u′v′*.
 
-The handbook's [Rec.2020 entry](../color.md#display-color-spaces) — "few displays are capable of reproducing many of the colors" — is substantially accurate. What it lacks is the consequence: Rec.2020 is a container you encode into, not a gamut you grade to.
+The handbook's [Rec.2020 entry](color.md#display-color-spaces) — "few displays are capable of reproducing many of the colors" — is substantially accurate. What it lacks is the consequence: Rec.2020 is a container you encode into, not a gamut you grade to.
 
 A typical deliverable set for a streaming feature:
 
@@ -91,7 +84,7 @@ A typical deliverable set for a streaming feature:
 
 Theatrical HDR is a separate presentation, not the home master, and it arrives two ways: brighter projection, and self-emissive LED walls.
 
-**Projected HDR.** Two competing premium formats, both far above the 48 cd/m² of the [standard DCI reference](../color.md#dci-xyz):
+**Projected HDR.** Two competing premium formats, both far above the 48 cd/m² of the [standard DCI reference](color.md#dci-xyz):
 
 - **Dolby Vision Cinema** — dual-laser projection in Dolby Cinema auditoriums, with dynamic per-scene metadata (the theatrical sibling of the home Dolby Vision grade).
 - **HDR by Barco** — launched at CinemaCon 2024, built on Barco's patented **Lightsteering** (the LS4K projector), which redirects light toward highlights and away from shadows rather than blocking it. Barco cites roughly 6× brighter highlights, 5× deeper blacks, a ~60,000:1 simultaneous contrast ratio, and a Rec.2020 gamut (about 140% of DCI-P3), at power consumption comparable to a conventional projector.[^hdr5]
@@ -112,7 +105,7 @@ Either way, a theatrical HDR pass is its own grade, and its own line item.
 
 HDR is not only a DI concern, and this is the part an independent production most often discovers late:
 
-- **Bit depth.** The argument only strengthens for HDR: 10-bit log is not enough. 12-bit log is the floor for HDR finishing, 16-bit float preferable. See [Camera Log](../digital-intermediates.md#camera-log).
+- **Bit depth.** The argument only strengthens for HDR: 10-bit log is not enough. 12-bit log is the floor for HDR finishing, 16-bit float preferable. See [Camera Log](digital-intermediates.md#camera-log).
 - **Highlights are visible now.** Specular detail, practical lights, and skies that clipped invisibly in a Rec.709 grade are plainly visible at 1 000 nits. Comps that "worked" in SDR reveal blown highlight rolloff, clipped CG speculars, and mismatched black points.
-- **Review at the target.** The [VFX review](../production-workflow.md#visual-effects-reviews) section already insists on reviewing in a calibrated environment matching the intended exhibition. For an HDR deliverable that means an HDR reference display, not a Rec.709 monitor with the assumption that it will "hold up."
-- **Exposure checking earns its keep.** The [exposure check](../vfx-quality-control.md#exposure-checking) technique — driving exposure up and down to test whether artificial highlights clip where plate highlights clip — is a proxy for exactly the failure HDR exposes. Productions that adopt it during SDR work arrive at HDR with fewer surprises.
+- **Review at the target.** The [VFX review](production-workflow.md#visual-effects-reviews) section already insists on reviewing in a calibrated environment matching the intended exhibition. For an HDR deliverable that means an HDR reference display, not a Rec.709 monitor with the assumption that it will "hold up."
+- **Exposure checking earns its keep.** The [exposure check](vfx-quality-control.md#exposure-checking) technique — driving exposure up and down to test whether artificial highlights clip where plate highlights clip — is a proxy for exactly the failure HDR exposes. Productions that adopt it during SDR work arrive at HDR with fewer surprises.

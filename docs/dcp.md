@@ -1,14 +1,7 @@
----
-tags:
-  - draft
----
-
 # DCP — The Digital Cinema Package
 
-!!! info "Draft — new in v1.1"
-    This chapter is new material, not part of v1.0.1. See [Drafts for v1.1](index.md).
 
-The DCP is the theatrical deliverable — a package muxed from the DCDM, with KDMs to unlock encrypted playback; the [production workflow](../production-workflow.md#dcp-digital-cinema-package) chapter covers that mastering path. This chapter adds everything an independent production actually trips over getting a film onto a festival screen: whether to encrypt at all, the accessibility tracks festivals now expect, how the package physically or electronically reaches the venue, and why none of it is trusted until it has played off a real cinema server.
+The DCP is the theatrical deliverable — a package muxed from the DCDM, with KDMs to unlock encrypted playback; the [production workflow](production-workflow.md#dcp-digital-cinema-package) chapter covers that mastering path. This chapter adds everything an independent production actually trips over getting a film onto a festival screen: whether to encrypt at all, the accessibility tracks festivals now expect, how the package physically or electronically reaches the venue, and why none of it is trusted until it has played off a real cinema server.
 
 ## What a DCP is
 
@@ -16,7 +9,7 @@ Structurally the DCP is the [IMF](imf.md)'s predecessor — and, in large part, 
 
 | Component | Encoding |
 | --- | --- |
-| **Picture** | **JPEG 2000**, intra-frame, 12-bit, in **DCI X′Y′Z′** — gamma 2.6, P3 gamut inside an XYZ container, 48 cd/m² reference white ([see Color Spaces](../color.md#dci-xyz)) |
+| **Picture** | **JPEG 2000**, intra-frame, 12-bit, in **DCI X′Y′Z′** — gamma 2.6, P3 gamut inside an XYZ container, 48 cd/m² reference white ([see Color Spaces](color.md#dci-xyz)) |
 | **Audio** | 24-bit linear **PCM**, up to 16 channels at 48 or 96 kHz |
 | **Subtitles / captions** | **SMPTE Timed Text** ([ST 428-7](https://www.smpte.org/standards)) or Interop XML, with PNG or font-rendered glyphs |
 
@@ -88,7 +81,7 @@ A theater QC pass — on a DCI media block (Dolby, GDC, Sony, Barco Alchemy, Qub
 - **Frame-rate support**, dropped frames, and audio-video sync across the whole runtime.
 - **KDM validity**, for encrypted packages — that the key opens on *that* server, within the window.
 
-Play it start to finish, listen to the full mix, and verify captions on the real device. Budget a theater QC session the way you budget a [confidence package](../production-workflow.md#visual-effects-production_1) for VFX — it is the same discipline, applied to the deliverable.
+Play it start to finish, listen to the full mix, and verify captions on the real device. Budget a theater QC session the way you budget a [confidence package](production-workflow.md#visual-effects-production_1) for VFX — it is the same discipline, applied to the deliverable.
 
 ## What this means for an independent production
 

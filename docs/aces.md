@@ -1,13 +1,6 @@
----
-tags:
-  - draft
----
-
 # The Academy Color Encoding System (ACES)
 
-!!! info "Draft — new in v1.1"
-    This chapter is new material, not part of v1.0.1. See [Drafts for v1.1](index.md).
-The [Overview of Digital Intermediates](../digital-intermediates.md) chapter argues that the central discipline of a modern pipeline is knowing, at every step, what image state you are in — scene-referred or display-referred — and never crossing that boundary by accident. ACES is the industry's standardized answer to that problem. It fixes a single scene-referred interchange encoding, a single set of working spaces derived from it, and a defined transform at each end.
+The [Overview of Digital Intermediates](digital-intermediates.md) chapter argues that the central discipline of a modern pipeline is knowing, at every step, what image state you are in — scene-referred or display-referred — and never crossing that boundary by accident. ACES is the industry's standardized answer to that problem. It fixes a single scene-referred interchange encoding, a single set of working spaces derived from it, and a defined transform at each end.
 
 The practical argument for an independent production is narrow: ACES gives you a pipeline that multiple vendors can implement identically without negotiating a bespoke color workflow for every show. It is the failure mode this handbook exists to prevent — plates pulled in the wrong space, work done under an unknown viewing transform, and a colorist inheriting the consequences.
 
@@ -79,7 +72,7 @@ This is the single most-questioned number in ACES, and reasonably so. Cameras ar
     "It is important to note that the ACES white point does not dictate the chromaticity of the reproduction neutral axis. […] the chromaticity of the equal red, green and blue (ACES2065-1 R=G=B) may match the ACES white point, the display calibration white point, or any other white point preferred for technical or aesthetic reasons."
 The encoding white point is the chromaticity you get when R = G = B **in the encoding**. It is the system's *default* neutral — the reference the standard rendering and your grading tools are built around — not a *mandate* on the final image. A show working in ACES can grade to a D65 neutral axis and deliver a D65 master; nothing about the encoding prevents it. TB-2018-001 notes this misreading — that the number fixes the delivered look — is common enough that the Committee worried about it when choosing the coordinates in the first place.
 
-The useful analogy is the [DCI-X'Y'Z'](../color.md#dci-xyz) encoding white point, which is the Equal Energy point and deliberately not the projector white point. Encoding white and reproduction white are separate things, and conflating them causes trouble in both systems.
+The useful analogy is the [DCI-X'Y'Z'](color.md#dci-xyz) encoding white point, which is the Equal Energy point and deliberately not the projector white point. Encoding white and reproduction white are separate things, and conflating them causes trouble in both systems.
 
 #### Why 6000 K specifically
 
@@ -143,9 +136,9 @@ ACES 1.0 deliberately renamed the transforms in user-facing terms. TB-2014-012 r
 | **[Look Transform](https://docs.acescentral.com/system-components/look-transforms/)** | Look Modification Transform (LMT) | Applies a global, show-wide look upstream of the Output Transform |
 | **[Output Transform](https://docs.acescentral.com/system-components/output-transforms/)** | "RRT plus ODT" | Converts ACES data to display code values |
 
-The Look Transform is the ACES equivalent of the concept this handbook already calls the [Show LUT](../digital-intermediates.md#the-show-lut) — a single show-wide creative transformation that everyone works beneath. Academy TB-2014-010 covers their design and integration; see also [Look Transforms](https://docs.acescentral.com/system-components/look-transforms/).
+The Look Transform is the ACES equivalent of the concept this handbook already calls the [Show LUT](digital-intermediates.md#the-show-lut) — a single show-wide creative transformation that everyone works beneath. Academy TB-2014-010 covers their design and integration; see also [Look Transforms](https://docs.acescentral.com/system-components/look-transforms/).
 
-The important structural property, and the reason ACES fits the workflow this handbook describes: **grading happens under the Output Transform, not baked into the render**. That is the same discipline the [Graded Archival Master](../production-workflow.md#graded-archival-master) section already requires — a fully scene-referred pipeline with the display transform applied at the end.
+The important structural property, and the reason ACES fits the workflow this handbook describes: **grading happens under the Output Transform, not baked into the render**. That is the same discipline the [Graded Archival Master](production-workflow.md#graded-archival-master) section already requires — a fully scene-referred pipeline with the display transform applied at the end.
 
 ### Container
 
@@ -208,7 +201,7 @@ Whether a full color appearance model belongs inside a display rendering transfo
 
 Adopting ACES badly is worse than a well-run camera-native pipeline. It is not free — it costs setup, testing, and vendor discipline.
 
-**Either way**, the decision belongs in pre-production, alongside the [three format specifications](../turnover-vfx.md#format-specification) — acquisition, plate pull, and vendor delivery — and it should be tested with a [confidence package](../production-workflow.md#visual-effects-production_1) before any shot work begins. An ACES pipeline that nobody round-tripped is not an ACES pipeline.
+**Either way**, the decision belongs in pre-production, alongside the [three format specifications](turnover-vfx.md#format-specification) — acquisition, plate pull, and vendor delivery — and it should be tested with a [confidence package](production-workflow.md#visual-effects-production_1) before any shot work begins. An ACES pipeline that nobody round-tripped is not an ACES pipeline.
 
 ## Pitfalls
 

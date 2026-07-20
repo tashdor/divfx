@@ -1,12 +1,5 @@
----
-tags:
-  - draft
----
-
 # Choosing a Color Management Approach
 
-!!! info "Draft — new in v1.1"
-    This chapter is new material, not part of v1.0.1. See [Drafts for v1.1](index.md).
 The [ACES](aces.md), [OpenColorIO](color-management.md), and [application-native color management](application-native-color-management.md) chapters each describe one way to run color. This chapter puts five approaches side by side so an independent production can pick deliberately rather than by default. The five are:
 
 1. **Display Referred, un-color-managed** — the look is baked into the grade, no working space, no route back to a scene-referred graded master. Listed here to be ruled out, not encouraged.
@@ -15,7 +8,7 @@ The [ACES](aces.md), [OpenColorIO](color-management.md), and [application-native
 4. **DaVinci Resolve Color Management (RCM)** — Blackmagic's in-application managed workflow on DaVinci Wide Gamut / Intermediate.
 5. **FilmLight Truelight Color Spaces (TCS) + T-CAM** — FilmLight's managed workflow on E-Gamut / T-Log with a color-appearance display transform.
 
-The same discipline applies to all of them: knowing, at every step, whether you are [scene-referred or display-referred](../digital-intermediates.md), and applying the display transform only at the end of the grading pipeline. Four of these five keep a consistent scene-referred working space and a recoverable master, with varying degrees of freedom, complexity, and labor — the frameworks enforce it automatically, and a manually color-managed pipeline relies heavily on the colorist's discipline. Only the first abandons it, which is why it is here as a cautionary category rather than an endorsement.
+The same discipline applies to all of them: knowing, at every step, whether you are [scene-referred or display-referred](digital-intermediates.md), and applying the display transform only at the end of the grading pipeline. Four of these five keep a consistent scene-referred working space and a recoverable master, with varying degrees of freedom, complexity, and labor — the frameworks enforce it automatically, and a manually color-managed pipeline relies heavily on the colorist's discipline. Only the first abandons it, which is why it is here as a cautionary category rather than an endorsement.
 
 !!! note "This is a choice about interchange, not image quality"
     None of the managed systems guarantee a "better picture" on its own. What they buy you is a framework for consistency across cameras, vendors, applications, and deliverables — and, for ACES, a standard graded archival deliverable. A good colorist could arrive at approximately identical results under any of these frameworks, but the differences in ease of workflow or flexibility become apparent when multiple software products, tools, vendors, or deliverables are introduced.
@@ -73,7 +66,7 @@ FilmLight's [Truelight Color Spaces](application-native-color-management.md#film
 | **Multi-vendor VFX (total effort)**       | Fails                              | High — colorist supplies transforms + guidance | **Low — vendors already speak it** | High — colorist authors LUTs or transforms + guidance per vendor | High — same, despite portable files              |
 | **Interoperates with ACES**               | —                                  | Yes, if built on ACES                          | is ACES                            | Yes (Resolve has ACES modes)                                     | Yes (v7 ACES 2.0)                                |
 
-Sources: the [ACES](aces.md) and [application-native color management](application-native-color-management.md) chapters and their citations. The RCM workflow and DWG are documented in Blackmagic's own materials (design intent in the *DaVinci Resolve 21 Reference Manual* (2026) and *The Colorist Guide to DaVinci Resolve 20* (2025); the numeric DWG/Intermediate spec in the *DaVinci Resolve 17 — Wide Gamut Intermediate* white paper), and the T-CAM philosophy in Kirk's *Colour: Sense & Measurement*. Only the FilmLight E-Gamut/T-Log/T-CAM-v2 product names remain **[web-sourced]**. Every source is collected in [Supplemental Reading & Resources](../resources.md).
+Sources: the [ACES](aces.md) and [application-native color management](application-native-color-management.md) chapters and their citations. The RCM workflow and DWG are documented in Blackmagic's own materials (design intent in the *DaVinci Resolve 21 Reference Manual* (2026) and *The Colorist Guide to DaVinci Resolve 20* (2025); the numeric DWG/Intermediate spec in the *DaVinci Resolve 17 — Wide Gamut Intermediate* white paper), and the T-CAM philosophy in Kirk's *Colour: Sense & Measurement*. Only the FilmLight E-Gamut/T-Log/T-CAM-v2 product names remain **[web-sourced]**. Every source is collected in [Supplemental Reading & Resources](resources.md).
 
 ## Which should an independent production choose?
 
@@ -90,7 +83,7 @@ The baseline is a **manually color-managed** pipeline: a consistent scene-referr
 
 **Between the frameworks:**
 
-- Choose **ACES** for the widest, most vendor-neutral interchange and for a **scene-referred archival master** — the [Graded Archival Master](../production-workflow.md#graded-archival-master) case.
+- Choose **ACES** for the widest, most vendor-neutral interchange and for a **scene-referred archival master** — the [Graded Archival Master](production-workflow.md#graded-archival-master) case.
 - Choose **Resolve RCM** when the finish effectively lives in Resolve, the show is single-facility, and VFX come back as scene-referred EXRs on an agreed working space. It is the cheapest managed workflow to stand up and DWG is a solid working space. You can still switch Resolve into ACES if interchange needs grow.
 - Choose **FilmLight TCS / T-CAM** when you finish at a Baselight house or specifically want T-CAM's rendering; its published files and OCIO config make it more portable than Resolve's DRT, and it interoperates with ACES.
 
@@ -105,4 +98,4 @@ Even in commercials which regularly have a single Rec.709 color space deliverabl
 !!! tip "The tie-breaker is usually interchange and archival, not the grade"
     Any of the managed approaches, in the hands a of a skilled colorist, can produce a great looking picture on a simple job. Ask instead: *How many sources, tools, vendors, and deliverables will touch this, and will anyone need a scene-referred master later?* The more of those that are plural or uncertain, the further toward a **framework** (and toward ACES) you should go. The fewer and more fixed they are, the more a lean **manually color-managed** pipeline is defensible — but a consistent working space and a recoverable master are non-negotiable either way.
 
-Whatever you choose, the decision belongs in **pre-production**, written into the [three format specifications](../turnover-vfx.md#format-specification), agreed **with the colorist** before the show commits to them, and proven with a [confidence package](../production-workflow.md#visual-effects-production_1) before shot work begins. A color pipeline nobody round-tripped is not a color pipeline — see the [checks in the OCIO chapter](color-management.md#checking-that-it-works). The most expensive mistake is not picking the "wrong" one of these; it is not picking at all, and discovering during sale or distribution that the show never had a working space — or a master anyone can re-render from.
+Whatever you choose, the decision belongs in **pre-production**, written into the [three format specifications](turnover-vfx.md#format-specification), agreed **with the colorist** before the show commits to them, and proven with a [confidence package](production-workflow.md#visual-effects-production_1) before shot work begins. A color pipeline nobody round-tripped is not a color pipeline — see the [checks in the OCIO chapter](color-management.md#checking-that-it-works). The most expensive mistake is not picking the "wrong" one of these; it is not picking at all, and discovering during sale or distribution that the show never had a working space — or a master anyone can re-render from.

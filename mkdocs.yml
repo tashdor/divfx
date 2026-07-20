@@ -1,4 +1,4 @@
-site_name: Digital Intermediates and Visual Effects
+site_name: Digital Intermediates and VFX for Modern Independent Film Production
 site_description: >-
   A production handbook on digital intermediate finishing and visual effects
   workflows for independent film production, by Tashi Trieu.
@@ -106,18 +106,15 @@ nav:
   - Common Working Formats: working-formats.md
   - Working and Delivery Resolutions: resolutions.md
   - Color Spaces and Transfer Functions: color.md
+  - ACES: aces.md
+  - Color Management and OpenColorIO: color-management.md
+  - Application-Native Color Management (DaVinci, FilmLight): application-native-color-management.md
+  - Choosing a Color Management Approach: color-management-comparison.md
+  - HDR Mastering: hdr.md
+  - IMF — The Interoperable Master Format: imf.md
+  - DCP — The Digital Cinema Package: dcp.md
   - Visual Effects Quality Control: vfx-quality-control.md
   - Visual Effects Production Management: vfx-production-management.md
-  - Drafts for v1.1:
-      - drafts/index.md
-      - ACES: drafts/aces.md
-      - Color Management and OpenColorIO: drafts/color-management.md
-      - HDR Mastering: drafts/hdr.md
-      - IMF: drafts/imf.md
-      - DCP: drafts/dcp.md
-      - Application-Native Color Management (DaVinci, FilmLight): drafts/application-native-color-management.md
-      - Choosing a Color Management Approach: drafts/color-management-comparison.md
-      - Figure Review — Chromaticity Diagrams: drafts/figure-review.md
   - Reference:
       - Supplemental Reading & Resources: resources.md
       - Glossary: glossary.md

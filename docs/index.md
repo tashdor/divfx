@@ -1,4 +1,4 @@
-# Digital Intermediates and Visual Effects for Independent Film Production
+# Digital Intermediates and VFX for Modern Independent Film Production
 
 **A Production Handbook** by [Tashi Trieu](https://tashitrieu.com)
 
