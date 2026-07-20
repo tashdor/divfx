@@ -550,7 +550,7 @@ not a quote: cloud rates and egress tiers change often, and the LTO figures sepa
 <script>
 (function(){
   var providers = [
-    {name:'LTO-9 (you keep the tapes)', hard:function(T){return Math.ceil(T/18)*120;}, ingest:function(T){return Math.max(T,20)*50;}, storage:function(){return 0;}, restore:function(T){return Math.max(T,20)*50;}},
+    {name:'LTO-9 (you keep the tapes)', hard:function(T){return Math.ceil(T/18)*105;}, ingest:function(T){return Math.max(T,20)*50;}, storage:function(){return 0;}, restore:function(T){return Math.max(T,20)*50;}},
     {name:'AWS Glacier Deep Archive', hard:function(){return 0;}, ingest:function(){return 0;}, storage:function(T,Y){return T*0.99*12*Y;}, restore:function(T){return T*82;}},
     {name:'AWS Glacier Flexible Retrieval', hard:function(){return 0;}, ingest:function(){return 0;}, storage:function(T,Y){return T*3.6*12*Y;}, restore:function(T){return T*77.9;}},
     {name:'Azure Blob Archive', hard:function(){return 0;}, ingest:function(){return 0;}, storage:function(T,Y){return T*1.833*12*Y;}, restore:function(T){return T*103;}},
@@ -590,7 +590,7 @@ not a quote: cloud rates and egress tiers change often, and the LTO figures sepa
 </script>
 
 [^ltocost]: The LTO **hard cost** is the tape stock alone: LTO-9 holds 18 TB native per cartridge, so
-    the calculator charges `ceil(TB ÷ 18)` cartridges at ~$120 each (~$6.70/TB). The **ingest** and
+    the calculator charges `ceil(TB ÷ 18)` cartridges at ~$105 each (~$5.80/TB). The **ingest** and
     **restore** columns are a managed-service rate — the facility's decks, library/robot hardware,
     cataloguing, and the labor of writing, verifying, and later reading the tapes — modeled here at
     **~$50/TB each way**, in line with 2025–26 service rate cards. Most services set a **job minimum**
@@ -611,7 +611,7 @@ like Glacier Deep Archive is only cheapest for a short hold — because it bills
 on egress, **it climbs past LTO after roughly two years** of retention.
 
 **LTO's cost is front- and back-loaded service; the tapes cost almost nothing to keep.** You pay a
-service to write the tapes and to read them back, but the stock itself is only ~$7/TB and, once
+service to write the tapes and to read them back, but the stock itself is only ~$6/TB and, once
 written, the cartridges sit on a shelf with no monthly bill and no power draw — so the LTO total barely
 moves whether you hold for three years or ten (drag the years slider and watch it stay put), while
 every monthly-billed cloud keeps climbing. Over the long retention a film archive actually needs, that
