@@ -106,14 +106,11 @@ hundreds, or thousands, of shots in their various states of progress, it is impo
 production managers to maintain an accurate database of each shot's status, assets, history,
 and assigned resources and artists.
 
-Tools like Shotgun (Autodesk) and ftrack are industry-specific tools for coordinating visual
-effects projects. They have key features for asset tracking, deadlines, budgets, shot review,
-annotation, and client feedback, and serve as central collaborative workspaces that production
-managers and artists alike can leverage to define and maintain their goals.
-
-!!! warning "Out of date"
-    Shotgun has been renamed twice since this was written, and ftrack has changed ownership.
-    See [Notes for v1.1](v1.1-notes.md#production-tracking-systems).
+Tools like **Autodesk Flow Production Tracking** — formerly Shotgun, then ShotGrid, and now part
+of Autodesk Flow — and **ftrack** (acquired by Backlight in 2022) are industry-specific tools for
+coordinating visual effects projects. They have key features for asset tracking, deadlines,
+budgets, shot review, annotation, and client feedback, and serve as central collaborative
+workspaces that production managers and artists alike can leverage to define and maintain their goals.
 
 These tools are especially appealing to large visual effects studios because of their APIs that
 allow software engineers and technical directors to integrate the management system directly

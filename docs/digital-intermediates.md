@@ -309,14 +309,11 @@ able to exchange commonly needed LUTs (like the Show LUT) in formats that work o
 everyone's various platforms.
 
 Apps like [Lattice](https://videovillage.com/lattice/) and
-[LightSpace CMS](https://www.lightillusion.com) are useful for converting LUTs for use in a
-variety of systems and applications. Additionally, they are capable of performing a multitude of
-technical transformations and color space conversions. These precise transformations are often
-difficult to do accurately using normal grading tools.
-
-!!! warning "Out of date"
-    LightSpace CMS has been superseded by ColourSpace. See
-    [Notes for v1.1](v1.1-notes.md#lut-and-calibration-tools).
+[ColourSpace](https://www.lightillusion.com) (Light Illusion's ground-up successor to LightSpace
+CMS) are useful for converting LUTs for use in a variety of systems and applications. Additionally,
+they are capable of performing a multitude of technical transformations and color space
+conversions. These precise transformations are often difficult to do accurately using normal
+grading tools.
 
 ## Working with Visual Effects Mattes
 
