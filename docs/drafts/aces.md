@@ -9,7 +9,7 @@ tags:
     This chapter is new material, not part of v1.0.1. See [Drafts for v1.1](index.md).
 The [Overview of Digital Intermediates](../digital-intermediates.md) chapter argues that the central discipline of a modern pipeline is knowing, at every step, what image state you are in — scene-referred or display-referred — and never crossing that boundary by accident. ACES is the industry's standardized answer to that problem. It fixes a single scene-referred interchange encoding, a single set of working spaces derived from it, and a defined transform at each end.
 
-The practical argument for an independent production is narrow: ACES gives you a pipeline that multiple vendors can implement identically without negotiating a bespoke color workflow for every show. That is precisely the failure mode this handbook opens by describing — plates pulled in the wrong space, work done under an unknown viewing transform, and a colorist inheriting the consequences.
+The practical argument for an independent production is narrow: ACES gives you a pipeline that multiple vendors can implement identically without negotiating a bespoke color workflow for every show. It is the failure mode this handbook exists to prevent — plates pulled in the wrong space, work done under an unknown viewing transform, and a colorist inheriting the consequences.
 
 ## What ACES actually is
 

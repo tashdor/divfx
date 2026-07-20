@@ -88,6 +88,12 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  /* Override the generic `figure img` white background/border: these plots are
+     theme-specific SVGs that already carry their own background, so a forced
+     white fill letterboxes as a bright halo in dark mode. */
+  background: transparent;
+  border: none;
+  border-radius: 0;
 }
 /* The iframe overlays the static — never display:none (which would deadlock a
    lazy iframe's load event) — starting transparent and fading in once it loads.

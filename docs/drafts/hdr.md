@@ -29,7 +29,7 @@ Note what BT.2100 does *not* do: it does not tell you to grade to the primaries.
 
 ### PQ and HLG are not interchangeable
 
-This is the distinction that most often goes wrong in a delivery conversation.
+It is the parameter most often confused when a delivery is specified.
 
 **PQ** — standardized as **SMPTE ST 2084** — is an *absolute* transfer function. A code value maps to a specific luminance in cd/m², up to 10 000. A PQ signal says "this pixel is 400 nits." That is what makes it right for cinematic mastering: the creative intent is pinned to measurable light, and the display's job is to reproduce it or tone-map it down faithfully.
 
@@ -38,7 +38,7 @@ This is the distinction that most often goes wrong in a delivery conversation.
 For a scripted feature or series destined for streaming, **PQ is effectively the answer**. HLG matters if you are delivering live or broadcast content, or a distributor asks for it.
 
 !!! note "Where the OOTF lives"
-    The [Rec.709 note](../v1.1-notes.md#rec709-and-the-oetfeotf-conflation) elsewhere in these materials explains that SDR has no explicitly specified OOTF — it exists only as the cascade of the BT.709 OETF and the BT.1886 EOTF. BT.2100 is more rigorous: it specifies an OETF, an EOTF, *and* an OOTF explicitly for HLG, and defines PQ in terms of the display EOTF directly. If you have ever wanted a clean answer to "where is the rendering intent applied," HDR standards give one and SDR does not.
+    The [Rec.709 note](../v1.1-notes.md#rec709-and-the-oetfeotf-conflation) elsewhere in these materials explains that SDR has no explicitly specified OOTF — it exists only as the cascade of the BT.709 OETF and the BT.1886 EOTF. BT.2100 is more rigorous: it specifies an OETF, an EOTF, *and* an OOTF explicitly for HLG, and defines PQ in terms of the display EOTF directly. HDR standards give a clean answer to where the rendering intent is applied; SDR does not.
 ## Metadata
 
 An HDR master is incomplete without metadata describing the display it was made on. This is a genuine change from SDR practice, where the mastering display was implied by the standard.
@@ -67,7 +67,7 @@ ST 2086 describes *the display you graded on*, not the content. MaxCLL and MaxFA
     A production that budgets an HDR grade but not a Dolby Vision trim pass has budgeted roughly half the work. The SDR derivation is where the argument happens, because that is the version most of the audience will see.
 ## Mastering in practice
 
-The single most useful thing to understand, and the one BT.2100 does not say outright:
+The key point BT.2100 does not state outright:
 
 > HDR is mastered in **P3-D65, limited inside a Rec.2100/BT.2020 container**, at a stated peak luminance — typically 1 000 or 4 000 cd/m² — not graded to the BT.2020 primaries.
 

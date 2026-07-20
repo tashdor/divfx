@@ -13,7 +13,7 @@ v1.0.1 covers IMF in three sentences, in the [Video Distribution Masters](../pro
 
 Every other master described in this handbook is a **flat** deliverable — one continuous render of one version of the film. That model breaks down as soon as a title has versions, and modern titles always do: a domestic cut, an airline edit, territory-specific title cards, dub cards for a dozen languages, a version with different music rights, an SDR and an HDR variant.
 
-Delivering that as flat masters means delivering the same two hours of picture over and over, differing by ninety seconds. It is expensive to transfer, expensive to store, and — the real problem — it is impossible to guarantee that the ninety-nine percent that is supposed to be identical actually is.
+Delivering that as flat masters means delivering the same two hours of picture over and over, differing by perhaps merely seconds. It is expensive to transfer, expensive to store, and — the real problem — it is labor intensive to check that the ninety-nine percent that is supposed to be identical actually is.
 
 IMF's answer is a **component** model. The essence is stored once as track files, and each version is described by a playlist that references the pieces it needs. SMPTE ST 2067-21 states the intent directly:
 
@@ -21,7 +21,7 @@ IMF's answer is a **component** model. The essence is stored once as track files
     "Application #2E is meant for studio applications where a TV or movie title is transformed into multiple content versions (airline edits, special edition, languages…) that are made available to multiple consumer distribution channels (Internet, optical media, broadcast…) across multiple territories and over the span of many months to over a year."
 
     — SMPTE ST 2067-21, §1 Scope
-That sentence is the whole rationale. **IMF is a versioning format.** Everything structural about it follows from that.
+**IMF is a versioning format**, and everything structural about it follows from that.
 
 ## Structure
 
@@ -58,5 +58,5 @@ Most independent features will never author an IMF themselves — it is speciali
 - **Naming and versioning discipline carries through.** The same argument the [Versioning](../turnover-vfx.md#versioning) section makes about VFX shots applies to deliverables. A supplemental package that references the wrong version of a segment is the distribution-scale version of conforming the wrong comp.
 - **Ask what the deliverable actually is, early.** "IMF" alone is not a specification. The application, the audio configuration, the HDR variant, and whether supplementals are expected all need to be settled with the distributor before the DI, not after.
 
-!!! tip "The useful mental model"
+!!! tip "A render versus a project"
     A flat ProRes master is a **render**. An IMF is a **project** — essence plus the edit decisions needed to reconstruct any version of it. That is why it displaced flat masters for distributors managing hundreds of versions, and why it looks like unnecessary complexity to a production that only ever makes one.

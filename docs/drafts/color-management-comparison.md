@@ -15,7 +15,7 @@ The [ACES](aces.md), [OpenColorIO](color-management.md), and [application-native
 4. **DaVinci Resolve Color Management (RCM)** — Blackmagic's in-application managed workflow on DaVinci Wide Gamut / Intermediate.
 5. **FilmLight Truelight Color Spaces (TCS) + T-CAM** — FilmLight's managed workflow on E-Gamut / T-Log with a color-appearance display transform.
 
-The through-line of this handbook applies to all of them: the discipline that matters is knowing, at every step, whether you are [scene-referred or display-referred](../digital-intermediates.md), and applying the display transform only at the end of the grading pipeline. Four of these five keep a consistent scene-referred working space and a recoverable master with vary degrees of freedom, complexity, and labor — the frameworks enforce it automatically, and a manually color-managed pipeline relies heavily on the colorist's discipline. Only the first abandons it, which is why it is here as a cautionary category rather than an endorsement.
+The same discipline applies to all of them: knowing, at every step, whether you are [scene-referred or display-referred](../digital-intermediates.md), and applying the display transform only at the end of the grading pipeline. Four of these five keep a consistent scene-referred working space and a recoverable master, with varying degrees of freedom, complexity, and labor — the frameworks enforce it automatically, and a manually color-managed pipeline relies heavily on the colorist's discipline. Only the first abandons it, which is why it is here as a cautionary category rather than an endorsement.
 
 !!! note "This is a choice about interchange, not image quality"
     None of the managed systems guarantee a "better picture" on its own. What they buy you is a framework for consistency across cameras, vendors, applications, and deliverables — and, for ACES, a standard graded archival deliverable. A good colorist could arrive at approximately identical results under any of these frameworks, but the differences in ease of workflow or flexibility become apparent when multiple software products, tools, vendors, or deliverables are introduced.
@@ -23,7 +23,7 @@ The through-line of this handbook applies to all of them: the discipline that ma
 
 ### Display Referred, un-color-managed
 
-You grade the footage more or less as the camera and monitor present it — a camera-native log or even a display-space signal — and bake the look directly into the grade. There is no defined working space, no separately applied display transform, and — the part that matters most — **no route back to a graded assembly master.** The master *is* the look; there is no scene-referred version to re-render from.
+You grade the footage more or less as the camera and monitor present it — a camera-native log or even a display-space signal — and bake the look directly into the grade. There is no defined working space, no separately applied display transform, and **no route back to a graded assembly master.** The master *is* the look; there is no scene-referred version to re-render from.
 
 - **What it is not.** This is not the same as a simple job done well. A single-camera short graded on a consistent working space with the display transform applied last is [Manually Color Managed](#manually-color-managed), not this — it keeps a recoverable master at almost no extra cost. Truly un-color-managed means that when a new deliverable, a new display, or an HDR pass is asked for later, the only source is a baked image.
 - **Why it fails.** Technical and creative decisions are entangled. It does not scale to multi-camera, multi-vendor, or multi-deliverable work, and it fails quietly rather than loudly — you discover the cost only when someone needs the scene-referred master that cannot be produced.
@@ -85,7 +85,7 @@ The baseline is a **manually color-managed** pipeline: a consistent scene-referr
 
 **Reach for a framework (ACES / RCM / TCS)** when:
 
-- You have **multiple camera systems and/or multiple VFX vendors**. Interchange is the whole game, and only a managed pipeline gives everyone a common target. Among the frameworks, **ACES** wins as soon as the work must cross *applications and vendors* — that is precisely what an open, OCIO-delivered standard is for.
+- You have **multiple camera systems and/or multiple VFX vendors**. Interchange is the entire problem, and only a managed pipeline gives everyone a common target. Among the frameworks, **ACES** wins as soon as the work must cross *applications and vendors* — which is what an open, OCIO-delivered standard is for.
 - You **lack the color-science resources to build and vet a bespoke workflow.** A documented, standardized pipeline you can adopt is safer than a homemade one you cannot fully test — a framework gives you the discipline of a manually color-managed pipeline without having to author it.
 
 **Between the frameworks:**
