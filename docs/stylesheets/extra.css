@@ -117,6 +117,36 @@
   .cp-embed-frame { display: none !important; }
 }
 
+/* Frame-sequence diagrams — one colored cell per frame, so regions never
+   visually overlap or share a boundary frame. Pure HTML/CSS: renders
+   everywhere, no JS, and adapts to the theme. */
+.md-typeset .fseq-fig { margin: 1.4em 0; }
+.md-typeset .fseq {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.64rem;
+  line-height: 1.2;
+}
+.md-typeset .fseq .fcell {
+  min-width: 2.7em;
+  text-align: center;
+  padding: 4px 5px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  color: var(--md-default-fg-color);
+}
+.md-typeset .fseq .h { background: #e0912f26; border-color: #e0912f8c; }  /* handle */
+.md-typeset .fseq .e { background: #4c7ef526; border-color: #4c7ef58c; }  /* edit   */
+.md-typeset .fseq .s { background: #7a869544; border-color: #7a8695aa; }  /* slate  */
+.md-typeset .fseq-key { margin: .5em 0 0; font-size: .64rem; color: var(--md-default-fg-color--light); }
+.md-typeset .fseq-key .sw {
+  display: inline-block; width: .8em; height: .8em; border-radius: 2px;
+  vertical-align: -1px; margin: 0 .3em 0 .9em; border: 1px solid;
+}
+.md-typeset .fseq-key .sw:first-child { margin-left: 0; }
+
 /* The di|vfx wordmark is solid black; invert it to white in dark mode so it
    stays visible on the dark header and nav drawer. */
 [data-md-color-scheme="slate"] .md-logo img,

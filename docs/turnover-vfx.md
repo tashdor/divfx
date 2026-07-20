@@ -159,25 +159,25 @@ Depending on the needs of the project and the budgetary constraints, visual effe
 handles (padding) can vary from 4–8 frames, or even none at all. Typically handles are desired
 so that if there is any last minute need to roll an edit by a frame or two, the picture editor has
 that flexibility. However, over the course of an entire feature film, the work that goes into
-producing visual effects for those extra handle frames can add up to be significant. Ultimately
+producing visual effects for those extra handle frames can add up significantly. Ultimately
 the number of comp handle frames is subject to production budget and schedule.
 
 A common example of how visual effects plates might be pulled and numbered:
 
-```
-1001 1002 1003 1004 1005 1006 1007 1008 1009 1010 1011 1012 1013 1014 1015 1016 1017 1018 1019
-└── PLATE HANDLE ──┘└──────────── PLATE EDIT FRAMES ────────────┘└───── PLATE HANDLE ─────┘
-```
+<figure class="fseq-fig" markdown="span">
+<div class="fseq"><span class="fcell h">1001</span><span class="fcell h">1002</span><span class="fcell h">1003</span><span class="fcell h">1004</span><span class="fcell e">1005</span><span class="fcell e">1006</span><span class="fcell e">1007</span><span class="fcell e">1008</span><span class="fcell e">1009</span><span class="fcell e">1010</span><span class="fcell e">1011</span><span class="fcell e">1012</span><span class="fcell e">1013</span><span class="fcell e">1014</span><span class="fcell e">1015</span><span class="fcell h">1016</span><span class="fcell h">1017</span><span class="fcell h">1018</span><span class="fcell h">1019</span></div>
+<p class="fseq-key"><span class="sw" style="background:#e0912f26;border-color:#e0912f8c"></span> plate/comp handle frames<span class="sw" style="background:#4c7ef526;border-color:#4c7ef58c"></span> edit frames</p>
+</figure>
 
 It is often mandated that the visual effects artists and vendors return a completed shot with a
 slate frame containing information about the shot, revisions made, the company name, artist's
 initials, and a framing chart. In this case, the slate frame is prepended to the file sequence
 without offsetting the frame numbering.
 
-```
-1000 1001 1002 1003 1004 1005 1006 1007 1008 1009 1010 1011 1012 1013 1014 1015 1016 1017 1018 1019
-SLTE └─ COMP HANDLE ─┘└──────────── COMP EDIT FRAMES ────────────┘└────── COMP HANDLE ──────┘
-```
+<figure class="fseq-fig" markdown="span">
+<div class="fseq"><span class="fcell s">1000</span><span class="fcell h">1001</span><span class="fcell h">1002</span><span class="fcell h">1003</span><span class="fcell h">1004</span><span class="fcell e">1005</span><span class="fcell e">1006</span><span class="fcell e">1007</span><span class="fcell e">1008</span><span class="fcell e">1009</span><span class="fcell e">1010</span><span class="fcell e">1011</span><span class="fcell e">1012</span><span class="fcell e">1013</span><span class="fcell e">1014</span><span class="fcell e">1015</span><span class="fcell h">1016</span><span class="fcell h">1017</span><span class="fcell h">1018</span><span class="fcell h">1019</span></div>
+<p class="fseq-key"><span class="sw" style="background:#e0912f26;border-color:#e0912f8c"></span> plate/comp handle frames<span class="sw" style="background:#4c7ef526;border-color:#4c7ef58c"></span> edit frames<span class="sw" style="background:#7a869544;border-color:#7a8695aa"></span> slate frame</p>
+</figure>
 
 It is common to start the first frame of comp handle or the first main frame at 1001 and work
 backwards to the slate frame. This allows for a scenario in which the shot has been started but
@@ -189,10 +189,10 @@ frame 1034 will still be the same frame as in the initial pull.
 Alternatively, it may be desired that the first main frame (first frame of the edit) is 1001 with
 handles working backwards.
 
-```
-0997 0998 0999 1000 1001 1002 1003 1004 1005 1006 1007 1008 1009 1010 1011 1012 1013 1014 1015
-└── PLATE HANDLE ──┘└──────────── PLATE EDIT FRAMES ────────────┘└───── PLATE HANDLE ─────┘
-```
+<figure class="fseq-fig" markdown="span">
+<div class="fseq"><span class="fcell h">0997</span><span class="fcell h">0998</span><span class="fcell h">0999</span><span class="fcell h">1000</span><span class="fcell e">1001</span><span class="fcell e">1002</span><span class="fcell e">1003</span><span class="fcell e">1004</span><span class="fcell e">1005</span><span class="fcell e">1006</span><span class="fcell e">1007</span><span class="fcell e">1008</span><span class="fcell e">1009</span><span class="fcell e">1010</span><span class="fcell e">1011</span><span class="fcell h">1012</span><span class="fcell h">1013</span><span class="fcell h">1014</span><span class="fcell h">1015</span></div>
+<p class="fseq-key"><span class="sw" style="background:#e0912f26;border-color:#e0912f8c"></span> plate/comp handle frames<span class="sw" style="background:#4c7ef526;border-color:#4c7ef58c"></span> edit frames</p>
+</figure>
 
 In some situations, you may intentionally provide more handle frames in the plate than are
 required in the final comp.
