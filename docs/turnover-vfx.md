@@ -214,8 +214,8 @@ is confusion.
       numbers, leaving the conform editors to rely solely on the delivery date to know whether
       they are using the most up to date shot.
 
-Any revision to a shot, even if it is just a change in render settings, needs to have a new version
-number. Otherwise it is confusing for the production editorial team and conform editor to
+Any revision to a shot, even a simple correction in render settings, or a redelivery because of a
+corrupt frame, needs to have a new version number. Otherwise it is confusing for the production editorial team and conform editor to
 know which version should be cut in if they have received multiple deliveries of shots with the
 same version number.
 
