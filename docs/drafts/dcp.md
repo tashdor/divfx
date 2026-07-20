@@ -26,6 +26,8 @@ Two package flavors exist, and the difference matters at ingest. **Interop (IOP)
 
 An encrypted DCP has its MXF essence scrambled with **AES-128**; a server can only play it with a **KDM** (Key Delivery Message) — an XML file carrying the content keys, encrypted to one specific server's certificate and valid only for a stated date-and-time window. Unencrypted DCPs carry no keys and play on any compliant server.
 
+Encryption is decided at authoring, not at delivery. An unencrypted DCP cannot be encrypted after the fact without re-wrapping its essence — effectively a re-encode and a re-author — and turning an encrypted DCP back into an unencrypted one likewise costs the keys plus authoring labor and machine time. Neither direction is a toggle, so the choice has to be made before you master, not when a venue asks.
+
 For a festival, **unencrypted is the safer default**, and the festivals say so themselves: Venice recommends non-encrypted, Sundance strongly prefers it, and Berlinale accepts either.[^dcp-fest] The reason is operational, not ideological. Encryption obliges you to collect the certificate of every media block (IMB) that will play the film, generate a per-server, per-window KDM from the distribution KDM (DKDM), and deliver those keys ahead of the screening — and any mismatch (wrong certificate, expired window, a last-minute room change to a server you did not key) is an audience watching a black screen.
 
 If a right-holder requires encryption, coordinate with the festival ahead of time so special considerations can be made to ensure KDMs cover the anticipated windows and playback servers, and that there is 24/7 key-management support available by phone in case of a last-minute emergency.[^dcp-fest]

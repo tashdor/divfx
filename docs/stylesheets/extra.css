@@ -116,3 +116,31 @@
 @media print {
   .cp-embed-frame { display: none !important; }
 }
+
+/* Mermaid workflow diagrams — Material themes the palette; these polish the
+   geometry (rounder corners, slightly heavier links, tidier labels). */
+.md-typeset .mermaid {
+  margin: 1.6em 0;
+  text-align: center;
+}
+.md-typeset .mermaid .node rect,
+.md-typeset .mermaid .node path,
+.md-typeset .mermaid .node polygon {
+  rx: 8px;
+  ry: 8px;
+}
+.md-typeset .mermaid .cluster rect {
+  rx: 12px;
+  ry: 12px;
+}
+.md-typeset .mermaid .flowchart-link {
+  stroke-width: 1.6px;
+}
+.md-typeset .mermaid .edgeLabel {
+  font-size: 0.68rem;
+}
+/* Caption paragraph immediately after a diagram */
+.md-typeset .mermaid + p em {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.72rem;
+}

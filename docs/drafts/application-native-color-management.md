@@ -35,6 +35,24 @@ Each system works in its own wide-gamut internal space. The three you will meet 
 
 **Objective:** normalize many cameras into one scene-referred working space and retarget to any deliverable, without leaving Resolve. Instead of grading log footage into shape by hand (*display-referred* — Resolve knows nothing about the source), you tell it each clip's camera profile and it maps that source into a working space and out to the deliverable using the manufacturer's known log curve and gamut (*scene-referred*).[^dg1]
 
+```mermaid
+%%{init: {'flowchart': {'curve': 'linear'}}}%%
+graph LR
+  subgraph R["Inside DaVinci Resolve — one application"]
+    direction LR
+    C("Source clips<br/>camera metadata") -->|assign Input Color Space| W("DaVinci Wide Gamut / Intermediate<br/>timeline working space")
+    W -->|"Output space + DRT (applied last)"| D("Deliverables<br/>Rec.709 · P3 · Rec.2100")
+  end
+  classDef src fill:#7a869522,stroke:#7a8695,stroke-width:1.5px;
+  classDef dwg fill:#e8590c22,stroke:#e8590c,stroke-width:1.5px;
+  classDef del fill:#2fb45722,stroke:#2fb457,stroke-width:1.5px;
+  class C src;
+  class W dwg;
+  class D del;
+```
+
+*RCM in one application: per-clip input assignment into DaVinci Wide Gamut / Intermediate, then an output space per deliverable with the display transform applied last.*
+
 **RCM is an alternative to ACES, not the opposite of it.** Both are the same *kind* of system — "automatic," scene-referred color management, where you assign each clip its source camera format / input color space and the tool maps it into a common working space and out through a display transform. The difference is that RCM is a configurable, single-vendor *framework*: you choose among many working spaces (DaVinci Wide Gamut, Rec.2020, camera-native wide gamuts — and Resolve can even run ACES itself as its color science) and among several **output tone-mapping methods** (the Output DRT — the Resolve default, RED IPP2, saturation-preserving variants, or *None*). ACES is essentially *one standardized configuration* of that same idea, available inside Resolve alongside the Resolve-native one; choosing between them is a project setting, so "we grade in Resolve" and "the show is ACES" are not mutually exclusive.[^dg3]
 
 The working space Blackmagic recommends is **DaVinci Wide Gamut (DWG)** with the **DaVinci Intermediate** log curve — a gamut Blackmagic describes as larger than BT.2020, ARRI Wide Gamut, and ACES AP-1, so nothing clips whatever camera it came from.[^dg2] Worth knowing about how open it is: **the encoding is fully specified; the rendering is not.** DWG-the-color-space — its virtual primaries, D65 white point, RGB↔XYZ matrices, and the DaVinci Intermediate log equations — is published in a Blackmagic white paper, so it can be rebuilt *exactly* in an OCIO config or a LUT tool. The Resolve display rendering transform — how Resolve tone- and gamut-maps DWG to an output — is internal, not a separately published spec. "DWG is published" is true of the color space, not the look.
@@ -48,6 +66,24 @@ The working space Blackmagic recommends is **DaVinci Wide Gamut (DWG)** with the
 ## FilmLight: Baselight, Daylight, and the Truelight Color Spaces
 
 **Objective:** a high-end managed grade whose display transform is built on a color appearance model. FilmLight's systems (**Baselight**, and the on-set/dailies tool **Daylight**) work in the **Truelight Color Spaces (TCS)** — an **E-Gamut / T-Log** working space — and render to display through **T-CAM** (the Truelight Color Appearance Model, currently v2), which maps scene-referred data to a display without baking in a specific look. **[web-sourced — E-Gamut / T-Log / T-CAM-v2 are FilmLight product names, not standardized designations; see [FilmLight — Truelight](https://www.filmlight.ltd.uk/workflow/truelight.php).]**
+
+```mermaid
+%%{init: {'flowchart': {'curve': 'linear'}}}%%
+graph LR
+  subgraph B["Inside Baselight / Daylight — one application"]
+    direction LR
+    C("Source clips<br/>camera metadata") -->|assign Truelight input| W("E-Gamut / T-Log<br/>timeline working space")
+    W -->|"T-CAM v2 display transform (last)"| D("Deliverables<br/>Rec.709 · P3-D65 · Rec.2100")
+  end
+  classDef src fill:#7a869522,stroke:#7a8695,stroke-width:1.5px;
+  classDef tcs fill:#12b3a622,stroke:#12b3a6,stroke-width:1.5px;
+  classDef del fill:#2fb45722,stroke:#2fb457,stroke-width:1.5px;
+  class C src;
+  class W tcs;
+  class D del;
+```
+
+*The same shape as RCM — a single-application managed workflow — on E-Gamut / T-Log, rendered to display through T-CAM.*
 
 What makes T-CAM distinctive is a documented design *philosophy*: its author, FilmLight's Richard Kirk, argues for the simplest appearance model that works rather than the most elaborate.
 

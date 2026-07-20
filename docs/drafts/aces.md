@@ -22,6 +22,34 @@ ACES is not a look, and it is not a LUT. It is four things:
 
 The Academy's own framing is that ACES is "a free, open, device-independent color management and image interchange system that can be applied to almost any current or future workflow" (Academy Technical Bulletin [TB-2018-001](https://docs.acescentral.com/white-point/), Introduction).
 
+```mermaid
+%%{init: {'flowchart': {'curve': 'linear'}}}%%
+graph LR
+  CAM("Camera / source<br/>ARRI · RED · Sony") -->|Input Transform| HUB
+  subgraph IX["ACES2065-1 interchange"]
+    direction TB
+    HUB("ACES2065-1<br/>scene-referred · AP0<br/>non-graded assembly master")
+    VFX("VFX vendors<br/>Nuke · Houdini · Flame<br/>work in ACEScg via OCIO")
+    HUB -->|plates| VFX
+    VFX -->|renders| HUB
+  end
+  HUB -->|grade| GR("Grade<br/>ACEScct")
+  GR -->|Output Transform| DEL("Deliverables<br/>Rec.709 · P3-D65<br/>Rec.2100 PQ · DCDM")
+  GR -.->|render to ACES2065-1| GAM("Graded Archival Master<br/>ACES2065-1, from ACEScct")
+  classDef src fill:#7a869522,stroke:#7a8695,stroke-width:1.5px;
+  classDef aces fill:#4c7ef522,stroke:#4c7ef5,stroke-width:1.5px;
+  classDef vfx fill:#9b6dff22,stroke:#9b6dff,stroke-width:1.5px;
+  classDef grade fill:#e0912f22,stroke:#e0912f,stroke-width:1.5px;
+  classDef del fill:#2fb45722,stroke:#2fb457,stroke-width:1.5px;
+  class CAM src;
+  class HUB,GAM aces;
+  class VFX vfx;
+  class GR grade;
+  class DEL del;
+```
+
+*Everything converts to ACES2065-1; VFX round-trips through the interchange in ACEScg, and only the assembled result is graded (ACEScct). The Graded Archival Master is rendered from the grade back to ACES2065-1 — distinct from the ungraded assembly master at the hub.*
+
 Primary references: the [ACES documentation](https://docs.acescentral.com/), the [aces-aswf/aces](https://github.com/aces-aswf/aces) repository (formerly [ampas/aces-dev](https://github.com/ampas/aces-dev)), and the [SMPTE ACES standards](https://www.smpte.org/standards/aces-standards) — ST 2065-1 through ST 2065-5, which are normative and paywalled.
 
 ### Color primary sets
