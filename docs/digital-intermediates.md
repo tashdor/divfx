@@ -45,19 +45,21 @@ intentionally or not.
 
 Common examples of such cameras recording in a RAW format include:
 
-| Camera | RAW format |
+| Camera family | RAW format |
 | --- | --- |
-| ARRI ALEXA | ARRIRAW |
-| RED Digital Cinema | R3D |
-| Sony CineAlta F5 / F55 / F65 | SonyRAW or X-OCN |
-| Canon C500 | Canon RAW |
-| Panasonic VariCam 35 / LT | VRAW |
-| Blackmagic Design digital film cameras | CinemaDNG |
+| ARRI ALEXA 35 (also Mini LF, ALEXA 265) | ARRIRAW |
+| Sony VENICE 2 (also BURANO) | X-OCN (16-bit) |
+| RED V-RAPTOR / V-RAPTOR [X] (also KOMODO-X) | R3D (REDCODE RAW) |
+| Blackmagic URSA Cine family | Blackmagic RAW (BRAW) |
+| Canon EOS C400 / C500 Mark II | Cinema RAW Light |
 
-!!! warning "Out of date"
-    This table reflects the 2017 camera market. Most of these bodies are now legacy, and
-    Blackmagic replaced CinemaDNG with Blackmagic RAW (BRAW) in 2018. See
-    [Notes for v1.1](v1.1-notes.md#cameras-and-raw-formats) for the current landscape.
+The ARRI ALEXA 35 records ARRIRAW with **LogC4 / ARRI Wide Gamut 4** (ARRI REVEAL color science);
+LogC3 / AWG3 remains correct for the ALEXA Mini LF and earlier bodies. Sony's VENICE 2 and BURANO
+record 16-bit **X-OCN**. RED — acquired by Nikon in 2024 — records **R3D (REDCODE RAW)** across the
+V-RAPTOR line. Blackmagic dropped CinemaDNG for **Blackmagic RAW (BRAW)** in 2018, now recorded
+across the **URSA Cine** family. Canon's current Cinema EOS bodies record **Cinema RAW Light**.[^cameras]
+
+[^cameras]: Current-generation bodies and formats as of 2025–26. **[web-sourced.]**
 
 Camera RAW recording has become a ubiquitous standard in studio productions. Camera RAW
 allows for greater workflow flexibility later in post while preserving the maximum image
@@ -170,9 +172,9 @@ ideal.
 
 The major reason we still use logarithmically encoded images is that it allows us to capture
 scene-referred imagery to a variety of convenient formats without the overhead of Camera
-RAW. ARRI ALEXA, ARRI AMIRA, RED WEAPON, and many Blackmagic cinema cameras allow for
-native ProRes capture, while Sony F5/F55/F65 allow native capture to other raster image
-formats like XAVC and SStP (Sony SR File). External recorders provide even more options for
+RAW. The ARRI ALEXA 35, RED V-RAPTOR, and Blackmagic URSA Cine cameras allow for native ProRes
+capture, while Sony's VENICE 2 and BURANO allow native capture to other raster image
+formats like XAVC. External recorders provide even more options for
 capturing scene-referred imagery without Camera RAW.
 
 As Camera RAW typically exhibits higher data rates than ProRes and necessitates more
