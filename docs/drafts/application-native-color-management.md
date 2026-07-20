@@ -47,7 +47,7 @@ The working space Blackmagic recommends is **DaVinci Wide Gamut (DWG)** with the
 
 ## FilmLight: Baselight, Daylight, and the Truelight Color Spaces
 
-**Objective:** a high-end managed grade whose display transform is built on a color appearance model. FilmLight's systems (**Baselight**, and the on-set/dailies tool **Daylight**) work in the **Truelight Color Spaces (TCS)** — an **E-Gamut / T-Log** working space — and render to display through **T-CAM** (the Truelight Color Appearance Model, currently v2), which maps scene-referred data to a display without baking in a specific look. **[web-sourced — E-Gamut / T-Log / T-CAM-v2 are FilmLight product names, not standardized designations.]**
+**Objective:** a high-end managed grade whose display transform is built on a color appearance model. FilmLight's systems (**Baselight**, and the on-set/dailies tool **Daylight**) work in the **Truelight Color Spaces (TCS)** — an **E-Gamut / T-Log** working space — and render to display through **T-CAM** (the Truelight Color Appearance Model, currently v2), which maps scene-referred data to a display without baking in a specific look. **[web-sourced — E-Gamut / T-Log / T-CAM-v2 are FilmLight product names, not standardized designations; see [FilmLight — Truelight](https://www.filmlight.ltd.uk/workflow/truelight.php).]**
 
 What makes T-CAM distinctive is a documented design *philosophy*: its author, FilmLight's Richard Kirk, argues for the simplest appearance model that works rather than the most elaborate.
 
@@ -57,7 +57,7 @@ That is the same open question the [ACES chapter](aces.md#aces-20) raises about 
 
 [^fl1]: Richard Kirk, *Colour: Sense & Measurement* (FilmLight, 2022) — the T-CAM rationale (Ch. 5–6) and "simplest model" argument; FilmLight hosts a [free PDF](https://www.filmlight.ltd.uk/support/documents/colourbook/colourbook.php). The E-Gamut/T-Log/T-CAM-v2 product names and the portability specifics below are web-sourced beyond it.
 
-FilmLight's system is, unusually for a vendor, genuinely portable: FilmLight publishes its color-space and transform files (`.flspace` / `.fltransform`), a Truelight OCIO config, and an Autodesk Flame color policy, so TCS can travel outside Baselight. And exactly as with Resolve, choosing FilmLight's tools is not choosing against ACES: **Baselight can run a full ACES pipeline** as its color-managed workflow (v7 added ACES 2.0), and FilmLight is an ACES product partner — so "we finish at a Baselight house" and "the show is ACES" are equally compatible. Its portable files are still FilmLight's, under FilmLight's control — useful, but not a SMPTE/Academy specification that many vendors implement and certify against independently. **[web-sourced.]**
+FilmLight's system is, unusually for a vendor, genuinely portable: FilmLight publishes its color-space and transform files (`.flspace` / `.fltransform`), a Truelight OCIO config, and an Autodesk Flame color policy, so TCS can travel outside Baselight. And exactly as with Resolve, choosing FilmLight's tools is not choosing against ACES: **Baselight can run a full ACES pipeline** as its color-managed workflow (v7 added ACES 2.0), and FilmLight is an ACES product partner — so "we finish at a Baselight house" and "the show is ACES" are equally compatible. Its portable files are still FilmLight's, under FilmLight's control — useful, but not a SMPTE/Academy specification that many vendors implement and certify against independently.[^why2]
 
 ## Application-native color management vs. ACES: easier and harder
 
