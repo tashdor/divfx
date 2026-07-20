@@ -451,8 +451,14 @@ contain subtitle metadata.
 
 ### ProRes 422 HQ
 
-Commonly iTunes and other online distributors will require a compressed, ProRes 422 HQ
-variant of the video master.
+For independent distribution this is the dominant deliverable. Not just iTunes but the great
+majority of TVOD platforms and independent distributors want a compressed **ProRes 422 HQ**
+variant of the video master (with ProRes 4444 where an alpha or higher-end finish calls for it) —
+and very few independent distributors ask for an IMF package at all. [IMF](imf.md) is a
+studio-and-streamer interchange format; the label releasing an independent feature almost always
+wants ProRes and handles the platform-specific encoding downstream. See
+[Distribution Deliverables for Independent Film](distribution-deliverables.md) for what real indie
+delivery schedules actually require.
 
 ## Archival
 

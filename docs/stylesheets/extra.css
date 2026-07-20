@@ -148,14 +148,18 @@
 .md-typeset .fseq-fig { margin: 1.4em 0; }
 .md-typeset .fseq {
   display: flex;
-  flex-wrap: wrap;
-  gap: 3px;
+  flex-wrap: nowrap;               /* one continuous strip, never wraps */
+  gap: 2px;
+  overflow-x: auto;               /* scroll horizontally if it exceeds the column */
+  max-width: 100%;
+  padding-bottom: 3px;            /* room for the scrollbar */
   font-family: var(--md-code-font-family, monospace);
   font-size: 0.64rem;
   line-height: 1.2;
 }
 .md-typeset .fseq .fcell {
-  min-width: 2.7em;
+  flex: 0 0 auto;                 /* keep width; don't shrink or wrap */
+  min-width: 2.6em;
   text-align: center;
   padding: 4px 5px;
   border-radius: 3px;
