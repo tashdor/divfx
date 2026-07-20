@@ -49,31 +49,36 @@ acquisition codec only: it is not an intermediate or mastering format, and it is
 generate or deliver VFX plates**, which are developed out to scene-referred EXR (or DPX) for the
 pipeline.
 
-### Avid DNxHD and DNxHR
+### Avid DNx
 
-DNxHR is a replacement for the older, resolution-specific DNxHD codecs and is ideal for
-display-referred imagery.
+At IBC 2025 Avid rebranded the DNxHD and DNxHR families to a single name, **Avid DNx**, dropping the
+`HD` / `HR` / `GX` acronyms — misleading now that the codec is resolution-independent — in favor of
+five quality levels. The level, not the name, tells you the bit depth, chroma sampling, and
+bandwidth:[^dnx]
 
-| Codec | Use |
-| --- | --- |
-| DNxHR 444 | 4:4:4 color space, ideal for high-quality color correction and finishing |
-| DNxHR HQX | High quality extended, color correction and mastering |
-| DNxHR HQ | High quality, smaller bandwidth for editorial |
-| DNxHR SQ | Standard quality, ideal for editorial |
-| DNxHR LB | Low bandwidth, ideal for remote workflows with the lowest storage impact |
-| DNxHD 36 | Significantly compressed, designed for offline editorial |
+| Level | Encoding | Typical use |
+| --- | --- | --- |
+| **444** | 12-bit 4:4:4 RGB, with alpha | Finishing, VFX delivery, cinema masters |
+| **HQX** | 12-bit 4:2:2 (also 4:2:0) | Color and mastering; multi-generation work |
+| **HQ** | 8-bit 4:2:2 | High-quality editorial and production |
+| **SQ** | 8-bit 4:2:2 | Editorial and broadcast delivery |
+| **LB** | 8-bit 4:2:2, low bandwidth | Offline editorial and proxies |
 
-Adapted from Avid's DNxHR and DNxHD documentation.
+Bitrates scale with resolution and frame rate; at 1080p / 29.97 the reference figures are roughly
+**36 Mb/s** (LB), **290 Mb/s** (SQ), and **440 Mb/s** (HQ / HQX / 444). Avid Media Composer manages
+DNx media natively in **MXF OP-Atom**, and Avid also ships DNx **QuickTime** codecs. The codec is
+standardized as **SMPTE ST 2019-1 (VC-3)**; its 2026 revision folds in the two RGB levels Avid had
+shipped as "DNx GX."[^dnx]
 
 !!! warning "Compression artifacts and log material"
-    Compression artifacts present in DNxHD and DNxHR, even at high bit rates, adversely affect
-    log footage, producing keying artifacts. DNxHD and DNxHR are not advisable codecs for
-    camera log material. They are well suited for delivering final, graded, display-referred image
-    content, but are not a recommended intermediate format for color grading and visual
-    effects.
+    Compression artifacts present in Avid DNx, even at high bit rates, adversely affect log
+    footage, producing keying artifacts. DNx is not an advisable codec for camera log material. It
+    is well suited to delivering final, graded, display-referred content, but is not a recommended
+    intermediate format for color grading and visual effects.
 
-Avid Media Composer natively manages media in MXF OP-Atom wrappers; however, Avid also
-produces QuickTime codecs for DNxHD and DNxHR.
+[^dnx]: Avid, [*Avid DNx naming scheme and data rates*](https://kb.avid.com/pkb/articles/en_US/Knowledge/Avid-DNx-naming-scheme-and-data-rates)
+    and [*DNxHR Codec Bandwidth Specifications*](https://kb.avid.com/pkb/articles/en_US/white_paper/DNxHR-Codec-Bandwidth-Specifications);
+    rebrand announced at IBC 2025. **[web-sourced.]**
 
 ### H.264 / H.265 (HEVC)
 
