@@ -30,7 +30,7 @@ sustain multiple generations of encoding without meaningful image degradation an
 visually indistinguishable from equivalent uncompressed alternatives. Both are 12-bit codecs
 capable of embedded alpha channel and supporting either RGBA or 4:4:4 Y'CbCrA image data.
 
-[^9]: ARRI ALEXA/AMIRA ProRes, RED WEAPON, Blackmagic Design URSA, a variety of external
+[^9]: ARRI ALEXA ProRes, RED V-RAPTOR, Blackmagic URSA Cine, a variety of external
       third-party recorders, and more…
 
 ProRes 422 HQ and ProRes 422 are frequently used as mastering formats for 10-bit 4:2:2 Y'CbCr
@@ -42,9 +42,12 @@ and ideal for offline dailies and editorial proxies.
 For more information on the Apple ProRes codecs, see the
 [Apple ProRes white paper](https://www.apple.com/final-cut-pro/docs/Apple_ProRes.pdf).
 
-!!! note "Newer than this edition"
-    Apple introduced ProRes RAW in 2018, after this handbook was written. See
-    [Notes for v1.1](v1.1-notes.md#codecs).
+Apple introduced **ProRes RAW** in 2018. Unlike the ProRes codecs above, it is a
+**camera-acquisition RAW format** — Bayer sensor data recorded in-camera or via compatible external
+recorders (e.g. Atomos), carrying the same develop-later flexibility as ARRIRAW or R3D. It is an
+acquisition codec only: it is not an intermediate or mastering format, and it is **not used to
+generate or deliver VFX plates**, which are developed out to scene-referred EXR (or DPX) for the
+pipeline.
 
 ### Avid DNxHD and DNxHR
 
