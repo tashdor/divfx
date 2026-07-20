@@ -341,6 +341,14 @@ reads from. It is low-tech, but it is shared, it is current, and it is the singl
 count sheets and turnovers are drawn from. Production tracking is covered in more depth in
 [Visual Effects Production Management](vfx-production-management.md).
 
+Organization is also leverage. Independent productions routinely ask vendors and individual
+artists for discounted or gifted work, and the ones who get it are the ones who make the work easy
+to say yes to. Every hour a vendor spends deciphering a disorganized turnover, chasing a missing
+plate, or reconciling contradictory notes is unpaid overhead — and it is exactly the menial work a
+favor is not meant to cover. A production that hands over clean, complete, well-labeled material and
+keeps its notes and versions straight is asking a vendor to donate their craft, not their patience,
+and is far more likely to get the discount.
+
 ## The Creative Review Cycle
 
 While a shot is being built, the filmmakers review it in progress. These early and in-progress
