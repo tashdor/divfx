@@ -43,7 +43,7 @@ graph LR
 
 *Everything converts to ACES2065-1; VFX round-trips through the interchange in ACEScg. Grading converts internally to ACEScct and back to ACES2065-1 — that graded ACES2065-1 is the Graded Archival Master, and the Output Transform derives each deliverable from it. The ungraded interchange is the non-graded assembly master.*
 
-Primary references: the [ACES documentation](https://docs.acescentral.com/), the [aces-aswf/aces](https://github.com/aces-aswf/aces) repository (formerly [ampas/aces-dev](https://github.com/ampas/aces-dev)), and the [SMPTE ACES standards](https://www.smpte.org/standards/aces-standards) — ST 2065-1 through ST 2065-5, which are normative and paywalled.
+Primary references: the [ACES documentation](https://docs.acescentral.com/), the [aces-aswf/aces](https://github.com/aces-aswf/aces) repository (formerly [ampas/aces-dev](https://github.com/ampas/aces-dev)), and the [SMPTE ACES standards](https://www.smpte.org/standards/aces-standards) — ST 2065-1 through ST 2065-5, normative and, since 2025, freely downloadable from the [SMPTE library](https://pub.smpte.org/).
 
 ### Color primary sets
 

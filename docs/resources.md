@@ -9,21 +9,21 @@ The documents, standards, books, and tools cited or referenced across this handb
 
 ### SMPTE
 
-SMPTE standards are published through the [SMPTE standards portal](https://www.smpte.org/standards) (most are sold individually; the ACES set has a [dedicated page](https://www.smpte.org/standards/aces-standards)). Cited here:
+As of 2025, SMPTE standards are **freely available** from the [SMPTE standards library](https://pub.smpte.org/) (the ACES set also has a curated [landing page](https://www.smpte.org/standards/aces-standards)). Cited here — each links to its document page:
 
-- **ST 2065-1** — Academy Color Encoding Specification (ACES2065-1), the AP0 interchange encoding
-- **ST 2065-4** — ACES image container file layout (the constrained OpenEXR container)
-- **ST 2065-5** — ACES clip-level metadata file (ACESclip)
-- **ST 2067-21** — IMF Application #2E (the streaming/versioning application)
-- **ST 2067-201** — IMF Immersive Audio Bitstream (IAB)
-- **ST 2084** — PQ (Perceptual Quantization) EOTF
-- **ST 2086** — Mastering-display color-volume metadata (static)
-- **ST 2094** (parts -1, -10, -40) — Dynamic metadata for color-volume transform (Dolby Vision, HDR10+)
-- **ST 428-1** — D-Cinema Distribution Master (DCDM) X′Y′Z′ image encoding
-- **ST 379-1** and **ST 422** — MXF generic container and JPEG 2000 mapping
-- **ST 2019-1** — VC-3 (Avid DNxHD) bitstream
-- **RP 431-2** — D-Cinema projection reference (P3 / 48 cd/m²)
-- **SMPTE 195-1993**, **PH22.106** (1957, 1971) — anamorphic ("CinemaScope") aperture and aspect-ratio history
+- **[ST 2065-1](https://pub.smpte.org/pub/st2065-1/)** — Academy Color Encoding Specification (ACES2065-1), the AP0 interchange encoding
+- **[ST 2065-4](https://pub.smpte.org/pub/st2065-4/)** — ACES image container file layout (the constrained OpenEXR container)
+- **[ST 2065-5](https://pub.smpte.org/pub/st2065-5/)** — ACES clip-level metadata file (ACESclip)
+- **[ST 2067-21](https://pub.smpte.org/pub/st2067-21/)** — IMF Application #2E (the streaming/versioning application)
+- **[ST 2067-201](https://pub.smpte.org/pub/st2067-201/)** — IMF Immersive Audio Bitstream (IAB)
+- **[ST 2084](https://pub.smpte.org/pub/st2084/)** — PQ (Perceptual Quantization) EOTF
+- **[ST 2086](https://pub.smpte.org/pub/st2086/)** — Mastering-display color-volume metadata (static)
+- **ST 2094** — Dynamic metadata for color-volume transform (Dolby Vision, HDR10+): [-1](https://pub.smpte.org/pub/st2094-1/), [-10](https://pub.smpte.org/pub/st2094-10/), [-40](https://pub.smpte.org/pub/st2094-40/)
+- **[ST 428-1](https://pub.smpte.org/pub/st428-1/)** — D-Cinema Distribution Master (DCDM) X′Y′Z′ image encoding
+- **[ST 379-1](https://pub.smpte.org/pub/st379-1/)** and **[ST 422](https://pub.smpte.org/pub/st422/)** — MXF generic container and JPEG 2000 mapping
+- **[ST 2019-1](https://pub.smpte.org/pub/st2019-1/)** — VC-3 (Avid DNxHD) bitstream
+- **[RP 431-2](https://pub.smpte.org/pub/rp431-2/)** — D-Cinema projection reference (P3 / 48 cd/m²)
+- **SMPTE 195-1993** and **PH22.106** (1957, 1971) — anamorphic ("CinemaScope") aperture and aspect-ratio history
 
 ### ITU-R (freely downloadable at itu.int)
 
