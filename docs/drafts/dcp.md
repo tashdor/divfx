@@ -51,7 +51,7 @@ The practical rule: **an OCAP version is the fallback that always works**, becau
 
 **Electronic delivery** is rising: Venice takes files by **Aspera**, Berlinale through its own **Digital Cinema Portal**, and services such as CineSend and Massive move DCPs over managed transfers.[^dcp-fest] It removes shipping, but a feature DCP is tens to hundreds of gigabytes, so it is a significant transfer, and time and resources must be budgeted to ensure the upload completes within the delivery window.
 
-Whatever the medium, the package title must follow the **ISDCF Digital Cinema Naming Convention (DCNC)** — the string that encodes title, content type, aspect ratio, language and subtitle territory, audio, resolution, studio, and date so that a server and a programmer can parse the film unambiguously.[^dcp-isdcf] A misnamed DCP is a support call at the projection booth.
+Whatever the medium, the package title must follow the **ISDCF Digital Cinema Naming Convention (DCNC)** — the string that encodes title, content type, aspect ratio, language and subtitle territory, audio, resolution, studio, and date so that a server and a programmer can parse the film unambiguously.[^dcp-isdcf] But renaming the delivery folder is not enough: a server takes the display name from the **ContentTitleText** field — and often the **AnnotationText** — *inside* the CPL (and PKL), not from the folder name, so the ISDCF title has to be written into the CPL metadata when the DCP is authored. A folder whose name disagrees with the CPL shows the wrong title on the ingest screen and in every playlist editor. A misnamed DCP is a support call at the projection booth.
 
 ## QC on a real cinema server
 
