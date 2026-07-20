@@ -13,11 +13,8 @@ The [ACES](aces.md), [OpenColorIO](color-management.md), and
 one way to run color. This chapter puts five approaches side by side so an independent production can
 pick deliberately rather than by default. The five are:
 
-1. **Display Referred, un-color-managed** — the look baked into the grade, no working space, no route back to a neutral
-   master. Listed here to be ruled out, not chosen.
-2. **Manually Color Managed** — a hand-built pipeline: a consistent scene-referred working space with
-   color-space transforms in, node- or layer-based grading, and a standard or bespoke display
-   transform out.
+1. **Display Referred, un-color-managed** — the look is baked into the grade, no working space, no route back to a scene-referred graded master. Listed here to be ruled out, not encouraged.
+2. **Manually Color Managed** — a hand-made pipeline: a consistent scene-referred working space with color-space transforms in, node- or layer-based grading, and a standard or bespoke display transform out.
 3. **ACES** — an open, standardized, scene-referred pipeline (SMPTE ST 2065).
 4. **DaVinci Resolve Color Management (RCM)** — Blackmagic's in-application managed workflow on
    DaVinci Wide Gamut / Intermediate.
