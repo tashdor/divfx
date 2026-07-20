@@ -71,17 +71,46 @@ the exception being IMAX Digital, which utilizes the entire DCI Full container.
 There are some common misconceptions about the "Scope" (CinemaScope) aspect ratio.
 Depending on who you ask, they may say it is 2.35:1, 2.39:1, or 2.40:1.
 
-The anamorphic aperture was standardized by SMPTE at **2.35:1** in 1957 (PH22.106-1957), then
-revised to approximately **2.39:1** in the 1970 revision (PH22.106-1971), in part to better conceal
-the splices between negative reels — a narrowed aperture masks the brief flash a splice makes at
-the frame edge — and that ratio was reaffirmed in SMPTE 195-1993.[^12] These were SMPTE standards
-revisions, not camera-manufacturer decisions. **"2.40:1" is a colloquial rounding of 2.39:1, not a
-separate standard** — the DCI Scope container (2048×858) is 2.387:1, confirming 2.39.
+Each of these was, at one point, the standardized **projector aperture** — the metal plate that
+masks the release print down to the projected area (the negative usually holds a little more
+picture than the audience ever sees). The history is a sequence of SMPTE standards, not
+camera-manufacturer decisions:
 
-[^12]: The anamorphic standards history is documented at the
-    [American WideScreen Museum](http://www.widescreenmuseum.com/widescreen/cinemascope_oar.htm);
-    the aperture was set in SMPTE PH22.106-1957, revised in PH22.106-1971, and reaffirmed in
-    SMPTE 195-1993.
+| Standard | Projector aperture | Unsqueezed ratio (×2 anamorphic) |
+| --- | --- | --- |
+| **PH22.106-1957** | 0.839 × 0.715 in | 0.715 / (0.839 × 2) = **2.347** (≈ 2.35:1) |
+| **PH22.106-1971** | 0.838 × 0.700 in | 0.700 / (0.838 × 2) = **2.394** (≈ 2.39:1) |
+| **SMPTE 195-1993** | 0.825 × 0.690 in | 0.690 / (0.825 × 2) = **2.391** (≈ 2.39:1) |
+
+The **1971 revision** left the width essentially unchanged and trimmed the height by about 2%. The
+reason was mechanical, not aesthetic: four-perf anamorphic uses almost the full height between
+frames, leaving little frameline in which to make splices, so a splice passing the projector gate
+could flash as a bright band near the top or bottom of the screen. The shorter aperture formalized
+the projectionists' practice of masking that area — a thicker hidden frameline at the cost of a
+sliver of picture height. That is the real origin of "2.39," and why "the industry decided 2.39
+looked better than 2.35" is misleading.
+
+The **1993 revision** was an interoperability cleanup rather than a creative change: it set a common
+**0.825-inch projected width** shared by Flat (1.85, 0.825 × 0.446 in) and Scope, so both formats
+used the same lateral boundaries while Scope's ratio stayed at 2.39.
+
+**So is it 2.39 or 2.40?** **2.39:1 is the correct name for the standardized theatrical format.**
+"2.40:1" is a convenient rounding (it also implies an exact 12:5) that spread through framing
+charts, telecine, and home-video paperwork; it does not name a separate film format. Digital cinema
+preserves the same shape — DCI 2K / 4K Scope (2048 × 858 / 4096 × 1716) computes to **2.387**, still
+called 2.39 Scope — whereas an HD raster like 1920 × 800 is *exactly* 2.40 (a genuine 2.40 digital
+master, but not the historic SMPTE ratio).
+
+**And "2.35"?** The name stuck as a cultural synonym for Scope and survived the 1971 change. When
+someone says "we're framing at 2.35" today, they may mean a literal 2.350 (slightly *taller* than
+modern Scope) or simply "Scope" while intending 2.39. For restoration and precise delivery the
+distinction matters — a literal 2.35 extraction is about 1.9% taller than 2.39 (roughly 0.95% more
+picture top and bottom on a constant-width image); a pre-1971 title was projected around 2.35, a
+post-1971 anamorphic release around 2.39.[^12]
+
+[^12]: Aperture dimensions and derivations per SMPTE PH22.106-1957, PH22.106-1971, and
+    SMPTE 195-1993 (proposed in the June 1992 *SMPTE Journal*, published August 1993); overview at
+    the [American WideScreen Museum](http://www.widescreenmuseum.com/widescreen/cinemascope_oar.htm).
 
 However today, there is a single digital cinema aspect ratio for super widescreen films, known
 as DCI "Scope", and its aspect ratio is 2.39:1. Arguably one could frame for 2.35:1 or 2.40:1 and
