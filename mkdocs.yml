@@ -15,11 +15,11 @@ theme:
   features:
     - navigation.instant
     - navigation.tracking
-    - navigation.sections
     - navigation.top
     - navigation.footer
     - navigation.indexes
     - toc.follow
+    - toc.integrate
     - search.suggest
     - search.highlight
     - search.share
