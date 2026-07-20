@@ -12,7 +12,7 @@ tags:
 application in the pipeline finds and applies them consistently. That is the job of a color
 management system, and in visual effects the de facto answer is **OpenColorIO** (OCIO).
 
-This matters to a production for a reason that is easy to miss: a colour pipeline is only as
+This matters to a production for a reason that is easy to miss: a color pipeline is only as
 consistent as its least-configured application. A show can specify ACES precisely and still get
 mismatched renders because one artist's Nuke was pointed at a different config than everyone
 else's. OCIO is the mechanism by which "the show's color pipeline" becomes a single artifact
@@ -84,8 +84,11 @@ their own config will source a different one.
 OCIO 2.x is a substantial rewrite of the 1.x line, with a proper transform architecture, GPU and
 CPU processing paths that match, and native support for the ACES transforms rather than baked
 LUT approximations. The **VFX Reference Platform** — the annual specification most facilities
-build against — pins the OCIO version for each calendar year, alongside OpenEXR, Python, and the
-rest of the stack. **[web-sourced: CY2026 specifies OCIO 2.5.x and OpenEXR 3.4.x.]**
+build against — pins the versions of the color stack for each calendar year: **ACES itself,
+OpenColorIO, and OpenEXR** are all named components, alongside Python and the rest of the stack.
+That ACES appears as a tracked component in its own right — not merely as something OCIO can be
+configured to do — is a fair measure of how settled it is as *the* interchange standard.
+**[web-sourced: CY2026 specifies ACES 2.0, OCIO 2.5.x, and OpenEXR 3.4.x.]**
 
 !!! tip "The VFX Reference Platform is a useful negotiating tool"
     When a vendor and a facility disagree about library versions, the Reference Platform year is

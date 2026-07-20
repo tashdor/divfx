@@ -119,7 +119,7 @@ often called color encodings, encoding spaces, and gamma spaces.
 
 | Transfer function | Description |
 | --- | --- |
-| **Scene-Linear** | Gamma 1.0 with middle grey encoded at 0.18. Floating point values exceed 1.0. |
+| **Scene-Linear** | Gamma 1.0 with middle gray encoded at 0.18. Floating point values exceed 1.0. |
 | **Normalized Linear** | Gamma 1.0 with arbitrary mapping of signal bounded between 0.0 and 1.0. |
 
 ## DCI-X'Y'Z'

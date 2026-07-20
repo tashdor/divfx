@@ -160,7 +160,7 @@ call.
 The wash is a 495x560 PNG embedded as a data URI and clipped to the locus. That is a deliberate
 compromise — SVG has no portable way to express a smooth 2D chromaticity gradient (mesh gradients
 exist in the SVG 2 spec but no browser ships them), so the choices were a raster tile, tens of
-thousands of tiny coloured polygons, or no wash at all.
+thousands of tiny colored polygons, or no wash at all.
 
 Consequences worth knowing:
 
@@ -175,22 +175,22 @@ Consequences worth knowing:
 
 The original Figure 19 legend reads **"AlexaWideGamut"**. The SVG uses **"ARRI Wide Gamut 3"**,
 which is the current name and distinguishes it from AWG4 (introduced with the ALEXA 35). Since
-[Notes for v1.1](../v1.1-notes.md#cameras-and-raw-formats) already recommends normalising to
+[Notes for v1.1](../v1.1-notes.md#cameras-and-raw-formats) already recommends normalizing to
 ARRI's current styling, the rename is consistent — but it is a change from the original.
 
 ### 3. The chapter table lists a space the figure never plotted
 
 *Resolved.* v1.0.1 listed **RED DRAGONcolor2**, which the figure never plotted and which RED has
-retired in favour of REDWideGamutRGB. It has been dropped from the
+retired in favor of REDWideGamutRGB. It has been dropped from the
 [Camera Color Spaces](../color.md#camera-color-spaces) table, and the Sony entry updated from
 S-Gamut3 to **S-Gamut3.Cine** (the de facto working space). Table and figure now agree.
 
-### 4. Colour assignments
+### 4. Color assignments
 
-Trace colours were chosen to echo the originals (Rec. 709 blue/violet, DCI-P3 red, Rec. 2020 red
+Trace colors were chosen to echo the originals (Rec. 709 blue/violet, DCI-P3 red, Rec. 2020 red
 in Fig. 18; ARRI violet, RED cyan, Sony green in Fig. 19) but they are not sampled matches. Easy
 to adjust — say the word and I will match them precisely, or move to a palette that is
-colour-blind safe, which the current red/green pairing is not.
+color-blind safe, which the current red/green pairing is not.
 
 ### 5. Dark mode
 

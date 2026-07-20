@@ -10,7 +10,7 @@ than folded into the chapters, so that what is original and what is new stays vi
 | [Color Management and OpenColorIO](color-management.md) | OCIO is absent entirely |
 | [HDR Mastering](hdr.md) | v1.0.1 has one passing reference to "EDR / HDR" |
 | [IMF](imf.md) | v1.0.1 covers IMF in three sentences |
-| [Vendor Color Management](vendor-color-management.md) | DaVinci RCM and FilmLight — vendor alternatives to ACES |
+| [Application-Native Color Management](application-native-color-management.md) | DaVinci RCM and FilmLight — application-native alternatives to ACES |
 | [Choosing a Color Management Approach](color-management-comparison.md) | Un-managed vs. ACES vs. DaVinci vs. FilmLight |
 | [Figure Review](figure-review.md) | Vector replacements for the two chromaticity diagrams — for approval |
 

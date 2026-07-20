@@ -3,7 +3,7 @@ tags:
   - draft
 ---
 
-# Vendor Color Management: DaVinci and FilmLight
+# Application-Native Color Management: DaVinci and FilmLight
 
 !!! info "Draft — new in v1.1"
     This chapter is new material, not part of v1.0.1. See [Drafts for v1.1](index.md).
@@ -25,7 +25,7 @@ automation and consistency for total control over every stage. ACES, RCM, and Fi
 you that chain **pre-built, standardized, and applied automatically** to every clip. Assemble the
 pipeline yourself and you give that up.
 
-These vendor systems are not proprietary "black boxes." DaVinci Wide Gamut has a published white
+These application-native systems are not proprietary "black boxes." DaVinci Wide Gamut has a published white
 paper, and FilmLight's color spaces are downloadable files you can use outside Baselight. But
 neither is a SMPTE-style open standard the way ACES is
 ([ST 2065-1](aces.md#what-aces-actually-is)), and neither is natively implemented across the whole
@@ -93,7 +93,7 @@ look.
         Wide Gamut Intermediate* white paper (Blackmagic, Aug 2021) — DWG CIE 1931 xy primaries
         R (0.8000, 0.3130), G (0.1682, 0.9877), B (0.0790, −0.1155), white D65 (0.3127, 0.3290),
         with RGB↔XYZ matrices; DaVinci Intermediate is a log OETF encoding > 9.1 stops above 18%
-        grey (middle grey → 0.336043). Its revision history notes the green-x coordinate was
+        gray (middle gray → 0.336043). Its revision history notes the green-x coordinate was
         corrected in v1.1 (2021) — pre-v1.1 reconstructions circulating online carry the old value.
 
 [^dg3]: *DaVinci Resolve 21 Reference Manual*, Ch. 9, covers the two color-science modes, the Output
@@ -136,42 +136,43 @@ finish at a Baselight house" and "the show is ACES" are equally compatible. Its 
 still FilmLight's, under FilmLight's control — useful, but not a SMPTE/Academy specification that
 many vendors implement and certify against independently. **[web-sourced.]**
 
-## Vendor color management vs. ACES: easier and harder
+## Application-native color management vs. ACES: easier and harder
 
-A vendor system is often called easier to set up than ACES. That holds in one narrow case and
+An application-native system is often called easier to set up than ACES. That holds in one narrow case and
 reverses in the one that matters:
 
-| | Vendor CM (RCM / TCS) | ACES |
+| | Application-native (RCM / TCS) | ACES |
 | --- | --- | --- |
 | **Assigning input color spaces** (camera normalization) | The same metadata-driven menu | The same metadata-driven menu — **virtually identical labor** |
 | **Single-app, single-facility finish** | On by a project setting | Also a project setting; runs in one app just as well |
-| **Multi-vendor VFX interchange** | **More work** — no vendor pathway; the colorist hand-authors LUTs or transforms and workflow guidance for each vendor | **Less work** — VFX tools already ship OCIO/ACES configs; vendors are already set up |
+| **Multi-vendor VFX interchange** | **More work** — no path to VFX vendors; the colorist hand-authors LUTs or transforms and workflow guidance for each vendor | **Less work** — VFX tools already ship OCIO/ACES configs; vendors are already set up |
 | **Neutral archival master** | No — a working space, not an interchange encoding | Yes — ACES2065-1 |
 
-Two corrections to the usual telling:
-
-- **Normalizing many cameras is not harder in ACES.** In both systems it is the same menu,
+- **Normalizing many cameras is no easier in an application-native system.** In both, it is the same menu,
   auto-assigned from camera metadata — the same labor either way. That is not a differentiator.
-- **ACES is not inherently "more setup."** Because ACES is the interchange standard almost every
-  tool already supports, a VFX vendor is *already configured* for it; you hand them a version and a
-  couple of transform names. There is no equivalent vendor-facing distribution for RCM or TCS: to
-  run a vendor system across a VFX chain, the *colorist* has to produce LUTs or transforms and written workflow
-  guidance for each vendor to emulate in their own tools. In a multi-vendor pipeline, that makes the
-  vendor system the *higher*-effort option, not ACES.
+- **ACES is not inherently "more setup."** ACES ships as a default component of most standard VFX
+  applications — both ACES and OpenColorIO are named components of the
+  [VFX Reference Platform](https://vfxplatform.com/) the industry builds against. So most VFX vendors
+  already have the *infrastructure* installed: the configs are present whether or not a given vendor
+  prefers ACES or has deep experience with it, and onboarding is usually handing them a version and a
+  couple of transform names. RCM and TCS have no equivalent vendor-facing distribution: to run one
+  across a VFX chain, the *colorist* has to author LUTs or transforms and written workflow guidance
+  for each vendor to emulate in their own tools. In a multi-vendor pipeline, that makes the built-in
+  system the *higher*-effort option, not ACES. **[VFX Reference Platform components web-sourced.]**
 
-So the real axis is not setup cost — it is whether the pipeline crosses vendors and applications. A
-vendor system makes the single-facility, in-application finish marginally simpler and offers no path
+So the real axis is not setup cost — it is whether the pipeline crosses vendors and applications. An
+application-native system makes the single-facility, in-application finish marginally simpler and offers no path
 to hand a VFX vendor a matching pipeline; ACES makes cross-vendor interchange and a neutral archive
 easy, at the cost of a little in-app configuration when you are *not* interchanging.
 
-## Why choose vendor color management over ACES?
+## Why choose application-native color management over ACES?
 
 If ACES is the interchange standard, why would anyone pick RCM or FilmLight's color management
 instead? There are real, defensible reasons — and industry commentary bears them out.
 
 - **You are not in a multi-vendor, ACES-driven pipeline.** For a single-facility finish with no VFX
   houses to coordinate — a documentary, a commercial, a Resolve-only grade — ACES's interchange
-  advantage goes unused, and a vendor system is simpler and more predictable. As Frame.io's guide
+  advantage goes unused, and an application-native system is simpler and more predictable. As Frame.io's guide
   puts it, if you have "no overwhelming reason to go to ACES," RCM is "a slightly easier and more
   predictable path," giving the benefits of color management while keeping "the feel that the DaVinci
   Resolve Color page controls have always had."[^why1]
@@ -179,12 +180,12 @@ instead? There are real, defensible reasons — and industry commentary bears th
   because the grading controls *behave* the way they like in it — you can set RCM's timeline space to
   DaVinci Wide Gamut or any log format for exactly this reason.[^why1]
 - **The rendering itself.** A display transform is a creative instrument, not just plumbing. FilmLight
-  developed T-CAM with "particular emphasis on look-development flexibility, grading-tool behaviour,
-  minimisation of image artefacts and visual consistency," founded on the same ideas as ACES but
-  "optimised by FilmLight based on feedback from users."[^why2] Some colorists simply prefer its
+  developed T-CAM with a particular emphasis on look-development flexibility, grading-tool behavior,
+  minimizing image artifacts, and visual consistency — founded on the same ideas as ACES but tuned by
+  FilmLight based on user feedback.[^why2] Some colorists simply prefer its
   rendering to the ACES Output Transform — a legitimate reason to run TCS, and the same debate the
   [ACES chapter](aces.md#aces-20) raises about whether a full CAM belongs in the DRT.
-- **It is rarely all-or-nothing.** Because both systems *contain* ACES, choosing a vendor system is
+- **It is rarely all-or-nothing.** Because both systems *contain* ACES, choosing an application-native system is
   often really choosing its working-space and DRT defaults while keeping ACES available for the parts
   of the job that need it.
 
@@ -204,12 +205,15 @@ instead? There are real, defensible reasons — and industry commentary bears th
     to *None* and supply a LUT or DCTL; in ACES, substitute your own output). That is a legitimate
     creative choice.
 
-    But doing it in ACES **breaks the ACES archival model.** The value of an ACES2065-1 master is
-    that a neutral, scene-referred archive plus the *standard* ACES transforms reproduces the
-    delivered look. Swap in a proprietary display rendering and the archive no longer reconstructs
-    your show through standard ACES — you keep the neutral master but lose the reproducibility that
-    was the reason to archive in ACES in the first place. If you are going to supply your own DRT,
-    a vendor working space costs you nothing extra; in ACES it forfeits the archival guarantee.
+    But doing it in ACES gives up the **simplified** archival framework. The value of an ACES2065-1
+    master is that a neutral, scene-referred archive plus the *standard* ACES transforms reproduces
+    the delivered look with nothing show-specific to preserve. Swap in a proprietary display rendering
+    and standard ACES no longer reconstructs your show on its own. Archival is still achievable — but
+    only if the show-specific display transform is documented and stored alongside the master in a
+    future-proof form, so the look can be rebuilt later. What you lose is the turnkey guarantee that
+    *standard* transforms alone suffice; what replaces it is an archive you are responsible for keeping
+    complete. If you are going to supply your own DRT, a vendor working space costs you nothing extra;
+    in ACES it trades the self-contained archival guarantee for one you must document and maintain.
 
 ## Documentary vs. single-camera narrative
 
@@ -219,17 +223,17 @@ applications" are *different* axes, and they often point opposite ways.
 - **Non-scripted documentary.** Typically *many heterogeneous sources* — archival, several
   shooters, phones, stock, footage from different eras and formats — but usually *one* finishing
   facility and little or no VFX. Normalizing those sources is the same easy, metadata-driven step in
-  either system, and with no VFX chain to coordinate, ACES's interchange advantage is unused. A
-  vendor system is a clean, low-friction fit — and RCM's Automatic mode in particular is built for
-  exactly this. **Vendor color management is often the natural choice for documentary finishing.**
+  either system, and with no VFX chain to coordinate, ACES's interchange advantage is unused. An
+  application-native system is a clean, low-friction fit — and RCM's Automatic mode in particular is built for
+  exactly this. **Application-native color management is often the natural choice for documentary finishing.**
 - **Single-camera scripted narrative.** Usually *one* camera format — so multi-source normalization
   matters less — but frequently VFX spread across multiple vendors and applications, an archival
-  master, and theatrical-plus-HDR-plus-SDR deliverables. A Nuke or Flame VFX chain is precisely the
-  case only an open standard spans, and where a vendor system would force the colorist to hand-author
+  master, and theatrical, HDR, and SDR deliverables. A Nuke or Flame VFX chain is precisely the
+  case only an open standard spans, and where an application-native system would force the colorist to hand-author
   LUTs for each vendor; ACES2065-1 also gives the neutral archive such shows expect. **ACES tends to
   earn its keep on VFX-heavy narrative work.**
 
-The inversion is the point: *many cameras* does not favor ACES over a vendor system — normalization
+The inversion is the point: *many cameras* does not favor ACES over an application-native system — normalization
 is equal — but *many vendors, applications, deliverables, or an archival requirement* does. A simple
 single-camera narrative with no VFX and one deliverable may need no managed pipeline at all; a
 well-run camera-native grade is fine.

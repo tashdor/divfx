@@ -59,7 +59,7 @@ replacement segments plus a new CPL that references the original package's track
 everything unchanged. The unchanged material is provably unchanged, because it is literally the
 same file.
 
-Anyone who has read the [Editorial Turnover](../turnover-di.md) chapter will recognise the
+Anyone who has read the [Editorial Turnover](../turnover-di.md) chapter will recognize the
 model. A CPL is conceptually an EDL that survived into distribution: a list of events referencing
 external essence by identifier and timecode, rather than a baked render.
 
@@ -92,7 +92,7 @@ delivering material an IMF can be built from. In practice:
   already calls for textless elements with handles; IMF is the reason that requirement is
   strict rather than a nicety.
 - **Version planning belongs in post, not distribution.** If the airline edit is known during the
-  DI, the reels and elements can be organised to make it cheap. Discovered afterwards, it means
+  DI, the reels and elements can be organized to make it cheap. Discovered afterwards, it means
   reopening a finished master.
 - **Naming and versioning discipline carries through.** The same argument the
   [Versioning](../turnover-vfx.md#versioning) section makes about VFX shots applies to

@@ -9,7 +9,7 @@ tags:
     This chapter is new material, not part of v1.0.1. See [Drafts for v1.1](index.md).
 
 The [ACES](aces.md), [OpenColorIO](color-management.md), and
-[vendor color management](vendor-color-management.md) chapters each describe one way to run color.
+[application-native color management](application-native-color-management.md) chapters each describe one way to run color.
 This chapter puts four approaches side by side so an independent production can pick deliberately
 rather than by default. The four are:
 
@@ -79,7 +79,7 @@ the back, delivered in practice as an [OCIO config](color-management.md#how-aces
 
 ### DaVinci Resolve Color Management
 
-Blackmagic's [DaVinci YRGB Color Managed](vendor-color-management.md#davinci-resolve-color-management-rcm)
+Blackmagic's [DaVinci YRGB Color Managed](application-native-color-management.md#davinci-resolve-color-management-rcm)
 mode: per-clip Input Color Space → a **DaVinci Wide Gamut / Intermediate** timeline space → an
 Output Color Space per deliverable, with the display transform applied last.
 
@@ -87,7 +87,7 @@ Output Color Space per deliverable, with the display transform applied last.
   separate config, on by a project setting. Normalizes many cameras into one working space. DWG is a
   genuinely large, **documented** working space (published white paper). Retargets cleanly to
   SDR/HDR and Rec.709/P3/Rec.2020 by changing the output space. Resolve can *also* run full ACES if
-  you want it. **[DWG specifics web-sourced — see the vendor chapter.]**
+  you want it. **[DWG specifics web-sourced — see the application-native chapter.]**
 - **Drawbacks.** It is a single-vendor, **in-application** system: a VFX vendor in Nuke is not "in
   RCM." The display rendering transform is internal, not published as an interoperable spec, so it is
   not something other tools implement identically. It is not an archival interchange standard. DWG
@@ -95,16 +95,16 @@ Output Color Space per deliverable, with the display transform applied last.
 
 ### FilmLight TCS + T-CAM
 
-FilmLight's [Truelight Color Spaces](vendor-color-management.md#filmlight-baselight-daylight-and-the-truelight-color-spaces):
+FilmLight's [Truelight Color Spaces](application-native-color-management.md#filmlight-baselight-daylight-and-the-truelight-color-spaces):
 an **E-Gamut / T-Log** working space and the **T-CAM v2** color-appearance display transform, in
 Baselight and Daylight.
 
 - **Benefits.** A scene-referred managed grade with a well-argued, **documented** CAM-based DRT
-  (Kirk's book is in the reference library). More portable than most vendor systems: FilmLight
+  (Kirk's book is in the reference library). More portable than most application-native systems: FilmLight
   publishes downloadable color-space and transform files, a **Truelight Colour Spaces OCIO config**,
   and a **Flame colour policy**, so TCS can be used outside Baselight. Interoperates with ACES
   (Baselight v7 added ACES 2.0 support). **[E-Gamut/T-Log/T-CAM-v2 names and portability details
-  web-sourced — see the vendor chapter.]**
+  web-sourced — see the application-native chapter.]**
 - **Drawbacks.** Still single-vendor in origin: the portable files are FilmLight deliverables under
   FilmLight's control, not a SMPTE/Academy standard independently implemented and certified. Native,
   ecosystem-wide support is not the same as OCIO's for ACES. Most commonly encountered because you
@@ -125,7 +125,7 @@ Baselight and Daylight.
 | **Multi-vendor VFX (total effort)** | Fails | **Low — vendors already speak it** | High — colorist authors LUTs or transforms + guidance per vendor | High — same, despite portable files |
 | **Interoperates with ACES** | — | is ACES | Yes (Resolve has ACES modes) | Yes (v7 ACES 2.0) |
 
-Sources: the [ACES](aces.md) and [vendor color management](vendor-color-management.md) chapters and
+Sources: the [ACES](aces.md) and [application-native color management](application-native-color-management.md) chapters and
 their citations. The reference library corroborates the RCM workflow and DWG (design intent via the
 *DaVinci Resolve 21 Reference Manual* (2026) and *Colorist Guide to Resolve 20* (2025); the numeric
 DWG/Intermediate spec via the *Resolve 17 Wide Gamut Intermediate* white paper) and the T-CAM

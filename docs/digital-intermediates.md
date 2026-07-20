@@ -144,7 +144,7 @@ number of camera log encoding schemes (such as REDlogFilm, LogC, Canon Log, S-Lo
 ### Scene-Linear
 
 Scene-linear encoding is a purely linear (no gamma) encoding of relative light values, expressed
-in floating point values. Middle grey is mapped to 0.18 and each stop of light doubles upon that
+in floating point values. Middle gray is mapped to 0.18 and each stop of light doubles upon that
 and may exceed 1.0. Scene-linear images are commonly written to 16-bit OpenEXR files rather
 than historically integer-based formats like DPX or QuickTime.
 

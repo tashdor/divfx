@@ -117,7 +117,7 @@ nav:
       - Color Management and OpenColorIO: drafts/color-management.md
       - HDR Mastering: drafts/hdr.md
       - IMF: drafts/imf.md
-      - Vendor Color Management (DaVinci, FilmLight): drafts/vendor-color-management.md
+      - Application-Native Color Management (DaVinci, FilmLight): drafts/application-native-color-management.md
       - Choosing a Color Management Approach: drafts/color-management-comparison.md
       - Figure Review — Chromaticity Diagrams: drafts/figure-review.md
   - Reference:

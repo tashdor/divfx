@@ -56,7 +56,7 @@ See [Display-Referred Imagery](digital-intermediates.md#display-referred-imagery
 creation. See [Digital Dailies](production-workflow.md#digital-dailies).
 
 **DSM** — Digital Source Master. Uncompressed graded render, typically DCI-P3 RGB, often
-skipped in favour of producing a DCDM directly.
+skipped in favor of producing a DCDM directly.
 See [DSM](production-workflow.md#dsm-digital-source-master).
 
 ## E
@@ -121,7 +121,7 @@ See [Working in Reels](turnover-di.md#working-in-reels).
 
 ## S
 
-**Scene-linear** — Linear encoding of relative light values in floating point, with middle grey at
+**Scene-linear** — Linear encoding of relative light values in floating point, with middle gray at
 0.18 and each stop doubling. Values may exceed 1.0.
 See [Scene-Linear](digital-intermediates.md#scene-linear).
 

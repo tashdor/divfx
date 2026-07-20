@@ -251,7 +251,7 @@ lens distortion.
 <figure markdown>
   ![Example camera framing reticle (digital)](figures/figure-16-framing-reticle.png){ loading=lazy }
   <figcaption>Figure 16 — Example camera framing reticle (digital), pixel accurate, depicting the
-  image capture area (grey) and the intended framing area (white).</figcaption>
+  image capture area (gray) and the intended framing area (white).</figcaption>
 </figure>
 
 <figure markdown>

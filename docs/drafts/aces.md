@@ -114,7 +114,7 @@ They chose the less common 6000 K instead, on three grounds:
    projected LAD patch came back at approximately **x = 0.32170, y = 0.33568**. Compared in
    CIE u′v′, that measured film-system neutral was closest to CIE daylight at a CCT of
    **6000 K** — closer than to D55 or D65.
-2. **Viewing conditions and preference.** The discussion centred on viewer adaptation, dark
+2. **Viewing conditions and preference.** The discussion centered on viewer adaptation, dark
    surround viewing, and "cinematic look". Imagery reproduced with that white point was felt to
    look right in a theatre.
 3. **Familiarity to a film heritage.** The Committee wanted a neutral that would feel correct to
@@ -152,7 +152,7 @@ publishing an exact CIE D-series coordinate would imply the reproduction neutral
 that are near a daylight illuminant without being one signals that the encoding white is a
 reference, not a mandate.
 
-This is why writing "D60" without qualification is imprecise, and why colour scientists tend to
+This is why writing "D60" without qualification is imprecise, and why color scientists tend to
 say "the ACES white point" instead.
 
 #### What it means in practice
@@ -160,8 +160,8 @@ say "the ACES white point" instead.
 - **You do not grade to D60.** Set your grading display to its calibrated white point — P3-D65
   or DCI for theatrical, D65 for home video — and grade normally.
 - **The Output Transform handles the adaptation.** Converting ACES to a D65 output applies a
-  chromatic adaptation. That is expected behaviour, not an error.
-- **When neutrals drift, look here first.** If greys read warm or cool between the grading
+  chromatic adaptation. That is expected behavior, not an error.
+- **When neutrals drift, look here first.** If grays read warm or cool between the grading
   display and a deliverable, a mismatched or doubled white-point adaptation in the transform
   chain is the usual cause — more often than a monitor calibration fault.
 - **Do not "correct" the ACES white point.** Productions occasionally try to force ACES to D65
