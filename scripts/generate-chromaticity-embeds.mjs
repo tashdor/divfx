@@ -68,7 +68,7 @@ const FIGS = {
 };
 
 const frag = (proj, vp, theme, w, h) =>
-  Buffer.from(JSON.stringify({ project: proj, view: view(vp, theme, w, h) }), 'utf8').toString('base64url');
+  Buffer.from(JSON.stringify({ project: proj, view: view(vp, theme, w, h), embed: { legendToggle: true } }), 'utf8').toString('base64url');
 
 const out = {};
 for (const [key, def] of Object.entries(FIGS)) {
