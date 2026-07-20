@@ -113,12 +113,24 @@ EXRs can store uncompressed, losslessly compressed, and variable lossy compresse
 data through a variety of compression schemes. This can be attractive, as 16-bit uncompressed
 data takes up more space, and consequently more data bandwidth, than 10-bit alternatives.
 
-!!! warning "Playback performance"
-    The performance impact of compressed EXRs in a digital intermediate varies between
-    compression schemes and can cause issues in achieving real-time playback with certain
-    system configurations. As a result, it is encouraged that all final EXR renders delivered to the
-    DI be uncompressed. Check with your digital intermediate facility or colorist about the
-    implications of using EXR in their workflow.
+The choice of compression scheme matters in a digital intermediate: some are cheap to decode and
+play back in real time, others are not — and the **ACES2065-1 archival container (SMPTE ST 2065-4)
+permits only uncompressed data** regardless. For final EXR renders delivered to the DI, uncompressed
+or a fast lossless scheme (ZIP / ZIP1) is the safe choice; confirm with your DI facility or colorist
+before using anything heavier.
+
+| Compression | Lossless | Real-time DI playback | Notes / when to use |
+| --- | --- | :---: | --- |
+| **None** (uncompressed) | ✓ | ✓ | Largest files, no decode cost. **The only option permitted in the ACES2065-1 archival container** (ST 2065-4). |
+| **ZIP / ZIP1 (ZIPS)** | ✓ | ✓ | zlib; very efficient to decode and no real problem in modern DI systems — a safe default for VFX renders to the DI. |
+| **RLE** | ✓ | ✓ | Run-length; light, fast, modest savings. |
+| **PIZ** | ✓ | ✗ | Wavelet + Huffman; excellent on grainy / noisy plates, but slower to decode and can stall real-time playback in some DI systems. |
+| **PXR24** | ✓ half / ✗ 32-bit | ✓ | Good ratio; lossless for half-float and integer, lossy for 32-bit float. |
+| **B44 / B44A** | ✗ (lossy) | ✓ | Fixed-rate, designed for fast real-time playback. |
+| **DWAA / DWAB** | ✗ (lossy) | ⚠ | DCT, JPEG-like; the smallest files, but lossy and heavier to decode. |
+| **HTJ2K** | ✓ | ⚠ | High-Throughput JPEG 2000 (OpenEXR 3.4); lossless, but support is uneven — DaVinci Resolve can *read* it but not *write* it. |
+
+When in doubt for a DI delivery: uncompressed, or ZIP / ZIP1.
 
 EXRs with multi-channel render passes (AOVs — arbitrary output variables) such as normal maps
 and z-depth are especially advantageous in visual effects workflows. However, they are rarely
