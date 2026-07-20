@@ -59,14 +59,16 @@ bandwidth:[^dnx]
 | Level | Encoding | Typical use |
 | --- | --- | --- |
 | **444** | 12-bit 4:4:4 RGB, with alpha | Finishing, VFX delivery, cinema masters |
-| **HQX** | 12-bit 4:2:2 (also 4:2:0) | Color and mastering; multi-generation work |
+| **HQX** | 12-bit 4:2:2 | Color and mastering; multi-generation work |
 | **HQ** | 8-bit 4:2:2 | High-quality editorial and production |
 | **SQ** | 8-bit 4:2:2 | Editorial and broadcast delivery |
 | **LB** | 8-bit 4:2:2, low bandwidth | Offline editorial and proxies |
 
-Bitrates scale with resolution and frame rate; at 1080p / 29.97 the reference figures are roughly
-**36 Mb/s** (LB), **290 Mb/s** (SQ), and **440 Mb/s** (HQ / HQX / 444). Avid Media Composer manages
-DNx media natively in **MXF OP-Atom**, and Avid also ships DNx **QuickTime** codecs. The codec is
+Data rates scale with resolution and frame rate. From Avid's published figures, at **UHD
+(3840×2160) / 23.976 fps** they run roughly **167 MB/s** (444), **83 MB/s** (HQX and HQ), **55 MB/s**
+(SQ), and **17 MB/s** (LB) — about 1.3 Gb/s down to 137 Mb/s; at HD they are roughly a quarter of
+that (444 ≈ 42 MB/s, LB ≈ 4 MB/s). Avid Media Composer manages DNx media natively in **MXF
+OP-Atom**, and Avid also ships DNx **QuickTime** codecs. The codec is
 standardized as **SMPTE ST 2019-1 (VC-3)**; its 2026 revision folds in the two RGB levels Avid had
 shipped as "DNx GX."[^dnx]
 
