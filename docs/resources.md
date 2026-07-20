@@ -59,10 +59,10 @@ As of 2025, SMPTE standards are **freely available** from the [SMPTE standards l
 - **[Filmbox](https://videovillage.com/filmbox/)** (Video Village) — a Kodak Vision3 film-print-emulation display transform
 - **[Lattice](https://videovillage.com/lattice/)** (Video Village) — LUT authoring and conversion
 - **[ColourSpace](https://www.lightillusion.com)** (Light Illusion) — display calibration and profiling (successor to LightSpace CMS)
-- **[Codex Backbone](https://codex.online/products/backbone)** — on-set media management
+- **Codex Backbone** — on-set media management (discontinued; no longer in Codex's current lineup)
 - **[Apple ProRes white paper](https://www.apple.com/final-cut-pro/docs/Apple_ProRes.pdf)** — the ProRes family and data rates
 - **[DCI — Digital Cinema Initiatives](https://www.dcimovies.com/)** — the digital-cinema specifications and compliance test plans
-- **[Technicolor Pulse](https://pulse.technicolor.com/)** — remote review and dailies
+- **Technicolor Pulse** — remote review and dailies (defunct; service and domain retired)
 - **[ASC CDL overview](https://en.wikipedia.org/wiki/ASC_CDL)** — the American Society of Cinematographers Color Decision List
 
 ## Digital cinema delivery (DCP)

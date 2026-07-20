@@ -75,8 +75,8 @@ Questions, comments, and errata: [divfx@tashitrieu.com](mailto:divfx@tashitrieu.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
-
-> **Note:** MIT is a software license and sits awkwardly on a prose handbook. A Creative Commons
-> license would express the intent more accurately. This is flagged for consideration in
-> [Notes for v1.1](https://divfx.tashitrieu.com/wiki/v1.1-notes/#license) and has not been changed.
+© 2016–2026 Tashi Trieu. This handbook is licensed under a
+[Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/) —
+see [LICENSE](LICENSE). You may share and adapt the material for any purpose, including
+commercially, provided you give appropriate credit and license your derivatives under the same
+terms.

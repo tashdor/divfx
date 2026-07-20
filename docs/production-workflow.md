@@ -215,17 +215,12 @@ technically savvy editor. When in doubt, consult with a post-production vendor o
 colorist to make sure you are following the correct procedures.
 
 There are services and products designed for managing production assets on large projects and
-producing visual effects clip pulls. Codex Backbone[^1] and Technicolor PULSE[^2] are two such
-products that may be leveraged to decrease time for visual effects plate pulls and turnovers to
-vendors. These products provide hardware/software and cloud-based solutions to minimize the
-time and staffing required to perform these tasks.
-
-[^1]: <https://codex.online/products/backbone>
-[^2]: <https://pulse.technicolor.com/>
-
-!!! warning "Out of date"
-    Both products named above have changed status since 2017. See
-    [Notes for v1.1](v1.1-notes.md#review-and-delivery-platforms).
+producing visual effects clip pulls. Codex Backbone and Technicolor PULSE were two such products
+used to decrease the time for visual effects plate pulls and turnovers to vendors, via
+hardware/software and cloud-based solutions that minimize the time and staffing required. Both
+have since left the market — Codex Backbone is no longer in Codex's product lineup, and Technicolor
+PULSE is defunct — though the same need is now served by media-management and production-tracking
+platforms.
 
 ## Visual Effects Plate Pre-Grading (Optional)
 
