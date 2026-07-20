@@ -12,10 +12,14 @@ compatible workflow.
 
 ## The Bid Package
 
-Before any plate is pulled, a vendor needs enough information to understand the work and quote
-it accurately. On studio films the bid package is assembled by the VFX producer and their
-coordinators. On an independent production it usually falls to the acting VFX supervisor or the
-editor, and it is worth the effort, because a vague request produces a vague bid.
+A vendor needs enough information to understand the work and quote it accurately, and that
+information is the bid package. Bidding is how a production decides which vendor gets the job — the
+work of pulling plates and assembling reference has to happen regardless — so it is often worth
+pulling the plates first, or at least representative frames, so a vendor can assess the actual
+material rather than a written description of it. On studio films the bid package is assembled by
+the VFX producer and their coordinators. On an independent production it usually falls to the
+acting VFX supervisor or the editor, and it is worth the effort, because a vague request produces a
+vague bid.
 
 A complete bid package, covering each shot or group of shots, includes:
 
