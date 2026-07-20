@@ -510,12 +510,12 @@ usually the least important number.
 
 The table below models one common scenario — **100 TB archived once, held for three years, then fully
 restored** — at mid-2026 prices. It is a planning aid, not a quote: cloud rates and egress tiers
-change often, and the LTO figures fold in labor and a one-time drive.[^ltocost]
+change often, and the LTO figures fold in per-TB service labor.[^ltocost]
 
 | Option | Archive / ingest | 3-yr storage | Restore / egress | ~3-yr total |
 | --- | --- | --- | --- | --- |
-| **LTO-9** (own drive or service) | ~$5,750 | ~$0 | ~$5,000 | **~$10,700** |
 | **AWS Glacier Deep Archive** | $0 | ~$3,600 | ~$8,100–8,300 | **~$11,700–11,900** |
+| **LTO-9** (you keep the tapes) | ~$8,250 | ~$0 | ~$7,500 | **~$15,750** |
 | **Azure Blob Archive** | $0 | ~$6,600 | ~$9,300–11,300 | **~$15,900–17,900** |
 | **Google Cloud Archive** | $0 | ~$4,200–8,700 | ~$13,000–16,000 | **~$17,200–24,700** |
 | **AWS Glacier Flexible Retrieval** | $0 | ~$12,960 | ~$7,790 | **~$20,750** |
@@ -523,23 +523,28 @@ change often, and the LTO figures fold in labor and a one-time drive.[^ltocost]
 | **Wasabi** | $0 | ~$28,764 | ~$0 | **~$28,764** |
 
 [^ltocost]: LTO-9 holds 18 TB native per tape, so 100 TB needs ~6 cartridges at roughly $120–150 each
-    (~$750 of media). The rest of the LTO figure is human time to write, verify, and later restore the
-    tapes — plus a one-time LTO-9 drive (~$4,000–7,000) amortized across every project you archive, or
-    a per-TB fee if a post house or archival service writes the tapes for you. Cloud storage assumes
-    the cold/archive tier of each provider; egress figures assume a single full 100 TB download to the
-    open internet and are where the "cheap to store" tiers get expensive. Prices as of mid-2026 —
-    verify current rates before budgeting.
+    (~$750 of media). The rest of the LTO figure is a service rate for the labor of writing and
+    verifying the tapes at archive time and restoring them later — modeled here at **~$75/TB each way**,
+    a realistic 2026 rate that can be negotiated down on bulk jobs (a DIY setup trades this for your own
+    time plus a one-time LTO-9 drive, ~$4,000–7,000). This scenario assumes **you keep the tapes**, so
+    there is no monthly vault fee: a handful of cartridges is physically small, and even a safety-deposit
+    box for them is negligible. Cloud figures assume the cold/archive tier of each provider; egress
+    assumes a single full 100 TB download to the open internet and is where the "cheap to store" tiers
+    get expensive. Prices as of mid-2026 — verify current rates before budgeting.
 
 **Read the total, not the headline rate.** Cold-cloud tiers advertise roughly $1/TB/month to *store*
 but bill heavily to get the data back — retrieval plus internet egress is the real cost, and a full
 restore can dwarf three years of storage. The flat-rate clouds (Backblaze, Wasabi) invert this: egress
-is free or included, but storage is 5–7× more, so a multi-year hold costs the most overall. For an
-archive you write once and hope never to restore in a hurry, **LTO and Glacier Deep Archive are the
-cost-competitive options.**
+is free or included, but storage is 5–7× more, so a multi-year hold costs the most overall. **Glacier
+Deep Archive is the cheapest option for this exact three-year, single-restore scenario** — but it bills
+every month you hold and stings on egress.
 
-**LTO's cost is mostly labor and a shared drive — the media is nearly free to keep.** At about $5/TB,
-tapes on a shelf incur no monthly bill and draw no power. That structural difference is why, over
-years, tape beats every monthly-billed cloud tier on total cost.
+**LTO's cost is front- and back-loaded labor; the media costs almost nothing to keep.** You pay to
+write the tapes and to restore them, but at about $5/TB the cartridges sit on a shelf with no monthly
+bill and no power draw — so the LTO total barely moves whether you hold for three years or ten, while
+every monthly-billed cloud keeps climbing. Over the long retention a film archive actually needs, that
+structural difference is the whole case for tape: it pulls ahead of the cold clouds and carries none of
+their ongoing billing, vendor, or egress risk.
 
 **Hard drives are the wrong medium for a master archive.** They are fine as a working or nearline
 copy, but dangerous as your *only* long-term one:
