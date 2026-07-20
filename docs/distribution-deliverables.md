@@ -18,7 +18,7 @@ diverges enough to hurt you.
 !!! note "What this is not"
     A delivery schedule is a contract exhibit, and the numbers move year to year and label to
     label. Treat everything here as the *shape* of what to expect, and always deliver to the
-    signed schedule in your own agreement — not to a remembered spec.
+    signed schedule in your own agreement — not to a generalized or assumed spec.
 
 ## The master format reality: ProRes, not IMF
 
