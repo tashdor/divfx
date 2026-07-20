@@ -81,12 +81,11 @@ small through aggressive compression, often involving frame-interpolation techni
 reduce the number of discrete raster frames stored in the movie container. H.264 and H.265 are
 non-ideal for editing and post-production.
 
-H.264 is limited to 8 bits per channel, while H.265 is limited to 10 bits. Neither supports an
-embedded alpha channel.
-
-!!! danger "Factually incorrect"
-    The bit-depth claim above is wrong as stated. Both standards define higher-bit-depth
-    professional profiles. See [Notes for v1.1](v1.1-notes.md#h264-h265-bit-depth-claims).
+In practice, consumer H.264 and H.265 deliverables are 8-bit and 10-bit 4:2:0 respectively,
+because that is what hardware decoders and streaming platforms support — but both standards
+define higher-bit-depth, higher-chroma professional profiles (H.264 High 10 / Hi444PP up to
+14-bit; HEVC Main 12 / Main 4:4:4 12) used in mezzanine and archival contexts. Neither commonly
+supports an embedded alpha channel.
 
 These codecs are commonly found in `.mov`, `.mp4`, `.m4v`, and `.mkv` file wrappers.
 

@@ -69,19 +69,19 @@ the exception being IMAX Digital, which utilizes the entire DCI Full container.
 ### Scope
 
 There are some common misconceptions about the "Scope" (CinemaScope) aspect ratio.
-Depending on who you ask, they may say it is 2.35:1, 2.40:1, or 2.39:1. There is truth to all of
-those ratios, as at one time or another, each of them was a standard.
+Depending on who you ask, they may say it is 2.35:1, 2.39:1, or 2.40:1.
 
-CinemaScope began as 2.35:1, but in an effort to better hide frame splices,[^12] camera
-manufacturers moved to 2.39:1 and later 2.40:1, narrowing the vertical height of the picture
-slightly.
+The anamorphic aperture was standardized by SMPTE at **2.35:1** in 1957 (PH22.106-1957), then
+revised to approximately **2.39:1** in the 1970 revision (PH22.106-1971), in part to better conceal
+the splices between negative reels — a narrowed aperture masks the brief flash a splice makes at
+the frame edge — and that ratio was reaffirmed in SMPTE 195-1993.[^12] These were SMPTE standards
+revisions, not camera-manufacturer decisions. **"2.40:1" is a colloquial rounding of 2.39:1, not a
+separate standard** — the DCI Scope container (2048×858) is 2.387:1, confirming 2.39.
 
-[^12]: <http://www.widescreenmuseum.com/widescreen/cinemascope_oar.htm>
-
-!!! danger "Historically inaccurate"
-    The aspect ratio changes were SMPTE standards revisions, not camera-manufacturer
-    decisions, and 2.40:1 was never a separate standard. See
-    [Notes for v1.1](v1.1-notes.md#cinemascope-aspect-ratio-history).
+[^12]: The anamorphic standards history is documented at the
+    [American WideScreen Museum](http://www.widescreenmuseum.com/widescreen/cinemascope_oar.htm);
+    the aperture was set in SMPTE PH22.106-1957, revised in PH22.106-1971, and reaffirmed in
+    SMPTE 195-1993.
 
 However today, there is a single digital cinema aspect ratio for super widescreen films, known
 as DCI "Scope", and its aspect ratio is 2.39:1. Arguably one could frame for 2.35:1 or 2.40:1 and

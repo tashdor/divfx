@@ -40,13 +40,9 @@ Below are examples of some common color spaces you are likely to encounter.
 | Color space | Description |
 | --- | --- |
 | **sRGB** | The standard color space used by most computer and mobile phone displays, with an implied approximate gamma of 2.2. |
-| **Rec.709** | The standard HDTV color space, the reference target for home video and broadcast mastering; the same color primaries and white point as sRGB, with an implied approximate gamma of 2.4. |
+| **Rec.709** | The standard HDTV color space and the reference target for home video and broadcast mastering; the same primaries and white point as sRGB. It specifies a camera-side OETF, not a display gamma — the reference display EOTF is BT.1886, approximately 2.4. |
 | **Rec.2020** | The wide gamut standard for future UHDTVs. Currently in early adoption; few displays are capable of reproducing many of the colors represented in the Rec.2020 space. |
 | **DCI-P3** | The standard gamut and white point used in theatrical digital cinema projection. Slightly bigger than Rec.709, with an implicit gamma of 2.6. |
-
-!!! danger "Technically imprecise"
-    The Rec.709 entry conflates the camera-side OETF with the display-side EOTF. See
-    [Notes for v1.1](v1.1-notes.md#rec709-and-the-oetfeotf-conflation).
 
 Two common, but informal, derivations of the P3 color space are often used in finishing:
 

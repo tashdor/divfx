@@ -105,13 +105,9 @@ scenario.
 
 Almost all reference displays have a built-in gamma encoding. These encodings are different
 depending on the display, its usage and intention, and the assumed viewing environment. For
-example, an sRGB image on a computer monitor or phone display is roughly gamma 2.2, while
-home video Rec.709 mastering is encoded at gamma 2.4 or BT.1886, and standard dynamic
-range digital cinema is encoded at gamma 2.6.
-
-!!! warning "Technically imprecise"
-    Describing Rec.709 as having an "implied gamma of 2.4" conflates the camera-side OETF
-    with the display-side EOTF. See [Notes for v1.1](v1.1-notes.md#rec709-and-the-oetfeotf-conflation).
+example, an sRGB image on a computer monitor or phone display is viewed at roughly gamma 2.2,
+home video Rec.709 material through a display EOTF of about gamma 2.4 (BT.1886), and standard
+dynamic range digital cinema through gamma 2.6.
 
 In analog terms, a display-referred image is our film print.
 
