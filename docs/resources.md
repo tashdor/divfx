@@ -65,6 +65,13 @@ SMPTE standards are published through the [SMPTE standards portal](https://www.s
 - **[Technicolor Pulse](https://pulse.technicolor.com/)** — remote review and dailies
 - **[ASC CDL overview](https://en.wikipedia.org/wiki/ASC_CDL)** — the American Society of Cinematographers Color Decision List
 
+## Digital cinema delivery (DCP)
+
+- **[ISDCF](https://registry-page.isdcf.com/)** — the Inter-Society Digital Cinema Forum: the [Digital Cinema Naming Convention](https://registry-page.isdcf.com/) and the [Open and Closed Captions](https://registry-page.isdcf.com/openandclosedcaptions/) registry (OCAP / CCAP)
+- **DTDC — [*Recommended Guidelines for Digital Cinema Source and DCP Content Delivery*](https://www.bydeluxe.com/)** (Deluxe Technicolor Digital Cinema, v4.08, 2019) — a practical DCP delivery spec: Interop vs SMPTE, audio channel layouts, subtitle/caption rules, accessibility tracks, and delivery media
+- **[Cinematiq — *Making a DCP: Accessibility*](https://www.cinematiq.com/posts/things-to-consider-before-making-a-dcp-accessibility)** — OCAP/CCAP, SDH, and described-audio in practice
+- Festival DCP technical specs (confirm the current edition): **[Venice](https://static.labiennale.org/files/cinema/2024/Documenti/specs-dcp-2024.pdf)**, **[Berlinale](https://www.berlinale.de/en/film-entry/technical-specifications/festival-media.html)**, **[Sundance](https://www.sundance.org/wp-content/uploads/2022/11/Technical-Specifications-For-Festival-Presentation.pdf)**
+
 ## Displays, HDR, and theatrical
 
 - **[HDR by Barco](https://www.barco.com/en/solutions/cinema/hdr-by-barco)** and the **[Barco LS4K](https://www.barco.com/en/product/ls4k)** Lightsteering projector
