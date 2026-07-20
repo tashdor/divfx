@@ -523,10 +523,11 @@ change often, and the LTO figures fold in per-TB service labor.[^ltocost]
 | **Wasabi** | $0 | ~$28,764 | ~$0 | **~$28,764** |
 
 [^ltocost]: LTO-9 holds 18 TB native per tape, so 100 TB needs ~6 cartridges at roughly $120–150 each
-    (~$750 of media). The rest of the LTO figure is a service rate for the labor of writing and
-    verifying the tapes at archive time and restoring them later — modeled here at **~$75/TB each way**,
-    a realistic 2026 rate that can be negotiated down on bulk jobs (a DIY setup trades this for your own
-    time plus a one-time LTO-9 drive, ~$4,000–7,000). This scenario assumes **you keep the tapes**, so
+    (~$750 of media). The rest of the LTO figure is a service rate covering the facility's tape decks
+    and library/robot hardware *plus* the labor of writing, verifying, and later restoring the tapes —
+    modeled here at **~$75/TB each way**, a realistic 2026 rate that can be negotiated down on bulk
+    jobs. (Doing it in-house instead trades that per-TB fee for buying your own LTO-9 deck,
+    ~$4,000–7,000, plus your own time.) This scenario assumes **you keep the tapes**, so
     there is no monthly vault fee: a handful of cartridges is physically small, and even a safety-deposit
     box for them is negligible. Cloud figures assume the cold/archive tier of each provider; egress
     assumes a single full 100 TB download to the open internet and is where the "cheap to store" tiers
