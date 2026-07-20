@@ -1,100 +1,146 @@
 # Distribution Deliverables for Independent Film
 
-A distributor's *delivery schedule* lists every picture master, audio stem, caption file, artwork
-asset, and legal document required before release and payment. Treat it as a production schedule,
-not a handoff checklist.
+A distributor's *delivery schedule* is the itemized list of everything — picture masters, audio
+stems, caption files, artwork, and a long tail of legal paperwork — that must be created, quality-
+controlled, and handed over before a film is released and paid for. Treat it as a production schedule
+of its own, not a hand-off checklist: the package is routinely underestimated, and it commonly gates
+both the release date and the first payment.
 
-The guidance below summarizes independent-distributor schedules from 2016–2025. Requirements vary;
-the signed schedule controls.
+The hard part for an independent production is that **you usually cannot know the exact
+specifications until a distributor actually buys the film and gives you their schedule.** Distributors
+and platforms each differ, schedules change year to year, and some line items are negotiable. Guessing
+at a full deliverables package up front is a good way to pay for the same work twice.
 
-!!! note "What this is not"
-    A delivery schedule is a contract exhibit, and the numbers move year to year and label to
-    label. Treat everything here as the *shape* of what to expect, and always deliver to the
-    signed schedule in your own agreement — not to a generalized or assumed spec.
+!!! tip "The core strategy: finish archival-ready, produce specifics on demand"
+    Get the **foundational, expensive-to-recreate** elements right during finishing — a clean
+    high-quality archival master, textless elements, and a complete audio stem set — and **defer the
+    format-specific deliverables until a buyer hands you real specs.** Done this way, whatever a
+    distributor later asks for can be produced quickly and cheaply from materials you already have,
+    without an expensive archival restore or a re-mix.
 
-## The master format reality: ProRes, not IMF
+## What to lock now, and what to defer
 
-**Independent distributors generally require a self-contained ProRes QuickTime (`.mov`), not an
-[IMF](imf.md) package.** They create platform-specific encodes downstream. Deliver IMF only when a
-studio, streamer, broadcaster, or catalog aggregator specifically requires it.
+**Lock during finishing** — costly or impossible to recreate later:
 
-Confirm the required ProRes flavor:
+- A clean, well-organized **archival master** — graded, at your finishing resolution and color space,
+  in a high-bit-depth format (16-bit DPX or OpenEXR, or ProRes 4444), with an **ungraded** archival
+  master alongside. See [Archival](production-workflow.md#archival).
+- **Textless elements** for every shot that has text over picture.
+- The **audio mix session, discrete stems, and a fully-filled M&E** — printed while the mix stage is
+  still open (see [Audio](#audio-what-to-mix-and-to-what-target) below).
+- The **conform/finishing project** and a reliable archive (e.g. LTO), so any deliverable can be
+  re-rendered without reconstructing the film.
 
-| Distributor (tier) | Required picture master |
-| --- | --- |
-| Gravitas Ventures (VOD/home-video) | **ProRes 422 HQ** strongly preferred; ProRes 4444 accepted |
-| Artist View Entertainment (sales agent) | **ProRes 422 HQ** HD master; ProRes 4444 for 4K |
-| Monkey Wrench Films (VOD aggregator) | **ProRes 422 HQ, 4444, or 4444 XQ** |
-| Freestyle Digital Media (VOD/home-video) | **ProRes 422 HQ** (textless master ≥ 160 Mbit/s); HDCAM-SR in older schedules |
-| Utopia (theatrical + VOD) | **ProRes 4444, 16-bit** for *every* video master, plus a **SMPTE DCP** |
-| Studio-specialty per-title (theatrical) | **ProRes 4444** OAR master + **ProRes 422 HQ** marketing master, over a DPX/EXR archival tier |
+**Defer until you have the buyer's spec** — cheap to produce from the above, and often varies or is
+negotiable:
 
-**ProRes 422 HQ is the common default.** Use ProRes 4444 or 4444 XQ when the schedule requires it,
-for alpha, or for a higher-bit-depth finish. See [Common Working Formats](working-formats.md#apple-prores).
+- the exact **ProRes flavor**, raster, and frame-rate build;
+- **loudness-normalized near-field mixes** and specific channel maps;
+- **caption / subtitle file formats** (`.scc` vs `.srt` vs `.itt`) and language versions;
+- **head / tail builds**, slates, and distributor bumpers.
 
-## The technical baseline of a master
+Producing these before you have the schedule risks doing them twice. Hold off — but only because the
+foundation above lets you turn them around fast once the specs arrive.
 
-Underneath the codec choice, the surveyed schedules agree on a remarkably consistent HD master:
+## Master format: ProRes, not IMF
+
+**Independent distributors overwhelmingly ask for a self-contained ProRes QuickTime (`.mov`), not an
+[IMF](imf.md) package.** ProRes is the picture master across VOD, TVOD, and home-video distribution;
+the distributor makes its own platform-specific encodes downstream. IMF is a studio-and-streamer
+interchange format — produce it only when a studio, major streamer, broadcaster, or large catalog
+aggregator specifically asks for it.
+
+**ProRes 422 HQ is the common default.** Step up to ProRes 4444 or 4444 XQ when you need an alpha
+channel or a higher-bit-depth finish. Your high-quality archival master is what lets you output either
+flavor on request. See [Common Working Formats](working-formats.md#apple-prores).
+
+## The picture master baseline
+
+A few things hold across almost any HD picture master and are safe to assume before you have a spec:
 
 - **Raster and rate.** 1920×1080, progressive, at the film's **native frame rate — 23.98 fps is the
-  assumed and strongly preferred timebase.** Deliver at the original aspect ratio, letterboxed to
-  *fill* the 1920×1080 raster (i.e. 1920×1080 with mattes baked in, not a cropped 1920×858 file).
-- **No up-conversion, ever.** Every technical schedule that addresses it forbids up-converting SD to
-  HD or HD to 4K. A 4K master is accepted only for a film actually *finished* in 4K — and one
-  distributor requires the 4K and HD masters to be delivered as two separate sets.
-- **Color.** **Rec.709** is the HD standard. 4K and HDR masters move to **BT.2020 with the
-  [PQ / ST 2084](hdr.md#pq-and-hlg-are-not-interchangeable) EOTF**, with **Dolby Vision** the most commonly named HDR
-  flavor; those tiers ask for 10- to 16-bit and, at the top end, a full HDR master with an SDR
-  derivation. See [HDR Mastering](hdr.md).
-- **Heads and tails — read the specific document.** Modern file-based schedules (2019–2025) want the
-  file *ready to play*: roughly **one second of black at head and tail, and no bars, tone, slate, or
-  2-pop** on the picture master. Older, tape-derived schedules (2016–2018) demand the opposite — a
-  full broadcast head with program starting exactly at `01:00:00:00`, preceded by bars and tone,
-  black, and a slate. Do not reuse one distributor's head build for another.
-- **Distributor bumpers.** Several labels require their animated logo/bumper to be conformed onto the
-  head of every master (and the DCP). Budget the re-export.
+  usual timebase.** Deliver at the original aspect ratio, letterboxed to *fill* the 1920×1080 raster
+  (mattes baked in, not a cropped 1920×858 file).
+- **No up-conversion.** A 4K master is meaningful only for a film actually *finished* in 4K; do not
+  up-convert HD to 4K or SD to HD.
+- **Color.** **Rec.709** for HD. 4K and HDR masters move to **BT.2020 with the
+  [PQ / ST 2084](hdr.md#pq-and-hlg-are-not-interchangeable) EOTF** (Dolby Vision is the most common HDR
+  flavor), at 10- to 16-bit, usually with an SDR derivation. See [HDR Mastering](hdr.md).
+- **Heads and tails.** Modern file deliverables want the file *ready to play* — about one second of
+  black at head and tail, no bars/tone/slate/2-pop — but some schedules still want a full broadcast
+  head (bars, tone, slate, program at `01:00:00:00`). This is a classic per-buyer variable: **build it
+  when you know the spec**, not before.
 
-## Audio: 5.1 + stereo, stems, and fully-filled M&E
+## Audio: what to mix, and to what target
 
-The common baseline is **linear PCM,
-48 kHz, 24-bit** (16-bit is sometimes still permitted), and a **5.1 mix plus a two-channel
-stereo/Lt-Rt fold-down is expected as the floor** — with the stereo pair required to be present
-*even when 5.1 exists*, and to be a true two-channel mix, not dual mono.
+Audio is the most under-budgeted part of an independent deliverables package, and the part where a
+wrong assumption costs the most to fix later. Two ideas drive it: the **stem ladder** you must
+produce, and the fact that a **theatrical mix and a near-field mix are different deliverables with
+different loudness targets.**
 
-Beyond the mix embedded in the picture master, the schedules ask for **discrete audio stems as
-separate WAV/AIFF files**: dialogue, music, and effects (DME), and — critically for any hope of
-international sales — a **fully-filled M&E (music and effects) stem.** "Fully-filled" is emphatic in
-these documents: the M&E must reproduce every effect the composite mix contains so the film can be
-dubbed into another language, not merely a sum of the isolated music and effects stems. A missing or
-partial M&E blocks foreign licensing.
+### The stem ladder — build it during the mix
 
-Channel mapping is where houses differ; two conventions dominate. One is an **8-channel embedded
-layout** — `L, R, C, LFE, Ls, Rs, Lt, Rt`. The other front-loads the fold-down and M&E, then the
-5.1, running to **10–16 channels** — e.g. stereo on 1–2, M&E on 3–4, the 5.1 on 5–10, and a 5.1 M&E
-on 11–16. Map to the exact table in your schedule.
+The baseline is **linear PCM, 48 kHz, 24-bit**, a **5.1 mix and a two-channel stereo/Lt-Rt fold-down**
+(the stereo pair present even when 5.1 exists, and a true two-channel mix, not dual mono), plus
+**discrete stems** — dialogue, music, and effects (DME) — and a **fully-filled M&E** (music and
+effects) stem that reproduces *every* effect in the composite mix, not just a sum of the isolated
+music and effects stems. A missing or partial M&E blocks foreign dubbing and kills international
+licensing.
 
-### Loudness is inconsistent — do not assume a single number
+**Print all of this while the mix session is open.** Stems and a fully-filled M&E cost almost nothing
+to bounce during the mix and are expensive to reconstruct once the session is torn down — this is the
+audio half of "lock the foundation now."
 
-The one place these schedules genuinely conflict is loudness, and several of them do not even
-express it in the modern integrated-loudness unit:
+### Theatrical vs. near-field — two mixes, two targets
 
-| Source | Loudness / level target |
-| --- | --- |
-| Sales-agent schedule (2019) | **−23 LUFS integrated (±1 dB)**, true peak −10 dBFS; HDR ref −18 dBFS |
-| VOD aggregator (2025) | Levels in **dBFS**: DCP ≈ −20, broadcast/streaming ≈ −23, VOD **peaking at −7** |
-| Tape-era / per-title schedules | **−20 dBFS** reference tone; no integrated-loudness target |
-| Several handbooks | **No loudness figure at all** |
+A cinema mix and a home/streaming mix are not the same deliverable — the most important thing a
+producer can understand before booking a stage:
 
-Two practical warnings follow. First, a mix delivered at one distributor's loudness will *not*
-automatically satisfy another's — confirm the number in your schedule and re-measure. Second, the
-familiar broadcast/streaming target of **−24 LKFS** (US ATSC A/85) and the −23 LUFS EBU R128 figure
-belong to the *broadcast and major-streamer* world; in this independent survey they appear only
-patchily, so do not assume "−24 LKFS" is what your indie distributor wants without checking.
+- A **theatrical mix** is monitored on a dubbing stage at **reference level** (each screen channel at
+  85 dB SPL from −20 dBFS pink noise, Dolby fader at 7) through the cinema **X-curve** (SMPTE ST 202).
+  It is mixed *by ear* with wide dynamic range and is **not loudness-normalized to a number.** This is
+  what feeds a [DCP](dcp.md).
+- A **near-field mix** (home / home-theater / streaming) is monitored on near-field speakers at lower
+  level and **delivered to a specific integrated-loudness target** measured per ITU-R BS.1770
+  (LKFS/LUFS), with narrower dynamic range so it holds up on a TV, laptop, or phone.
+
+You cannot simply hand a theatrical printmaster to a streamer — different monitoring, wider dynamics,
+and no loudness normalization. The near-field mix is a **derived pass** off the theatrical mix: real
+stage time, not a checkbox.
+
+### Loudness targets by destination
+
+| Destination | Integrated loudness | Max true peak |
+| --- | --- | --- |
+| **Theatrical / DCP** | Not normalized — mixed at calibrated reference (85 dB SPL, X-curve) | headroom; no fixed cap |
+| **Netflix** (near-field mix) | **−27 LKFS** (±2 LU), whole program | **−2 dBTP** |
+| **US broadcast** (ATSC A/85 / CALM Act) | **−24 LKFS** (±2 LU) | −2 dBTP |
+| **EBU R128** (European broadcast) | **−23 LUFS** (±1) | −1 dBTP |
+
+Netflix's **−27 LKFS** near-field target is the most-cited streaming spec and a safe number to plan
+around before you know your platform; broadcast sits a few LU louder. Independent VOD/TVOD schedules
+are far less consistent — some specify a LUFS target, some an old-style dBFS reference tone, some
+nothing at all — which is exactly why you **confirm the number in the buyer's schedule and deliver to
+it, rather than assuming any single value** (including "−24 LKFS").
+
+### What to ask your mixer to bid
+
+Tell the re-recording mixer, at bid time, what the film might become — it changes the bid:
+
+- **If theatrical is at all possible, bid a theatrical mix *and* a near-field mix.** Mixing theatrical
+  first and deriving the near-field is the cheaper order; retrofitting theatrical from a home mix is
+  not.
+- **Bid the full stem and M&E ladder** — 5.1 and stereo, discrete DME stems, and a fully-filled M&E —
+  produced during the mix.
+- **Bid the near-field loudness master to a real spec** (e.g. −27 LKFS for streaming), not "a stereo
+  bounce."
+- Even a streaming-only film needs that near-field mastering pass done to the platform's loudness
+  target — budget it instead of discovering it at QC.
 
 ## Textless, forced narrative, and the "three masters" problem
 
-"Textless" is not one thing, and conflating its variants is a classic delivery failure. The
-schedules distinguish up to three separate picture versions:
+"Textless" is not one thing, and conflating its variants is a classic delivery failure. Distributors
+typically distinguish up to three separate picture versions:
 
 - the **texted** master (titles, credits, and any on-picture text present),
 - a **non-subtitled** master (all creative text present, but no burned-in subtitles), and
@@ -102,99 +148,98 @@ schedules distinguish up to three separate picture versions:
   distributor can localize it. (Rolling end-credit crawls are usually exempt; end-credit *cards over
   picture* are not.)
 
-Newer VOD schedules add a fourth idea, the **"English forced narrative"** — the subtitles that
-translate on-screen foreign dialogue or signs — which must be separable so foreign versions can
-substitute their own. The trap to avoid: **do not burn subtitles into your only master.** A
-burned-in-subtitle file limits you to English-language territories, and producing a clean version
-afterward is processed as a new package at additional cost.
+Newer VOD workflows add a fourth idea, the **"forced narrative"** — the subtitles that translate
+on-screen foreign dialogue or signs — which must be separable so foreign versions can substitute their
+own. The trap to avoid: **do not burn subtitles into your only master.** A burned-in-subtitle file
+limits you to English-language territories, and producing a clean version afterward is treated as a
+new package at additional cost. This is why textless elements belong in the "lock now" column.
 
-## Captions, subtitles, and continuity
+## Captions and subtitles
 
 Caption and localization files are their own deliverable stack:
 
-- **Closed captions** in **`.scc`** are effectively universal, most often specified as **English SDH**
-  (subtitles for the deaf and hard of hearing) — mandated for US distribution under the ADA/FCC
-  rules. Typical constraints: ≤ 250 words/min, 32 characters per line, two lines maximum, and a
-  20-frame minimum / 10-second maximum caption duration.
-- **Subtitles** vary by house — **`.srt`**, **`.stl`**, or **`.itt`** — and foreign-language subs
-  (Latin-American Spanish and French are the most-requested) expand the sale.
+- **Closed captions**, most often specified as **English SDH** (subtitles for the deaf and hard of
+  hearing) in a format such as **`.scc`** — mandated for US distribution under the ADA/FCC rules.
+  Typical constraints: ≤ 250 words/min, 32 characters per line, two lines maximum, and a 20-frame
+  minimum / 10-second maximum caption duration.
+- **Subtitles** in a format that varies by house — **`.srt`**, **`.stl`**, or **`.itt`** — with
+  foreign-language subs (Latin-American Spanish and French are the most-requested) expanding the sale.
 - A **CCSL** (combined continuity and spotting list) and/or **dialogue list** is a standard legal and
   localization deliverable; see the [DCP chapter](dcp.md) for how caption and continuity files also
   feed accessibility tracks (OCAP/CCAP) on the theatrical side.
 
-!!! warning "Caption sourcing"
-    One aggregator's guidelines explicitly warn against generating captions with consumer
-    auto-transcription services (naming Rev.com) or AI, on the grounds that they fail platform QC.
-    Independent-platform QC is unforgiving of caption timing and formatting errors — budget a human
-    captioning vendor.
+### A caution on auto-transcription and AI captioning
 
-## QC is a gate, and failures cost money
+Automatic captioning is the most tempting shortcut in the whole deliverables package — free or
+near-free tools (built-in auto-captions, open-source speech-to-text, the AI tiers of transcription
+services) produce a caption file in minutes. Modern speech-to-text is genuinely good at clean,
+single-speaker English, and these tools have a real place: generating a **rough transcript to edit
+from**, making cuts searchable, or roughing in timing.
 
-Almost every schedule requires the masters to **pass QC at a distributor-approved third-party
-facility** before delivery is accepted, and the licensor usually pays for it. This is not a
-formality:
+!!! warning "AI captions are a draft, not a deliverable"
+    Many distributors and VOD platforms **explicitly prohibit AI or auto-transcribed caption files**,
+    because raw output fails platform QC on the things captioning is actually graded on:
 
-- Labs are **pre-approved** — several distributors will not accept delivery from a facility not on
-  their list.
-- QC failures are **recouped against you.** One schedule reserves the right to fix a failing caption
-  file and charge the cost back *plus a 50% penalty*; others recoup all QC and repair costs before
-  any revenue is paid.
-- The bar can be a **specific standard** — "International Broadcast Standard" QC rather than a
-  domestic-release pass, or a masters-not-approved-until-**Blu-ray-QC-pass** clause.
+    - **SDH non-speech information** — captions must identify speakers and describe music, sound
+      effects, and off-screen audio; auto-transcription captures none of it.
+    - **Reading speed and formatting** — hard limits on words-per-minute / characters-per-second, line
+      length (≈ 32 characters), two lines, and minimum/maximum durations that raw output ignores.
+    - **Timing and sync** — in/out must track the edit precisely; auto-timing drifts, especially over
+      overlapping dialogue.
+    - **Accuracy on the hard parts** — names, technical terms, accents, and homophones are exactly
+      where it errs, and exactly what a viewer notices.
 
-Plan for a QC cycle (and the possibility of a re-export and re-QC) inside your delivery timeline, not
+    And QC failures are not free: a distributor may repair the file and **charge it back, sometimes
+    with a penalty.**
+
+The workable path: **use AI to bootstrap the transcript if you like, but budget a professional
+captioning / subtitling vendor — or at minimum a human conform-and-QC pass to spec — for the delivered
+files.** Treat the free tools as a first draft, never as the master.
+
+## Quality control
+
+Almost every distributor requires the masters to **pass QC at an approved third-party facility**
+before delivery is accepted, and the licensor usually pays for it. This is not a formality:
+
+- Facilities are frequently **pre-approved** — some distributors will not accept delivery from a lab
+  not on their list.
+- QC failures are typically **recouped against you** — a distributor may repair a failing file and
+  charge back the cost, sometimes with a penalty, before paying revenue.
+- The bar can be a **specific standard** — an international-broadcast QC rather than a domestic-release
+  pass, or a clause that HD masters are not approved until a Blu-ray QC pass.
+
+Plan a QC cycle — and the possibility of a re-export and re-QC — inside your delivery timeline, not
 after it.
 
-## The paperwork is most of the package
+## The legal and metadata package
 
-Legal and metadata deliverables often control acceptance. A schedule may contain **thirty-plus
-items**, including:
+The audiovisual files are the visible part; the legal and metadata deliverables are the bulk of the
+list and the most common cause of a stalled delivery. A full schedule can run to **thirty-plus items**,
+typically including:
 
-- **E&O insurance** (errors & omissions) — universal, and the limits cluster tightly:
-
-    | Tier | E&O requirement |
-    | --- | --- |
-    | Common independent (Gravitas, Freestyle, Monkey Wrench) | ~**$1M per occurrence / $3M aggregate**, ≤ $25K deductible, 3-year (or Term + years) minimum |
-    | Higher (Utopia) | **$3M per occurrence / $5M aggregate**, no title/music/home-video exclusions |
-
+- **E&O insurance** (errors & omissions) — effectively universal. Limits commonly cluster around
+  **$1M per occurrence / $3M aggregate** with a deductible near $25K and a multi-year term, and can run
+  higher at the top end. Confirm the exact limits and exclusions your distributor requires.
 - **Chain of title** and a current (≤ 30-day) **copyright & title report**, proof of copyright
-  registration, and often a **UCC search** confirming no secured creditor interests in the film;
-- a **music cue sheet** and executed **music licenses** (and composer agreements);
-- a **CCSL / dialogue list**, **metadata** sheet, **billing block**, **key art** (usually layered,
-  with fonts), festival laurels, cast/crew list, and photo IDs & clearances;
-- **lab access letter**, **certificate of origin**, **talent agreements**, and — for some — an
-  **ISAN** number.
+  registration, and often a **UCC search** confirming no secured creditor interests in the film.
+- A **music cue sheet** and executed **music licenses** (and composer agreements).
+- A **CCSL / dialogue list**, **metadata** sheet, **billing block**, **key art** (usually layered, with
+  fonts), festival laurels, cast/crew list, and photo IDs & clearances.
+- **Lab access letter**, **certificate of origin**, **talent agreements**, and — for some — an **ISAN**
+  number.
 
-The timelines are long and front-loaded: aggregators commonly want **all approved
-elements 90–120 days before the VOD street date**, and the delivery clock does not start until
-*every* item is received and QC'd. Set a release date only against a realistic deliverables schedule
-— several distributors will not move a date once it is booked.
+Timelines are long and front-loaded: aggregators commonly want **all approved elements 90–120 days
+before the street date**, and the delivery clock often does not start until *every* item is received
+and QC'd. Set a release date only against a realistic deliverables schedule.
+
+For a schedule this size, a **post-production supervisor or delivery coordinator** usually pays for
+themselves — the deliverables package is a project of its own, and the paperwork gates the release as
+hard as the picture master does.
 
 ## Trailer and marketing deliverables
 
 The trailer is a deliverable in its own right and generally must **match the feature's aspect ratio,
-frame rate, and finish quality**. Common rules across the schedules: no MPAA/green-band or red-band
-rating cards unless requested; no release dates, URLs, social handles, or "coming soon" text baked
-in; and, increasingly, a **vertical 9:16 cutdown** for social platforms alongside the standard
-16:9. Key art is specified per platform (iTunes/Apple, Amazon, Google Play, Fandango/Vudu, Tubi, and
-others) with exact pixel dimensions, and an H.264 screener is often requested for review.
-
-## Catalog of surveyed delivery schedules
-
-The synthesis above draws on the following documents. Filmmaker-facing handbooks and spec sheets are
-named; per-title contractual schedules are described generically to respect their confidential and
-contract-specific nature.
-
-| Source | Type | ~Date | Master format | Notable |
-| --- | --- | --- | --- | --- |
-| **Gravitas Ventures** — Standard Specs (HD) | Tech spec sheet | 2017–18 | ProRes 422 HQ preferred | Rec.709; native fps; no up-conversion; textless rules |
-| **Gravitas Ventures** — 4K Standard Specs | Tech spec sheet | 2018 | Native 4K DCI/UHD | 4K only if shot 4K; HD set also required; JPEG 2000 "IMF Profile" reference; Dolby Vision |
-| **Gravitas Ventures** — Distribution Handbook | Filmmaker handbook | 2018 | (points to spec sheets) | Approved-labs-only QC; E&O $1M/$3M |
-| **Utopia** — Delivery Schedule (Utopia Select) | Contract schedule | 2025 | **ProRes 4444, 16-bit** | SMPTE DCP (ST 428-1/ST 429-2) + OCAP/CCAP; full stem set; V01–V09 + D01–D32; E&O $3M/$5M |
-| **Utopia** — Filmmaker Deliverables FAQ | Deliverables FAQ | 2025 | (companion to schedule) | Explains 32 document deliverables; SDH `.scc`; Vitac/Rev/SDI vendors |
-| **Artist View Entertainment** — Schedule of Delivery | Contract schedule | 2016 | ProRes 422 HQ + HDCAM-SR | Tape-era head format; 4×3 title-safe; fully-filled M&E |
-| **Artist View Entertainment** — Schedule of Delivery | Contract schedule | 2019 | ProRes 422 HQ (4444 for 4K) | −23 LUFS; 16-channel audio; scope must also ship 1.78; file-based |
-| **Freestyle Digital Media** — VOD Delivery (Schedule A) | Contract schedule | 2017 | HDCAM-SR + ProRes | Mojo QC (prepaid); ProRes textless ≥ 160 Mbit/s; DA-88/DVD-R audio |
-| **Monkey Wrench Films** — Required Deliverables | Deliverables handbook | 2025 | ProRes 422 HQ / 4444 / 4444 XQ | HD or 4K only (no 2K); per-platform key art; "no Rev.com/AI captions"; forced-narrative rules |
-| Studio-specialty per-title schedule | Contract exhibit | 2019 | ProRes 4444 + 422 HQ | Archival tier: DPX/EXR DI, DSM, DCDM (16-bit TIFF X′Y′Z′), LTO-7, Dolby Vision, nearfield mix; Fotokem QC |
-| Independent per-title strategy memo | Confidential strategy | 2025 | (points to aggregator specs) | ≥ 120 days pre-TVOD delivery; Fr./LatAm-Spanish subs for international |
+frame rate, and finish quality**. Common rules: no MPAA/green-band or red-band rating cards unless
+requested; no release dates, URLs, social handles, or "coming soon" text baked in; and, increasingly,
+a **vertical 9:16 cutdown** for social platforms alongside the standard 16:9. Key art is specified per
+platform with exact pixel dimensions, and an H.264 screener is often requested for review.
