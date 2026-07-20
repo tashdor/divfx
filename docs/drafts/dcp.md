@@ -57,6 +57,8 @@ Whatever the medium, the package title must follow the **ISDCF Digital Cinema Na
 
 The step that separates a DCP that *builds* from a DCP that *screens*: **play it off an actual cinema server, on a real projector, before it ships.** A package that ingests and plays in a desktop tool (DCP-o-matic, easyDCP) can still fail in a theater.
 
+Software validation is the cheap first line of defense. Run the package through a **DCP validator** before booking a screening — a tool such as the [MOSAIC DCP Inspector](https://tools.colorbymosaic.com/dcp_inspector) checks the CPL, PKL, ASSETMAP, asset hashes, reel structure, frame rate, audio layout, and subtitle/caption references against the standards, flags configuration errors, and helps fix them. It does not replace playback on a real server, but it catches the structural and metadata faults up front, so an expensive theater QC confirms the picture instead of discovering a broken package.
+
 A theater QC pass — on a DCI media block (Dolby, GDC, Sony, Barco Alchemy, Qube) and projector — is the only place to catch:
 
 - **Ingest and validation** errors, and Interop/SMPTE incompatibilities with a particular server generation.
