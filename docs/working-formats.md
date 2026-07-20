@@ -81,6 +81,13 @@ small through aggressive compression, often involving frame-interpolation techni
 reduce the number of discrete raster frames stored in the movie container. H.264 and H.265 are
 non-ideal for editing and post-production.
 
+They are, however, perfectly good **creative-review proxies**. Much VFX review happens in a browser
+on platforms like Frame.io or cineSync, where — whatever the quality of the file that was uploaded —
+the player streams an H.264 or H.265 transcode anyway. For a director or supervisor giving creative
+direction, that is plenty: they can judge staging, timing, and the look. It is not a substitute for
+final [QC sign-off](turnover-vfx.md#final-turnover-into-the-di), which belongs on the graded shot in
+the DI — but for broad creative approval an H.264 / H.265 proxy is entirely sufficient.
+
 In practice, consumer H.264 and H.265 deliverables are 8-bit and 10-bit 4:2:0 respectively,
 because that is what hardware decoders and streaming platforms support — but both standards
 define higher-bit-depth, higher-chroma professional profiles (H.264 High 10 / Hi444PP up to
@@ -90,25 +97,6 @@ supports an embedded alpha channel.
 These codecs are commonly found in `.mov`, `.mp4`, `.m4v`, and `.mkv` file wrappers.
 
 ## Frame-Based Formats
-
-### DPX (.dpx)
-
-DPX has been the standard file format for digital intermediate scanning, color grading, and
-finishing for over twenty years and is a common working format for digital intermediates as
-well as serving as an intermediate format for transcoded Camera RAW media. It is the successor
-to the legacy Cineon format (`.cin`) which preceded it as the standard film scanning format.
-
-DPX file headers can store embedded timecode and tape name for assisting in conform.
-
-Image data is routinely stored as fully uncompressed RGB 10-bit or 16-bit integer. Although the
-DPX specification defines support for floating point data types, many software and digital
-intermediate systems do not support floating point DPX. Alpha channel support is defined in
-the specification, but many systems do not support DPX with embedded alpha.
-
-DPX files are advantageous as they are completely uncompressed and, unlike lossy compressed
-media, retain image fidelity across successive passes. File sizes are easily predicted, as all files of
-a given raster dimension, bit depth, and header length will be the same size, regardless of the
-image content.
 
 ### OpenEXR (.exr)
 
@@ -151,6 +139,25 @@ and in some cases prevent the software from reading the files at all.
   ![OpenEXR display window vs. data window](figures/figure-09-exr-windows.png){ loading=lazy }
   <figcaption>Figure 9 — OpenEXR display window vs. data window.</figcaption>
 </figure>
+
+### DPX (.dpx)
+
+DPX has been the standard file format for digital intermediate scanning, color grading, and
+finishing for over twenty years and is a common working format for digital intermediates as
+well as serving as an intermediate format for transcoded Camera RAW media. It is the successor
+to the legacy Cineon format (`.cin`) which preceded it as the standard film scanning format.
+
+DPX file headers can store embedded timecode and tape name for assisting in conform.
+
+Image data is routinely stored as fully uncompressed RGB 10-bit or 16-bit integer. Although the
+DPX specification defines support for floating point data types, many software and digital
+intermediate systems do not support floating point DPX. Alpha channel support is defined in
+the specification, but many systems do not support DPX with embedded alpha.
+
+DPX files are advantageous as they are completely uncompressed and, unlike lossy compressed
+media, retain image fidelity across successive passes. File sizes are easily predicted, as all files of
+a given raster dimension, bit depth, and header length will be the same size, regardless of the
+image content.
 
 ### TIFF (.tif, .tiff)
 
