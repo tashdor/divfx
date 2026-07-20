@@ -519,6 +519,7 @@ not a quote: cloud rates and egress tiers change often, and the LTO figures sepa
 .archive-calc .ac-ctrl{flex:1 1 240px;}
 .archive-calc .ac-ctrl label{font-size:.78rem;font-weight:700;display:block;}
 .archive-calc .ac-ctrl input[type=range]{width:100%;margin-top:.45rem;accent-color:var(--md-accent-fg-color,#e0912f);}
+.archive-calc .ac-num{width:5.5em;padding:.1rem .35rem;font:inherit;font-weight:700;text-align:right;border:1px solid var(--md-default-fg-color--lighter);border-radius:3px;background:var(--md-default-bg-color);color:var(--md-default-fg-color);}
 .archive-calc .ac-scroll{overflow-x:auto;}
 .archive-calc table{width:100%;margin:0;}
 .archive-calc th,.archive-calc td{text-align:right;white-space:nowrap;}
@@ -530,8 +531,8 @@ not a quote: cloud rates and egress tiers change often, and the LTO figures sepa
 <div class="archive-calc" id="archive-calc">
   <div class="ac-controls">
     <div class="ac-ctrl">
-      <label>Data archived: <span id="ac-tb-val">100</span> TB</label>
-      <input type="range" id="ac-tb" min="1" max="1000" step="1" value="100">
+      <label>Data archived: <input type="number" id="ac-tb" class="ac-num" min="1" step="1" value="100"> TB</label>
+      <input type="range" id="ac-tb-range" min="1" max="1000" step="1" value="100">
     </div>
     <div class="ac-ctrl">
       <label>Retention: <span id="ac-yr-val">3</span> years</label>
@@ -563,12 +564,13 @@ not a quote: cloud rates and egress tiers change often, and the LTO figures sepa
     var root = document.getElementById('archive-calc');
     if(!root || root.dataset.acInit){ return; }
     root.dataset.acInit = '1';
-    var tb = document.getElementById('ac-tb'), yr = document.getElementById('ac-yr');
-    var tbVal = document.getElementById('ac-tb-val'), yrVal = document.getElementById('ac-yr-val');
+    var tb = document.getElementById('ac-tb'), tbRange = document.getElementById('ac-tb-range');
+    var yr = document.getElementById('ac-yr'), yrVal = document.getElementById('ac-yr-val');
     var body = document.getElementById('ac-body');
+    var tbMax = +tbRange.max;
     function render(){
-      var T = +tb.value, Y = +yr.value;
-      tbVal.textContent = T; yrVal.textContent = Y;
+      var T = Math.max(1, Math.round(+tb.value || 1)), Y = +yr.value;
+      yrVal.textContent = Y;
       var rows = providers.map(function(p){
         var h=p.hard(T,Y), i=p.ingest(T,Y), s=p.storage(T,Y), r=p.restore(T,Y);
         return {name:p.name, h:h, i:i, s:s, r:r, total:h+i+s+r};
@@ -578,7 +580,12 @@ not a quote: cloud rates and egress tiers change often, and the LTO figures sepa
         return '<tr'+(idx===0?' class="ac-best"':'')+'><td>'+row.name+'</td><td>'+fmt(row.h)+'</td><td>'+fmt(row.i)+'</td><td>'+fmt(row.s)+'</td><td>'+fmt(row.r)+'</td><td><b>'+fmt(row.total)+'</b></td></tr>';
       }).join('');
     }
-    tb.addEventListener('input', render);
+    tb.addEventListener('input', function(){
+      var T = Math.max(1, Math.round(+tb.value || 1));
+      tbRange.value = Math.min(T, tbMax);
+      render();
+    });
+    tbRange.addEventListener('input', function(){ tb.value = tbRange.value; render(); });
     yr.addEventListener('input', render);
     render();
   }
