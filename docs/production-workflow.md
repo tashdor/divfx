@@ -510,8 +510,8 @@ usually the least important number.
 
 The calculator below estimates the cost of **archiving a given amount of data once, holding it, then
 fully restoring it** — drag the sliders for your data size and retention period. It is a planning aid,
-not a quote: cloud rates and egress tiers change often, and the LTO figures fold in per-TB service
-labor.[^ltocost]
+not a quote: cloud rates and egress tiers change often, and the LTO figures separate the tape stock
+(hard costs) from a per-TB service rate.[^ltocost]
 
 <style>
 .archive-calc{border:1px solid var(--md-default-fg-color--lightest);border-radius:6px;padding:1rem 1.1rem;margin:1.4em 0;}
@@ -540,7 +540,7 @@ labor.[^ltocost]
   </div>
   <div class="ac-scroll">
     <table>
-      <thead><tr><th>Option</th><th>Ingest</th><th>Storage</th><th>Restore</th><th>Total</th></tr></thead>
+      <thead><tr><th>Option</th><th>Hard costs</th><th>Ingest</th><th>Storage</th><th>Restore</th><th>Total</th></tr></thead>
       <tbody id="ac-body"></tbody>
     </table>
   </div>
@@ -550,13 +550,13 @@ labor.[^ltocost]
 <script>
 (function(){
   var providers = [
-    {name:'LTO-9 (you keep the tapes)', ingest:function(T){return Math.ceil(T/18)*125 + 75*T;}, storage:function(){return 0;}, restore:function(T){return 75*T;}},
-    {name:'AWS Glacier Deep Archive', ingest:function(){return 0;}, storage:function(T,Y){return T*0.99*12*Y;}, restore:function(T){return T*82;}},
-    {name:'AWS Glacier Flexible Retrieval', ingest:function(){return 0;}, storage:function(T,Y){return T*3.6*12*Y;}, restore:function(T){return T*77.9;}},
-    {name:'Azure Blob Archive', ingest:function(){return 0;}, storage:function(T,Y){return T*1.833*12*Y;}, restore:function(T){return T*103;}},
-    {name:'Google Cloud Archive', ingest:function(){return 0;}, storage:function(T,Y){return T*1.2*12*Y;}, restore:function(T){return T*145;}},
-    {name:'Backblaze B2', ingest:function(){return 0;}, storage:function(T,Y){return T*6.95*12*Y;}, restore:function(){return 0;}},
-    {name:'Wasabi', ingest:function(){return 0;}, storage:function(T,Y){return T*7.99*12*Y;}, restore:function(){return 0;}}
+    {name:'LTO-9 (you keep the tapes)', hard:function(T){return Math.ceil(T/18)*120;}, ingest:function(T){return Math.max(T,20)*50;}, storage:function(){return 0;}, restore:function(T){return Math.max(T,20)*50;}},
+    {name:'AWS Glacier Deep Archive', hard:function(){return 0;}, ingest:function(){return 0;}, storage:function(T,Y){return T*0.99*12*Y;}, restore:function(T){return T*82;}},
+    {name:'AWS Glacier Flexible Retrieval', hard:function(){return 0;}, ingest:function(){return 0;}, storage:function(T,Y){return T*3.6*12*Y;}, restore:function(T){return T*77.9;}},
+    {name:'Azure Blob Archive', hard:function(){return 0;}, ingest:function(){return 0;}, storage:function(T,Y){return T*1.833*12*Y;}, restore:function(T){return T*103;}},
+    {name:'Google Cloud Archive', hard:function(){return 0;}, ingest:function(){return 0;}, storage:function(T,Y){return T*1.2*12*Y;}, restore:function(T){return T*145;}},
+    {name:'Backblaze B2', hard:function(){return 0;}, ingest:function(){return 0;}, storage:function(T,Y){return T*6.95*12*Y;}, restore:function(){return 0;}},
+    {name:'Wasabi', hard:function(){return 0;}, ingest:function(){return 0;}, storage:function(T,Y){return T*7.99*12*Y;}, restore:function(){return 0;}}
   ];
   function fmt(n){ return '$'+Math.round(n).toLocaleString('en-US'); }
   function init(){
@@ -570,12 +570,12 @@ labor.[^ltocost]
       var T = +tb.value, Y = +yr.value;
       tbVal.textContent = T; yrVal.textContent = Y;
       var rows = providers.map(function(p){
-        var i=p.ingest(T,Y), s=p.storage(T,Y), r=p.restore(T,Y);
-        return {name:p.name, i:i, s:s, r:r, total:i+s+r};
+        var h=p.hard(T,Y), i=p.ingest(T,Y), s=p.storage(T,Y), r=p.restore(T,Y);
+        return {name:p.name, h:h, i:i, s:s, r:r, total:h+i+s+r};
       });
       rows.sort(function(a,b){ return a.total-b.total; });
       body.innerHTML = rows.map(function(row,idx){
-        return '<tr'+(idx===0?' class="ac-best"':'')+'><td>'+row.name+'</td><td>'+fmt(row.i)+'</td><td>'+fmt(row.s)+'</td><td>'+fmt(row.r)+'</td><td><b>'+fmt(row.total)+'</b></td></tr>';
+        return '<tr'+(idx===0?' class="ac-best"':'')+'><td>'+row.name+'</td><td>'+fmt(row.h)+'</td><td>'+fmt(row.i)+'</td><td>'+fmt(row.s)+'</td><td>'+fmt(row.r)+'</td><td><b>'+fmt(row.total)+'</b></td></tr>';
       }).join('');
     }
     tb.addEventListener('input', render);
@@ -589,31 +589,34 @@ labor.[^ltocost]
 })();
 </script>
 
-[^ltocost]: LTO-9 holds 18 TB native per tape, so 100 TB needs ~6 cartridges at roughly $120–150 each
-    (~$750 of media). The rest of the LTO figure is a service rate covering the facility's tape decks
-    and library/robot hardware *plus* the labor of writing, verifying, and later restoring the tapes —
-    modeled here at **~$75/TB each way**, a realistic 2026 rate that can be negotiated down on bulk
-    jobs. (Doing it in-house instead trades that per-TB fee for buying your own LTO-9 deck,
-    ~$4,000–7,000, plus your own time.) This scenario assumes **you keep the tapes**, so
-    there is no monthly vault fee: a handful of cartridges is physically small, and even a safety-deposit
-    box for them is negligible. Cloud figures assume the cold/archive tier of each provider; egress
-    assumes a single full 100 TB download to the open internet and is where the "cheap to store" tiers
-    get expensive. Prices as of mid-2026 — verify current rates before budgeting.
+[^ltocost]: The LTO **hard cost** is the tape stock alone: LTO-9 holds 18 TB native per cartridge, so
+    the calculator charges `ceil(TB ÷ 18)` cartridges at ~$120 each (~$6.70/TB). The **ingest** and
+    **restore** columns are a managed-service rate — the facility's decks, library/robot hardware,
+    cataloguing, and the labor of writing, verifying, and later reading the tapes — modeled here at
+    **~$50/TB each way**, in line with 2025–26 service rate cards. Most services set a **job minimum**
+    (~20 TB) below which per-TB pricing stops making sense; smaller jobs are better billed hourly
+    (~$150/hr), and additional tape copies typically run ~50% of the first. (Doing it in-house instead
+    trades the per-TB service fee for buying your own LTO-9 deck, ~$4,000–7,000, plus your time.) The
+    scenario assumes **you keep the tapes**, so there is no monthly vault fee — a handful of cartridges
+    is physically small, and even a safety-deposit box for them is negligible. Cloud figures assume the
+    cold/archive tier of each provider; egress assumes a single full download to the open internet and
+    is where the "cheap to store" tiers get expensive. Prices as of mid-2026 — verify current rates
+    before budgeting.
 
 **Read the total, not the headline rate.** Cold-cloud tiers advertise roughly $1/TB/month to *store*
 but bill heavily to get the data back — retrieval plus internet egress is the real cost, and a full
 restore can dwarf three years of storage. The flat-rate clouds (Backblaze, Wasabi) invert this: egress
-is free or included, but storage is 5–7× more, so a multi-year hold costs the most overall. At short
-retention — the calculator's three-year default — cold cloud like Glacier Deep Archive looks cheapest,
-but it bills every month you hold and stings on egress; **push the retention slider out and it climbs
-past LTO.**
+is free or included, but storage is 5–7× more, so a multi-year hold costs the most overall. Cold cloud
+like Glacier Deep Archive is only cheapest for a short hold — because it bills every month and stings
+on egress, **it climbs past LTO after roughly two years** of retention.
 
-**LTO's cost is front- and back-loaded labor; the media costs almost nothing to keep.** You pay to
-write the tapes and to restore them, but at about $5/TB the cartridges sit on a shelf with no monthly
-bill and no power draw — so the LTO total barely moves whether you hold for three years or ten (drag
-the years slider and watch it stay put), while every monthly-billed cloud keeps climbing. Over the
-long retention a film archive actually needs, that structural difference is the whole case for tape: it
-pulls ahead of the cold clouds and carries none of their ongoing billing, vendor, or egress risk.
+**LTO's cost is front- and back-loaded service; the tapes cost almost nothing to keep.** You pay a
+service to write the tapes and to read them back, but the stock itself is only ~$7/TB and, once
+written, the cartridges sit on a shelf with no monthly bill and no power draw — so the LTO total barely
+moves whether you hold for three years or ten (drag the years slider and watch it stay put), while
+every monthly-billed cloud keeps climbing. Over the long retention a film archive actually needs, that
+structural difference is the whole case for tape: at the calculator's three-year default LTO is already
+the cheapest option, and it carries none of the clouds' ongoing billing, vendor, or egress risk.
 
 **Hard drives are the wrong medium for a master archive.** They are fine as a working or nearline
 copy, but dangerous as your *only* long-term one:
