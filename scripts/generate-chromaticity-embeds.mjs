@@ -35,7 +35,7 @@ const project = (spaces, name) => ({
 const view = (vp, theme, w = 900, h = 820) => Object.assign({}, vp, {
   camera: { theta: 3.92, phi: 0.62, dist: 3.4, target: [0, 0, 0] },
   theme, transparent: false, width: w, height: h, scale: 2,
-  grid: true, axes: true, labels: true, legend: true,
+  grid: true, axes: true, labels: true, legend: true, coordsHud: false,
 });
 
 const FIGS = {
