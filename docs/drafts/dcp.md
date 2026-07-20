@@ -47,7 +47,7 @@ The practical rule: **an OCAP version is the fallback that always works**, becau
 
 ## Delivering to a festival
 
-**Physical media** is still the workhorse. The historical standard is a **CRU DX115** dataport drive; festivals increasingly also accept USB 3.0 drives and SSDs (SSD preferred for reliability).[^dcp-fest] DCP drives are conventionally formatted **Linux ext2/ext3** — the format every server reads — though some venues now accept exFAT or NTFS. Check, rather than assume.
+**Physical media** is still the workhorse. The historical standard is a **CRU DX115** dataport drive; festivals increasingly also accept USB 3.0 drives and SSDs (SSD preferred for reliability).[^dcp-fest] DCP drives are conventionally formatted **Linux ext2/ext3** — the format every server reads, as required by the DCI specification — though some venues now accept exFAT or NTFS. Check, rather than assume.
 
 **Electronic delivery** is rising: Venice takes files by **Aspera**, Berlinale through its own **Digital Cinema Portal**, and services such as CineSend and Massive move DCPs over managed transfers.[^dcp-fest] It removes shipping, but a feature DCP is tens to hundreds of gigabytes, so it is a real transfer, not an email.
 
