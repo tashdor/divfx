@@ -53,16 +53,17 @@ pipeline.
 
 At IBC 2025 Avid rebranded the DNxHD and DNxHR families to a single name, **Avid DNx**, dropping the
 `HD` / `HR` / `GX` acronyms — misleading now that the codec is resolution-independent — in favor of
-five quality levels. The level, not the name, tells you the bit depth, chroma sampling, and
-bandwidth:[^dnx]
+five quality levels. A notable change with the rebrand: **all Avid DNx levels now support 8- to
+16-bit encoding and an optional alpha channel** — the level indicates the chroma sampling and the
+bandwidth (compression), not a fixed bit depth:[^dnx]
 
-| Level | Encoding | Typical use |
+| Level | Chroma | Typical use |
 | --- | --- | --- |
-| **444** | 12-bit 4:4:4 RGB, with alpha | Finishing, VFX delivery, cinema masters |
-| **HQX** | 12-bit 4:2:2 | Color and mastering; multi-generation work |
-| **HQ** | 8-bit 4:2:2 | High-quality editorial and production |
-| **SQ** | 8-bit 4:2:2 | Editorial and broadcast delivery |
-| **LB** | 8-bit 4:2:2, low bandwidth | Offline editorial and proxies |
+| **444** | 4:4:4 / RGB | Finishing, VFX delivery, cinema masters |
+| **HQX** | 4:2:2 | Color and mastering; multi-generation work |
+| **HQ** | 4:2:2 | High-quality editorial and production |
+| **SQ** | 4:2:2 | Editorial and broadcast delivery |
+| **LB** | 4:2:2 / 4:2:0, low bandwidth | Offline editorial and proxies |
 
 Data rates scale with resolution and frame rate. From Avid's published figures, at **UHD
 (3840×2160) / 23.976 fps** they run roughly **167 MB/s** (444), **83 MB/s** (HQX and HQ), **55 MB/s**
