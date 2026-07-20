@@ -46,18 +46,17 @@ A [scene-referred interchange encoding](aces.md#what-aces-actually-is) (ACES2065
 
 ### DaVinci Resolve Color Management
 
-Blackmagic's [DaVinci YRGB Color Managed](application-native-color-management.md#davinci-resolve-color-management-rcm) mode: per-clip Input Color Space → a **DaVinci Wide Gamut / Intermediate** timeline space → an Output Color Space per deliverable, with the display transform applied last.
+Blackmagic's [DaVinci YRGB Color Managed](application-native-color-management.md#davinci-resolve-color-management-rcm) mode: per-clip Input Color Space → a timeline working space → an Output Color Space per deliverable, with the display transform applied last.
 
-- **Benefits.** Lowest-friction managed workflow if you already finish in Resolve — no license, no separate config, on by a project setting. Normalizes many cameras into one working space. DWG is a genuinely large, **documented** working space (published white paper). Retargets cleanly to SDR/HDR and Rec.709/P3/Rec.2020 by changing the output space. **[DWG specifics web-sourced — see the application-native chapter.]**
-- **Drawbacks.** It is a single-vendor, **in-application** system: a VFX vendor in Nuke is not "in RCM." The display rendering transform is internal, not published as an interoperable spec, so it is not something other tools implement identically. It is not an archival interchange standard. DWG the *encoding* is portable; the Resolve *rendering* is not, in the same sense.
+- **Benefits.** Lowest-friction managed workflow if you already finish in Resolve — no third-party requirements, project- or timeline-based. Normalizes many cameras into a timeline working space of the user's choice. **DaVinci Wide Gamut / Intermediate** (DWG) is a large, **documented** working space (published white paper). Retargets cleanly to SDR/HDR and Rec.709/P3/Rec.2020 through the DaVinci tone mapper by changing the output space. **[DWG specifics web-sourced — see the application-native chapter.]**
+- **Drawbacks.** It is a single-vendor, **in-application** system: a VFX vendor in Nuke is not "in RCM." The display rendering transform is internal, not published as an interoperable spec, so it is not something other tools implement identically. It is not an archival interchange standard. DWG's *encoding* is portable, but the Resolve *rendering* is not, in the same sense.
 
 ### FilmLight TCS + T-CAM
 
 FilmLight's [Truelight Color Spaces](application-native-color-management.md#filmlight-baselight-daylight-and-the-truelight-color-spaces): an **E-Gamut / T-Log** working space and the **T-CAM v2** color-appearance display transform, in Baselight and Daylight.
 
-- **Benefits.** A scene-referred managed grade with a well-argued, **documented** CAM-based DRT (set out in Kirk's *Colour: Sense & Measurement*). More portable than most application-native systems: FilmLight publishes downloadable color-space and transform files, a **Truelight Colour Spaces OCIO config**, and a **Flame colour policy**, so TCS can be used outside Baselight. Interoperates with ACES (Baselight v7 added ACES 2.0 support). **[E-Gamut/T-Log/T-CAM-v2 names and portability details web-sourced — see the application-native chapter.]**
-- **Drawbacks.** Still single-vendor in origin: the portable files are FilmLight deliverables under FilmLight's control, not a SMPTE/Academy standard independently implemented and certified. Native, ecosystem-wide support is not the same as OCIO's for ACES. Most commonly encountered because you are finishing at a Baselight facility, rather than chosen from scratch by a small production.
-
+- **Benefits.** A scene-referred managed grade with a **documented** CAM-based DRT (Kirk's book is in the reference library). More portable than most application-native systems: FilmLight publishes downloadable color-space and transform files, a **Truelight Colour Spaces OCIO config**, and a **Flame colour policy**, so TCS can be used outside Baselight. Interoperates with ACES (Baselight v7 added ACES 2.0 support). **[E-Gamut/T-Log/T-CAM-v2 names and portability details web-sourced — see the application-native chapter.]**
+- **Drawbacks.** Still single-application in origin: the portable files are FilmLight deliverables under FilmLight's control, not an open standard independently implemented and certified. Native, ecosystem-wide support is not the same as OCIO's for ACES. Most commonly encountered because you are finishing at a Baselight facility, rather than chosen consciously by a small production.
 ## Side-by-side
 
 | | Display Referred, un-color-managed | Manually Color Managed | ACES | Resolve RCM | FilmLight TCS |
@@ -80,7 +79,9 @@ Sources: the [ACES](aces.md) and [application-native color management](applicati
 
 The decision reuses the same framing as the [ACES chapter](aces.md#should-an-independent-production-use-aces), widened to the options above. The first move is to rule one out.
 
-**Rule out truly un-color-managed.** For a production that will deliver professionally, a baked, unrecoverable master is not a real option. The floor is a **manually color-managed** pipeline: a consistent scene-referred working space, the display transform applied last, and a documented master you can re-render from. That floor costs almost nothing over "just grading," and it is the difference between a show you can repurpose and one you cannot.
+**Rule out truly un-color-managed.** For a production that will deliver professionally, a baked, unrecoverable master is not a reasonable option. This is particularly true for a VFX production. 
+
+The baseline is a **manually color-managed** pipeline: a consistent scene-referred working space, the display transform(s) applied last, and a documented master you can re-render from. That floor costs almost nothing over "just grading," and it is the difference between a show you can repurpose and one you cannot.
 
 **Reach for a framework (ACES / RCM / TCS)** when:
 
@@ -95,10 +96,13 @@ The decision reuses the same framing as the [ACES chapter](aces.md#should-an-ind
 
 **A manually color-managed pipeline earns its place** when:
 
-- You have the **color-science resources** to design, document, and test it, and a specific reason to control the DRT or look by hand — a house print emulation like Filmbox, a bespoke show LUT — that a framework's fixed rendering would fight.
+- You have the **color-science resources** to design, document, and test it, and a specific reason to control the DRT or look by hand — a third-party print emulation like Filmbox, one of your own design, or a bespoke show LUT that a framework's fixed rendering would fight.
 - The job is small enough that a full framework is overkill but you still want a consistent working space and a recoverable master: the responsible version of "keep it simple."
 - Bear in mind it costs the same as a vendor framework to push across VFX vendors — the colorist has to supply the transforms and written guidance, just as with RCM or TCS.
 
+Even in commercials which regularly have a single Rec.709 color space deliverable, and are not evergreen the same way feature films strive to be, a color managed workflow with a standardized working space means that regardless of camera source, grading controls *feel* familiar and techniques, pre-built grades, and looks, are immensely more reusable across projects.
+
 !!! tip "The tie-breaker is usually interchange and archival, not the grade"
-    Any of the managed approaches can produce the same-looking picture on a simple job. Ask instead: *How many sources, tools, vendors, and deliverables will touch this, and will anyone need a neutral master later?* The more of those that are plural or uncertain, the further toward a **framework** (and toward ACES) you should go. The fewer and more fixed they are, the more a lean **manually color-managed** pipeline is defensible — but a consistent working space and a recoverable master are non-negotiable either way.
-Whatever you choose, the decision belongs in **pre-production**, written into the [three format specifications](../turnover-vfx.md#format-specification), agreed **with the colorist** before the show commits to them, and proven with a [confidence package](../production-workflow.md#visual-effects-production_1) before shot work begins. A color pipeline nobody round-tripped is not a color pipeline — see the [checks in the OCIO chapter](color-management.md#checking-that-it-works). The most expensive mistake is not picking the "wrong" one of these; it is not picking at all, and discovering at the DI that the show never had a working space — or a master anyone can re-render from.
+    Any of the managed approaches, in the hands a of a skilled colorist, can produce a great looking picture on a simple job. Ask instead: *How many sources, tools, vendors, and deliverables will touch this, and will anyone need a scene-referred master later?* The more of those that are plural or uncertain, the further toward a **framework** (and toward ACES) you should go. The fewer and more fixed they are, the more a lean **manually color-managed** pipeline is defensible — but a consistent working space and a recoverable master are non-negotiable either way.
+
+Whatever you choose, the decision belongs in **pre-production**, written into the [three format specifications](../turnover-vfx.md#format-specification), agreed **with the colorist** before the show commits to them, and proven with a [confidence package](../production-workflow.md#visual-effects-production_1) before shot work begins. A color pipeline nobody round-tripped is not a color pipeline — see the [checks in the OCIO chapter](color-management.md#checking-that-it-works). The most expensive mistake is not picking the "wrong" one of these; it is not picking at all, and discovering during sale or distribution that the show never had a working space — or a master anyone can re-render from.
