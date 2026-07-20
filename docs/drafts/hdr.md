@@ -7,7 +7,7 @@ tags:
 
 !!! info "Draft — new in v1.1"
     This chapter is new material, not part of v1.0.1. See [Drafts for v1.1](index.md).
-v1.0.1 mentions high dynamic range once, in passing, as a bit-depth argument: that 10-bit log is insufficient for "EDR (extended dynamic range, theatrical) and HDR (high dynamic range, home video)" and that 12-bit should be the floor. The bit-depth point is still correct. The framing is not how the industry describes HDR, and "EDR" is legacy vendor language that should be dropped.
+First, terminology: "EDR" (extended dynamic range) is legacy vendor language and should be dropped — the industry says HDR. The bit-depth argument sometimes attached to it still holds (10-bit log is not enough; 12-bit is the floor), but that is a consequence of HDR, not a definition of it.
 
 HDR is not a look and not a grade setting. It is a different display referring — a different EOTF, a wider container gamut, and an explicit statement of the display the master was made on.
 
@@ -79,7 +79,7 @@ No consumer or reference display reproduces the full BT.2020 gamut — its prima
 
 [^hdr4]: Gamut coverage is an area ratio on a chromaticity diagram; CIE 1931 *xy* and CIE 1976 *u′v′* give different numbers for the same display. RTINGS reports the *xy* figure, which runs higher than *u′v′*.
 
-This makes the v1.0.1 [Rec.2020 entry](../color.md#display-color-spaces) — "few displays are capable of reproducing many of the colors" — still substantially accurate. What it lacks is the consequence: Rec.2020 is a container you encode into, not a gamut you grade to.
+The handbook's [Rec.2020 entry](../color.md#display-color-spaces) — "few displays are capable of reproducing many of the colors" — is substantially accurate. What it lacks is the consequence: Rec.2020 is a container you encode into, not a gamut you grade to.
 
 A typical deliverable set for a streaming feature:
 
@@ -112,7 +112,7 @@ Either way, a theatrical HDR pass is its own grade, and its own line item.
 
 HDR is not only a DI concern, and this is the part an independent production most often discovers late:
 
-- **Bit depth.** The v1.0.1 argument holds and strengthens: 10-bit log is not enough. 12-bit log is the floor for HDR finishing, 16-bit float preferable. See [Camera Log](../digital-intermediates.md#camera-log).
+- **Bit depth.** The argument only strengthens for HDR: 10-bit log is not enough. 12-bit log is the floor for HDR finishing, 16-bit float preferable. See [Camera Log](../digital-intermediates.md#camera-log).
 - **Highlights are visible now.** Specular detail, practical lights, and skies that clipped invisibly in a Rec.709 grade are plainly visible at 1 000 nits. Comps that "worked" in SDR reveal blown highlight rolloff, clipped CG speculars, and mismatched black points.
 - **Review at the target.** The [VFX review](../production-workflow.md#visual-effects-reviews) section already insists on reviewing in a calibrated environment matching the intended exhibition. For an HDR deliverable that means an HDR reference display, not a Rec.709 monitor with the assumption that it will "hold up."
 - **Exposure checking earns its keep.** The [exposure check](../vfx-quality-control.md#exposure-checking) technique — driving exposure up and down to test whether artificial highlights clip where plate highlights clip — is a proxy for exactly the failure HDR exposes. Productions that adopt it during SDR work arrive at HDR with fewer surprises.

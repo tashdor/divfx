@@ -7,7 +7,7 @@ tags:
 
 !!! info "Draft — new in v1.1"
     This chapter is new material, not part of v1.0.1. See [Drafts for v1.1](index.md).
-v1.0.1 covers IMF in three sentences, in the [Video Distribution Masters](../production-workflow.md#imf-interoperable-master-format) section: same as the video master, often without textless elements, compressed and mastered per the IMF specifications. That was a fair summary of IMF's role in 2017. It is no longer proportionate — IMF is now the standard mastering-and-delivery format for streaming and international distribution, and it is structurally different from every other deliverable in this handbook.
+IMF is now the standard mastering-and-delivery format for streaming and international distribution, and it is structurally different from every other deliverable in this handbook. The component model it introduces changes how masters are built, versioned, and archived — enough that it deserves its own treatment rather than a line in the [Video Distribution Masters](../production-workflow.md#imf-interoperable-master-format) section.
 
 ## The problem IMF solves
 
