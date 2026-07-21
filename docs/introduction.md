@@ -50,23 +50,34 @@ post-production workflow, digital intermediates, and computer graphics is encour
 
 ## About the Author
 
-Tashi Trieu is a digital intermediate colorist, editor, and workflow consultant with experience in
-studio and independent feature films as well as premium over-the-top (OTT) content. His
-projects include Netflix's *Stranger Things* and *Sense8*, Disney's *The Jungle Book*, and
-*Star Wars: The Force Awakens*.
+Tashi Trieu is a digital intermediate colorist and finishing artist with over fifteen years of
+post-production experience, and a co-founder of **MOSAIC Post Production**, an artist-driven picture-
+finishing boutique in Burbank, California. His work spans color grading, digital intermediate
+finishing, and end-to-end digital workflows for studio and independent features and premium OTT
+content — including multi-format HDR, Dolby Cinema, and IMAX delivery.
+
+His color and finishing credits include *Avatar: The Way of Water* and *Avatar: Fire and Ash*,
+*Star Wars: The Force Awakens*, *Thor: Ragnarok*, *Bombshell*, *Titans*, and Netflix's
+*Stranger Things* and *Sense8*.
+
+He co-authored *Modern Post: Workflows and Techniques for Digital Filmmakers*, contributed the
+Digital Intermediates chapter to the *VES Handbook* (4th edition), has contributed to the Academy's
+ACES color standards, and has taught at Chapman University and Taipei National University of the
+Arts. He also builds [web-based tools](https://ditools.videovillage.com) for color and
+post-production professionals.
 
 ## Additional Resources
 
+- [**Supplemental Reading & Resources**](resources.md) — every standard, white paper, and document
+  this handbook cites, collected with links.
 - *Cinematic Color: From Your Monitor to the Big Screen* by Jeremy Selan —
   [cinematiccolor.org](https://cinematiccolor.org/)
 
-## Acknowledgements
+## Special Thanks
 
 - Billy Brooks
-- Peggy Chung
 - Brian Gaffney
 - Joshua Pines
-- Robert Simons
 - Christian Zak
 
 ## Website
