@@ -15,18 +15,12 @@ ACES is not a look, and it is not a LUT. It is four things:
 
 The Academy's own framing is that ACES is "a free, open, device-independent color management and image interchange system that can be applied to almost any current or future workflow" (Academy Technical Bulletin [TB-2018-001](https://docs.acescentral.com/white-point/), Introduction).
 
-<figure class="wfd-fig">
-<div class="wfd">
-<div class="wbox src"><b>Camera / source</b><small>ARRI · RED · Sony</small></div>
-<div class="warr">Input Transform (IDT)</div>
-<div class="wbox aces"><b>ACES2065-1</b><small>scene-referred interchange (AP0) — the non-graded assembly master</small></div>
-<div class="warr updown">plates out / renders back — all in ACES2065-1</div>
-<div class="wbox vfx round"><b>VFX vendors</b><small>Nuke · Houdini · Flame — work in ACEScg via OCIO</small></div>
-<div class="warr">grade — convert to ACEScct, then render back to ACES2065-1</div>
-<div class="wbox aces"><b>Graded Archival Master</b><small>graded ACES2065-1</small></div>
-<div class="warr">Output Transform</div>
-<div class="wbox del"><b>Deliverables</b><small>Rec.709 · P3-D65 · Rec.2100 PQ · DCDM</small></div>
-</div>
+<figure class="mosaic-fig" markdown>
+--8<-- "figures/svg/aces-workflow.svg"
+<figcaption>The ACES pipeline as a left-to-right image path: camera → (Input Transform) →
+<b>ACES2065-1</b> interchange → ACEScct grade → graded ACES2065-1 master → (Output Transform) →
+each deliverable. <b>VFX vendors are a tangent</b> off the interchange: plates go out and renders
+come back in ACEScg, round-tripping through ACES2065-1 — not through the grade.</figcaption>
 </figure>
 
 *Everything converts to ACES2065-1; VFX round-trips through the interchange in ACEScg. Grading converts internally to ACEScct and back to ACES2065-1 — that graded ACES2065-1 is the Graded Archival Master, and the Output Transform derives each deliverable from it. The ungraded interchange is the non-graded assembly master.*

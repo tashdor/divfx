@@ -37,6 +37,30 @@
       <mosaic-reel name="Reel 5" start="05:00:00:00" duration="00:16:48:02"></mosaic-reel>
       <mosaic-reel name="Reel 6" start="06:00:00:00" duration="00:12:37:20"></mosaic-reel>
     </mosaic-reel-timeline>
+
+    <!-- ACES pipeline — left-to-right image path; VFX vendors are a tangent that
+         round-trips through the ACES2065-1 interchange (in ACEScg), not a stage on
+         the grade line. Output transforms fan the graded master out to deliverables. -->
+    <mosaic-workflow data-name="aces-workflow"
+      aria-label="ACES color pipeline: camera through the ACES2065-1 interchange to a graded master and deliverables, with VFX vendors as a tangent process off the interchange">
+      <mosaic-workflow-node id="camera" rank="0" lane="2" icon="camera" tone="green">Camera / Source</mosaic-workflow-node>
+      <mosaic-workflow-node id="interchange" rank="1" lane="2" icon="aces" tone="blue">ACES2065-1</mosaic-workflow-node>
+      <mosaic-workflow-node id="vfx" rank="2" lane="0" icon="plate" tone="green">VFX Vendors</mosaic-workflow-node>
+      <mosaic-workflow-node id="grade" rank="2" lane="2" icon="resolve" tone="violet">ACEScct Grade</mosaic-workflow-node>
+      <mosaic-workflow-node id="master" rank="3" lane="2" icon="exr" tone="blue">Graded Master</mosaic-workflow-node>
+      <mosaic-workflow-node id="rec709" rank="4" lane="1" icon="monitor" tone="coral">Rec.709</mosaic-workflow-node>
+      <mosaic-workflow-node id="p3" rank="4" lane="2" icon="monitor" tone="coral">P3-D65</mosaic-workflow-node>
+      <mosaic-workflow-node id="pq" rank="4" lane="3" icon="hdr" tone="coral">Rec.2100 PQ</mosaic-workflow-node>
+      <mosaic-workflow-node id="dcdm" rank="4" lane="4" icon="dcp" tone="coral">DCDM</mosaic-workflow-node>
+      <mosaic-edge from="camera" to="interchange"></mosaic-edge>
+      <mosaic-edge from="interchange" to="vfx"></mosaic-edge>
+      <mosaic-edge from="interchange" to="grade"></mosaic-edge>
+      <mosaic-edge from="grade" to="master"></mosaic-edge>
+      <mosaic-edge from="master" to="rec709"></mosaic-edge>
+      <mosaic-edge from="master" to="p3"></mosaic-edge>
+      <mosaic-edge from="master" to="pq"></mosaic-edge>
+      <mosaic-edge from="master" to="dcdm"></mosaic-edge>
+    </mosaic-workflow>
   </main>
 
   <!-- The user-facing integration import (resolved via the import map above). -->
