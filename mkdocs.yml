@@ -98,30 +98,29 @@ extra_javascript:
 
 nav:
   - Home: index.md
-  - Foundations:
+  - Getting Started:
       - Introduction: introduction.md
       - Generalized Production Workflow: production-workflow.md
+  - Foundations:
       - An Overview of Digital Intermediates: digital-intermediates.md
-  - Editorial Turnover:
-      - For Digital Intermediates: turnover-di.md
-      - For VFX Plate Pulls: turnover-vfx.md
-  - Formats & Resolution:
       - Common Working Formats: working-formats.md
       - Working and Delivery Resolutions: resolutions.md
-  - Color & Color Management:
       - Color Spaces and Transfer Functions: color.md
+  - Color Management:
       - ACES: aces.md
       - Color Management and OpenColorIO: color-management.md
       - Application-Native Color Management (DaVinci, FilmLight): application-native-color-management.md
       - Choosing a Color Management Approach: color-management-comparison.md
       - HDR Mastering: hdr.md
+  - Editorial & Visual Effects:
+      - Editorial Turnover for Digital Intermediates: turnover-di.md
+      - Editorial Turnover for VFX Plate Pulls: turnover-vfx.md
+      - Visual Effects Quality Control: vfx-quality-control.md
+      - Visual Effects Production Management: vfx-production-management.md
   - Mastering & Delivery:
       - IMF — The Interoperable Master Format: imf.md
       - DCP — The Digital Cinema Package: dcp.md
       - Distribution Deliverables for Independent Film: distribution-deliverables.md
-  - Visual Effects:
-      - Visual Effects Quality Control: vfx-quality-control.md
-      - Visual Effects Production Management: vfx-production-management.md
   - Reference:
       - Supplemental Reading & Resources: resources.md
       - Glossary: glossary.md
