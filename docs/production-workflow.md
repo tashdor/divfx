@@ -1,5 +1,13 @@
 # Generalized Production Workflow
 
+<figure class="mosaic-fig" markdown>
+--8<-- "figures/svg/production-workflow.svg"
+<figcaption>The image path at a glance: pre-production through production (and dailies) into
+editorial, then the digital intermediate, fanning out to theatrical, video, and archival masters.
+Visual effects run as a tangent off editorial — plates are pulled and finished shots return to the
+cut. Each stage is a section below.</figcaption>
+</figure>
+
 ## Pre-Production / Visualization
 
 A key factor in the success of visual effects films is the previsualization process (previz). This is

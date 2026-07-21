@@ -99,6 +99,27 @@
       <mosaic-frame-run kind="handle" start="1016" count="4"></mosaic-frame-run>
     </mosaic-frame-sequence>
 
+    <!-- Generalized production workflow — left-to-right image path with VFX as a
+         tangent off editorial, fanning out to theatrical, video, and archival masters. -->
+    <mosaic-workflow data-name="production-workflow"
+      aria-label="Generalized production workflow: pre-production through acquisition, editorial, and the digital intermediate to deliverables, with visual effects as a tangent off editorial">
+      <mosaic-workflow-node id="pre" rank="0" lane="2" icon="timeline" tone="green">Pre-Production</mosaic-workflow-node>
+      <mosaic-workflow-node id="prod" rank="1" lane="2" icon="camera" tone="green">Production</mosaic-workflow-node>
+      <mosaic-workflow-node id="edit" rank="2" lane="2" icon="resolve" tone="blue">Editorial</mosaic-workflow-node>
+      <mosaic-workflow-node id="vfx" rank="3" lane="0" icon="plate" tone="green">Visual Effects</mosaic-workflow-node>
+      <mosaic-workflow-node id="di" rank="3" lane="2" icon="resolve" tone="violet">Digital Intermediate</mosaic-workflow-node>
+      <mosaic-workflow-node id="dcp" rank="4" lane="1" icon="dcp" tone="coral">DCP</mosaic-workflow-node>
+      <mosaic-workflow-node id="video" rank="4" lane="2" icon="monitor" tone="coral">Video Masters</mosaic-workflow-node>
+      <mosaic-workflow-node id="archive" rank="4" lane="3" icon="storage" tone="coral">Archival</mosaic-workflow-node>
+      <mosaic-edge from="pre" to="prod"></mosaic-edge>
+      <mosaic-edge from="prod" to="edit"></mosaic-edge>
+      <mosaic-edge from="edit" to="vfx"></mosaic-edge>
+      <mosaic-edge from="edit" to="di"></mosaic-edge>
+      <mosaic-edge from="di" to="dcp"></mosaic-edge>
+      <mosaic-edge from="di" to="video"></mosaic-edge>
+      <mosaic-edge from="di" to="archive"></mosaic-edge>
+    </mosaic-workflow>
+
     <!-- Frame numbering — a pull that begins at a padded frame (0997). -->
     <mosaic-frame-sequence data-name="figure-frame-offset"
       aria-label="Plate handles and edit frames for a shot that begins at frame 0997">

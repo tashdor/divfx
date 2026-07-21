@@ -51,8 +51,8 @@ post-production workflow, digital intermediates, and computer graphics is encour
 ## About the Author
 
 Tashi Trieu is a digital intermediate colorist and finishing artist with over fifteen years of
-post-production experience, and a co-founder of **MOSAIC Post Production**, an artist-driven picture-
-finishing boutique in Burbank, California. His work spans color grading, digital intermediate
+post-production experience, and a co-founder of **[MOSAIC](https://colorbymosaic.com)**, an
+artist-driven picture-finishing boutique in Burbank, California. His work spans color grading, digital intermediate
 finishing, and end-to-end digital workflows for studio and independent features and premium OTT
 content — including multi-format HDR, Dolby Cinema, and IMAX delivery.
 
@@ -61,7 +61,7 @@ His color and finishing credits include *Avatar: The Way of Water* and *Avatar: 
 *Stranger Things* and *Sense8*.
 
 He co-authored *Modern Post: Workflows and Techniques for Digital Filmmakers*, contributed the
-Digital Intermediates chapter to the *VES Handbook* (4th edition), has contributed to the Academy's
+Digital Intermediates chapter to the *VES Handbook*, has contributed to the Academy's
 ACES color standards, and has taught at Chapman University and Taipei National University of the
 Arts. He also builds [web-based tools](https://ditools.videovillage.com) for color and
 post-production professionals.
