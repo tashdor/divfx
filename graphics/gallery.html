@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>divfx figures — MOSAIC authoring surface</title>
+  <!-- Resolve the pinned package's bare specifiers to its published files. -->
+  <script type="importmap">
+  {
+    "imports": {
+      "@mosaic/technical-graphics": "/node_modules/@mosaic/technical-graphics/src/graphics.js",
+      "@mosaic/technical-graphics/theme.css": "/node_modules/@mosaic/technical-graphics/src/theme.css"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="/node_modules/@mosaic/technical-graphics/src/theme.css">
+</head>
+<body>
+  <main>
+    <!-- Figure 1 — CDL grading operations applied prior to the viewing transform. -->
+    <mosaic-process data-name="figure-01-cdl-pipeline"
+      aria-label="CDL grading operations are applied prior to the viewing transform">
+      <mosaic-node icon="plate" eyebrow="Source">Ungraded Log Plate</mosaic-node>
+      <mosaic-node icon="cdl" eyebrow="Primary correction">ASC CDL</mosaic-node>
+      <mosaic-node icon="lut" eyebrow="Display transform" detail="Display reference transform">Show LUT</mosaic-node>
+      <mosaic-node icon="monitor" eyebrow="Viewing output">Rec.709 Preview</mosaic-node>
+    </mosaic-process>
+
+    <!-- Figure 5 — Reel-based composition of a feature. Each reel carries an 8 s head
+         leader and a 4 s tail leader; program lengths are scaled to the longest reel. -->
+    <mosaic-reel-timeline data-name="figure-05-reels" fps="24" head="192" tail="96"
+      aria-label="Reel-based composition of a feature-length film">
+      <mosaic-reel name="Reel 1" start="01:00:00:00" duration="00:18:22:06"></mosaic-reel>
+      <mosaic-reel name="Reel 2" start="02:00:00:00" duration="00:19:41:15"></mosaic-reel>
+      <mosaic-reel name="Reel 3" start="03:00:00:00" duration="00:17:55:11"></mosaic-reel>
+      <mosaic-reel name="Reel 4" start="04:00:00:00" duration="00:20:03:19"></mosaic-reel>
+      <mosaic-reel name="Reel 5" start="05:00:00:00" duration="00:16:48:02"></mosaic-reel>
+      <mosaic-reel name="Reel 6" start="06:00:00:00" duration="00:12:37:20"></mosaic-reel>
+    </mosaic-reel-timeline>
+  </main>
+
+  <!-- The user-facing integration import (resolved via the import map above). -->
+  <script type="module">import "@mosaic/technical-graphics";</script>
+</body>
+</html>

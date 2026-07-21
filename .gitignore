@@ -5,3 +5,6 @@ __pycache__/
 .DS_Store
 publish/
 *.json
+!graphics/package.json
+!graphics/package-lock.json
+graphics/node_modules/

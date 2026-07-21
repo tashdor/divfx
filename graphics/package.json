@@ -1,0 +1,16 @@
+{
+  "name": "divfx-graphics",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Build tooling that renders MOSAIC semantic figures to theme-adaptive SVG for the divfx wiki. Not part of the MkDocs site; run `npm install && npm run build` here to regenerate docs/figures/svg/*.",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "@mosaic/technical-graphics": "github:tashdor/mosaic-graphics-system#v0.2.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.52.0"
+  }
+}

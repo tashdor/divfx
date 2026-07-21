@@ -58,8 +58,8 @@ operator marrying the audio and picture tracks to sync audio subjectively. Produ
 foley, and sound effects could be off by as much as a frame or two either intentionally or
 accidentally, so those should only be used for sync as a last resort.
 
-<figure markdown>
-  ![Example reel-based composition of a feature length film](figures/figure-05-reels.png){ loading=lazy }
+<figure class="mosaic-fig" markdown>
+--8<-- "figures/svg/figure-05-reels.svg"
   <figcaption>Figure 5 — Example reel-based composition of a feature length film. Each reel begins
   on its own hour with an eight-second head leader (192 frames) and closes with a four-second
   tail leader (96 frames).</figcaption>

@@ -261,10 +261,10 @@ eventual grade of a shot, visual effects artists can composite their effects to 
 accurate under that anticipated grade. This is particularly important when dealing with product
 shots or with characters that have a well-established color palette.
 
-<figure markdown>
-  ![CDL grading operations are applied prior to the viewing transform](figures/figure-01-cdl-pipeline.png){ loading=lazy }
-  <figcaption>Figure 1 — CDL grading operations are applied prior to the viewing transform.
-  Ungraded log plate → ASC CDL → Show LUT (display reference transform) → Rec.709 preview.</figcaption>
+<figure class="mosaic-fig" markdown>
+--8<-- "figures/svg/figure-01-cdl-pipeline.svg"
+<figcaption>Figure 1 — CDL grading operations are applied prior to the viewing transform.
+Ungraded log plate → ASC CDL → Show LUT (display reference transform) → Rec.709 preview.</figcaption>
 </figure>
 
 The grade and Show LUT are baked in to any reference QuickTimes delivered to editorial in
