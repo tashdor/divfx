@@ -210,6 +210,50 @@ A newer flavor of XML used by Final Cut Pro X. Compatible with Blackmagic DaVinc
 not with all other conform systems. Contains many improvements upon FCP 7 XMLs, including
 ASC CDL support. FCPXMLs support multi-layer timelines.
 
+### OTIO
+
+**OpenTimelineIO (OTIO)** is an open-source interchange format and API for editorial timelines —
+originated at Pixar and now an Academy Software Foundation (ASWF) project. Unlike the formats above,
+each tied to a particular NLE lineage, OTIO is designed as a **vendor-neutral interchange and a
+programmable data model**: a JSON-based timeline (`.otio`) plus a set of adapters that read and write
+EDL, FCP7 XML, AAF, FCPXML, and more, so it can act as a hub that translates between them.
+
+Adoption is strongest on the **pipeline and engineering** side rather than the artist-facing one. It
+is widely used inside studio and VFX pipelines (it ships with or is supported by Nuke Studio/Hiero,
+RV, Autodesk Flow/ShotGrid, and many in-house tools) and has broad library support — but native
+**save-as-OTIO from mainstream NLEs is still limited**. DaVinci Resolve has added OTIO import/export,
+while Avid Media Composer and Premiere still lean on their traditional formats. In practice, for an
+independent conform in 2026 you will still most often hand the DI an EDL, XML, or AAF; OTIO's real
+value today is as the **programmatic glue** for translating, comparing, and validating those lists,
+and its role is growing.
+
+### Choosing a format — what each can carry
+
+Every one of these formats carries the same non-negotiable core: the **clip list with a source tape
+name and timecode**, which is what a conform cannot do without. Beyond that shared core they diverge:
+
+| Capability | EDL | FCP7 XML | AAF | FCPXML | OTIO |
+| --- | :---: | :---: | :---: | :---: | :---: |
+| Human-readable | ✓ text | ✓ verbose | ✗ binary | ✓ verbose | ✓ JSON |
+| Tape name + timecode | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Multi-layer timelines | ✗ one/file | ✓ | ✓ | ✓ | ✓ |
+| Resize / reposition | ✗ | ✓ | ✓ | ✓ | ✓ |
+| Variable speed ramps | ✗ static only | ✓ interpolated | ✓ baked keyframes¹ | ✓ | ✓ |
+| ASC CDL color | ✓ in comments | ✗ | ~ | ✓ | ✓ |
+| Origin / lineage | CMX tape online | FCP7 · Premiere | Avid · Pro Tools | Final Cut Pro X · Resolve | ASWF (Pixar), cross-NLE |
+| DI acceptance | ✓ universal | ✓ common | ✓ common | ~ Resolve+ | ~ via adapters |
+
+<small>¹ Baked speed-ramp keyframes in AAFs from Avid Media Composer 8 or later.</small>
+
+In short: EDL is the lowest common denominator — one layer, no effects, but universal and
+editable; XML and FCPXML add layers and effects; AAF adds baked speed ramps (at the cost of being
+binary); and OTIO spans all of them as a translating hub rather than a native turnover format.
+
+!!! tip "List-management tooling"
+    Wrangling, comparing, and repairing edit lists by hand is error-prone. Video Village's
+    [DI tools](https://ditools.videovillage.com) include **EDL and list-management utilities** for
+    exactly this — inspecting, cleaning, and reconciling lists before they reach the conform.
+
 ## Conform Checks
 
 Critical to the conform process is a visual comparison between the offline cut and the final

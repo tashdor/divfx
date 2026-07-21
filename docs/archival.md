@@ -30,7 +30,25 @@ display transformation LUT.
 ## Show Look Up Tables (LUTs)
 
 In order to reproduce a graded video master, the project's display transformation LUT(s) must
-be provided.
+be provided. Archive **every working LUT and transform the project relied on** — not just the final
+Show LUT, but creative looks, per-camera normalizations, technical conversions, and any **DCTLs**
+(DaVinci Color Transform Language scripts) used in the grade. Without the complete set, a future
+session cannot rebuild the pipeline the master was made under.
+
+Two dependency traps are worth checking before an archive is considered complete:
+
+- **Encrypted DCTLs (`.dctle`)** can carry an **expiry date** or a machine/license lock — they may
+  simply stop working after a certain date or on a different system, silently breaking a re-grade
+  years later. Treat an encrypted DCTL as an archival liability and obtain an unencrypted or
+  license-free equivalent wherever possible.
+- **OpenFX (OFX) plugin dependencies.** A grade that leans on third-party OFX plugins will not
+  reproduce without those plugins — and their correct versions and licenses — present. It is the
+  same failure mode as a missing LUT.
+
+LUTs and their dependencies can be gathered and bundled for archive with Video Village's
+[DRP Inspector](https://ditools.videovillage.com/drp_inspector), which reads a DaVinci Resolve
+project and **reports any unexpected or at-risk dependencies** (external LUTs, DCTLs, OFX plugins) so
+they can be collected before the project is stored.
 
 ## Reference EDLs
 
@@ -58,9 +76,9 @@ not a quote: cloud rates and egress tiers change often, and the LTO figures sepa
 .archive-calc .ac-ctrl input[type=range]{width:100%;margin-top:.45rem;accent-color:var(--md-accent-fg-color,#e0912f);}
 .archive-calc .ac-num{width:5.5em;padding:.1rem .35rem;font:inherit;font-weight:700;text-align:right;border:1px solid var(--md-default-fg-color--lighter);border-radius:3px;background:var(--md-default-bg-color);color:var(--md-default-fg-color);}
 .archive-calc .ac-scroll{overflow-x:auto;}
-.archive-calc table{width:100%;margin:0;}
-.archive-calc th,.archive-calc td{text-align:right;white-space:nowrap;}
-.archive-calc th:first-child,.archive-calc td:first-child{text-align:left;white-space:normal;}
+.archive-calc table{width:100%;min-width:32rem;margin:0;table-layout:fixed;}
+.archive-calc th,.archive-calc td{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;width:13.6%;}
+.archive-calc th:first-child,.archive-calc td:first-child{text-align:left;white-space:normal;width:32%;}
 .archive-calc tr.ac-best td{background:var(--md-accent-fg-color--transparent,rgba(224,145,47,.14));font-weight:600;}
 .archive-calc .ac-note{font-size:.7rem;color:var(--md-default-fg-color--light);margin:.7rem 0 0;line-height:1.45;}
 </style>
@@ -139,8 +157,9 @@ not a quote: cloud rates and egress tiers change often, and the LTO figures sepa
     cataloguing, and the labor of writing, verifying, and later reading the tapes — modeled here at
     **~$50/TB each way**, in line with 2025–26 service rate cards. Most services set a **job minimum**
     (~20 TB) below which per-TB pricing stops making sense; smaller jobs are better billed hourly
-    (~$150/hr), and additional tape copies typically run ~50% of the first. (Doing it in-house instead
-    trades the per-TB service fee for buying your own LTO-9 deck, ~$4,000–7,000, plus your time.) The
+    (~$150/hr). (Doing it in-house instead trades the per-TB service fee for buying your own LTO-9
+    deck (~$4,000–7,000), plus the archival software and supporting hardware to run it, plus your
+    time.) The
     scenario assumes **you keep the tapes**, so there is no monthly vault fee — a handful of cartridges
     is physically small, and even a safety-deposit box for them is negligible. Cloud figures assume the
     cold/archive tier of each provider; egress assumes a single full download to the open internet and
@@ -167,8 +186,8 @@ redundant copies, and offsite/vaulted storage**. A lone hard drive satisfies nei
 distributor QC, nor insurer.
 
 **LTO is the archival standard — with a treadmill.** Tape is offline and air-gapped, rated ~15–30
-years, self-describing via **LTFS**, and available as **WORM**; the catch is that drives read only
-about one to two generations back, so plan to migrate every **~7–10 years**.
+years, and self-describing via **LTFS**; the catch is that drives read only about one to two
+generations back, so plan to migrate every **~7–10 years**.
 
 !!! tip "The smart default: 3-2-1, not one of anything"
     Keep **three copies, on two different media, with one offsite.** For an independent film that
