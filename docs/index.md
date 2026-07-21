@@ -15,7 +15,7 @@ now appear in the smallest independent features, documentaries, and even short-f
 content — usually without the audience ever noticing they are there. VFX has trickled all the
 way down.
 
-What has *not* trickled down is the studio infrastructure that keeps those shots on budget:
+What has *not* trickled down is the studio infrastructure that keeps those productions on schedule and on budget, while achieving high quality:
 scene-referred color pipelines, shot-naming and turnover conventions, format discipline, and
 clear communication between editorial, the vendor, and the finish. On an independent
 production, the difference between a visual effects shot that costs a few hundred dollars and
