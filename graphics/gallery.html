@@ -103,17 +103,17 @@
          tangent off editorial, fanning out to theatrical, video, and archival masters. -->
     <mosaic-workflow data-name="production-workflow"
       aria-label="Generalized production workflow: pre-production plans multiple production units; footage flows through dailies and editorial; visual effects combines plates and CGI in compositing; the digital intermediate fans out to theatrical, film-out, video, and archival deliverables">
-      <mosaic-workflow-node id="pre" rank="0" lane="2" icon="timeline" tone="green">Pre-Production</mosaic-workflow-node>
+      <mosaic-workflow-node id="pre" rank="0" lane="2" icon="pentool" tone="green">Pre-Production</mosaic-workflow-node>
       <mosaic-workflow-node id="photog" rank="1" lane="1" icon="camera" tone="green">Principal Photography</mosaic-workflow-node>
-      <mosaic-workflow-node id="gs" rank="1" lane="2" icon="camera" tone="green">Green-Screen Unit</mosaic-workflow-node>
+      <mosaic-workflow-node id="gs" rank="1" lane="2" icon="camera" tone="green">VFX Unit</mosaic-workflow-node>
       <mosaic-workflow-node id="plates" rank="1" lane="3" icon="plate" tone="green">Plates &amp; Elements</mosaic-workflow-node>
       <mosaic-workflow-node id="dailies" rank="2" lane="2" icon="monitor" tone="blue">Dailies</mosaic-workflow-node>
       <mosaic-workflow-node id="edit" rank="3" lane="2" icon="timeline" tone="blue">Editorial</mosaic-workflow-node>
       <mosaic-workflow-node id="cgi" rank="3" lane="0" icon="exr" tone="green">CGI / 3D</mosaic-workflow-node>
       <mosaic-workflow-node id="comp" rank="4" lane="1" icon="plate" tone="green">Compositing</mosaic-workflow-node>
-      <mosaic-workflow-node id="di" rank="5" lane="2" icon="resolve" tone="violet">Digital Intermediate</mosaic-workflow-node>
+      <mosaic-workflow-node id="di" rank="5" lane="2" icon="grade" tone="violet">Digital Intermediate</mosaic-workflow-node>
       <mosaic-workflow-node id="dcp" rank="6" lane="0" icon="dcp" tone="coral" group="deliverables">DCP</mosaic-workflow-node>
-      <mosaic-workflow-node id="filmout" rank="6" lane="1" icon="reel" tone="coral" group="deliverables">Film Out</mosaic-workflow-node>
+      <mosaic-workflow-node id="filmout" rank="6" lane="1" icon="film" tone="coral" group="deliverables">Film Out</mosaic-workflow-node>
       <mosaic-workflow-node id="video" rank="6" lane="2" icon="monitor" tone="coral" group="deliverables">Video Masters</mosaic-workflow-node>
       <mosaic-workflow-node id="archive" rank="6" lane="3" icon="storage" tone="coral" group="deliverables">Archival</mosaic-workflow-node>
       <mosaic-edge from="pre" to="photog"></mosaic-edge>

@@ -3,7 +3,7 @@
 LUTs are pre-computed color transformations that can contain technical color space
 conversions, or creative transformations from scene-referred to display-referred states.
 
-## LUTs versus transforms
+## LUTs vs. Transforms
 
 A LUT and a transform can describe the same color operation two different ways, and the difference
 matters when you decide which to use.
@@ -151,8 +151,8 @@ able to exchange commonly needed LUTs (like the Show LUT) in formats that work o
 everyone's various platforms.
 
 Apps like [Lattice](https://videovillage.com/lattice/) and
-[ColourSpace](https://www.lightillusion.com) (Light Illusion's ground-up successor to LightSpace
-CMS) are useful for converting LUTs for use in a variety of systems and applications. Additionally,
+[ColourSpace](https://www.lightillusion.com) are useful for converting LUTs for use in a variety of
+systems and applications. Additionally,
 they are capable of performing a multitude of technical transformations and color space
 conversions. These precise transformations are often difficult to do accurately using normal
 grading tools.
