@@ -151,19 +151,11 @@ not a quote: cloud rates and egress tiers change often, and the LTO figures sepa
 })();
 </script>
 
-[^ltocost]: The LTO **hard cost** is the tape stock alone: LTO-9 holds 18 TB native per cartridge, so
-    the calculator charges `ceil(TB ÷ 18)` cartridges at ~$105 each (~$5.80/TB). The **archive** and
-    **restore** columns are a managed-service rate — the facility's decks, library/robot hardware,
-    cataloguing, and the labor of writing, verifying, and later reading the tapes — modeled here at
-    **~$50/TB each way**, in line with 2025–26 service rate cards. Most services set a **job minimum**
-    (~20 TB) below which per-TB pricing stops making sense; smaller jobs are better billed hourly
-    (~$150/hr). (Doing it in-house instead trades the per-TB service fee for buying your own LTO-9
-    deck (~$4,000–7,000), plus the archival software and supporting hardware to run it, plus your
-    time.) The
-    scenario assumes **you keep the tapes**, so there is no monthly vault fee — a handful of cartridges
-    is physically small, and even a safety-deposit box for them is negligible. Cloud figures assume the
-    cold/archive tier of each provider; egress assumes a single full download to the open internet and
-    is where the "cheap to store" tiers get expensive. Prices as of mid-2026 — verify current rates
+[^ltocost]: **LTO hard cost** = tape stock only (`ceil(TB ÷ 18)` cartridges at ~$105 each). **Archive**
+    and **restore** are a managed-service rate (~$50/TB each way, per 2025–26 rate cards), typically
+    with a ~20 TB minimum or an hourly rate for smaller jobs; in-house instead means buying your own
+    deck, software, and hardware. You keep the tapes, so there is no vault fee. **Cloud** figures use
+    each provider's cold/archive tier; egress assumes one full download. Prices mid-2026 — verify
     before budgeting.
 
 **Read the total, not the headline rate.** Cold-cloud tiers are cheap to *store* (~$1/TB/month) but
