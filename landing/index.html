@@ -28,6 +28,29 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+    <style>
+      .contact-form { max-width: 640px; margin: 1.4em 0; }
+      .contact-form .cf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-bottom: 0.9rem; }
+      .contact-form .cf-grid .cf-field { margin-bottom: 0; }
+      .contact-form .cf-field { display: block; margin-bottom: 0.9rem; }
+      .contact-form .cf-field > span { display: block; font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #7a7a7a; margin-bottom: .3rem; }
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%; box-sizing: border-box; padding: .55rem .7rem; font: inherit; font-size: .85rem;
+        color: #333; background: #fff;
+        border: 1px solid #ccc; border-radius: 6px; transition: border-color .15s ease;
+      }
+      .contact-form textarea { resize: vertical; min-height: 5.5rem; }
+      .contact-form input:focus,
+      .contact-form textarea:focus { outline: none; border-color: #267CB9; }
+      .contact-form .cf-submit {
+        appearance: none; -webkit-appearance: none; cursor: pointer; padding: .55rem 1.3rem; font-size: .85rem; font-weight: 600;
+        color: #fff; background: #267CB9;
+        border: none; border-radius: 6px; transition: opacity .15s ease;
+      }
+      .contact-form .cf-submit:hover { opacity: .88; }
+      @media (max-width: 480px) { .contact-form .cf-grid { grid-template-columns: 1fr; } }
+    </style>
   </head>
   <body>
     <div class="wrapper">
@@ -46,7 +69,26 @@
 
 
 
-<p>Authored by Tashi Trieu. Questions, comments, and errata related to this document can be addressed to <a href="mailto:tashi@tashitrieu.com">tashi@tashitrieu.com</a></p>
+<p>Authored by Tashi Trieu. Questions, comments, and errata related to this document are welcome — send a note below.</p>
+
+<form class="contact-form" action="https://formspree.io/f/mpqvljlq" method="POST">
+  <input type="hidden" name="_subject" value="divfx Inquiry">
+  <div class="cf-grid">
+    <label class="cf-field">
+      <span>Name</span>
+      <input type="text" name="name" required autocomplete="name">
+    </label>
+    <label class="cf-field">
+      <span>Email</span>
+      <input type="email" name="email" required autocomplete="email">
+    </label>
+  </div>
+  <label class="cf-field">
+    <span>Message</span>
+    <textarea name="message" rows="5" required></textarea>
+  </label>
+  <button type="submit" class="cf-submit">Send message</button>
+</form>
 
 <h3 id="topic-listing">Topic Listing</h3>
 
