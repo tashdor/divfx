@@ -1,7 +1,6 @@
 # Glossary
 
-Terms as used in this handbook. This page is new to the wiki edition and was assembled from
-definitions given throughout the text.
+Terms as used in this handbook.
 
 ## A
 

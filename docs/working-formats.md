@@ -65,8 +65,7 @@ Data rates scale with resolution and frame rate. From Avid's published figures, 
 (SQ), and **17 MB/s** (LB) — about 1.3 Gb/s down to 137 Mb/s; at HD they are roughly a quarter of
 that (444 ≈ 42 MB/s, LB ≈ 4 MB/s). Avid Media Composer manages DNx media natively in **MXF
 OP-Atom**, and Avid also ships DNx **QuickTime** codecs. The codec is
-standardized as **SMPTE ST 2019-1 (VC-3)**; its 2026 revision folds in the two RGB levels Avid had
-shipped as "DNx GX."[^dnx]
+standardized as **SMPTE ST 2019-1 (VC-3)**.[^dnx]
 
 [^dnx]: Avid, [*Avid DNx naming scheme and data rates*](https://kb.avid.com/pkb/articles/en_US/Knowledge/Avid-DNx-naming-scheme-and-data-rates)
     and [*DNxHR Codec Bandwidth Specifications*](https://kb.avid.com/pkb/articles/en_US/white_paper/DNxHR-Codec-Bandwidth-Specifications);
@@ -98,8 +97,8 @@ These codecs are commonly found in `.mov`, `.mp4`, `.m4v`, and `.mkv` file wrapp
 
 ### AV1 and H.266/VVC
 
-Two newer distribution codecs have arrived since this edition, and — like H.264/H.265 — both are
-delivery and exhibition formats, not post-production working codecs.
+Two newer distribution codecs are worth knowing — and, like H.264/H.265, both are delivery and
+exhibition formats, not post-production working codecs.
 
 **AV1** (AOMedia, royalty-free) is the significant one for streaming: native decode in every major
 browser, broad hardware support, and by late 2025 a large share of Netflix's streaming hours were

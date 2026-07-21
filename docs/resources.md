@@ -2,8 +2,8 @@
 
 The documents, standards, books, and tools cited or referenced across this handbook, gathered in one place. Where a work is freely available, the link goes to the PDF or hosting page; where it is sold, the link goes to the publisher or vendor page that offers it.
 
-!!! note "How sourcing is marked in the text"
-    Claims in the chapters are checked against the primary sources below and cited inline. Anything about **ACES 2.0** postdates the most recent Academy ACES document cited here (2018) — verify against the primary specification before print.
+!!! note "Sourcing"
+    Claims in the chapters are checked against the primary sources below and cited inline.
 
 ## Standards
 

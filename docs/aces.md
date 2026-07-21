@@ -111,8 +111,8 @@ The **Reference Gamut Compression** ([RGC specification](https://docs.acescentra
 
 ## ACES 2.0
 
-!!! danger "Not yet backed by a published ACES standard cited here"
-    This section describes **ACES 2.0**, which postdates the most recent Academy ACES document cited elsewhere in this handbook (TB-2018-001, 2018). Verify against the [ACES documentation](https://docs.acescentral.com/) before print.
+!!! note "ACES 2.0 is new"
+    ACES 2.0 (2025) is still settling into tools and documentation. Verify specifics against the [ACES documentation](https://docs.acescentral.com/) before committing a show to it.
 ACES 2.0 was released in **April 2025**, developed under the Academy Software Foundation. Its significant change is architectural: the separate RRT + ODT model is replaced by a single Output Transform built on a **Hellwig 2022 JMh** color appearance model, with a unified tone scale, chroma compression, and volumetric gamut compression, plus substantially improved invertibility.
 
 Version history: 1.0 (2014), 1.1 (2018), 1.2 (2020), 1.3 (2021), 2.0 (2025). ACES 1.3 remains widely deployed.

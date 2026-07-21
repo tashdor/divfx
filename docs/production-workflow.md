@@ -127,10 +127,6 @@ alternatives for budget-conscious independent productions.
 Medium-budget projects that require more granular control over user permissions may consider
 products like Wiredrive.
 
-!!! warning "Out of date"
-    The specific review platforms named here have changed substantially since 2017. See
-    [Notes for v1.1](v1.1-notes.md#review-and-delivery-platforms).
-
 Efficient tools become even more important as the decrease in staffing brings the consolidation
 of responsibilities onto a select few individuals. Blackmagic Design's DaVinci Resolve has
 become a prominent resource for many DITs, DAMs, and editors, as it supports all major Camera
