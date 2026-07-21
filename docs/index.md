@@ -9,7 +9,7 @@ editorial, visual effects, digital intermediate finishing, and distribution.
 
 ## Why this matters, even on a small production
 
-Visual effects are no longer the preserve of tentpole films. Invisible cleanup, set
+Visual effects are no longer just for big-budget studio films. Invisible cleanup, set
 extensions, sky and screen replacements, beauty work, composited elements, and full CG shots
 now appear in the smallest independent features, documentaries, and even short-form and social
 content — usually without the audience ever noticing they are there. VFX has trickled all the
