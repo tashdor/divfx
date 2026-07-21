@@ -176,11 +176,18 @@
 }
 .md-typeset .fseq-key .sw:first-child { margin-left: 0; }
 
-/* The di|vfx wordmark is solid black; invert it to white in dark mode so it
-   stays visible on the dark header and nav drawer. */
-[data-md-color-scheme="slate"] .md-logo img,
-[data-md-color-scheme="slate"] .md-header__button.md-logo img {
+/* The di|vfx wordmark is solid black, and the header/nav drawer are black in BOTH
+   themes (primary: black), so invert the logo to white everywhere it sits on them. */
+.md-logo img,
+.md-header__button.md-logo img,
+.md-nav__button.md-logo img {
   filter: invert(1);
+}
+
+/* Drop the long site title from the primary navigation sidebar / drawer (the header
+   still carries the logo and title). */
+.md-nav--primary > .md-nav__title {
+  display: none;
 }
 
 /* Mermaid workflow diagrams — Material themes the palette; these polish the
