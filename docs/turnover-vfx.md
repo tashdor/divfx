@@ -164,9 +164,8 @@ the number of comp handle frames is subject to production budget and schedule.
 
 A common example of how visual effects plates might be pulled and numbered:
 
-<figure class="fseq-fig">
-<div class="fseq"><span class="fcell h">1001</span><span class="fcell h">1002</span><span class="fcell h">1003</span><span class="fcell h">1004</span><span class="fcell e">1005</span><span class="fcell e">1006</span><span class="fcell e">1007</span><span class="fcell e">1008</span><span class="fcell e">1009</span><span class="fcell e">1010</span><span class="fcell e">1011</span><span class="fcell e">1012</span><span class="fcell e">1013</span><span class="fcell e">1014</span><span class="fcell e">1015</span><span class="fcell h">1016</span><span class="fcell h">1017</span><span class="fcell h">1018</span><span class="fcell h">1019</span></div>
-<p class="fseq-key"><span class="sw" style="background:#e0912f26;border-color:#e0912f8c"></span> plate/comp handle frames<span class="sw" style="background:#4c7ef526;border-color:#4c7ef58c"></span> edit frames</p>
+<figure class="mosaic-fig" markdown>
+--8<-- "figures/svg/figure-frame-handles.svg"
 </figure>
 
 It is often mandated that the visual effects artists and vendors return a completed shot with a
@@ -174,9 +173,8 @@ slate frame containing information about the shot, revisions made, the company n
 initials, and a framing chart. In this case, the slate frame is prepended to the file sequence
 without offsetting the frame numbering.
 
-<figure class="fseq-fig">
-<div class="fseq"><span class="fcell s">1000</span><span class="fcell h">1001</span><span class="fcell h">1002</span><span class="fcell h">1003</span><span class="fcell h">1004</span><span class="fcell e">1005</span><span class="fcell e">1006</span><span class="fcell e">1007</span><span class="fcell e">1008</span><span class="fcell e">1009</span><span class="fcell e">1010</span><span class="fcell e">1011</span><span class="fcell e">1012</span><span class="fcell e">1013</span><span class="fcell e">1014</span><span class="fcell e">1015</span><span class="fcell h">1016</span><span class="fcell h">1017</span><span class="fcell h">1018</span><span class="fcell h">1019</span></div>
-<p class="fseq-key"><span class="sw" style="background:#e0912f26;border-color:#e0912f8c"></span> plate/comp handle frames<span class="sw" style="background:#4c7ef526;border-color:#4c7ef58c"></span> edit frames<span class="sw" style="background:#7a869544;border-color:#7a8695aa"></span> slate frame</p>
+<figure class="mosaic-fig" markdown>
+--8<-- "figures/svg/figure-frame-slate.svg"
 </figure>
 
 It is common to start the first frame of comp handle or the first main frame at 1001 and work
@@ -189,9 +187,8 @@ frame 1034 will still be the same frame as in the initial pull.
 Alternatively, it may be desired that the first main frame (first frame of the edit) is 1001 with
 handles working backwards.
 
-<figure class="fseq-fig">
-<div class="fseq"><span class="fcell h">0997</span><span class="fcell h">0998</span><span class="fcell h">0999</span><span class="fcell h">1000</span><span class="fcell e">1001</span><span class="fcell e">1002</span><span class="fcell e">1003</span><span class="fcell e">1004</span><span class="fcell e">1005</span><span class="fcell e">1006</span><span class="fcell e">1007</span><span class="fcell e">1008</span><span class="fcell e">1009</span><span class="fcell e">1010</span><span class="fcell e">1011</span><span class="fcell h">1012</span><span class="fcell h">1013</span><span class="fcell h">1014</span><span class="fcell h">1015</span></div>
-<p class="fseq-key"><span class="sw" style="background:#e0912f26;border-color:#e0912f8c"></span> plate/comp handle frames<span class="sw" style="background:#4c7ef526;border-color:#4c7ef58c"></span> edit frames</p>
+<figure class="mosaic-fig" markdown>
+--8<-- "figures/svg/figure-frame-offset.svg"
 </figure>
 
 In some situations, you may intentionally provide more handle frames in the plate than are

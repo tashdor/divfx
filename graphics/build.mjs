@@ -13,7 +13,7 @@ const ROOT = resolve('.');
 const SVG_OUT = resolve('../docs/figures/svg');
 const CSS_OUT = resolve('../docs/stylesheets/mosaic-tokens.css');
 const PKG = 'node_modules/@mosaic/technical-graphics';
-const SEL = 'mosaic-process,mosaic-reel-timeline,mosaic-workflow';
+const SEL = 'mosaic-process,mosaic-reel-timeline,mosaic-workflow,mosaic-frame-sequence';
 const TYPES = {'.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.json': 'application/json'};
 
 // --- 1. Token bridge: pull the library's palette, map to Material's schemes ---

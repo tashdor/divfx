@@ -61,6 +61,51 @@
       <mosaic-edge from="master" to="pq"></mosaic-edge>
       <mosaic-edge from="master" to="dcdm"></mosaic-edge>
     </mosaic-workflow>
+
+    <!-- Figure 6 — longplay: the reels of Figure 5 concatenated into one continuous
+         sequence with no inter-reel leaders. -->
+    <mosaic-reel-timeline data-name="figure-06-longplay" layout="continuous" fps="24"
+      aria-label="Longplay composition of a feature — reels concatenated into one continuous sequence">
+      <mosaic-reel name="Reel 1" start="01:00:00:00" duration="00:18:22:06"></mosaic-reel>
+      <mosaic-reel name="Reel 2" duration="00:19:41:15"></mosaic-reel>
+      <mosaic-reel name="Reel 3" duration="00:17:55:11"></mosaic-reel>
+      <mosaic-reel name="Reel 4" duration="00:20:03:19"></mosaic-reel>
+      <mosaic-reel name="Reel 5" duration="00:16:48:02"></mosaic-reel>
+      <mosaic-reel name="Reel 6" duration="00:12:37:20"></mosaic-reel>
+    </mosaic-reel-timeline>
+
+    <!-- Figure 7 — premium-cable / OTT commercial-free episode: a single continuous
+         program with a slate/head leader and a tail leader. -->
+    <mosaic-reel-timeline data-name="figure-07-episode" fps="24" head="240" tail="120"
+      aria-label="Premium-cable or OTT commercial-free episode with a slate leader and a tail leader">
+      <mosaic-reel name="Episode 1" start="01:00:00:00" duration="00:58:43:14"
+        head-label="Slate / Leader" tail-label="Tail Leader"></mosaic-reel>
+    </mosaic-reel-timeline>
+
+    <!-- Frame numbering — plate/comp handle frames around edit frames. -->
+    <mosaic-frame-sequence data-name="figure-frame-handles"
+      aria-label="Plate and comp handle frames surrounding the edit frames of a shot">
+      <mosaic-frame-run kind="handle" start="1001" count="4"></mosaic-frame-run>
+      <mosaic-frame-run kind="edit" start="1005" count="11"></mosaic-frame-run>
+      <mosaic-frame-run kind="handle" start="1016" count="4"></mosaic-frame-run>
+    </mosaic-frame-sequence>
+
+    <!-- Frame numbering — a slate frame prepended without offsetting the numbering. -->
+    <mosaic-frame-sequence data-name="figure-frame-slate"
+      aria-label="A slate frame prepended to the plate handles and edit frames of a shot">
+      <mosaic-frame-run kind="slate" start="1000" count="1"></mosaic-frame-run>
+      <mosaic-frame-run kind="handle" start="1001" count="4"></mosaic-frame-run>
+      <mosaic-frame-run kind="edit" start="1005" count="11"></mosaic-frame-run>
+      <mosaic-frame-run kind="handle" start="1016" count="4"></mosaic-frame-run>
+    </mosaic-frame-sequence>
+
+    <!-- Frame numbering — a pull that begins at a padded frame (0997). -->
+    <mosaic-frame-sequence data-name="figure-frame-offset"
+      aria-label="Plate handles and edit frames for a shot that begins at frame 0997">
+      <mosaic-frame-run kind="handle" start="997" count="4"></mosaic-frame-run>
+      <mosaic-frame-run kind="edit" start="1001" count="11"></mosaic-frame-run>
+      <mosaic-frame-run kind="handle" start="1012" count="4"></mosaic-frame-run>
+    </mosaic-frame-sequence>
   </main>
 
   <!-- The user-facing integration import (resolved via the import map above). -->

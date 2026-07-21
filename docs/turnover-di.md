@@ -65,15 +65,16 @@ accidentally, so those should only be used for sync as a last resort.
   tail leader (96 frames).</figcaption>
 </figure>
 
-<figure markdown>
-  ![Example longplay composition of a feature length film](figures/figure-06-longplay.png){ loading=lazy }
-  <figcaption>Figure 6 — Example longplay composition of a feature length film.</figcaption>
+<figure class="mosaic-fig" markdown>
+--8<-- "figures/svg/figure-06-longplay.svg"
+<figcaption>Figure 6 — Example longplay composition of a feature length film: the same reels
+assembled into one continuous sequence, with no inter-reel leaders.</figcaption>
 </figure>
 
-<figure markdown>
-  ![Example composition of a premium cable or OTT television episode](figures/figure-07-episode.png){ loading=lazy }
-  <figcaption>Figure 7 — Example composition of a premium cable or OTT commercial-free
-  television episode, with a 240-frame slate/leader and a 120-frame tail leader.</figcaption>
+<figure class="mosaic-fig" markdown>
+--8<-- "figures/svg/figure-07-episode.svg"
+<figcaption>Figure 7 — Example composition of a premium cable or OTT commercial-free television
+episode, with a 240-frame slate/leader and a 120-frame tail leader.</figcaption>
 </figure>
 
 ### Simplifying Timelines
