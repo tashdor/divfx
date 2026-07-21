@@ -29,27 +29,29 @@
     <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <style>
-      .contact-form { max-width: 640px; margin: 1.4em 0; }
-      .contact-form .cf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-bottom: 0.9rem; }
-      .contact-form .cf-grid .cf-field { margin-bottom: 0; }
-      .contact-form .cf-field { display: block; margin-bottom: 0.9rem; }
-      .contact-form .cf-field > span { display: block; font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #7a7a7a; margin-bottom: .3rem; }
+      .contact-form { margin: 0 0 20px; }
+      .contact-form .cf-grid { display: flex; gap: 12px; }
+      .contact-form .cf-grid .cf-field { flex: 1; }
+      .contact-form .cf-field { display: block; margin-bottom: 12px; }
+      .contact-form .cf-field > span { display: block; font-size: 13px; color: #494949; margin-bottom: 4px; }
       .contact-form input,
       .contact-form textarea {
-        width: 100%; box-sizing: border-box; padding: .55rem .7rem; font: inherit; font-size: .85rem;
+        width: 100%; box-sizing: border-box; padding: 7px 10px;
+        font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         color: #333; background: #fff;
-        border: 1px solid #ccc; border-radius: 6px; transition: border-color .15s ease;
+        border: 1px solid #e0e0e0; border-radius: 5px; transition: border-color .15s ease;
       }
-      .contact-form textarea { resize: vertical; min-height: 5.5rem; }
+      .contact-form textarea { resize: vertical; min-height: 90px; }
       .contact-form input:focus,
       .contact-form textarea:focus { outline: none; border-color: #267CB9; }
       .contact-form .cf-submit {
-        appearance: none; -webkit-appearance: none; cursor: pointer; padding: .55rem 1.3rem; font-size: .85rem; font-weight: 600;
+        appearance: none; -webkit-appearance: none; cursor: pointer;
+        padding: 8px 20px; font-size: 14px; font-weight: 700;
         color: #fff; background: #267CB9;
-        border: none; border-radius: 6px; transition: opacity .15s ease;
+        border: none; border-radius: 5px; transition: background .15s ease;
       }
-      .contact-form .cf-submit:hover { opacity: .88; }
-      @media (max-width: 480px) { .contact-form .cf-grid { grid-template-columns: 1fr; } }
+      .contact-form .cf-submit:hover { background: #069; }
+      @media print, screen and (max-width: 480px) { .contact-form .cf-grid { display: block; } }
     </style>
   </head>
   <body>
