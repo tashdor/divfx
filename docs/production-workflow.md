@@ -2,10 +2,11 @@
 
 <figure class="mosaic-fig" markdown>
 --8<-- "figures/svg/production-workflow.svg"
-<figcaption>The image path at a glance: pre-production through production (and dailies) into
-editorial, then the digital intermediate, fanning out to theatrical, video, and archival masters.
-Visual effects run as a tangent off editorial — plates are pulled and finished shots return to the
-cut. Each stage is a section below.</figcaption>
+<figcaption>The image path at a glance. Pre-production plans multiple production units —
+principal photography, green-screen work, and plates and elements — which flow through dailies into
+editorial. Visual effects combines those plates with CGI in compositing; finished shots return to the
+digital intermediate, which fans out to theatrical (DCP and a film-out), video, and archival
+deliverables. Each stage is detailed in a section below.</figcaption>
 </figure>
 
 ## Pre-Production / Visualization

@@ -8,7 +8,7 @@
     "build": "node build.mjs"
   },
   "dependencies": {
-    "@mosaic/technical-graphics": "github:tashdor/mosaic-graphics-system#v0.4.1"
+    "@mosaic/technical-graphics": "github:tashdor/mosaic-graphics-system#v0.5.0"
   },
   "devDependencies": {
     "playwright": "^1.52.0"
