@@ -17,7 +17,7 @@ way down.
 
 What has *not* trickled down is the studio infrastructure that keeps those productions on schedule and on budget, while achieving high quality:
 scene-referred color pipelines, shot-naming and turnover conventions, format discipline, and
-clear communication between editorial, the vendor, and the finish. On an independent
+clear communication between editorial, the VFX vendors, and the colorist and finishing house. On an independent
 production, the difference between a visual effects shot that costs a few hundred dollars and
 one that spirals is almost always decided *before a single frame is pulled* — in planning,
 format choices, and how cleanly the hand-offs are organized.
