@@ -96,6 +96,23 @@ supports an embedded alpha channel.
 
 These codecs are commonly found in `.mov`, `.mp4`, `.m4v`, and `.mkv` file wrappers.
 
+### AV1 and H.266/VVC
+
+Two newer distribution codecs have arrived since this edition, and — like H.264/H.265 — both are
+delivery and exhibition formats, not post-production working codecs.
+
+**AV1** (AOMedia, royalty-free) is the significant one for streaming: native decode in every major
+browser, broad hardware support, and by late 2025 a large share of Netflix's streaming hours were
+served in AV1. For an independent production it matters as a *destination* your master gets encoded
+into by the platform — not something you deliver, edit, or master in.
+
+**H.266/VVC** is far more niche — little consumer hardware decode and no browser support — with its
+real traction in broadcast (Brazil's TV 3.0 / DTV+ mandates VVC and began 4K HDR over-the-air in
+2025). An independent film will not deliver in it.
+
+Neither is an acquisition, working, or mastering format. Treat both as the platform-side encodes that
+sit *downstream* of your ProRes / IMF / DCP master.
+
 ## Frame-Based Formats
 
 ### OpenEXR (.exr)

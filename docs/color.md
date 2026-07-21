@@ -144,7 +144,15 @@ thus used as a deliverable and projection format only, not as an intermediate wo
 DCDMs (Digital Cinema Distribution Masters) and DCPs (Digital Cinema Packages) are produced
 in DCI-X'Y'Z' space.
 
-!!! note "Correct, and worth spelling out"
-    The "compensation factor" is exactly what the sentence says it is — the constant 52.37 is
-    what allows D65 to be encoded at 48 cd/m². The derivation is in
-    [Notes for v1.1](v1.1-notes.md#dci-xyz-encoding).
+!!! note "Correct — and worth spelling out"
+    The "compensation factor" is exactly what the sentence says. The encoding (SMPTE ST 428-1) is
+    `CV(X') = INT[ 4095 × (X / 52.37)^(1/2.6) ]`, and likewise for Y' and Z'. The question is why the
+    normalizing constant is **52.37** rather than the **48 cd/m²** SMPTE reference white. Normalize by
+    48 and the white point at equal maximum code values `[4095 4095 4095]` lands at XYZ `[48 48 48]`
+    (chromaticity x = y = ⅓, the **Equal Energy** point); that gamut encloses D55, Equal Energy, and
+    the DCI projector white — **but not D65**, whose Z at Y = 48 is
+    `48 × (1 − 0.3127 − 0.3290) / 0.3290 ≈ 52.3`, just over 48. Choosing **52.37** pulls D65 inside
+    the encodable set — precisely "to increase the range of producible white points." The often-quoted
+    ceiling (Y' caps at code value 3960 while X' and Z' reach 4095) is a *consequence* of that choice,
+    not its cause. Note too that the encoding white point — equal maximum code values — is the Equal
+    Energy point, deliberately **not** the DCI projector white point.

@@ -111,9 +111,10 @@ processing dailies, but that task is often delegated to the production editorial
 Processed dailies are delivered to production editorial as DNxHD 36 QuickTimes or MXFs, or
 Apple ProRes QuickTimes. Circled takes — occasionally all takes — are transcoded to H.264s with
 audio and uploaded to a secure server and provided to the filmmakers for creative review. PIX
-and DAX are the predominant studio-approved review systems, but there are many more out
-there that can benefit productions of all scales. Low-cost review tools such as Frame.io, Vimeo,
-and Dropbox are useful alternatives for budget-conscious independent productions.
+(now Autodesk Flow Capture) and DAX (now part of CLEAR) are the predominant studio-approved
+review systems, but there are many more out there that can benefit productions of all scales.
+Low-cost review tools such as Frame.io (now an Adobe product), Vimeo, and Dropbox are useful
+alternatives for budget-conscious independent productions.
 Medium-budget projects that require more granular control over user permissions may consider
 products like Wiredrive.
 
