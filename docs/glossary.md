@@ -50,7 +50,7 @@ See [OpenEXR](working-formats.md#openexr-exr).
 
 **Display-referred** — Image encoding defined in relation to display characteristics, with no
 numeric relationship to real-world exposure. The state of any image intended for exhibition.
-See [Display-Referred Imagery](digital-intermediates.md#display-referred-imagery).
+See [Display-Referred Imagery](scene-referred.md#display-referred-imagery).
 
 **DIT** — Digital Imaging Technician. Responsible for on-set ingest, backup, and often on-set look
 creation. See [Digital Dailies](production-workflow.md#digital-dailies).
@@ -89,7 +89,7 @@ See [Working in Reels](turnover-di.md#working-in-reels).
 
 **LUT** — Look Up Table. A pre-computed color transformation, either technical (standards-based)
 or creative (subjective, s-shaped, scene-to-display).
-See [Look Up Tables](digital-intermediates.md#look-up-tables-luts).
+See [Look Up Tables](luts.md).
 
 ## M
 
@@ -123,15 +123,15 @@ See [Working in Reels](turnover-di.md#working-in-reels).
 
 **Scene-linear** — Linear encoding of relative light values in floating point, with middle gray at
 0.18 and each stop doubling. Values may exceed 1.0.
-See [Scene-Linear](digital-intermediates.md#scene-linear).
+See [Scene-Linear](scene-referred.md#scene-linear).
 
 **Scene-referred** — Image encoding defined in relation to the scene's relative exposure values,
 retaining the camera's native dynamic range.
-See [Scene-Referred Imagery](digital-intermediates.md#scene-referred-imagery).
+See [Scene-Referred Imagery](scene-referred.md#scene-referred-imagery).
 
 **Show LUT** — The single scene-to-display transformation chosen for a project. Drives on-set
 monitoring and sits at the end of the grading pipeline; the digital equivalent of print stock.
-See [The Show LUT](digital-intermediates.md#the-show-lut).
+See [The Show LUT](luts.md#the-show-lut).
 
 **Slap comp** — A rough temporary composite made in editorial to convey a story beat before the
 real shot exists. See [Creative Editorial](production-workflow.md#creative-editorial).

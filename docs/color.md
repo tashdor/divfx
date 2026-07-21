@@ -25,7 +25,7 @@ by Jeremy Selan.
 !!! warning "Major omission"
     This chapter predates the widespread adoption of ACES and OpenColorIO as the default
     color management framework in visual effects. Any 2026 workflow discussion should start
-    there. See [Notes for v1.1](v1.1-notes.md#aces-and-opencolorio).
+    there. See the [ACES](aces.md) and [Color Management and OpenColorIO](color-management.md) chapters.
 
 ## Color Spaces
 

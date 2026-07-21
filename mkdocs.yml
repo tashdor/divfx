@@ -103,9 +103,11 @@ nav:
       - Generalized Production Workflow: production-workflow.md
   - Foundations:
       - An Overview of Digital Intermediates: digital-intermediates.md
+      - Scene-Referred vs. Display-Referred Imagery: scene-referred.md
+      - Color Spaces and Transfer Functions: color.md
+      - Look Up Tables (LUTs): luts.md
       - Common Working Formats: working-formats.md
       - Working and Delivery Resolutions: resolutions.md
-      - Color Spaces and Transfer Functions: color.md
   - Color Management:
       - ACES: aces.md
       - Color Management and OpenColorIO: color-management.md
@@ -121,6 +123,7 @@ nav:
       - IMF — The Interoperable Master Format: imf.md
       - DCP — The Digital Cinema Package: dcp.md
       - Distribution Deliverables for Independent Film: distribution-deliverables.md
+      - Archival: archival.md
   - Reference:
       - Supplemental Reading & Resources: resources.md
       - Glossary: glossary.md

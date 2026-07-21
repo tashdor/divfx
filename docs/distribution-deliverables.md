@@ -24,7 +24,7 @@ at a full deliverables package up front is a good way to pay for the same work t
 
 - A clean, well-organized **archival master** — graded, at your finishing resolution and color space,
   in a high-bit-depth format (16-bit DPX or OpenEXR, or ProRes 4444), with an **ungraded** archival
-  master alongside. See [Archival](production-workflow.md#archival).
+  master alongside. See [Archival](archival.md).
 - **Textless elements** for every shot that has text over picture.
 - The **audio mix session, discrete stems, and a fully-filled M&E** — printed while the mix stage is
   still open (see [Audio](#audio-what-to-mix-and-to-what-target) below).

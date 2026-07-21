@@ -83,7 +83,7 @@ The baseline is a **manually color-managed** pipeline: a consistent scene-referr
 
 **Between the frameworks:**
 
-- Choose **ACES** for the widest, most vendor-neutral interchange and for a **scene-referred archival master** — the [Graded Archival Master](production-workflow.md#graded-archival-master) case.
+- Choose **ACES** for the widest, most vendor-neutral interchange and for a **scene-referred archival master** — the [Graded Archival Master](archival.md#graded-archival-master) case.
 - Choose **Resolve RCM** when the finish effectively lives in Resolve, the show is single-facility, and VFX come back as scene-referred EXRs on an agreed working space. It is the cheapest managed workflow to stand up and DWG is a solid working space. You can still switch Resolve into ACES if interchange needs grow.
 - Choose **FilmLight TCS / T-CAM** when you finish at a Baselight house or specifically want T-CAM's rendering; its published files and OCIO config make it more portable than Resolve's DRT, and it interoperates with ACES.
 

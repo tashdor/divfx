@@ -89,9 +89,9 @@ ACES 1.0 deliberately renamed the transforms in user-facing terms. TB-2014-012 r
 | **[Look Transform](https://docs.acescentral.com/system-components/look-transforms/)** | Look Modification Transform (LMT) | Applies a global, show-wide look upstream of the Output Transform |
 | **[Output Transform](https://docs.acescentral.com/system-components/output-transforms/)** | "RRT plus ODT" | Converts ACES data to display code values |
 
-The Look Transform is the ACES equivalent of the concept this handbook already calls the [Show LUT](digital-intermediates.md#the-show-lut) — a single show-wide creative transformation that everyone works beneath. Academy TB-2014-010 covers their design and integration; see also [Look Transforms](https://docs.acescentral.com/system-components/look-transforms/).
+The Look Transform is the ACES equivalent of the concept this handbook already calls the [Show LUT](luts.md#the-show-lut) — a single show-wide creative transformation that everyone works beneath. Academy TB-2014-010 covers their design and integration; see also [Look Transforms](https://docs.acescentral.com/system-components/look-transforms/).
 
-The important structural property, and the reason ACES fits the workflow this handbook describes: **grading happens under the Output Transform, not baked into the render**. That is the same discipline the [Graded Archival Master](production-workflow.md#graded-archival-master) section already requires — a fully scene-referred pipeline with the display transform applied at the end.
+The important structural property, and the reason ACES fits the workflow this handbook describes: **grading happens under the Output Transform, not baked into the render**. That is the same discipline the [Graded Archival Master](archival.md#graded-archival-master) section already requires — a fully scene-referred pipeline with the display transform applied at the end.
 
 ### Container
 

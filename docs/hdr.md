@@ -93,7 +93,7 @@ Either way, a theatrical HDR pass is its own grade, and its own line item.
 
 HDR is not only a DI concern, and this is the part an independent production most often discovers late:
 
-- **Bit depth.** The argument only strengthens for HDR: 10-bit log is not enough. 12-bit log is the floor for HDR finishing, 16-bit float preferable. See [Camera Log](digital-intermediates.md#camera-log).
+- **Bit depth.** The argument only strengthens for HDR: 10-bit log is not enough. 12-bit log is the floor for HDR finishing, 16-bit float preferable. See [Camera Log](scene-referred.md#camera-log).
 - **Highlights are visible now.** Specular detail, practical lights, and skies that clipped invisibly in a Rec.709 grade are plainly visible at 1 000 nits. Comps that "worked" in SDR reveal blown highlight rolloff, clipped CG speculars, and mismatched black points.
 - **Review at the target.** The [VFX review](production-workflow.md#visual-effects-reviews) section already insists on reviewing in a calibrated environment matching the intended exhibition. For an HDR deliverable that means an HDR reference display, not a Rec.709 monitor with the assumption that it will "hold up."
 - **Exposure checking earns its keep.** The [exposure check](vfx-quality-control.md#exposure-checking) technique — driving exposure up and down to test whether artificial highlights clip where plate highlights clip — is a proxy for exactly the failure HDR exposes. Productions that adopt it during SDR work arrive at HDR with fewer surprises.
