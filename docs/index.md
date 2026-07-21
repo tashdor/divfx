@@ -125,4 +125,23 @@ The original typeset editions remain available for download:
 
 ## Contact
 
-Questions, comments, and errata can be sent to [divfx@tashitrieu.com](mailto:divfx@tashitrieu.com).
+Questions, comments, and errata are welcome — send a note below.
+
+<form class="contact-form" action="https://formspree.io/f/mpqvljlq" method="POST">
+  <input type="hidden" name="_subject" value="divfx Inquiry">
+  <div class="cf-grid">
+    <label class="cf-field">
+      <span>Name</span>
+      <input type="text" name="name" required autocomplete="name">
+    </label>
+    <label class="cf-field">
+      <span>Email</span>
+      <input type="email" name="email" required autocomplete="email">
+    </label>
+  </div>
+  <label class="cf-field">
+    <span>Message</span>
+    <textarea name="message" rows="5" required></textarea>
+  </label>
+  <button type="submit" class="cf-submit">Send message</button>
+</form>

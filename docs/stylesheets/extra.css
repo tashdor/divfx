@@ -192,3 +192,25 @@
   color: var(--md-default-fg-color--light);
   font-size: 0.72rem;
 }
+
+/* Contact form (Formspree) — theme-aware, matches Material tokens. */
+.md-typeset .contact-form { max-width: 640px; margin: 1.4em 0; }
+.md-typeset .contact-form .cf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-bottom: 0.9rem; }
+.md-typeset .contact-form .cf-grid .cf-field { margin-bottom: 0; }
+.md-typeset .contact-form .cf-field { display: block; margin-bottom: 0.9rem; }
+.md-typeset .contact-form .cf-field > span { display: block; font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--md-default-fg-color--light); margin-bottom: .3rem; }
+.md-typeset .contact-form input,
+.md-typeset .contact-form textarea {
+  width: 100%; box-sizing: border-box; padding: .55rem .7rem; font: inherit; font-size: .8rem;
+  color: var(--md-default-fg-color); background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lighter); border-radius: 6px; transition: border-color .15s ease;
+}
+.md-typeset .contact-form textarea { resize: vertical; min-height: 5.5rem; }
+.md-typeset .contact-form input:focus,
+.md-typeset .contact-form textarea:focus { outline: none; border-color: var(--md-primary-fg-color); }
+.md-typeset .contact-form .cf-submit {
+  appearance: none; cursor: pointer; padding: .55rem 1.3rem; font-size: .8rem; font-weight: 600;
+  color: var(--md-primary-bg-color); background: var(--md-primary-fg-color);
+  border: none; border-radius: 6px; transition: opacity .15s ease;
+}
+.md-typeset .contact-form .cf-submit:hover { opacity: .88; }
