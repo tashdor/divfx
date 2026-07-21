@@ -28,20 +28,12 @@ Each system works in its own wide-gamut internal space. The three you will meet 
 
 **Objective:** normalize many cameras into one scene-referred working space and retarget to any deliverable, without leaving Resolve. Instead of grading log footage into shape by hand (*display-referred* — Resolve knows nothing about the source), you tell it each clip's camera profile and it maps that source into a working space and out to the deliverable using the manufacturer's known log curve and gamut (*scene-referred*).[^dg1]
 
-<figure class="wfd-fig">
-<div class="wfd-wrap resolve">
-<div class="wlabel">Inside DaVinci Resolve — one application</div>
-<div class="wfd">
-<div class="wbox src"><b>Source clips</b><small>camera metadata</small></div>
-<div class="warr">assign Input Color Space</div>
-<div class="wbox dwg"><b>DaVinci Wide Gamut / Intermediate</b><small>timeline working space</small></div>
-<div class="warr">Output Color Space + DRT (applied last)</div>
-<div class="wbox del"><b>Deliverables</b><small>Rec.709 · P3 · Rec.2100</small></div>
-</div>
-</div>
+<figure class="mosaic-fig" markdown>
+--8<-- "figures/svg/rcm-workflow.svg"
+<figcaption>RCM inside one application: each source clip is assigned an input color space, mapped into
+the <b>DaVinci Wide Gamut / Intermediate</b> working space, then rendered through one output display
+transform (the Resolve DRT, applied last) to each deliverable — Rec.709, P3-D65, and Rec.2100.</figcaption>
 </figure>
-
-*RCM in one application: per-clip input assignment into DaVinci Wide Gamut / Intermediate, then an output space per deliverable with the display transform applied last.*
 
 **RCM is an alternative to ACES, not the opposite of it.** Both are the same *kind* of system — "automatic," scene-referred color management, where you assign each clip its source camera format / input color space and the tool maps it into a common working space and out through a display transform. The difference is that RCM is a configurable, single-vendor *framework*: you choose among many working spaces (DaVinci Wide Gamut, Rec.2020, camera-native wide gamuts — and Resolve can even run ACES itself as its color science) and among several **output tone-mapping methods** (the Output DRT — the Resolve default, RED IPP2, saturation-preserving variants, or *None*). ACES is essentially *one standardized configuration* of that same idea, available inside Resolve alongside the Resolve-native one; choosing between them is a project setting, so "we grade in Resolve" and "the show is ACES" are not mutually exclusive.[^dg3]
 
@@ -57,20 +49,12 @@ The working space Blackmagic recommends is **DaVinci Wide Gamut (DWG)** with the
 
 **Objective:** a high-end managed grade whose display transform is built on a color appearance model. FilmLight's systems (**Baselight**, and the on-set/dailies tool **Daylight**) work in the **Truelight Color Spaces (TCS)** — an **E-Gamut / T-Log** working space — and render to display through **T-CAM** (the Truelight Color Appearance Model, currently v2), which maps scene-referred data to a display without baking in a specific look. (E-Gamut / T-Log / T-CAM-v2 are FilmLight product names, not standardized designations; see [FilmLight — Truelight](https://www.filmlight.ltd.uk/workflow/truelight.php).)
 
-<figure class="wfd-fig">
-<div class="wfd-wrap baselight">
-<div class="wlabel">Inside Baselight / Daylight — one application</div>
-<div class="wfd">
-<div class="wbox src"><b>Source clips</b><small>camera metadata</small></div>
-<div class="warr">assign Truelight input</div>
-<div class="wbox tcs"><b>E-Gamut / T-Log</b><small>timeline working space</small></div>
-<div class="warr">T-CAM v2 display transform (applied last)</div>
-<div class="wbox del"><b>Displays</b><small>Rec.709 · P3-D65 · Rec.2100</small></div>
-</div>
-</div>
+<figure class="mosaic-fig" markdown>
+--8<-- "figures/svg/tcs-workflow.svg"
+<figcaption>The same shape as RCM, inside Baselight / Daylight: each source clip is assigned a Truelight
+input, mapped into the <b>E-Gamut / T-Log</b> working space, then rendered to each display through the
+<b>T-CAM v2</b> display transform (applied last).</figcaption>
 </figure>
-
-*The same shape as RCM — a single-application managed workflow — on E-Gamut / T-Log, rendered to display through T-CAM.*
 
 What makes T-CAM distinctive is a documented design *philosophy*: its author, FilmLight's Richard Kirk, argues for the simplest appearance model that works rather than the most elaborate.
 

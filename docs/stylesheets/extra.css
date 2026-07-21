@@ -117,31 +117,6 @@
   .cp-embed-frame { display: none !important; }
 }
 
-/* Workflow diagrams — colored boxes in a vertical flow. Pure HTML/CSS:
-   renders everywhere, no JS, theme-aware. */
-.md-typeset .wfd-fig { margin: 1.8em 0; }
-.md-typeset .wfd { display: flex; flex-direction: column; align-items: center; gap: 0; }
-.md-typeset .wfd .wbox {
-  width: 100%; max-width: 460px; box-sizing: border-box; text-align: center;
-  padding: 9px 14px; border-radius: 8px; border: 1.5px solid; background: transparent;
-}
-.md-typeset .wfd .wbox b { display: block; font-weight: 600; font-size: .82rem; }
-.md-typeset .wfd .wbox small { display: block; color: var(--md-default-fg-color--light); font-size: .68rem; margin-top: 2px; line-height: 1.25; }
-.md-typeset .wfd .warr { padding: 5px 0 3px; color: var(--md-default-fg-color--light); font-size: .66rem; text-align: center; line-height: 1.2; max-width: 460px; }
-.md-typeset .wfd .warr::after { content: "▼"; display: block; font-size: .95em; opacity: .8; }
-.md-typeset .wfd .warr.updown::after { content: "⇅"; }
-.md-typeset .wfd .wbox.round { border-style: dashed; }
-.md-typeset .wfd .src   { border-color: #7a8695; background: #7a869514; }
-.md-typeset .wfd .aces  { border-color: #4c7ef5; background: #4c7ef514; }
-.md-typeset .wfd .vfx   { border-color: #9b6dff; background: #9b6dff14; }
-.md-typeset .wfd .del   { border-color: #2fb457; background: #2fb45714; }
-.md-typeset .wfd .dwg   { border-color: #e8590c; background: #e8590c14; }
-.md-typeset .wfd .tcs   { border-color: #12b3a6; background: #12b3a614; }
-.md-typeset .wfd-wrap { border: 1.5px dashed; border-radius: 12px; padding: 14px 12px 6px; margin: 1.8em auto; max-width: 500px; }
-.md-typeset .wfd-wrap .wlabel { text-align: center; font-size: .62rem; letter-spacing: .09em; text-transform: uppercase; color: var(--md-default-fg-color--light); margin-bottom: 10px; }
-.md-typeset .wfd-wrap.resolve { border-color: #e8590c8c; }
-.md-typeset .wfd-wrap.baselight { border-color: #12b3a68c; }
-
 /* Frame-sequence diagrams — one colored cell per frame, so regions never
    visually overlap or share a boundary frame. Pure HTML/CSS: renders
    everywhere, no JS, and adapts to the theme. */

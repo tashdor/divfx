@@ -81,22 +81,24 @@ published math formulas and defined standards, so there is no subjectivity invol
 Technical transformations on display-referred images are necessary to convert between
 different display types (e.g. digital cinema to home video).
 
-A common display-referred technical transformation:
+A common display-referred technical transformation — converting one display standard to another, such
+as home video to digital cinema:
 
-```
-Rec.709 / Gamma 2.4  →  DCI-P3 / Gamma 2.6
-```
+<figure class="mosaic-fig" markdown>
+--8<-- "figures/svg/tech-transform-display.svg"
+</figure>
 
 Similarly, transformations on scene-referred data can convert from camera log to scene-linear,
 for compositing, and back again without compromising meaningful colorimetric data.
 Additionally, it is possible to convert from one camera's native log encoding and color space
 into another.
 
-A common scene-referred technical transformation:
+A common scene-referred technical transformation — matching one camera's native log encoding and
+gamut to another's:
 
-```
-Sony S-Log3 / S-Gamut3  →  ARRI LogC / ALEXA Wide Gamut
-```
+<figure class="mosaic-fig" markdown>
+--8<-- "figures/svg/tech-transform-scene.svg"
+</figure>
 
 This can be particularly helpful in maintaining color continuity when intercutting different
 cameras in the same scene. Even more helpful when multiple VFX plates are shot from different

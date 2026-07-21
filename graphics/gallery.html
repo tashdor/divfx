@@ -48,10 +48,10 @@
       <mosaic-workflow-node id="vfx" rank="2" lane="0" icon="plate" tone="green">VFX Vendors</mosaic-workflow-node>
       <mosaic-workflow-node id="grade" rank="2" lane="2" icon="resolve" tone="violet">ACEScct Grade</mosaic-workflow-node>
       <mosaic-workflow-node id="master" rank="3" lane="2" icon="exr" tone="blue">Graded Master</mosaic-workflow-node>
-      <mosaic-workflow-node id="rec709" rank="4" lane="1" icon="monitor" tone="coral" group="deliverables">Rec.709</mosaic-workflow-node>
-      <mosaic-workflow-node id="p3" rank="4" lane="2" icon="monitor" tone="coral" group="deliverables">P3-D65</mosaic-workflow-node>
-      <mosaic-workflow-node id="pq" rank="4" lane="3" icon="hdr" tone="coral" group="deliverables">Rec.2100 PQ</mosaic-workflow-node>
-      <mosaic-workflow-node id="dcdm" rank="4" lane="4" icon="dcp" tone="coral" group="deliverables">DCDM</mosaic-workflow-node>
+      <mosaic-workflow-node id="rec709" rank="5" lane="1" icon="monitor" tone="coral" group="deliverables">Rec.709</mosaic-workflow-node>
+      <mosaic-workflow-node id="p3" rank="5" lane="2" icon="monitor" tone="coral" group="deliverables">P3-D65</mosaic-workflow-node>
+      <mosaic-workflow-node id="pq" rank="5" lane="3" icon="hdr" tone="coral" group="deliverables">Rec.2100 PQ</mosaic-workflow-node>
+      <mosaic-workflow-node id="dcdm" rank="5" lane="4" icon="dcp" tone="coral" group="deliverables">DCDM</mosaic-workflow-node>
       <mosaic-edge from="camera" to="interchange"></mosaic-edge>
       <mosaic-edge from="interchange" to="vfx"></mosaic-edge>
       <mosaic-edge from="interchange" to="grade"></mosaic-edge>
@@ -112,10 +112,10 @@
       <mosaic-workflow-node id="cgi" rank="3" lane="0" icon="exr" tone="green">CGI / 3D</mosaic-workflow-node>
       <mosaic-workflow-node id="comp" rank="4" lane="1" icon="plate" tone="green">Compositing</mosaic-workflow-node>
       <mosaic-workflow-node id="di" rank="5" lane="2" icon="grade" tone="violet">Digital Intermediate</mosaic-workflow-node>
-      <mosaic-workflow-node id="dcp" rank="6" lane="0" icon="dcp" tone="coral" group="deliverables">DCP</mosaic-workflow-node>
-      <mosaic-workflow-node id="filmout" rank="6" lane="1" icon="film" tone="coral" group="deliverables">Film Out</mosaic-workflow-node>
-      <mosaic-workflow-node id="video" rank="6" lane="2" icon="monitor" tone="coral" group="deliverables">Video Masters</mosaic-workflow-node>
-      <mosaic-workflow-node id="archive" rank="6" lane="3" icon="storage" tone="coral" group="deliverables">Archival</mosaic-workflow-node>
+      <mosaic-workflow-node id="dcp" rank="7" lane="0" icon="dcp" tone="coral" group="deliverables">DCP</mosaic-workflow-node>
+      <mosaic-workflow-node id="filmout" rank="7" lane="1" icon="film" tone="coral" group="deliverables">Film Out</mosaic-workflow-node>
+      <mosaic-workflow-node id="video" rank="7" lane="2" icon="monitor" tone="coral" group="deliverables">Video Masters</mosaic-workflow-node>
+      <mosaic-workflow-node id="archive" rank="7" lane="3" icon="storage" tone="coral" group="deliverables">Archival</mosaic-workflow-node>
       <mosaic-edge from="pre" to="photog"></mosaic-edge>
       <mosaic-edge from="pre" to="gs"></mosaic-edge>
       <mosaic-edge from="pre" to="plates"></mosaic-edge>
@@ -140,6 +140,53 @@
       <mosaic-frame-run kind="edit" start="1001" count="11"></mosaic-frame-run>
       <mosaic-frame-run kind="handle" start="1012" count="4"></mosaic-frame-run>
     </mosaic-frame-sequence>
+
+    <!-- RCM — DaVinci Resolve Color Management: per-clip input assignment into the
+         DaVinci Wide Gamut / Intermediate working space, then one display transform
+         out to each deliverable. A single-application managed workflow. -->
+    <mosaic-workflow data-name="rcm-workflow"
+      aria-label="DaVinci Resolve Color Management: source clips are assigned an input color space, mapped into the DaVinci Wide Gamut / Intermediate working space, then rendered through one output display transform to each deliverable">
+      <mosaic-workflow-node id="src" rank="0" lane="1" icon="camera" tone="green">Source Clips</mosaic-workflow-node>
+      <mosaic-workflow-node id="dwg" rank="1" lane="1" icon="resolve" tone="blue">DaVinci Wide Gamut</mosaic-workflow-node>
+      <mosaic-workflow-node id="rec709" rank="3" lane="0" icon="monitor" tone="coral" group="deliverables">Rec.709</mosaic-workflow-node>
+      <mosaic-workflow-node id="p3" rank="3" lane="1" icon="monitor" tone="coral" group="deliverables">P3-D65</mosaic-workflow-node>
+      <mosaic-workflow-node id="pq" rank="3" lane="2" icon="hdr" tone="coral" group="deliverables">Rec.2100</mosaic-workflow-node>
+      <mosaic-edge from="src" to="dwg"></mosaic-edge>
+      <mosaic-edge from="dwg" to="rec709"></mosaic-edge>
+      <mosaic-edge from="dwg" to="p3"></mosaic-edge>
+      <mosaic-edge from="dwg" to="pq"></mosaic-edge>
+    </mosaic-workflow>
+
+    <!-- TCS — FilmLight Truelight Color Spaces: the same shape as RCM, on an
+         E-Gamut / T-Log working space, rendered to display through T-CAM. -->
+    <mosaic-workflow data-name="tcs-workflow"
+      aria-label="FilmLight Truelight Color Spaces: source clips are assigned a Truelight input, mapped into the E-Gamut / T-Log working space, then rendered through the T-CAM display transform to each display deliverable">
+      <mosaic-workflow-node id="src" rank="0" lane="1" icon="camera" tone="green">Source Clips</mosaic-workflow-node>
+      <mosaic-workflow-node id="tcs" rank="1" lane="1" icon="grade" tone="blue">E-Gamut / T-Log</mosaic-workflow-node>
+      <mosaic-workflow-node id="rec709" rank="3" lane="0" icon="monitor" tone="coral" group="deliverables">Rec.709</mosaic-workflow-node>
+      <mosaic-workflow-node id="p3" rank="3" lane="1" icon="monitor" tone="coral" group="deliverables">P3-D65</mosaic-workflow-node>
+      <mosaic-workflow-node id="pq" rank="3" lane="2" icon="hdr" tone="coral" group="deliverables">Rec.2100</mosaic-workflow-node>
+      <mosaic-edge from="src" to="tcs"></mosaic-edge>
+      <mosaic-edge from="tcs" to="rec709"></mosaic-edge>
+      <mosaic-edge from="tcs" to="p3"></mosaic-edge>
+      <mosaic-edge from="tcs" to="pq"></mosaic-edge>
+    </mosaic-workflow>
+
+    <!-- Technical transform (display-referred) — converting between display types,
+         e.g. digital cinema to home video. Published math, no subjectivity. -->
+    <mosaic-process data-name="tech-transform-display"
+      aria-label="A display-referred technical transform from Rec.709 gamma 2.4 to DCI-P3 gamma 2.6">
+      <mosaic-node icon="monitor" eyebrow="Source display" detail="Gamma 2.4 · SDR">Rec.709</mosaic-node>
+      <mosaic-node icon="monitor" eyebrow="Target display" detail="Gamma 2.6 · Cinema">DCI-P3</mosaic-node>
+    </mosaic-process>
+
+    <!-- Technical transform (scene-referred) — matching one camera's native log
+         encoding and gamut to another's for continuity when intercutting. -->
+    <mosaic-process data-name="tech-transform-scene"
+      aria-label="A scene-referred technical transform from Sony S-Log3 S-Gamut3 to ARRI LogC ALEXA Wide Gamut">
+      <mosaic-node icon="camera" eyebrow="Source camera" detail="S-Gamut3">Sony S-Log3</mosaic-node>
+      <mosaic-node icon="camera" eyebrow="Matched to" detail="ALEXA Wide Gamut">ARRI LogC</mosaic-node>
+    </mosaic-process>
   </main>
 
   <!-- The user-facing integration import (resolved via the import map above). -->
