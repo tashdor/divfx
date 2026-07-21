@@ -67,8 +67,8 @@ See [EDL](turnover-di.md#edl).
 
 ## F
 
-**FFOP / LFOP** — First and last frame of picture. Reference points for leaders and pops.
-See [Leaders and Tail-Pop](turnover-di.md#leaders-and-tail-pop).
+**FFOP** — First Frame of Picture. The reference point marking where the program picture begins,
+used to align head leaders and the 2-pop. See [Leaders and Tail-Pop](turnover-di.md#leaders-and-tail-pop).
 
 **Framing chart** — A photographed chart or generated pixel-accurate reticle communicating
 intended framing unambiguously. See [Framing Charts](resolutions.md#framing-charts).
@@ -83,6 +83,9 @@ See [Frame Padding](resolutions.md#frame-padding).
 editorial room to roll a cut. See [Frame Numbering and Handles](turnover-vfx.md#frame-numbering-and-handles).
 
 ## L
+
+**LFOP** — Last Frame of Picture. The reference point marking where the program picture ends, used
+to align tail leaders and the tail pop. See [Leaders and Tail-Pop](turnover-di.md#leaders-and-tail-pop).
 
 **Longplay** — The film assembled as a single continuous sequence rather than divided into reels.
 See [Working in Reels](turnover-di.md#working-in-reels).
