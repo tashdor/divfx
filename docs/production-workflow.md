@@ -540,7 +540,7 @@ not a quote: cloud rates and egress tiers change often, and the LTO figures sepa
     </div>
   </div>
   <div class="ac-scroll">
-    <table>
+    <table class="ac-t">
       <thead><tr><th>Option</th><th>Hard costs</th><th>Archive</th><th>Storage</th><th>Restore</th><th>Total</th></tr></thead>
       <tbody id="ac-body"></tbody>
     </table>
@@ -610,59 +610,28 @@ not a quote: cloud rates and egress tiers change often, and the LTO figures sepa
     is where the "cheap to store" tiers get expensive. Prices as of mid-2026 — verify current rates
     before budgeting.
 
-**Read the total, not the headline rate.** Cold-cloud tiers advertise roughly $1/TB/month to *store*
-but bill heavily to get the data back — retrieval plus internet egress is the real cost, and a full
-restore can dwarf three years of storage. The flat-rate clouds (Backblaze, Wasabi) invert this: egress
-is free or included, but storage is 5–7× more, so a multi-year hold costs the most overall. Cold cloud
-like Glacier Deep Archive is only cheapest for a short hold — because it bills every month and stings
-on egress, **it climbs past LTO after roughly two years** of retention.
+**Read the total, not the headline rate.** Cold-cloud tiers are cheap to *store* (~$1/TB/month) but
+bill heavily on retrieval and egress to get data back; the flat-rate clouds (Backblaze, Wasabi) flip
+that — free egress, but 5–7× the storage. LTO inverts both: you pay a service to write and read the
+tapes, but the stock is ~$6/TB and holding is free, so its total stays flat and, at any realistic
+multi-year retention, it is the cheapest option — Glacier Deep Archive only undercuts it for holds under
+~two years (drag the years slider to see the crossover). Cloud's real value is as an *offsite* copy —
+managed redundancy, no hardware to migrate — but it is a permanent bill exposed to price hikes and
+account risk.
 
-**LTO's cost is front- and back-loaded service; the tapes cost almost nothing to keep.** You pay a
-service to write the tapes and to read them back, but the stock itself is only ~$6/TB and, once
-written, the cartridges sit on a shelf with no monthly bill and no power draw — so the LTO total barely
-moves whether you hold for three years or ten (drag the years slider and watch it stay put), while
-every monthly-billed cloud keeps climbing. Over the long retention a film archive actually needs, that
-structural difference is the whole case for tape: at the calculator's three-year default LTO is already
-the cheapest option, and it carries none of the clouds' ongoing billing, vendor, or egress risk.
+**Hard drives are not an archive.** Unpowered, a consumer drive holds a few years at best (bearings
+seize, magnetic charge fades), it is a shock-sensitive single point of failure, and bit rot is silent
+without checksums. Fine as a nearline copy — never as your only long-term one.
 
-**Hard drives are the wrong medium for a master archive.** They are fine as a working or nearline
-copy, but dangerous as your *only* long-term one:
+**On a bonded or financed film, proper archival is contractual, not optional.** A completion guarantor
+guarantees delivery *to spec* — preservation elements included — and negative / digital-media insurance
+assumes professional storage, so archival masters generally must live on **LTO with checksums,
+redundant copies, and offsite/vaulted storage**. A lone hard drive satisfies neither guarantor,
+distributor QC, nor insurer.
 
-- They are not designed to sit unpowered for years. Bearings can seize ("stiction"), lubricants
-  migrate, and the magnetic charge fades; the safe retention of an unpowered consumer drive is a few
-  years at best, not decades.
-- They are mechanical, shock-sensitive single points of failure — one drop kills the copy.
-- Bit rot is silent without checksums.
-
-If you must use HDDs, keep **at least two copies**, power them up and verify them periodically, and
-never let a lone drive be the archive.
-
-**Your financing may require proper archival, not merely recommend it.** On a bonded or
-investor-backed film, archival is a contractual matter, not just a technical one. A **completion
-guarantor** (the completion-bond company) guarantees the film will be finished and *delivered to the
-distributor's specification* — and the preservation and archival elements are part of that delivery, so
-the guarantor, the financiers, and the distributor all have a stake in the masters surviving intact. In
-practice that means archival masters on **LTO with verified checksums, redundant copies, and offsite or
-vaulted storage**; a lone hard drive satisfies neither a guarantor, a distributor's delivery QC, nor a
-media insurer. Productions also carry **negative / digital-media insurance** covering loss or damage to
-the recorded footage and masters, and both the bond and that coverage assume the material is stored to
-a professional standard — a data loss traceable to a single unpowered drive is exactly the avoidable
-negligence that complicates a claim. Even setting cost aside, the money above the production usually
-dictates LTO-grade archival.
-
-**LTO is the film-industry archival standard — with a format treadmill.** LTO media is rated for
-~15–30 years in controlled storage, is offline and air-gapped (ransomware cannot reach a tape on a
-shelf), self-describing through **LTFS**, and available as write-once **WORM**. The catch: LTO drives
-read only about one to two generations back (an LTO-9 drive reads LTO-8 and 9 only), and the roadmap
-keeps advancing, so plan to **migrate to a newer generation roughly every 7–10 years**, before the
-drive generation you own goes unsupported.
-
-**Cloud's strength is offsite; its risks are ongoing.** Cold cloud (Glacier Deep Archive is the
-cost-competitive one) gives geographic redundancy and very high durability with no hardware to own or
-migrate — the provider handles that. But it is a permanent operating cost, exposed to price hikes
-(Backblaze and Wasabi both raised rates in 2026) and to vendor and account risk (a lapsed card or a
-closed account can mean lost data), and a full 100 TB restore is a large, slow, sometimes costly
-download. Model the egress cost *and* the transfer time before you depend on it.
+**LTO is the archival standard — with a treadmill.** Tape is offline and air-gapped, rated ~15–30
+years, self-describing via **LTFS**, and available as **WORM**; the catch is that drives read only
+about one to two generations back, so plan to migrate every **~7–10 years**.
 
 !!! tip "The smart default: 3-2-1, not one of anything"
     Keep **three copies, on two different media, with one offsite.** For an independent film that
