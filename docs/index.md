@@ -145,3 +145,32 @@ Questions, comments, and errata are welcome — send a note below.
   </label>
   <button type="submit" class="cf-submit">Send message</button>
 </form>
+
+<script>
+(function () {
+  var form = document.querySelector('form.contact-form');
+  if (!form || !window.fetch || !window.FormData) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = form.querySelector('.cf-submit');
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+    fetch(form.getAttribute('action'), {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    }).then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      form.innerHTML = '<p class="cf-success">Thanks — your message was sent. We’ll get back to you soon.</p>';
+    }).catch(function () {
+      if (btn) { btn.disabled = false; btn.textContent = 'Send message'; }
+      var err = form.querySelector('.cf-error');
+      if (!err) {
+        err = document.createElement('p');
+        err.className = 'cf-error';
+        form.appendChild(err);
+      }
+      err.textContent = 'Something went wrong sending your message — please try again.';
+    });
+  });
+})();
+</script>

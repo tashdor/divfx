@@ -51,6 +51,9 @@
         border: none; border-radius: 5px; transition: background .15s ease;
       }
       .contact-form .cf-submit:hover { background: #069; }
+      .contact-form .cf-submit[disabled] { opacity: .6; cursor: default; }
+      .contact-form .cf-success { margin: 0; font-size: 15px; font-weight: 700; color: #2b7a2b; }
+      .contact-form .cf-error { margin: 10px 0 0; font-size: 13px; color: #b33a3a; }
       @media print, screen and (max-width: 480px) { .contact-form .cf-grid { display: block; } }
     </style>
   </head>
@@ -115,6 +118,35 @@
   </label>
   <button type="submit" class="cf-submit">Send message</button>
 </form>
+
+<script>
+(function () {
+  var form = document.querySelector('form.contact-form');
+  if (!form || !window.fetch || !window.FormData) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = form.querySelector('.cf-submit');
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+    fetch(form.getAttribute('action'), {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    }).then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      form.innerHTML = '<p class="cf-success">Thanks — your message was sent. We’ll get back to you soon.</p>';
+    }).catch(function () {
+      if (btn) { btn.disabled = false; btn.textContent = 'Send message'; }
+      var err = form.querySelector('.cf-error');
+      if (!err) {
+        err = document.createElement('p');
+        err.className = 'cf-error';
+        form.appendChild(err);
+      }
+      err.textContent = 'Something went wrong sending your message — please try again.';
+    });
+  });
+})();
+</script>
 
 
       </section>
