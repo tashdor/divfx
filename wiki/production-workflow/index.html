@@ -1,0 +1,2241 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A production handbook on digital intermediate finishing and visual effects workflows for independent film production, by Tashi Trieu.">
+      
+      
+        <meta name="author" content="Tashi Trieu">
+      
+      
+        <link rel="canonical" href="https://divfx.tashitrieu.com/wiki/production-workflow/">
+      
+      
+        <link rel="prev" href="../introduction/">
+      
+      
+        <link rel="next" href="../digital-intermediates/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../icons/favicon-32x32.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Generalized Production Workflow - Digital Intermediates and VFX for Modern Independent Film Production</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/mosaic-tokens.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#generalized-production-workflow" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Digital Intermediates and VFX for Modern Independent Film Production" class="md-header__button md-logo" aria-label="Digital Intermediates and VFX for Modern Independent Film Production" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Digital Intermediates and VFX for Modern Independent Film Production
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Generalized Production Workflow
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Follow system theme"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Follow system theme" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Digital Intermediates and VFX for Modern Independent Film Production" class="md-nav__button md-logo" aria-label="Digital Intermediates and VFX for Modern Independent Film Production" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    Digital Intermediates and VFX for Modern Independent Film Production
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generalized Production Workflow
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generalized Production Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pre-production-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-Production / Visualization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-acquisition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Production / Acquisition
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Production / Acquisition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#camera-and-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Camera and Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-effects-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Effects Production
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-visual-effects-production-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Visual Effects Production Mistakes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#digital-dailies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Digital Dailies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creative-editorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creative Editorial
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-effects-plate-pulls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Effects Plate Pulls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-effects-plate-pre-grading-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Effects Plate Pre-Grading (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-effects-production_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Effects Production
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-effects-editorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Effects Editorial
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visual Effects Editorial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visual-effects-reviews" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Effects Reviews
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#digital-intermediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Digital Intermediate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Digital Intermediate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visual-effects-version-checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Effects Version Checking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#theatrical-distribution-masters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Theatrical Distribution Masters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Theatrical Distribution Masters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dsm-digital-source-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DSM (Digital Source Master)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dcdm-digital-cinema-distribution-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DCDM (Digital Cinema Distribution Master)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dcp-digital-cinema-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DCP (Digital Cinema Package)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#video-distribution-masters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Video Distribution Masters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Video Distribution Masters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uncompressed-video-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uncompressed Video Master
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imf-interoperable-master-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IMF (Interoperable Master Format)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prores-422-hq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ProRes 422 HQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-intermediates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    An Overview of Digital Intermediates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scene-referred/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scene-Referred vs. Display-Referred Imagery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color Spaces and Transfer Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../luts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Look Up Tables (LUTs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working-formats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common Working Formats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resolutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working and Delivery Resolutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color Management
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Color Management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACES
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color Management and OpenColorIO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../application-native-color-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application-Native Color Management (DaVinci, FilmLight)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color-management-comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choosing a Color Management Approach
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hdr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HDR Mastering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Editorial & Visual Effects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Editorial & Visual Effects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../turnover-di/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Editorial Turnover for Digital Intermediates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../turnover-vfx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Editorial Turnover for VFX Plate Pulls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-quality-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Effects Quality Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-production-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Effects Production Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mastering & Delivery
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mastering & Delivery
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IMF — The Interoperable Master Format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DCP — The Digital Cinema Package
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distribution-deliverables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Distribution Deliverables for Independent Film
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archival/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archival
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supplemental Reading & Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Change List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../v1.1-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes for v1.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="generalized-production-workflow">Generalized Production Workflow</h1>
+<figure class="mosaic-fig">
+<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1584 456" role="img" aria-labelledby="m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-title m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-desc" preserveAspectRatio="xMidYMid meet"><title id="m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-title">Generalized production workflow: pre-production plans multiple production units; footage flows through dailies and editorial; visual effects combines plates and CGI in compositing; the digital intermediate fans out to theatrical, film-out, video, and archival deliverables</title><desc id="m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-desc">A left-to-right post-production workflow with supporting inputs, a compositing branch, and multiple delivery outputs.</desc><style>
+  svg{display:block;width:100%;height:auto;font-family:var(--m-font,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif);color:var(--m-text);background:var(--m-surface);border:1px solid var(--m-line);border-radius:16px;box-shadow:var(--m-shadow)}
+  text{fill:var(--m-text)} .muted{fill:var(--m-muted)} .subtle{fill:var(--m-subtle)}
+  .label{font-size:15px;font-weight:650;letter-spacing:-.01em}.wf-label{font-size:13px;font-weight:650;letter-spacing:-.01em}.eyebrow{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}.detail{font-size:11px}.mono{font-family:var(--m-mono,monospace);font-variant-numeric:tabular-nums}.keyline{stroke:var(--m-line)}
+</style><defs><marker id="m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1l8 4-8 4z" fill="var(--m-line-strong)"/></marker></defs><rect x="1336" y="22" width="232" height="418" rx="16" fill="var(--m-surface-raised)" stroke="var(--m-line)" stroke-dasharray="4 4"/><text x="1360" y="44" class="eyebrow muted">DELIVERABLES</text><path d="M200 288H204Q214 288 214 278V202Q214 192 224 192H236" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-arrow)"/><path d="M200 288H236" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-arrow)"/><path d="M200 288H204Q214 288 214 298V374Q214 384 224 384H236" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-arrow)"/><path d="M392 192H396Q406 192 406 202V278Q406 288 416 288H428" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-arrow)"/><path d="M392 288H428" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-arrow)"/><path d="M392 384H396Q406 384 406 374V298Q406 288 416 288H428" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-arrow)"/><path d="M584 288H620" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-arrow)"/><path d="M776 288H1004" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-arrow)"/><path d="M776 288H780Q790 288 790 278V202Q790 192 800 192H812" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-arrow)"/><path d="M776 96H780Q790 96 790 106V182Q790 192 800 192H812" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-arrow)"/><path d="M968 192H972Q982 192 982 202V278Q982 288 992 288H1004" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-arrow)"/><path d="M1160 288H1356Q1366 288 1366 278V106Q1366 96 1376 96H1388" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-arrow)"/><path d="M1160 288H1356Q1366 288 1366 278V202Q1366 192 1376 192H1388" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-arrow)"/><path d="M1160 288H1388" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-arrow)"/><path d="M1160 288H1356Q1366 288 1366 298V374Q1366 384 1376 384H1388" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-generalized-production-workflow-pre-production-plans-multiple-production-units-footage-flows-through-dailies-and-editorial-visual-effects-combines-plates-and-cgi-in-compositing-the-digital-intermediate-fans-out-to-theatrical-film-out-video-and-archival-deliverables-arrow)"/><g role="group" aria-label="Pre-Production"><rect x="44" y="256" width="156" height="64" rx="12" fill="var(--m-green-soft)" stroke="var(--m-green)"/><g color="var(--m-green)"><g transform="translate(60 276) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></g></g><text class="wf-label"><tspan x="94" y="293">Pre-Production</tspan></text></g><g role="group" aria-label="Principal Photography"><rect x="236" y="160" width="156" height="64" rx="12" fill="var(--m-green-soft)" stroke="var(--m-green)"/><g color="var(--m-green)"><g transform="translate(252 180) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></g></g><text class="wf-label"><tspan x="286" y="188">Principal</tspan><tspan x="286" y="206">Photography</tspan></text></g><g role="group" aria-label="VFX Unit"><rect x="236" y="256" width="156" height="64" rx="12" fill="var(--m-green-soft)" stroke="var(--m-green)"/><g color="var(--m-green)"><g transform="translate(252 276) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></g></g><text class="wf-label"><tspan x="286" y="293">VFX Unit</tspan></text></g><g role="group" aria-label="Plates &amp; Elements"><rect x="236" y="352" width="156" height="64" rx="12" fill="var(--m-green-soft)" stroke="var(--m-green)"/><g color="var(--m-green)"><g transform="translate(252 372) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></g></g><text class="wf-label"><tspan x="286" y="380">Plates &amp;</tspan><tspan x="286" y="398">Elements</tspan></text></g><g role="group" aria-label="Dailies"><rect x="428" y="256" width="156" height="64" rx="12" fill="var(--m-blue-soft)" stroke="var(--m-blue)"/><g color="var(--m-blue)"><g transform="translate(444 276) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></g></g><text class="wf-label"><tspan x="478" y="293">Dailies</tspan></text></g><g role="group" aria-label="Editorial"><rect x="620" y="256" width="156" height="64" rx="12" fill="var(--m-blue-soft)" stroke="var(--m-blue)"/><g color="var(--m-blue)"><g transform="translate(636 276) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z"/><path d="m6.2 5.3 3.1 3.9"/><path d="m12.4 3.4 3.1 4"/><path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></g></g><text class="wf-label"><tspan x="670" y="293">Editorial</tspan></text></g><g role="group" aria-label="CGI / 3D"><rect x="620" y="64" width="156" height="64" rx="12" fill="var(--m-green-soft)" stroke="var(--m-green)"/><g color="var(--m-green)"><g transform="translate(636 84) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></g></g><text class="wf-label"><tspan x="670" y="101">CGI / 3D</tspan></text></g><g role="group" aria-label="Compositing"><rect x="812" y="160" width="156" height="64" rx="12" fill="var(--m-green-soft)" stroke="var(--m-green)"/><g color="var(--m-green)"><g transform="translate(828 180) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></g></g><text class="wf-label"><tspan x="862" y="197">Compositing</tspan></text></g><g role="group" aria-label="Digital Intermediate"><rect x="1004" y="256" width="156" height="64" rx="12" fill="var(--m-violet-soft)" stroke="var(--m-violet)"/><g color="var(--m-violet)"><g transform="translate(1020 276) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".6" fill="currentColor" stroke="none"/><circle cx="17.5" cy="10.5" r=".6" fill="currentColor" stroke="none"/><circle cx="8.5" cy="7.5" r=".6" fill="currentColor" stroke="none"/><circle cx="6.5" cy="12.5" r=".6" fill="currentColor" stroke="none"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></g></g><text class="wf-label"><tspan x="1054" y="284">Digital</tspan><tspan x="1054" y="302">Intermediate</tspan></text></g><g role="group" aria-label="DCP"><rect x="1388" y="64" width="156" height="64" rx="12" fill="var(--m-coral-soft)" stroke="var(--m-coral)"/><g color="var(--m-coral)"><g transform="translate(1404 84) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></g></g><text class="wf-label"><tspan x="1438" y="101">DCP</tspan></text></g><g role="group" aria-label="Film Out"><rect x="1388" y="160" width="156" height="64" rx="12" fill="var(--m-coral-soft)" stroke="var(--m-coral)"/><g color="var(--m-coral)"><g transform="translate(1404 180) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></g></g><text class="wf-label"><tspan x="1438" y="197">Film Out</tspan></text></g><g role="group" aria-label="Video Masters"><rect x="1388" y="256" width="156" height="64" rx="12" fill="var(--m-coral-soft)" stroke="var(--m-coral)"/><g color="var(--m-coral)"><g transform="translate(1404 276) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></g></g><text class="wf-label"><tspan x="1438" y="293">Video Masters</tspan></text></g><g role="group" aria-label="Archival"><rect x="1388" y="352" width="156" height="64" rx="12" fill="var(--m-coral-soft)" stroke="var(--m-coral)"/><g color="var(--m-coral)"><g transform="translate(1404 372) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></g></g><text class="wf-label"><tspan x="1438" y="389">Archival</tspan></text></g></svg></p>
+<figcaption>The image path at a glance. Pre-production plans multiple production units —
+principal photography, green-screen work, and plates and elements — which flow through dailies into
+editorial. Visual effects combines those plates with CGI in compositing; finished shots return to the
+digital intermediate, which fans out to theatrical (DCP and a film-out), video, and archival
+deliverables. Each stage is detailed in a section below.</figcaption>
+</figure>
+<h2 id="pre-production-visualization">Pre-Production / Visualization</h2>
+<p>A key factor in the success of visual effects films is the previsualization process (previz). This is
+essentially the 21<sup>st</sup> century equivalent of storyboarding. Although many directors and
+producers still employ traditional storyboarding, previz complements storyboarding through
+specific blocking, staging, and theoretical execution of complex shots, scenes, and sequences
+prior to production.</p>
+<p>Previz animatics are helpful in building an early edit of a sequence and determining the pacing
+of a scene, identifying redundant shots as well as realizing the need to add new shots. Shooting
+parameters such as camera angle, lens type, and camera trajectory are useful in planning out
+the shoot. This process helps producers determine what equipment will be necessary to
+produce those shots, often down to the make and model of the equipment (a camera crane, for
+example). This provides for a streamlined production process and reduces technical
+improvisation on the day, reducing potential error while providing the filmmakers with a
+rehearsed, choreographed result. Ultimately, previsualization is a cost-saving measure.</p>
+<p>There are several companies that provide previsualization services to filmmakers. They are
+comprised of staff and freelance CGI artists who scale up depending on the needs of the
+project. They are capable of working at their studio or on-site with the production staff in the
+pre-production offices.</p>
+<p>Not all independent productions have the need for CGI visual effects, but for those that do,
+previsualization is often viewed as an unaffordable luxury. Detailed animatics may not be
+necessary for all scenes, but it is beneficial to at least previz complex shots. Engaging a single
+freelance previz artist to help plan some of the more complex shots or scenes could easily save
+a lot of time and money during production.</p>
+<h2 id="production-acquisition">Production / Acquisition</h2>
+<h3 id="camera-and-workflow">Camera and Workflow</h3>
+<p>There are many digital cinema cameras on the market today. A skilled cinematographer can
+make great images using any of them. The key factor that makes all of these cameras "digital
+cinema" cameras, rather than "video" cameras, is that they are able to record high dynamic
+range, scene-referred images, rather than display-referred images. This is paramount as it
+optimizes the available dynamic range and flexibility in color grading and visual effects during
+post-production. Scene-referred recording either manifests itself as a recorded logarithmic (log)
+raster image, a scene-linear raster image, or a Camera RAW file. These topics are explored
+further in <a href="../digital-intermediates/">An Overview of Digital Intermediates</a>.</p>
+<h3 id="visual-effects-production">Visual Effects Production</h3>
+<p>Some of the most common errors in visual effects originate during production. Visual effects,
+like many aspects of filmmaking, is "garbage in, garbage out". If the production plates are
+poorly shot, the visual effects work is going to suffer from it, or the cost and time required to
+repair the shots in post will increase.</p>
+<p>The single best way filmmakers can ensure positive visual effects results is by involving an
+on-set visual effects supervisor. In an ideal world, this would be the same VFX supervisor who is
+overseeing the project's visual effects through completion. But if they are unavailable, a
+senior-level artist or another supervisor they trust would be an ideal replacement.</p>
+<p>The VFX supervisor's role on set is consulting with the director, cinematographer, production
+designer, practical effects teams, and various other departments about the creative and
+technical execution of visual effects shots. They are relied upon to consult on potential issues
+other departments face and whether or not the visual effects department can provide a
+solution. They can identify potential issues and provide solutions that could quickly and cheaply
+save hours of time either in production or post. Issues that are obvious to a supervisor are not
+necessarily obvious to other crew, as they don't usually have intimate experience dealing with
+those issues in post. Something as simple as how evenly lit a green screen is, or the angle of a
+light reflecting on a surface, can make a huge difference in the ultimate complexity of a visual
+effects shot.</p>
+<p>A good VFX supervisor knows how to strategize and strike a balance between what should be
+produced practically on set and what tasks are better suited for visual effects. Working as a
+creative collaborator with different departments is a key strength of a good VFX supervisor.</p>
+<p>Detailed camera notes, generally produced by the camera assistants, aid in reproducing
+accurate scenes in CGI. Either during camera prep or during the shoot, the camera team will
+shoot lens distortion charts for later use by the visual effects department in compositing and 3D
+camera tracking.</p>
+<h3 id="common-visual-effects-production-mistakes">Common Visual Effects Production Mistakes</h3>
+<p>The biggest mistake a production can make related to visual effects is to not hire a VFX
+supervisor to be present during production. Too often, lower budget productions make
+assumptions about what would or would not be easily handled in VFX, and this often leads to
+some friction later on when the complexity and reality of the issue becomes apparent. Having
+an experienced on-set supervisor is imperative not only in making sure potential challenges are
+documented and properly accounted for, but also in avoiding them through on-set practices if
+possible.</p>
+<div class="admonition example">
+<p class="admonition-title">Anecdotally</p>
+<p>A recent production needed many tracking markers for camera tracking. Knowing they had
+limited staff and budget to paint those out later, the VFX supervisor collaborated with the
+production designers to incorporate patterns into the set design that were detailed enough
+to use as tracking reference and complemented the sci-fi design aesthetic — eliminating the
+need to remove them in post.</p>
+</div>
+<h2 id="digital-dailies">Digital Dailies</h2>
+<p>In a typical studio production, camera original media is ingested on set by a Digital Imaging
+Technician (DIT) or a Digital Asset Manager (DAM) and archived to hard drives, LTO tape, or
+both. A copy of those assets is delivered to the dailies team, either on-set, near-set, or at the
+lab or post-production facility. There, a dailies colorist or dailies technician will apply looks
+created on-set by the DIT or the cinematographer to relevant shots in scene context and make
+any necessary balancing or aesthetic color corrections. They will sync the production audio
+tracks to picture and then process the camera original media into an offline proxy format
+suitable for editorial, including relevant metadata necessary to reference the original media.
+These offline proxies are rendered with the dailies color grade and the Show LUT baked in, and
+are sized and formatted in accordance with the framing chart. Dailies are often processed
+unmatted in order to provide editorial with creative reframing flexibility.</p>
+<p>In the independent production world, this level of complexity is rarely observed. Typically, there
+is a single DIT or a DAM, but rarely both. They may also be responsible for syncing and
+processing dailies, but that task is often delegated to the production editorial team.</p>
+<p>Processed dailies are delivered to production editorial as DNxHD 36 QuickTimes or MXFs, or
+Apple ProRes QuickTimes. Circled takes — occasionally all takes — are transcoded to H.264s with
+audio and uploaded to a secure server and provided to the filmmakers for creative review. PIX
+(now Autodesk Flow Capture) and DAX (now part of CLEAR) are the predominant studio-approved
+review systems, but there are many more out there that can benefit productions of all scales.
+Low-cost review tools such as Frame.io (now an Adobe product), Vimeo, and Dropbox are useful
+alternatives for budget-conscious independent productions.
+Medium-budget projects that require more granular control over user permissions may consider
+products like Wiredrive.</p>
+<p>Efficient tools become even more important as the decrease in staffing brings the consolidation
+of responsibilities onto a select few individuals. Blackmagic Design's DaVinci Resolve has
+become a prominent resource for many DITs, DAMs, and editors, as it supports all major Camera
+RAW formats, syncing audio, color grading, applying LUTs, rendering metadata burn-in, and
+transcoding to various offline and online codecs.</p>
+<h2 id="creative-editorial">Creative Editorial</h2>
+<p>On studio films the picture editor and their assistants (who comprise the production editorial
+team) are on-set or near-set assembling cuts as the dailies arrive each day. Having
+nearly-immediate feedback is critical not only for the director, but also for the VFX supervisor.
+The VFX supervisor and VFX producer will be intimately involved with the timing and execution
+of complex sequences. As soon as the best takes are selected, they will have those plates
+processed and delivered to the visual effects vendor, whether that is a studio or a single artist.
+It is common for early visual effects work to begin while a film is still in production.</p>
+<p>As the production progresses and visual effects shots are added spontaneously or reduced
+through alternative practices, the VFX supervisor and their team maintain an up-to-date
+assessment of the visual effects needs of the film through continual dialogue with the editorial
+team. On an independent feature with fewer complex sequences or shots, having early edits
+and reviews of dailies provides additional opportunities to identify any potential issues that
+could still be addressed during principal production.</p>
+<p>During creative editorial it is common to use temporary graphics, rough composites (called slap
+comps), and previz animatics to convey story beats that will be produced and refined at a later
+date. This is important in estimating timing and determining whether key story elements are
+adequately conveyed. On a studio film, this is often the job of the visual effects editor, who
+works alongside the picture editor and the assistants. On an independent production without
+an expansive editorial team, those duties fall to the picture editor or their assistant(s).</p>
+<p>The modern picture editor is a jack of all trades. Not only are they an expert in performance
+timing and an experienced storyteller, but they are also creative problem solvers looking for
+effective solutions to issues that arise during production or editorial post-production.
+Sometimes a line is cut, but there is insufficient coverage to cut away to, so they may creatively
+blend two halves of a shot together to remove a line of dialogue. This is accomplished with
+FluidMorph in Avid or similar optical flow morphing tools found in other software. Similarly,
+the desired dialogue of two actors in a two-shot may require the splitting and compositing of
+two separate takes over each other. Split-screen composites — using Avid's AniMatte or similar
+garbage mask tools in other software — for performance timing are incredibly common and are
+a great example of seamless visual effects artistry.</p>
+<p>Naturally the standard practice would be to involve the VFX supervisor. But on projects where
+the editor is the de facto VFX supervisor, having experience in visual effects will serve them well
+— not that they are expected to produce the final result, but so they know what can be
+reasonably produced in visual effects.</p>
+<h2 id="visual-effects-plate-pulls">Visual Effects Plate Pulls</h2>
+<p>Once a sequence edit is locked, or very close to locked, the editorial team will produce a pull
+list of the visual effects shot elements so that they can be prepared and delivered to the
+vendors or artists who will be working on them. This list is often as simple as an EDL or XML of
+just the necessary visual effects shots, excluding any non-VFX footage. This list also correlates
+the original camera shot names with their intended VFX shot names.</p>
+<p>It is important to pull these plates in a way that is efficient for the visual effects artists. It is not
+advisable to give the artists a hard drive containing the Camera RAW footage and a copy of the
+edit and expect them to accurately pull the shots they need. It is best to have pulls originate
+from a single third party or from production directly.</p>
+<p>Pulls are made with handles, often just a couple of frames on the head and tail of the edit. This
+provides the visual effects artists with the frames they need plus a few extra in case the edit
+needs to be creatively rolled once the shots are complete. It is up to the production to come to
+an agreement with the VFX artists or vendors about how many handle frames they will be
+working with and delivering back to editorial.</p>
+<p>Visual effects plate pulls are commonly produced as image sequences (DPX or EXR), where each
+frame is an individual file rather than a single movie container. This is a common practice in
+visual effects and is highly recommended.</p>
+<p>Visual effects plates are not provided to artists in the Camera RAW format, but instead
+debayered with show-specific settings for resolution, color space, and transfer function. These
+plate pulls are performed with a scene-referred transfer function to maintain all of the
+camera's native dynamic range and gamut. It is important that all plate pulls are produced by
+the same technician or company in order to maintain consistency. Otherwise individual visual
+effects artists or vendors are expected to coordinate clip pull methods together, and more often
+than not, unintentional deviations will occur.</p>
+<p>Camera RAW is an inefficient working format for visual effects, as it must be debayered on the
+fly every time a frame is viewed or referenced. This is computationally expensive and
+redundant compared to pre-debayering to a rasterized working format. Moreover, standardizing
+on a single plate format makes working with footage from multiple camera types or sources much
+easier for the visual effects artists and maximizes software compatibility. While many
+compositing applications provide support for Camera RAW formats, debayering quality and
+algorithms can differ system to system, and many support applications used in asset
+management, 2D/3D tracking, and paint do not support them.</p>
+<p>In studio productions, plate pulls are often handled by the digital intermediate vendor, as they
+have intimate knowledge and experience working with Camera RAW formats and
+color-managed workflows. At the independent production level, involving the colorist, or someone
+else with digital intermediate experience, is advisable. This can be someone like a DIT or a very
+technically savvy editor. When in doubt, consult with a post-production vendor or the final
+colorist to make sure you are following the correct procedures.</p>
+<p>There are services and products designed for managing production assets on large projects and
+producing visual effects clip pulls. Codex Backbone and Technicolor PULSE were two such products
+used to decrease the time for visual effects plate pulls and turnovers to vendors, via
+hardware/software and cloud-based solutions that minimize the time and staffing required. Both
+have since left the market — Codex Backbone is no longer in Codex's product lineup, and Technicolor
+PULSE is defunct — though the same need is now served by media-management and production-tracking
+platforms.</p>
+<h2 id="visual-effects-plate-pre-grading-optional">Visual Effects Plate Pre-Grading (Optional)</h2>
+<p>In studio productions it is common to perform a pre-grading pass on visual effects plates prior
+to their delivery to the visual effects vendors. This is usually performed by the final film colorist,
+or an associate of theirs, in collaboration with the director, cinematographer, VFX supervisor,
+and VFX producer. This process is done to give the plates a grade close to the final intended
+look of the film, as best as it can be approximated at this early stage in post-production.
+Naturally, this occurs long before the final color grading takes place, but is done to provide an
+approximation of how the shot will eventually be graded.</p>
+<p>This is critical when the eventual grade will have a significant impact on CGI rendering and
+lighting. For example, a day-for-night look would likely influence the creative lighting decisions
+the CGI artists would make.</p>
+<p>These grades are often very simple and restricted to basic slope, offset, power, and saturation
+adjustments compliant with the ASC Color Decision List<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">1</a></sup> (mathematically translatable to lift,
+gamma, gain, and saturation) and are performed on scene-referred material under the
+display-referred Show LUT. CDL is intentionally restrictive so that the grading decisions are limited to a
+set of ten values that can be easily communicated through various metadata database formats
+(EDL, ALE, CC, CCC). The intention here is not to render any color changes into the image,
+presenting the visual effects artists with an unaltered plate, while providing them with the
+means to accurately preview the pre-grade during their compositing. The ASC CDL specification
+is a simple, but standardized, color correction process which can be applied consistently and
+accurately across different grading systems and visual effects applications.</p>
+<p>Alternatively, more complex grades can be baked in, but it is important to provide the ungraded
+plate as well, as grades can often reduce scene detail needed for tracking or degrade
+green/blue screen separations.</p>
+<p>The Show LUT, shot-specific CDL metadata, and ungraded plates are delivered to the visual
+effects artists or vendors. If they apply the CDL values and the Show LUT, they will preview the
+exact same grade that you performed during the pre-grade. By accurately previewing the
+eventual grade of a shot, visual effects artists can composite their effects to look best and most
+accurate under that anticipated grade. This is particularly important when dealing with product
+shots or with characters that have a well-established color palette.</p>
+<figure class="mosaic-fig">
+<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-labelledby="m-cdl-grading-operations-are-applied-prior-to-the-viewing-transform-title m-cdl-grading-operations-are-applied-prior-to-the-viewing-transform-desc" preserveAspectRatio="xMidYMid meet"><title id="m-cdl-grading-operations-are-applied-prior-to-the-viewing-transform-title">CDL grading operations are applied prior to the viewing transform</title><desc id="m-cdl-grading-operations-are-applied-prior-to-the-viewing-transform-desc">Ungraded Log Plate to ASC CDL to Show LUT to Rec.709 Preview.</desc><style>
+  svg{display:block;width:100%;height:auto;font-family:var(--m-font,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif);color:var(--m-text);background:var(--m-surface);border:1px solid var(--m-line);border-radius:16px;box-shadow:var(--m-shadow)}
+  text{fill:var(--m-text)} .muted{fill:var(--m-muted)} .subtle{fill:var(--m-subtle)}
+  .label{font-size:15px;font-weight:650;letter-spacing:-.01em}.wf-label{font-size:13px;font-weight:650;letter-spacing:-.01em}.eyebrow{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}.detail{font-size:11px}.mono{font-family:var(--m-mono,monospace);font-variant-numeric:tabular-nums}.keyline{stroke:var(--m-line)}
+</style><defs><marker id="m-cdl-grading-operations-are-applied-prior-to-the-viewing-transform-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1l8 4-8 4z" fill="var(--m-line-strong)"/></marker></defs><path d="M282 146H320.6666666666667" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-cdl-grading-operations-are-applied-prior-to-the-viewing-transform-arrow)"/><g role="group" aria-label="Ungraded Log Plate"><rect x="40" y="56" width="230" height="180" rx="14" fill="var(--m-surface-raised)" stroke="var(--m-line)"/><rect x="60" y="76" width="48" height="48" rx="12" fill="var(--m-green-soft)"/><g transform="translate(72 88) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></g><text x="60" y="149" class="eyebrow" fill="var(--m-green)">Source</text><text x="60" y="177" class="label">Ungraded Log Plate</text></g><path d="M578.6666666666667 146H617.3333333333334" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-cdl-grading-operations-are-applied-prior-to-the-viewing-transform-arrow)"/><g role="group" aria-label="ASC CDL"><rect x="336.6666666666667" y="56" width="230" height="180" rx="14" fill="var(--m-surface-raised)" stroke="var(--m-line)"/><rect x="356.6666666666667" y="76" width="48" height="48" rx="12" fill="var(--m-blue-soft)"/><g transform="translate(368.6666666666667 88) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></g><text x="356.6666666666667" y="149" class="eyebrow" fill="var(--m-blue)">Primary correction</text><text x="356.6666666666667" y="177" class="label">ASC CDL</text></g><path d="M875.3333333333334 146H914" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-cdl-grading-operations-are-applied-prior-to-the-viewing-transform-arrow)"/><g role="group" aria-label="Show LUT"><rect x="633.3333333333334" y="56" width="230" height="180" rx="14" fill="var(--m-surface-raised)" stroke="var(--m-line)"/><rect x="653.3333333333334" y="76" width="48" height="48" rx="12" fill="var(--m-violet-soft)"/><g transform="translate(665.3333333333334 88) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></g><text x="653.3333333333334" y="149" class="eyebrow" fill="var(--m-violet)">Display transform</text><text x="653.3333333333334" y="177" class="label">Show LUT</text><text x="653.3333333333334" y="201" class="detail muted">Display reference transform</text></g><g role="group" aria-label="Rec.709 Preview"><rect x="930" y="56" width="230" height="180" rx="14" fill="var(--m-surface-raised)" stroke="var(--m-line)"/><rect x="950" y="76" width="48" height="48" rx="12" fill="var(--m-violet-soft)"/><g transform="translate(962 88) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></g><text x="950" y="149" class="eyebrow" fill="var(--m-violet)">Viewing output</text><text x="950" y="177" class="label">Rec.709 Preview</text></g><text x="40" y="264" class="detail muted">Signal flow</text><path d="M108 260H1160" class="keyline"/></svg></p>
+<figcaption>Figure 1 — CDL grading operations are applied prior to the viewing transform.
+Ungraded log plate → ASC CDL → Show LUT (display reference transform) → Rec.709 preview.</figcaption>
+</figure>
+<p>The grade and Show LUT are baked in to any reference QuickTimes delivered to editorial in
+order to match the original dailies grade, but ultimately not included in the final VFX render, as
+the colorist will apply those looks in the DI session.</p>
+<h2 id="visual-effects-production_1">Visual Effects Production</h2>
+<p>Here is where all the magic happens. During this process the visual effects artists and vendors bring
+the shots to life. This is an iterative process that relies on continual support and collaborative
+feedback from the filmmakers. Depending on the complexity of a shot there may be more than
+one artist assigned to it, and in some cases multiple VFX companies. There are many different
+departments within visual effects that artists belong to. Many are compositors, specializing in
+integrating elements and solving problems using 2D or 2.5D tools. Others are CGI generalists or
+specialists, creating something from nothing in 3D and working with compositors and lighters to
+integrate it into a live-action scene in a photorealistic way.</p>
+<p>The more shots you have and the more artists working on them, the greater the need for
+efficient shot management. This falls under the responsibility of the VFX producer and the VFX
+coordinators, often grouped under VFX production management. On a small independent
+production this may, once again, fall back on the editor. Managing visual effects work in a
+flexible, organized way is critical to your success.</p>
+<p>Different VFX producers and coordinators have different management styles and tools that they
+use for tracking assets, artists, client feedback, and progress. Sometimes this is as simple as
+shared spreadsheets either from Excel or Google Sheets. Other times it requires more
+complicated software specific to the visual effects industry like ftrack or Shotgun. These
+production management systems are purposely designed to maintain the flow of visual effects
+production and help the producers stay on track. Nothing is more worrisome than not having a
+reliable estimate of when you can complete your work. VFX production management is
+explored in greater detail in <a href="../vfx-production-management/">Visual Effects Production Management</a>.</p>
+<p>One of the core tenets of visual effects production is that regions of an image without visual
+effects (i.e. elements of the camera original plate that are retained in the final comp) should
+undergo zero net change. Unless specifically mandated by the visual effects workflow, there
+should be zero net change in color space or color encoding. It is very common for material to
+be transformed into a more convenient working space for compositing (e.g. camera log to
+scene-linear); however, it must return to its original encoding before delivery and without
+clamping, quantization, or other artifacts.</p>
+<p>A best practice to avoid issues is to double-check the final render against the original plate. If
+there is a measurable color shift or degradation that is not part of the intended effect, there is a
+pipeline issue that needs to be addressed prior to delivery to the client.</p>
+<p>It is common for the VFX production team to produce a confidence package consisting of a few
+test images in the project's working format and provide it to the various vendors and artists
+they are hiring. The vendors and artists will pass the test images through their entire
+pipeline and return them back to the VFX production team for review. This allows production
+and the vendors to identify issues in the VFX pipeline before expensive work begins on actual
+shots.</p>
+<h2 id="visual-effects-editorial">Visual Effects Editorial</h2>
+<p>During the visual effects process the filmmakers will receive preview renders from artists and
+vendors. These renders are usually lower quality QuickTime proxies and have the temp color
+correction (from the pre-grade) and the Show LUT baked in so that the picture editors can cut it
+into their timelines and review in the context of the scene or sequence dailies. These are
+regularly delivered as Avid DNxHD 36 or Apple ProRes 422 LT. Here the goal is to review for
+content and design, not technical quality control. These offline references are named and
+contain timecode to match against the full quality, ungraded DPX or EXR renders that will
+ultimately be delivered to the DI.</p>
+<p>It is important that the imported QuickTimes retain their timecode metadata throughout offline
+editorial. Without timecode, the editorial conform turnover to the DI will not accurately
+reference the full quality renders that VFX has delivered to the DI. It is standard practice to
+conduct workflow meetings and tests early on between the VFX vendors, creative editorial, and
+the DI to ensure that conform and color management issues are identified and resolved early.</p>
+<h3 id="visual-effects-reviews">Visual Effects Reviews</h3>
+<p>Later in the visual effects process, as shots are nearing completion, the filmmakers (director,
+producers, VFX supervisor, VFX producer, and their respective teams) review full quality
+renders of the shots in a color accurate context, often in a digital cinema theater at a
+post-production facility. At this stage it is important to review in a calibrated environment accurate
+to the intended exhibition (theater for theatrical projects, broadcast monitor for broadcast or
+streaming projects). Here they can identify technical issues that are more apparent on the big
+screen and can experiment with color grading decisions with the colorist or an associate
+colorist. Here they will review in the context of the Show LUT and VFX shot CDL values.</p>
+<h2 id="digital-intermediate">Digital Intermediate</h2>
+<p>As visual effects near completion, they are delivered both to the filmmakers and to the digital
+intermediate vendor/facility either simultaneously or when requested by the production
+editorial team. Production editorial (often the VFX editor) will cut in the latest and greatest
+visual effects shots and the assistants will turn over edit lists (EDLs, XMLs, or AAFs) to the DI,
+where the conform editor(s) will conform the DPX or EXR renders and update the colorist's
+timeline. It is necessary for the file naming and frame numbering of visual effects shots to
+consistently match the offline reference QuickTimes in order to facilitate a fast and accurate
+conform.</p>
+<p>In the grading theater, filmmakers will view the shots in the full, highest quality with the
+colorist and make color grading adjustments. This again is an iterative process. It is prudent to
+provide temp visual effects shots or works in progress (WIPs) to the colorist so that they can do
+some of the preliminary grading work, rather than waiting idly until a shot is completely final.
+As the deadline approaches, it becomes more and more common for the colorist to tackle
+issues that are too time consuming to send back to visual effects, such as lighting continuity and
+color matching.</p>
+<p>Visual effects typically fall into three categories of completion: temp (WIP), final, or
+could-be-better (CBB). CBBs are any shots that are deemed passable as is, but have improvements to be
+made if time permits. Those shots are only a priority once all of the temp shots are finalized. It
+is not uncommon for CBBs to make it into early deliveries of a film, such as international
+theatrical releases which often ship earlier than the domestic versions. Ultimately most CBBs
+are improved prior to the home video mastering phase, as home video is ultimately where the
+film will be most scrutinized by audiences in years to come.</p>
+<h3 id="visual-effects-version-checking">Visual Effects Version Checking</h3>
+<p>Before finalizing the DI on a reel or episode, the editorial assistants and VFX production
+coordinators will work with the conform editor to verify that all the correct versions of visual
+effects are in the film or show. This usually involves checking version numbers, but can also
+require visual inspection of shots to verify that the intended revisions are present. It is not
+uncommon for a production to roll back to an earlier version of a visual effects shot if they like
+it more than subsequent revisions, so it is never safe to assume the latest available version is
+the correct one.</p>
+<p>In addition to manually verifying the shots, an EDL of the VFX shots, exported from the DI to
+production editorial, can aid in performing this critical check.</p>
+<h2 id="theatrical-distribution-masters">Theatrical Distribution Masters</h2>
+<p>Feature films destined for digital cinema release are mastered and delivered to theaters in
+Digital Cinema Packages (DCPs). DCPs are mastered from a DCI-P3 referred graded master. They
+are often assembled and mastered on separate systems apart from the DI, and oftentimes by
+facilities separate from the colorist's. The various picture deliverables required to produce a
+DCP are:</p>
+<h3 id="dsm-digital-source-master">DSM (Digital Source Master)</h3>
+<p>An uncompressed, unencrypted, graded render of the film. Typically DCI-P3 (RGB) color space.
+Sized per digital cinema specifications. Often 10-bit or 16-bit DPX.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This element is often skipped, as the colorist or DI facility will produce a DCDM directly
+from the color grading system, rather than from a DSM.</p>
+</div>
+<h3 id="dcdm-digital-cinema-distribution-master">DCDM (Digital Cinema Distribution Master)</h3>
+<p>An uncompressed, unencrypted, graded DCI-P3 render of the film in DCI-X'Y'Z' color space. Sized
+the same as the DSM. 16-bit TIFF. The DCDM is only useful for producing a DCP and is typically not
+utilized in any other deliverables.</p>
+<p>Because those 16-bit TIFF sequences are enormous — on the order of 10 TB for a feature —
+exchanging a DCDM between facilities is slow and costly. <a href="https://pub.smpte.org/pub/st428-24/"><strong>SMPTE ST 428-24
+(2024)</strong></a> defines a <em>packed image</em> DCDM (<strong>pDCDM</strong>) to
+address this: it maps the DCDM into a <strong>losslessly (reversibly) coded JPEG 2000</strong> file sequence and
+packs the image's 12-bit code values directly instead of padding them into a 16-bit container. The
+baseband image reconstructs exactly — this is <em>not</em> a lossy proxy — while file size drops by roughly
+half from the reversible coding, plus a further ~25% from the 12-bit packing. It may optionally use
+the high-throughput JPEG 2000 (HTJ2K) block coder for much faster encode and decode. Think of it as
+a transport-efficient equivalent of the TIFF DCDM, not a substitute for the DCP's lossy essence.</p>
+<h3 id="dcp-digital-cinema-package">DCP (Digital Cinema Package)</h3>
+<p>The DCP is a compressed, encrypted package muxed from the DCDM picture render, audio
+printmasters, subpictures, and timed text (subtitles). Encrypted DCPs can be played back on
+servers that have had valid KDMs (Key Delivery Messages) generated for them by the DCP
+creator.</p>
+<p>Features being commercially exhibited in mainstream theaters are encrypted and the various
+theaters are given digital keys that allow them to play the film for a certain range of dates,
+often limiting the hours of the day that the film can be played. For festivals and private
+screenings of independent films, it is most common to produce unencrypted DCPs to avoid
+potential security issues in the event that a venue changes last minute or there is not enough
+time to test and validate the keys prior to the screening.</p>
+<h2 id="video-distribution-masters">Video Distribution Masters</h2>
+<p>For projects destined for home video or over-the-top (Netflix, Amazon, iTunes, etc.) release,
+there are some typical delivery formats:</p>
+<h3 id="uncompressed-video-master">Uncompressed Video Master</h3>
+<p>A complete, color graded master with titles, graphics, and visual effects, with accompanying
+textless elements. Textless elements are often delivered with handles (the entire shot before and
+after the textless element). Video masters are rendered in the mastering display's color space
+(i.e. Rec.709 or Rec.2020) and at agreed-upon delivery resolutions — typically HD (1920x1080)
+and UHD (3840x2160).</p>
+<h3 id="imf-interoperable-master-format">IMF (Interoperable Master Format)</h3>
+<p>Same as the video master, often without textless elements. Compressed and mastered per the
+IMF specifications. This master includes audio married from the audio printmasters and may
+contain subtitle metadata.</p>
+<h3 id="prores-422-hq">ProRes 422 HQ</h3>
+<p>For independent distribution this is the dominant deliverable. Not just iTunes but the great
+majority of TVOD platforms and independent distributors want a compressed <strong>ProRes 422 HQ</strong>
+variant of the video master (occasionally ProRes 4444 when a distributor simply wants a
+higher-quality master) —
+and very few independent distributors ask for an IMF package at all. <a href="../imf/">IMF</a> is a
+studio-and-streamer interchange format; the label releasing an independent feature almost always
+wants ProRes and handles the platform-specific encoding downstream. See
+<a href="../distribution-deliverables/">Distribution Deliverables for Independent Film</a> for what real indie
+delivery schedules actually require.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:3">
+<p><a href="https://en.wikipedia.org/wiki/ASC_CDL">https://en.wikipedia.org/wiki/ASC_CDL</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../introduction/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Introduction
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../digital-intermediates/" class="md-footer__link md-footer__link--next" aria-label="Next: An Overview of Digital Intermediates">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                An Overview of Digital Intermediates
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2016–2026 Tashi Trieu — licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/tashdor/divfx" target="_blank" rel="noopener" title="divfx on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:divfx@tashitrieu.com" target="_blank" rel="noopener" title="Questions, comments, and errata" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "toc.integrate", "search.suggest", "search.highlight", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": null}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/color-plot-embed.js"></script>
+      
+    
+  </body>
+</html>

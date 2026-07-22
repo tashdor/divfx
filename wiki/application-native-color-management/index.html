@@ -1,0 +1,1770 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A production handbook on digital intermediate finishing and visual effects workflows for independent film production, by Tashi Trieu.">
+      
+      
+        <meta name="author" content="Tashi Trieu">
+      
+      
+        <link rel="canonical" href="https://divfx.tashitrieu.com/wiki/application-native-color-management/">
+      
+      
+        <link rel="prev" href="../color-management/">
+      
+      
+        <link rel="next" href="../color-management-comparison/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../icons/favicon-32x32.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Application-Native Color Management (DaVinci, FilmLight) - Digital Intermediates and VFX for Modern Independent Film Production</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/mosaic-tokens.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#application-native-color-management-resolve-and-filmlight" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Digital Intermediates and VFX for Modern Independent Film Production" class="md-header__button md-logo" aria-label="Digital Intermediates and VFX for Modern Independent Film Production" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Digital Intermediates and VFX for Modern Independent Film Production
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Application-Native Color Management (DaVinci, FilmLight)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Follow system theme"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Follow system theme" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Digital Intermediates and VFX for Modern Independent Film Production" class="md-nav__button md-logo" aria-label="Digital Intermediates and VFX for Modern Independent Film Production" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    Digital Intermediates and VFX for Modern Independent Film Production
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../production-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generalized Production Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-intermediates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    An Overview of Digital Intermediates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scene-referred/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scene-Referred vs. Display-Referred Imagery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color Spaces and Transfer Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../luts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Look Up Tables (LUTs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working-formats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common Working Formats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resolutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working and Delivery Resolutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color Management
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Color Management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACES
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color Management and OpenColorIO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application-Native Color Management (DaVinci, FilmLight)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application-Native Color Management (DaVinci, FilmLight)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#davinci-resolve-color-management-rcm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DaVinci Resolve Color Management (RCM)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filmlight-baselight-daylight-and-the-truelight-color-spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FilmLight: Baselight, Daylight, and the Truelight Color Spaces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-native-color-management-vs-aces-easier-and-harder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application-native color management vs. ACES: easier and harder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-choose-application-native-color-management-over-aces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why choose application-native color management over ACES?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentary-vs-single-camera-narrative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentary vs. single-camera narrative
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-decide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to decide
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color-management-comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choosing a Color Management Approach
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hdr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HDR Mastering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Editorial & Visual Effects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Editorial & Visual Effects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../turnover-di/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Editorial Turnover for Digital Intermediates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../turnover-vfx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Editorial Turnover for VFX Plate Pulls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-quality-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Effects Quality Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-production-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Effects Production Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mastering & Delivery
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mastering & Delivery
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IMF — The Interoperable Master Format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DCP — The Digital Cinema Package
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distribution-deliverables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Distribution Deliverables for Independent Film
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archival/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archival
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supplemental Reading & Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Change List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../v1.1-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes for v1.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="application-native-color-management-resolve-and-filmlight">Application-Native Color Management: Resolve and FilmLight</h1>
+<p><a href="../aces/">ACES</a> is not the only way to run a scene-referred, color-managed pipeline. The two grading systems a production is most likely to encounter — Blackmagic's <strong>DaVinci Resolve</strong> and FilmLight's <strong>Baselight</strong> — each ship their own <strong>automatic, holistic color-management framework</strong>: a single system that assigns every source its input color space, maps everything into one working space, and renders to the deliverable through one display transform, applied to every clip without per-shot intervention. Like ACES, they keep the image scene-referred and apply the display transform once at the end — but they do it <em>inside a product</em> rather than as an open standard.</p>
+<p>These frameworks automatically apply a defined chain of input, working-space, and output transforms. A colorist can instead build that chain manually with <strong>color space transforms (CSTs)</strong>, <strong>LUTs</strong>, <strong>DCTLs</strong>, and a chosen display rendering transform. Manual construction offers more control but requires the colorist to maintain consistency.</p>
+<p>DaVinci Wide Gamut is documented, and FilmLight publishes portable color-space files. Neither is an open standard like ACES (<a href="../aces/#what-aces-actually-is">ST 2065-1</a>) or has ACES's ecosystem-wide support through <a href="../color-management/">OpenColorIO</a>. They are <strong>published and partially portable, but single-vendor</strong>.</p>
+<p>Each system works in its own wide-gamut internal space. The three you will meet — ACES's <strong>AP1</strong> (the ACEScg working gamut), <strong>DaVinci Wide Gamut</strong>, and FilmLight's <strong>E-Gamut</strong> (what T-CAM renders from) — are all deliberately wide, encompassing most camera and display gamuts, with virtual primaries that fall outside the spectral locus:</p>
+<figure class="cp-embed"
+  style="--cp-embed-aspect: 820 / 1000"
+  data-cp-title="Working color spaces — ACES AP1, DaVinci Wide Gamut, FilmLight E-Gamut"
+  data-cp-light="https://ditools.videovillage.com/embed/color_plotter#p=eyJwcm9qZWN0Ijp7Im5hbWUiOiJXb3JraW5nIENvbG9yIFNwYWNlcyIsImRlc2MiOiIiLCJuYW1lQXV0byI6ZmFsc2UsImRlc2NBdXRvIjpmYWxzZSwic2hvd1RpdGxlIjpmYWxzZSwiZGlhZ3JhbSI6IjE5MzEiLCJtb2RlIjoiMmQiLCJzcGFjZTNkIjoiY2hyb21hIiwibG9nWSI6ZmFsc2UsInNwYWNlcyI6W3siaWQiOiJpZDE3IiwiZW5hYmxlZCI6dHJ1ZSwia2luZCI6ImdhbXV0IiwicmVmIjoiYXAxIiwibGFiZWwiOiJBQ0VTIEFQMSAoQUNFU2NnKSIsImNvbG9yIjoiIzRjNmVmNSIsImZpbGwiOmZhbHNlLCJmaWxsQWxwaGEiOjAuMTIsImxpbmVXaWR0aCI6MS44LCJsaW5lU3R5bGUiOiJzb2xpZCIsInNob3dXaGl0ZSI6dHJ1ZSwid2hpdGUiOiIiLCJtYXhOaXRzIjoxMDAsIm1pbk5pdHMiOjAuMX0seyJpZCI6ImlkMTgiLCJlbmFibGVkIjp0cnVlLCJraW5kIjoiZ2FtdXQiLCJyZWYiOiJkYXZpbmNpd2ciLCJsYWJlbCI6IkRhVmluY2kgV2lkZSBHYW11dCIsImNvbG9yIjoiI2U4NTkwYyIsImZpbGwiOmZhbHNlLCJmaWxsQWxwaGEiOjAuMTIsImxpbmVXaWR0aCI6MS44LCJsaW5lU3R5bGUiOiJzb2xpZCIsInNob3dXaGl0ZSI6dHJ1ZSwid2hpdGUiOiIiLCJtYXhOaXRzIjoxMDAsIm1pbk5pdHMiOjAuMX0seyJpZCI6ImlkMTkiLCJlbmFibGVkIjp0cnVlLCJraW5kIjoiZ2FtdXQiLCJyZWYiOiJlZ2FtdXQiLCJsYWJlbCI6IkZpbG1MaWdodCBFLUdhbXV0IiwiY29sb3IiOiIjMmY5ZTQ0IiwiZmlsbCI6ZmFsc2UsImZpbGxBbHBoYSI6MC4xMiwibGluZVdpZHRoIjoxLjgsImxpbmVTdHlsZSI6InNvbGlkIiwic2hvd1doaXRlIjp0cnVlLCJ3aGl0ZSI6IiIsIm1heE5pdHMiOjEwMCwibWluTml0cyI6MC4xfV0sInBvaW50cyI6W10sIndoaXRlcyI6W10sImFubm90YXRpb25zIjpbXSwicGxhbmNrIjp7InNob3ciOmZhbHNlLCJrTWluIjoxNTAwLCJrTWF4IjoxNTAwMCwiaXNvdGhlcm1zIjpmYWxzZX0sImxvY3VzIjp7InNob3ciOnRydWUsIndhdmVsZW5ndGhUaWNrcyI6dHJ1ZX0sImxhYmVsUHJpbWFyaWVzIjpmYWxzZSwibGFiZWxTcGFjZXMiOmZhbHNlLCJmaWxsIjp7InNob3ciOnRydWV9LCJjb250YWluIjp7InNob3ciOmZhbHNlLCJyZWZlcmVuY2VJZCI6bnVsbCwiY29sb3IiOiIjZmY0ZDRkIiwiaGF0Y2giOmZhbHNlLCJvcGFjaXR5IjowLjg1LCJjb3ZlcmFnZSI6ZmFsc2V9LCJ0aXRsZU91dHNpZGUiOmZhbHNlLCJpbWFnZSI6bnVsbH0sInZpZXciOnsidngwIjotMC4wNTUsInZ4MSI6MC44NTUsInZ5MCI6LTAuMTUsInZ5MSI6MS4wMiwiY2FtZXJhIjp7InRoZXRhIjozLjkyLCJwaGkiOjAuNjIsImRpc3QiOjMuNCwidGFyZ2V0IjpbMCwwLDBdfSwidGhlbWUiOiJsaWdodCIsInRyYW5zcGFyZW50IjpmYWxzZSwid2lkdGgiOjgyMCwiaGVpZ2h0IjoxMDAwLCJzY2FsZSI6MiwiZ3JpZCI6dHJ1ZSwiYXhlcyI6dHJ1ZSwibGFiZWxzIjp0cnVlLCJsZWdlbmQiOnRydWUsImNvb3Jkc0h1ZCI6ZmFsc2V9LCJlbWJlZCI6eyJsZWdlbmRUb2dnbGUiOnRydWV9fQ"
+  data-cp-dark="https://ditools.videovillage.com/embed/color_plotter#p=eyJwcm9qZWN0Ijp7Im5hbWUiOiJXb3JraW5nIENvbG9yIFNwYWNlcyIsImRlc2MiOiIiLCJuYW1lQXV0byI6ZmFsc2UsImRlc2NBdXRvIjpmYWxzZSwic2hvd1RpdGxlIjpmYWxzZSwiZGlhZ3JhbSI6IjE5MzEiLCJtb2RlIjoiMmQiLCJzcGFjZTNkIjoiY2hyb21hIiwibG9nWSI6ZmFsc2UsInNwYWNlcyI6W3siaWQiOiJpZDIwIiwiZW5hYmxlZCI6dHJ1ZSwia2luZCI6ImdhbXV0IiwicmVmIjoiYXAxIiwibGFiZWwiOiJBQ0VTIEFQMSAoQUNFU2NnKSIsImNvbG9yIjoiIzRjNmVmNSIsImZpbGwiOmZhbHNlLCJmaWxsQWxwaGEiOjAuMTIsImxpbmVXaWR0aCI6MS44LCJsaW5lU3R5bGUiOiJzb2xpZCIsInNob3dXaGl0ZSI6dHJ1ZSwid2hpdGUiOiIiLCJtYXhOaXRzIjoxMDAsIm1pbk5pdHMiOjAuMX0seyJpZCI6ImlkMjEiLCJlbmFibGVkIjp0cnVlLCJraW5kIjoiZ2FtdXQiLCJyZWYiOiJkYXZpbmNpd2ciLCJsYWJlbCI6IkRhVmluY2kgV2lkZSBHYW11dCIsImNvbG9yIjoiI2U4NTkwYyIsImZpbGwiOmZhbHNlLCJmaWxsQWxwaGEiOjAuMTIsImxpbmVXaWR0aCI6MS44LCJsaW5lU3R5bGUiOiJzb2xpZCIsInNob3dXaGl0ZSI6dHJ1ZSwid2hpdGUiOiIiLCJtYXhOaXRzIjoxMDAsIm1pbk5pdHMiOjAuMX0seyJpZCI6ImlkMjIiLCJlbmFibGVkIjp0cnVlLCJraW5kIjoiZ2FtdXQiLCJyZWYiOiJlZ2FtdXQiLCJsYWJlbCI6IkZpbG1MaWdodCBFLUdhbXV0IiwiY29sb3IiOiIjMmY5ZTQ0IiwiZmlsbCI6ZmFsc2UsImZpbGxBbHBoYSI6MC4xMiwibGluZVdpZHRoIjoxLjgsImxpbmVTdHlsZSI6InNvbGlkIiwic2hvd1doaXRlIjp0cnVlLCJ3aGl0ZSI6IiIsIm1heE5pdHMiOjEwMCwibWluTml0cyI6MC4xfV0sInBvaW50cyI6W10sIndoaXRlcyI6W10sImFubm90YXRpb25zIjpbXSwicGxhbmNrIjp7InNob3ciOmZhbHNlLCJrTWluIjoxNTAwLCJrTWF4IjoxNTAwMCwiaXNvdGhlcm1zIjpmYWxzZX0sImxvY3VzIjp7InNob3ciOnRydWUsIndhdmVsZW5ndGhUaWNrcyI6dHJ1ZX0sImxhYmVsUHJpbWFyaWVzIjpmYWxzZSwibGFiZWxTcGFjZXMiOmZhbHNlLCJmaWxsIjp7InNob3ciOnRydWV9LCJjb250YWluIjp7InNob3ciOmZhbHNlLCJyZWZlcmVuY2VJZCI6bnVsbCwiY29sb3IiOiIjZmY0ZDRkIiwiaGF0Y2giOmZhbHNlLCJvcGFjaXR5IjowLjg1LCJjb3ZlcmFnZSI6ZmFsc2V9LCJ0aXRsZU91dHNpZGUiOmZhbHNlLCJpbWFnZSI6bnVsbH0sInZpZXciOnsidngwIjotMC4wNTUsInZ4MSI6MC44NTUsInZ5MCI6LTAuMTUsInZ5MSI6MS4wMiwiY2FtZXJhIjp7InRoZXRhIjozLjkyLCJwaGkiOjAuNjIsImRpc3QiOjMuNCwidGFyZ2V0IjpbMCwwLDBdfSwidGhlbWUiOiJkYXJrIiwidHJhbnNwYXJlbnQiOmZhbHNlLCJ3aWR0aCI6ODIwLCJoZWlnaHQiOjEwMDAsInNjYWxlIjoyLCJncmlkIjp0cnVlLCJheGVzIjp0cnVlLCJsYWJlbHMiOnRydWUsImxlZ2VuZCI6dHJ1ZSwiY29vcmRzSHVkIjpmYWxzZX0sImVtYmVkIjp7ImxlZ2VuZFRvZ2dsZSI6dHJ1ZX19">
+  <span class="cp-embed-mount">
+    <img class="cp-embed-static" src="../figures/svg/figure-working-gamuts-light.svg#only-light" alt="ACES AP1, DaVinci Wide Gamut, and FilmLight E-Gamut on the CIE 1931 diagram" loading="lazy">
+    <img class="cp-embed-static" src="../figures/svg/figure-working-gamuts-dark.svg#only-dark" alt="" loading="lazy">
+  </span>
+  <figcaption>The three managed working color spaces on the CIE 1931 diagram: ACES AP1 (ACEScg),
+  DaVinci Wide Gamut, and FilmLight E-Gamut — the gamut T-CAM renders from. DaVinci Wide Gamut is the
+  widest; all three use virtual primaries beyond the spectral locus (note the negative blue-y and
+  greens near y = 1). <span class="cp-embed-hint">Interactive — drag to pan, scroll to zoom.</span>
+  <a href="../figures/svg/figure-working-gamuts-light.svg">Static version</a>.</figcaption>
+</figure>
+
+<h2 id="davinci-resolve-color-management-rcm">DaVinci Resolve Color Management (RCM)</h2>
+<p><strong>Objective:</strong> normalize many cameras into one scene-referred working space and retarget to any deliverable, without leaving Resolve. Instead of grading log footage into shape by hand (<em>display-referred</em> — Resolve knows nothing about the source), you tell it each clip's camera profile and it maps that source into a working space and out to the deliverable using the manufacturer's known log curve and gamut (<em>scene-referred</em>).<sup id="fnref:dg1"><a class="footnote-ref" href="#fn:dg1">1</a></sup></p>
+<figure class="mosaic-fig">
+<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 816 360" role="img" aria-labelledby="m-davinci-resolve-color-management-source-clips-are-assigned-an-input-color-space-mapped-into-the-davinci-wide-gamut-intermediate-working-space-then-rendered-through-one-output-display-transform-to-each-deliverable-title m-davinci-resolve-color-management-source-clips-are-assigned-an-input-color-space-mapped-into-the-davinci-wide-gamut-intermediate-working-space-then-rendered-through-one-output-display-transform-to-each-deliverable-desc" preserveAspectRatio="xMidYMid meet"><title id="m-davinci-resolve-color-management-source-clips-are-assigned-an-input-color-space-mapped-into-the-davinci-wide-gamut-intermediate-working-space-then-rendered-through-one-output-display-transform-to-each-deliverable-title">DaVinci Resolve Color Management: source clips are assigned an input color space, mapped into the DaVinci Wide Gamut / Intermediate working space, then rendered through one output display transform to each deliverable</title><desc id="m-davinci-resolve-color-management-source-clips-are-assigned-an-input-color-space-mapped-into-the-davinci-wide-gamut-intermediate-working-space-then-rendered-through-one-output-display-transform-to-each-deliverable-desc">A left-to-right post-production workflow with supporting inputs, a compositing branch, and multiple delivery outputs.</desc><style>
+  svg{display:block;width:100%;height:auto;font-family:var(--m-font,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif);color:var(--m-text);background:var(--m-surface);border:1px solid var(--m-line);border-radius:16px;box-shadow:var(--m-shadow)}
+  text{fill:var(--m-text)} .muted{fill:var(--m-muted)} .subtle{fill:var(--m-subtle)}
+  .label{font-size:15px;font-weight:650;letter-spacing:-.01em}.wf-label{font-size:13px;font-weight:650;letter-spacing:-.01em}.eyebrow{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}.detail{font-size:11px}.mono{font-family:var(--m-mono,monospace);font-variant-numeric:tabular-nums}.keyline{stroke:var(--m-line)}
+</style><defs><marker id="m-davinci-resolve-color-management-source-clips-are-assigned-an-input-color-space-mapped-into-the-davinci-wide-gamut-intermediate-working-space-then-rendered-through-one-output-display-transform-to-each-deliverable-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1l8 4-8 4z" fill="var(--m-line-strong)"/></marker></defs><rect x="568" y="22" width="232" height="322" rx="16" fill="var(--m-surface-raised)" stroke="var(--m-line)" stroke-dasharray="4 4"/><text x="592" y="44" class="eyebrow muted">DELIVERABLES</text><path d="M200 192H236" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-davinci-resolve-color-management-source-clips-are-assigned-an-input-color-space-mapped-into-the-davinci-wide-gamut-intermediate-working-space-then-rendered-through-one-output-display-transform-to-each-deliverable-arrow)"/><path d="M392 192H588Q598 192 598 182V106Q598 96 608 96H620" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-davinci-resolve-color-management-source-clips-are-assigned-an-input-color-space-mapped-into-the-davinci-wide-gamut-intermediate-working-space-then-rendered-through-one-output-display-transform-to-each-deliverable-arrow)"/><path d="M392 192H620" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-davinci-resolve-color-management-source-clips-are-assigned-an-input-color-space-mapped-into-the-davinci-wide-gamut-intermediate-working-space-then-rendered-through-one-output-display-transform-to-each-deliverable-arrow)"/><path d="M392 192H588Q598 192 598 202V278Q598 288 608 288H620" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-davinci-resolve-color-management-source-clips-are-assigned-an-input-color-space-mapped-into-the-davinci-wide-gamut-intermediate-working-space-then-rendered-through-one-output-display-transform-to-each-deliverable-arrow)"/><g role="group" aria-label="Source Clips"><rect x="44" y="160" width="156" height="64" rx="12" fill="var(--m-green-soft)" stroke="var(--m-green)"/><g color="var(--m-green)"><g transform="translate(60 180) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></g></g><text class="wf-label"><tspan x="94" y="197">Source Clips</tspan></text></g><g role="group" aria-label="DaVinci Wide Gamut"><rect x="236" y="160" width="156" height="64" rx="12" fill="var(--m-blue-soft)" stroke="var(--m-blue)"/><g color="var(--m-blue)"><g transform="translate(252 180) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".6" fill="currentColor" stroke="none"/><circle cx="17.5" cy="10.5" r=".6" fill="currentColor" stroke="none"/><circle cx="8.5" cy="7.5" r=".6" fill="currentColor" stroke="none"/><circle cx="6.5" cy="12.5" r=".6" fill="currentColor" stroke="none"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></g></g><text class="wf-label"><tspan x="286" y="188">DaVinci</tspan><tspan x="286" y="206">Wide Gamut</tspan></text></g><g role="group" aria-label="Rec.709"><rect x="620" y="64" width="156" height="64" rx="12" fill="var(--m-coral-soft)" stroke="var(--m-coral)"/><g color="var(--m-coral)"><g transform="translate(636 84) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></g></g><text class="wf-label"><tspan x="670" y="101">Rec.709</tspan></text></g><g role="group" aria-label="P3-D65"><rect x="620" y="160" width="156" height="64" rx="12" fill="var(--m-coral-soft)" stroke="var(--m-coral)"/><g color="var(--m-coral)"><g transform="translate(636 180) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></g></g><text class="wf-label"><tspan x="670" y="197">P3-D65</tspan></text></g><g role="group" aria-label="Rec.2100"><rect x="620" y="256" width="156" height="64" rx="12" fill="var(--m-coral-soft)" stroke="var(--m-coral)"/><g color="var(--m-coral)"><g transform="translate(636 276) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></g></g><text class="wf-label"><tspan x="670" y="293">Rec.2100</tspan></text></g></svg></p>
+<figcaption>RCM inside one application: each source clip is assigned an input color space, mapped into
+the <b>DaVinci Wide Gamut / Intermediate</b> working space, then rendered through one output display
+transform (the Resolve DRT, applied last) to each deliverable — Rec.709, P3-D65, and Rec.2100.</figcaption>
+</figure>
+<p><strong>RCM is an alternative to ACES, not the opposite of it.</strong> Both are the same <em>kind</em> of system — "automatic," scene-referred color management, where you assign each clip its source camera format / input color space and the tool maps it into a common working space and out through a display transform. The difference is that RCM is a configurable, single-vendor <em>framework</em>: you choose among many working spaces (DaVinci Wide Gamut, Rec.2020, camera-native wide gamuts — and Resolve can even run ACES itself as its color science) and among several <strong>output tone-mapping methods</strong> (the Output DRT — the Resolve default, RED IPP2, saturation-preserving variants, or <em>None</em>). ACES is essentially <em>one standardized configuration</em> of that same idea, available inside Resolve alongside the Resolve-native one; choosing between them is a project setting, so "we grade in Resolve" and "the show is ACES" are not mutually exclusive.<sup id="fnref:dg3"><a class="footnote-ref" href="#fn:dg3">3</a></sup></p>
+<p>The working space Blackmagic recommends is <strong>DaVinci Wide Gamut (DWG)</strong> with the <strong>DaVinci Intermediate</strong> log curve — a gamut Blackmagic describes as larger than BT.2020, ARRI Wide Gamut, and ACES AP-1, so nothing clips whatever camera it came from.<sup id="fnref:dg2"><a class="footnote-ref" href="#fn:dg2">2</a></sup> Worth knowing about how open it is: <strong>the encoding is fully specified; the rendering is not.</strong> DWG-the-color-space — its virtual primaries, D65 white point, RGB↔XYZ matrices, and the DaVinci Intermediate log equations — is published in a Blackmagic white paper, so it can be rebuilt <em>exactly</em> in an OCIO config or a LUT tool. The Resolve display rendering transform — how Resolve tone- and gamut-maps DWG to an output — is internal, not a separately published spec. "DWG is published" is true of the color space, not the look.</p>
+<h2 id="filmlight-baselight-daylight-and-the-truelight-color-spaces">FilmLight: Baselight, Daylight, and the Truelight Color Spaces</h2>
+<p><strong>Objective:</strong> a high-end managed grade whose display transform is built on a color appearance model. FilmLight's systems (<strong>Baselight</strong>, and the on-set/dailies tool <strong>Daylight</strong>) work in the <strong>Truelight Color Spaces (TCS)</strong> — an <strong>E-Gamut / T-Log</strong> working space — and render to display through <strong>T-CAM</strong> (the Truelight Color Appearance Model, currently v2), which maps scene-referred data to a display without baking in a specific look. (E-Gamut / T-Log / T-CAM-v2 are FilmLight product names, not standardized designations; see <a href="https://www.filmlight.ltd.uk/workflow/truelight.php">FilmLight — Truelight</a>.)</p>
+<figure class="mosaic-fig">
+<p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 816 360" role="img" aria-labelledby="m-filmlight-truelight-color-spaces-source-clips-are-assigned-a-truelight-input-mapped-into-the-e-gamut-t-log-working-space-then-rendered-through-the-t-cam-display-transform-to-each-display-deliverable-title m-filmlight-truelight-color-spaces-source-clips-are-assigned-a-truelight-input-mapped-into-the-e-gamut-t-log-working-space-then-rendered-through-the-t-cam-display-transform-to-each-display-deliverable-desc" preserveAspectRatio="xMidYMid meet"><title id="m-filmlight-truelight-color-spaces-source-clips-are-assigned-a-truelight-input-mapped-into-the-e-gamut-t-log-working-space-then-rendered-through-the-t-cam-display-transform-to-each-display-deliverable-title">FilmLight Truelight Color Spaces: source clips are assigned a Truelight input, mapped into the E-Gamut / T-Log working space, then rendered through the T-CAM display transform to each display deliverable</title><desc id="m-filmlight-truelight-color-spaces-source-clips-are-assigned-a-truelight-input-mapped-into-the-e-gamut-t-log-working-space-then-rendered-through-the-t-cam-display-transform-to-each-display-deliverable-desc">A left-to-right post-production workflow with supporting inputs, a compositing branch, and multiple delivery outputs.</desc><style>
+  svg{display:block;width:100%;height:auto;font-family:var(--m-font,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif);color:var(--m-text);background:var(--m-surface);border:1px solid var(--m-line);border-radius:16px;box-shadow:var(--m-shadow)}
+  text{fill:var(--m-text)} .muted{fill:var(--m-muted)} .subtle{fill:var(--m-subtle)}
+  .label{font-size:15px;font-weight:650;letter-spacing:-.01em}.wf-label{font-size:13px;font-weight:650;letter-spacing:-.01em}.eyebrow{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}.detail{font-size:11px}.mono{font-family:var(--m-mono,monospace);font-variant-numeric:tabular-nums}.keyline{stroke:var(--m-line)}
+</style><defs><marker id="m-filmlight-truelight-color-spaces-source-clips-are-assigned-a-truelight-input-mapped-into-the-e-gamut-t-log-working-space-then-rendered-through-the-t-cam-display-transform-to-each-display-deliverable-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1l8 4-8 4z" fill="var(--m-line-strong)"/></marker></defs><rect x="568" y="22" width="232" height="322" rx="16" fill="var(--m-surface-raised)" stroke="var(--m-line)" stroke-dasharray="4 4"/><text x="592" y="44" class="eyebrow muted">DELIVERABLES</text><path d="M200 192H236" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-filmlight-truelight-color-spaces-source-clips-are-assigned-a-truelight-input-mapped-into-the-e-gamut-t-log-working-space-then-rendered-through-the-t-cam-display-transform-to-each-display-deliverable-arrow)"/><path d="M392 192H588Q598 192 598 182V106Q598 96 608 96H620" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-filmlight-truelight-color-spaces-source-clips-are-assigned-a-truelight-input-mapped-into-the-e-gamut-t-log-working-space-then-rendered-through-the-t-cam-display-transform-to-each-display-deliverable-arrow)"/><path d="M392 192H620" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-filmlight-truelight-color-spaces-source-clips-are-assigned-a-truelight-input-mapped-into-the-e-gamut-t-log-working-space-then-rendered-through-the-t-cam-display-transform-to-each-display-deliverable-arrow)"/><path d="M392 192H588Q598 192 598 202V278Q598 288 608 288H620" fill="none" stroke="var(--m-line-strong)" stroke-width="1.5" marker-end="url(#m-filmlight-truelight-color-spaces-source-clips-are-assigned-a-truelight-input-mapped-into-the-e-gamut-t-log-working-space-then-rendered-through-the-t-cam-display-transform-to-each-display-deliverable-arrow)"/><g role="group" aria-label="Source Clips"><rect x="44" y="160" width="156" height="64" rx="12" fill="var(--m-green-soft)" stroke="var(--m-green)"/><g color="var(--m-green)"><g transform="translate(60 180) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></g></g><text class="wf-label"><tspan x="94" y="197">Source Clips</tspan></text></g><g role="group" aria-label="E-Gamut / T-Log"><rect x="236" y="160" width="156" height="64" rx="12" fill="var(--m-blue-soft)" stroke="var(--m-blue)"/><g color="var(--m-blue)"><g transform="translate(252 180) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".6" fill="currentColor" stroke="none"/><circle cx="17.5" cy="10.5" r=".6" fill="currentColor" stroke="none"/><circle cx="8.5" cy="7.5" r=".6" fill="currentColor" stroke="none"/><circle cx="6.5" cy="12.5" r=".6" fill="currentColor" stroke="none"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></g></g><text class="wf-label"><tspan x="286" y="188">E-Gamut</tspan><tspan x="286" y="206">/ T-Log</tspan></text></g><g role="group" aria-label="Rec.709"><rect x="620" y="64" width="156" height="64" rx="12" fill="var(--m-coral-soft)" stroke="var(--m-coral)"/><g color="var(--m-coral)"><g transform="translate(636 84) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></g></g><text class="wf-label"><tspan x="670" y="101">Rec.709</tspan></text></g><g role="group" aria-label="P3-D65"><rect x="620" y="160" width="156" height="64" rx="12" fill="var(--m-coral-soft)" stroke="var(--m-coral)"/><g color="var(--m-coral)"><g transform="translate(636 180) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></g></g><text class="wf-label"><tspan x="670" y="197">P3-D65</tspan></text></g><g role="group" aria-label="Rec.2100"><rect x="620" y="256" width="156" height="64" rx="12" fill="var(--m-coral-soft)" stroke="var(--m-coral)"/><g color="var(--m-coral)"><g transform="translate(636 276) scale(1)" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></g></g><text class="wf-label"><tspan x="670" y="293">Rec.2100</tspan></text></g></svg></p>
+<figcaption>The same shape as RCM, inside Baselight / Daylight: each source clip is assigned a Truelight
+input, mapped into the <b>E-Gamut / T-Log</b> working space, then rendered to each display through the
+<b>T-CAM v2</b> display transform (applied last).</figcaption>
+</figure>
+<p>What makes T-CAM distinctive is a documented design <em>philosophy</em>: its author, FilmLight's Richard Kirk, argues for the simplest appearance model that works rather than the most elaborate.</p>
+<div class="admonition quote">
+<p class="admonition-title">Kirk, <em>Colour: Sense &amp; Measurement</em> (FilmLight, 2022), Ch. 6</p>
+<p>"[I tried] CIECAM02 Jab space internally to see whether this might help, but I never saw any difference. […] I suggest you use the simplest model you can."</p>
+</div>
+<p>That is the same open question the <a href="../aces/#aces-20">ACES chapter</a> raises about ACES 2.0 — whether a full color appearance model belongs <em>inside</em> the display rendering transform. ACES 2.0 embeds a Hellwig-derived CAM; FilmLight's position is that a lighter model plus a viewing-condition correction does the job. It is a genuine technical disagreement between two shipping systems, which is why an independent production should know the choice of display transform is a real choice, not a detail.<sup id="fnref:fl1"><a class="footnote-ref" href="#fn:fl1">4</a></sup></p>
+<p>FilmLight's system is, unusually for a vendor, genuinely portable: FilmLight publishes its color-space and transform files (<code>.flspace</code> / <code>.fltransform</code>), a Truelight OCIO config, and an Autodesk Flame color policy, so TCS can travel outside Baselight. And exactly as with Resolve, choosing FilmLight's tools is not choosing against ACES: <strong>Baselight can run a full ACES pipeline</strong> as its color-managed workflow (v7 added ACES 2.0), and FilmLight is an ACES product partner — so "we finish at a Baselight house" and "the show is ACES" are equally compatible. Its portable files are still FilmLight's, under FilmLight's control — useful, but not a SMPTE/Academy specification that many vendors implement and certify against independently.<sup id="fnref:why2"><a class="footnote-ref" href="#fn:why2">6</a></sup></p>
+<h2 id="application-native-color-management-vs-aces-easier-and-harder">Application-native color management vs. ACES: easier and harder</h2>
+<p>An application-native system is often called easier to set up than ACES. That holds in one narrow case and reverses in the one that matters:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Application-native (RCM / TCS)</th>
+<th>ACES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Assigning input color spaces</strong> (camera normalization)</td>
+<td>The same metadata-driven menu</td>
+<td>The same metadata-driven menu — <strong>virtually identical labor</strong></td>
+</tr>
+<tr>
+<td><strong>Single-app, single-facility finish</strong></td>
+<td>On by a project setting</td>
+<td>Also a project setting; runs in one app just as well</td>
+</tr>
+<tr>
+<td><strong>Multi-vendor VFX interchange</strong></td>
+<td><strong>More work</strong> — no path to VFX vendors; the colorist hand-authors LUTs or transforms and workflow guidance for each vendor</td>
+<td><strong>Less work</strong> — VFX tools already ship OCIO/ACES configs; vendors are already set up</td>
+</tr>
+<tr>
+<td><strong>Neutral archival master</strong></td>
+<td>No — a working space, not an interchange encoding</td>
+<td>Yes — ACES2065-1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Normalizing many cameras is no easier in an application-native system.</strong> In both, it is the same menu, auto-assigned from camera metadata — the same labor either way. That is not a differentiator.</li>
+<li><strong>ACES is not inherently "more setup."</strong> ACES ships as a default component of most standard VFX applications — both ACES and OpenColorIO are named components of the <a href="https://vfxplatform.com/">VFX Reference Platform</a> the industry builds against. So most VFX vendors already have the <em>infrastructure</em> installed: the configs are present whether or not a given vendor prefers ACES or has deep experience with it, and onboarding is usually handing them a version and a couple of transform names. RCM and TCS have no equivalent vendor-facing distribution: to run one across a VFX chain, the <em>colorist</em> has to author LUTs or transforms and written workflow guidance for each vendor to emulate in their own tools. In a multi-vendor pipeline, that makes the built-in system the <em>higher</em>-effort option, not ACES.</li>
+</ul>
+<p>So the real axis is not setup cost — it is whether the pipeline crosses vendors and applications. An application-native system makes the single-facility, in-application finish marginally simpler and offers no path to hand a VFX vendor a matching pipeline; ACES makes cross-vendor interchange and a neutral archive easy, at the cost of a little in-app configuration when you are <em>not</em> interchanging.</p>
+<h2 id="why-choose-application-native-color-management-over-aces">Why choose application-native color management over ACES?</h2>
+<p>If ACES is the interchange standard, why would anyone pick RCM or FilmLight's color management instead? There are real, defensible reasons — and industry commentary bears them out.</p>
+<ul>
+<li><strong>You are not in a multi-vendor, ACES-driven pipeline.</strong> For a single-facility finish with no VFX houses to coordinate — a documentary, a commercial, a Resolve-only grade — ACES's interchange advantage goes unused, and an application-native system is simpler and more predictable. As Frame.io's guide puts it, if you have "no overwhelming reason to go to ACES," RCM is "a slightly easier and more predictable path," giving the benefits of color management while keeping "the feel that the DaVinci Resolve Color page controls have always had."<sup id="fnref:why1"><a class="footnote-ref" href="#fn:why1">5</a></sup></li>
+<li><strong>Grading-tool behavior and working-space preference.</strong> Colorists often choose a timeline space because the grading controls <em>behave</em> the way they like in it — you can set RCM's timeline space to DaVinci Wide Gamut or any log format for exactly this reason.<sup id="fnref2:why1"><a class="footnote-ref" href="#fn:why1">5</a></sup></li>
+<li><strong>The rendering itself.</strong> A display transform is a creative instrument, not just plumbing. FilmLight developed T-CAM with a particular emphasis on look-development flexibility, grading-tool behavior, minimizing image artifacts, and visual consistency — founded on the same ideas as ACES but tuned by FilmLight based on user feedback.<sup id="fnref2:why2"><a class="footnote-ref" href="#fn:why2">6</a></sup> Some colorists simply prefer its rendering to the ACES Output Transform — a legitimate reason to run TCS, and the same debate the <a href="../aces/#aces-20">ACES chapter</a> raises about whether a full CAM belongs in the DRT.</li>
+<li><strong>It is rarely all-or-nothing.</strong> Because both systems <em>contain</em> ACES, choosing an application-native system is often really choosing its working-space and DRT defaults while keeping ACES available for the parts of the job that need it.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Using a managed pipeline for input only — and what it costs in ACES</p>
+<p>Because the input-and-working-space stage is separable from the output rendering, either system can be used for <em>just</em> the front half: assign inputs, work in a common scene-referred space, and then — instead of the built-in display transform — apply your own DRT (in RCM, set the Output DRT to <em>None</em> and supply a LUT or DCTL; in ACES, substitute your own output). That is a legitimate creative choice.</p>
+<p>But doing it in ACES gives up the <strong>simplified</strong> archival framework. The value of an ACES2065-1 master is that a neutral, scene-referred archive plus the <em>standard</em> ACES transforms reproduces the delivered look with nothing show-specific to preserve. Swap in a proprietary display rendering and standard ACES no longer reconstructs your show on its own. Archival is still achievable — but only if the show-specific display transform is documented and stored alongside the master in a future-proof form, so the look can be rebuilt later. What you lose is the turnkey guarantee that <em>standard</em> transforms alone suffice; what replaces it is an archive you are responsible for keeping complete. If you are going to supply your own DRT, a vendor working space costs you nothing extra; in ACES it trades the self-contained archival guarantee for one you must document and maintain.</p>
+</div>
+<h2 id="documentary-vs-single-camera-narrative">Documentary vs. single-camera narrative</h2>
+<p>The most useful way to choose is to notice that "how many cameras" and "how many vendors and applications" are <em>different</em> axes, and they often point opposite ways.</p>
+<ul>
+<li><strong>Non-scripted documentary.</strong> Typically <em>many heterogeneous sources</em> — archival, several shooters, phones, stock, footage from different eras and formats — but usually <em>one</em> finishing facility and little or no VFX. Normalizing those sources is the same easy, metadata-driven step in either system, and with no VFX chain to coordinate, ACES's interchange advantage is unused. An application-native system is a clean, low-friction fit — and RCM's Automatic mode in particular is built for exactly this. <strong>Application-native color management is often the natural choice for documentary finishing.</strong></li>
+<li><strong>Single-camera scripted narrative.</strong> Usually <em>one</em> camera format — so multi-source normalization matters less — but frequently VFX spread across multiple vendors and applications, an archival master, and theatrical, HDR, and SDR deliverables. A Nuke or Flame VFX chain is precisely the case only an open standard spans, and where an application-native system would force the colorist to hand-author LUTs for each vendor; ACES2065-1 also gives the neutral archive such shows expect. <strong>ACES tends to earn its keep on VFX-heavy narrative work.</strong></li>
+</ul>
+<p><em>Many cameras</em> does not favor ACES over an application-native system — normalization is equal — but <em>many vendors, applications, deliverables, or an archival requirement</em> does. A simple single-camera narrative with no VFX and one deliverable may need no managed pipeline at all; a well-run camera-native grade is fine.</p>
+<h2 id="when-to-decide">When to decide</h2>
+<p>Like every color decision in this handbook, it belongs in <strong>pre-production</strong>, written into the <a href="../turnover-vfx/#format-specification">three format specifications</a> and proven with a <a href="../production-workflow/#visual-effects-production_1">confidence package</a> before shot work starts — because the working space and display transform, once graded against, are expensive to change. The options are not exclusive (Resolve and Baselight both contain ACES modes); the decision that matters is which <strong>working space and display transform the whole show agrees on</strong>. For the four-way picture including an un-managed workflow, see the <a href="../color-management-comparison/">color management comparison</a>.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:dg1">
+<p><em>DaVinci Resolve 21 Reference Manual</em> (Blackmagic Design, July 2026), Ch. 9, "Data Levels, Color Management, and ACES," pp. 225–290 — the authoritative reference; and <em>The Colorist Guide to DaVinci Resolve 20</em> (Fissoun, Blackmagic, 2025), Lesson 4, for the walkthrough. The workflow has evolved since the <em>Definitive Guide to Resolve 15</em> (2018) this chapter first cited.&#160;<a class="footnote-backref" href="#fnref:dg1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:dg2">
+<p>Qualitative comparison: <em>DaVinci Resolve 21 Reference Manual</em>, Ch. 9, pp. 241–243 ("greater than BT.2020, ARRI Wide Gamut, and even ACES"). Numeric definition: <em>DaVinci Resolve 17 — Wide Gamut Intermediate</em> white paper (Blackmagic, Aug 2021) — DWG CIE 1931 xy primaries R (0.8000, 0.3130), G (0.1682, 0.9877), B (0.0790, −0.1155), white D65 (0.3127, 0.3290), with RGB↔XYZ matrices; DaVinci Intermediate is a log OETF encoding &gt; 9.1 stops above 18% gray (middle gray → 0.336043). Its revision history notes the green-x coordinate was corrected in v1.1 (2021) — pre-v1.1 reconstructions circulating online carry the old value.&#160;<a class="footnote-backref" href="#fnref:dg2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:dg3">
+<p><em>DaVinci Resolve 21 Reference Manual</em>, Ch. 9, covers the two color-science modes, the Output DRT tone-mapping options (incl. <em>None</em>), Resolve's ACES signal flow, working space, and AMF 2.0 support.&#160;<a class="footnote-backref" href="#fnref:dg3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:fl1">
+<p>Richard Kirk, <em>Colour: Sense &amp; Measurement</em> (FilmLight, 2022) — the T-CAM rationale (Ch. 5–6) and "simplest model" argument; FilmLight hosts a <a href="https://www.filmlight.ltd.uk/support/documents/colourbook/colourbook.php">free PDF</a>. The E-Gamut/T-Log/T-CAM-v2 product names and the portability specifics below come from FilmLight's own materials rather than the book.&#160;<a class="footnote-backref" href="#fnref:fl1" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:why1">
+<p><a href="https://blog.frame.io/2024/02/12/davinci-resolve-color-management-vs-aces-which-should-you-choose/"><em>Resolve Color Management vs ACES — Which Should You Choose?</em></a> (Frame.io Insider, 2024); see also <a href="https://mixinglight.com/color-grading-tutorials/aces-vs-rcm-2026/">Mixing Light</a> and the <a href="https://community.acescentral.com/t/davinci-reslove-color-sceince-rcm-vs-acescct/2883">ACESCentral RCM-vs-ACEScct discussion</a>. Both RCM and ACES are scene-referred systems solving the same problem.&#160;<a class="footnote-backref" href="#fnref:why1" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:why1" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:why2">
+<p><a href="https://www.filmlight.ltd.uk/workflow/truelight.php">FilmLight — Colour Management / Truelight</a> and <a href="https://www.newsshooter.com/2026/02/03/filmlight-baselight-v7-truelight-colour-space-improvements/">Baselight v7 Truelight Colour Space improvements</a>.&#160;<a class="footnote-backref" href="#fnref:why2" title="Jump back to footnote 6 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:why2" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../color-management/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Color Management and OpenColorIO">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Color Management and OpenColorIO
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../color-management-comparison/" class="md-footer__link md-footer__link--next" aria-label="Next: Choosing a Color Management Approach">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Choosing a Color Management Approach
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2016–2026 Tashi Trieu — licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/tashdor/divfx" target="_blank" rel="noopener" title="divfx on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:divfx@tashitrieu.com" target="_blank" rel="noopener" title="Questions, comments, and errata" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "toc.integrate", "search.suggest", "search.highlight", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": null}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/color-plot-embed.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1759 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A production handbook on digital intermediate finishing and visual effects workflows for independent film production, by Tashi Trieu.">
+      
+      
+        <meta name="author" content="Tashi Trieu">
+      
+      
+        <link rel="canonical" href="https://divfx.tashitrieu.com/wiki/dcp/">
+      
+      
+        <link rel="prev" href="../imf/">
+      
+      
+        <link rel="next" href="../distribution-deliverables/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../icons/favicon-32x32.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>DCP — The Digital Cinema Package - Digital Intermediates and VFX for Modern Independent Film Production</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/mosaic-tokens.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dcp-the-digital-cinema-package" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Digital Intermediates and VFX for Modern Independent Film Production" class="md-header__button md-logo" aria-label="Digital Intermediates and VFX for Modern Independent Film Production" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Digital Intermediates and VFX for Modern Independent Film Production
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DCP — The Digital Cinema Package
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Follow system theme"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Follow system theme" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Digital Intermediates and VFX for Modern Independent Film Production" class="md-nav__button md-logo" aria-label="Digital Intermediates and VFX for Modern Independent Film Production" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    Digital Intermediates and VFX for Modern Independent Film Production
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../production-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generalized Production Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-intermediates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    An Overview of Digital Intermediates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scene-referred/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scene-Referred vs. Display-Referred Imagery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color Spaces and Transfer Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../luts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Look Up Tables (LUTs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working-formats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common Working Formats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resolutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working and Delivery Resolutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color Management
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Color Management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACES
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color Management and OpenColorIO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../application-native-color-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application-Native Color Management (DaVinci, FilmLight)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color-management-comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choosing a Color Management Approach
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hdr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HDR Mastering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Editorial & Visual Effects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Editorial & Visual Effects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../turnover-di/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Editorial Turnover for Digital Intermediates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../turnover-vfx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Editorial Turnover for VFX Plate Pulls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-quality-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Effects Quality Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-production-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Effects Production Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mastering & Delivery
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mastering & Delivery
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IMF — The Interoperable Master Format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DCP — The Digital Cinema Package
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DCP — The Digital Cinema Package
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-dcp-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a DCP is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolution-2k-4k-and-the-bit-rate-cap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resolution: 2K, 4K, and the bit-rate cap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audio-channels-and-how-it-was-mixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audio: channels and how it was mixed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encrypted-or-unencrypted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encrypted or unencrypted
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessibility-captions-and-described-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessibility: captions and described audio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delivering-to-a-festival" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delivering to a festival
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qc-on-a-real-cinema-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QC on a real cinema server
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-means-for-an-independent-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this means for an independent production
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distribution-deliverables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Distribution Deliverables for Independent Film
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archival/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archival
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supplemental Reading & Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Change List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../v1.1-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes for v1.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="dcp-the-digital-cinema-package">DCP — The Digital Cinema Package</h1>
+<p>A DCP is the theatrical deliverable muxed from the DCDM. This chapter covers the decisions that affect festival delivery: format, resolution, audio, encryption, accessibility, transport, and QC. See <a href="../production-workflow/#dcp-digital-cinema-package">Generalized Production Workflow</a> for the mastering path.</p>
+<h2 id="what-a-dcp-is">What a DCP is</h2>
+<p>Structurally the DCP is the <a href="../imf/">IMF</a>'s predecessor — and, in large part, its template. The digital-cinema packaging model — MXF track files described by a <strong>CPL</strong> (Composition Playlist), inventoried by a <strong>PKL</strong> (Packing List), and located by an <strong>ASSETMAP</strong> — was standardized by SMPTE for D-Cinema and released in 2009, and IMF (first standardized in 2013) reused that same architecture for mastering and distribution.<sup id="fnref:dcp-imf"><a class="footnote-ref" href="#fn:dcp-imf">1</a></sup> The DCP's essence differs because the target is a projector, not a mastering pipeline:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Encoding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Picture</strong></td>
+<td><strong>JPEG 2000</strong>, intra-frame, 12-bit, in <strong>DCI X′Y′Z′</strong> — gamma 2.6, P3 gamut inside an XYZ container, 48 cd/m² reference white (<a href="../color/#dci-xyz">see Color Spaces</a>)</td>
+</tr>
+<tr>
+<td><strong>Audio</strong></td>
+<td>24-bit linear <strong>PCM</strong>, up to 16 channels at 48 or 96 kHz</td>
+</tr>
+<tr>
+<td><strong>Subtitles / captions</strong></td>
+<td><strong>SMPTE Timed Text</strong> (<a href="https://www.smpte.org/standards">ST 428-7</a>) or Interop XML, with PNG or font-rendered glyphs</td>
+</tr>
+</tbody>
+</table>
+<p>Two package flavors exist, and the difference matters at ingest. <strong>Interop (IOP)</strong> is the older de-facto format: narrower in what it allows, but understood by essentially every server ever deployed. <strong>SMPTE DCP</strong> is the standardized modern format (the ST 428/429 families) and is required for anything Interop never specified — high frame rates, immersive audio, and properly-signalled closed captions.<sup id="fnref:dcp-dtdc"><a class="footnote-ref" href="#fn:dcp-dtdc">2</a></sup> Most festivals accept both; some now expect SMPTE. Interop remains the safe universal when you do not know the venue's server age. Confirm which the festival wants before you master — the two are not interchangeable at the door.</p>
+<h2 id="resolution-2k-4k-and-the-bit-rate-cap">Resolution: 2K, 4K, and the bit-rate cap</h2>
+<p>DCPs come in two resolution classes — <strong>2K</strong> (2048 pixels across) and <strong>4K</strong> (4096 across) — each in a <strong>Flat</strong> (1.85:1) or <strong>Scope</strong> (2.39:1) container. DCI caps JPEG 2000 image essence at <strong>250 Mbit/s</strong> for both 2K and 4K.<sup id="fnref:dcp-res"><a class="footnote-ref" href="#fn:dcp-res">7</a></sup> A 4K DCP therefore packs four times the pixels into the same data budget; its practical advantage is smaller than the pixel count suggests.</p>
+<p>JPEG 2000 is resolution-scalable: a 2K system can extract a 2K image from a 4K codestream without transcoding. A single <strong>4K DCP plays on both 4K and 2K systems</strong>, while a 2K DCP also plays on 4K systems. Under the DCI specification, 4K is limited to 24 fps; higher frame rates require 2K.<sup id="fnref2:dcp-res"><a class="footnote-ref" href="#fn:dcp-res">7</a></sup></p>
+<p>Unless the venue requires 4K, deliver a <strong>2K DCP</strong>: it is smaller and universally playable. A 4K package remains compatible with 2K systems.</p>
+<h2 id="audio-channels-and-how-it-was-mixed">Audio: channels and how it was mixed</h2>
+<p>DCP audio is discrete, uncompressed multichannel PCM — but <em>how many</em> channels, and <em>how it was mixed</em>, matter more than the container.</p>
+<p><strong>Prefer 5.1 over 2.0.</strong> A cinema routes discrete channels to fixed speaker arrays: screen Left / Center / Right behind the screen, surround arrays along the walls, and a subwoofer (LFE). A <strong>5.1</strong> mix (L, C, R, LFE, Ls, Rs) puts dialogue in a dedicated <strong>center</strong> channel anchored to the screen, where it stays locked to the picture for every seat in the house. A <strong>2.0</strong> mix has no center: dialogue sits as a <em>phantom</em> center between the L and R screen speakers, which are far apart in a theater — so it only holds together on the room's centerline and pulls toward the nearer speaker everywhere else. For theatrical presentation 5.1 is strongly preferred, and many festivals expect it.</p>
+<p><strong>2.0 is not Dolby Stereo.</strong> A plain 2.0 (LoRo — discrete left / right) is exactly two channels and nothing more; there is no center or surround information in it. Historic <strong>Dolby Stereo (Lt/Rt</strong> — left-total / right-total<strong>)</strong> is different: it is a <em>matrix-encoded</em> two-channel mix that a cinema processor decodes back into L, C, R, and a surround. If you deliver a two-channel track, be clear which it is — a LoRo mix fed to a room expecting an Lt/Rt matrix (or the reverse) misplaces dialogue and surround.</p>
+<p><strong>Mix for the theater, not the nearfield.</strong> A theatrical mix is made on a large, calibrated dubbing stage at <strong>reference level</strong> (each channel aligned to 85 dB SPL) and monitored through the cinema <strong>X-curve</strong> — the standardized high-frequency roll-off for large rooms (SMPTE ST 202 / ISO 2969).<sup id="fnref:dcp-audio"><a class="footnote-ref" href="#fn:dcp-audio">8</a></sup> A nearfield mix — small room, close monitors, no X-curve, whatever level felt right — does not translate. Played back in a theater at reference level it is typically <strong>too loud and too bright</strong>: the balance that sat well two feet from a monitor is punishing across a large room, and dialogue and effects that felt fine turn harsh. <strong>Loudness is the most common failure</strong> — a small-room stereo mix screened in a theater is usually far hotter than intended. If theatrical exhibition is on the horizon, budget a proper theatrical mix on a calibrated stage, not a nearfield bounce.</p>
+<h2 id="encrypted-or-unencrypted">Encrypted or unencrypted</h2>
+<p>An encrypted DCP uses <strong>AES-128</strong>. Playback requires a <strong>KDM</strong> (Key Delivery Message) encrypted to one server certificate and valid for a specified time window. An unencrypted DCP plays on any compliant server.</p>
+<p>Encryption is decided at authoring, not at delivery. An unencrypted DCP cannot be encrypted after the fact without re-wrapping its essence — effectively a re-encode and a re-author — and turning an encrypted DCP back into an unencrypted one likewise costs the keys plus authoring labor and machine time. Neither direction is a toggle, so the choice has to be made before you master, not when a venue asks.</p>
+<p>For a festival, <strong>unencrypted is the safer default</strong>, and the festivals say so themselves: Venice recommends non-encrypted, Sundance strongly prefers it, and Berlinale accepts either.<sup id="fnref:dcp-fest"><a class="footnote-ref" href="#fn:dcp-fest">6</a></sup> The reason is operational, not ideological. Encryption obliges you to collect the certificate of every media block (IMB) that will play the film, generate a per-server, per-window KDM from the distribution KDM (DKDM), and deliver those keys ahead of the screening — and any mismatch (wrong certificate, expired window, a last-minute room change to a server you did not key) is an audience watching a black screen.</p>
+<p>If a right-holder requires encryption, coordinate with the festival ahead of time so special considerations can be made to ensure KDMs cover the anticipated windows and playback servers, and that there is 24/7 key-management support available by phone in case of a last-minute emergency.<sup id="fnref2:dcp-fest"><a class="footnote-ref" href="#fn:dcp-fest">6</a></sup></p>
+<h2 id="accessibility-captions-and-described-audio">Accessibility: captions and described audio</h2>
+<p>Accessibility tracks have moved from optional to expected. Sundance requests them for features; Toronto requires English <strong>SDH</strong> — subtitles for the Deaf and Hard of hearing — for English-language films.<sup id="fnref:dcp-cap"><a class="footnote-ref" href="#fn:dcp-cap">3</a></sup> Two distinct audiences are served by two distinct mechanisms.</p>
+<p><strong>Captions, for Deaf and hard-of-hearing viewers</strong>, come in two forms, and the DCP naming convention makes you declare which:<sup id="fnref:dcp-isdcf"><a class="footnote-ref" href="#fn:dcp-isdcf">4</a></sup></p>
+<ul>
+<li><strong>OCAP (open captions)</strong> are rendered into the presentation itself — always on, visible to the whole auditorium, needing no hardware. A timed-text track flagged <code>OCAP</code>. Because it depends on nothing in the venue, it is the most reliable way to guarantee an accessible screening.</li>
+<li><strong>CCAP (closed captions)</strong> play as a silent metadata track that reaches only personal devices — a CaptiView reader in the seat cupholder, or caption glasses — which the viewer turns on. It keeps the screen clean for everyone else, but it works only if the venue has the caption hardware and it is functioning.</li>
+</ul>
+<p>SDH differs from ordinary translation subtitles: beyond the dialogue, it carries speaker IDs and non-dialogue sound cues (music, effects).</p>
+<p><strong>Described audio, for blind and low-vision viewers</strong>, is a separate narrated track (audio description / VI-N) describing key visual action between lines. Alongside it, a <strong>Hearing Impaired (HI)</strong> track carries a dialogue-boosted mix. Both ride the DCP's audio channel map — HI and VI-N conventionally on channels 15 and 16.<sup id="fnref2:dcp-dtdc"><a class="footnote-ref" href="#fn:dcp-dtdc">2</a></sup></p>
+<p>Provide the tracks named in the festival specification. When venue capability is unknown, an <strong>OCAP version</strong> is the safest accessible deliverable because it requires no caption hardware.</p>
+<h2 id="delivering-to-a-festival">Delivering to a festival</h2>
+<p><strong>Physical media</strong> is still the workhorse. The historical standard is a <strong>CRU DX115</strong> dataport drive; festivals increasingly also accept USB 3.0 drives and SSDs (SSD preferred for reliability).<sup id="fnref3:dcp-fest"><a class="footnote-ref" href="#fn:dcp-fest">6</a></sup> DCP drives are conventionally formatted <strong>Linux ext2/ext3</strong> — the format every server reads, as required by the DCI specification (format with a <strong>128-byte inode size</strong>; modern Linux defaults to 256 bytes, which older servers reject) — though some festivals now also accept exFAT or NTFS.<sup id="fnref:dcp-drive"><a class="footnote-ref" href="#fn:dcp-drive">5</a></sup> Check, rather than assume.</p>
+<p><strong>Electronic delivery</strong> is rising: Venice takes files by <strong>Aspera</strong>, Berlinale through its own <strong>Digital Cinema Portal</strong>, and services such as CineSend and Massive move DCPs over managed transfers.<sup id="fnref4:dcp-fest"><a class="footnote-ref" href="#fn:dcp-fest">6</a></sup> A feature DCP may be hundreds of gigabytes, so budget enough upload time and bandwidth to meet the deadline.</p>
+<p>Whatever the medium, the package title must follow the <strong>ISDCF Digital Cinema Naming Convention (DCNC)</strong> — the string that encodes title, content type, aspect ratio, language and subtitle territory, audio, resolution, studio, and date so that a server and a programmer can parse the film unambiguously.<sup id="fnref2:dcp-isdcf"><a class="footnote-ref" href="#fn:dcp-isdcf">4</a></sup> But renaming the delivery folder is not enough: a server takes the display name from the <strong>ContentTitleText</strong> field — and often the <strong>AnnotationText</strong> — <em>inside</em> the CPL (and PKL), not from the folder name, so the ISDCF title has to be written into the CPL metadata when the DCP is authored. A folder whose name disagrees with the CPL shows the wrong title on the ingest screen and in every playlist editor. A misnamed DCP is a support call at the projection booth.</p>
+<h2 id="qc-on-a-real-cinema-server">QC on a real cinema server</h2>
+<p>Before delivery, <strong>play the DCP from a cinema server through a cinema projector.</strong> Desktop playback does not prove that the package will ingest or screen correctly.</p>
+<p>Run a <strong>DCP validator</strong> before the theater QC. A tool such as <a href="https://tools.colorbymosaic.com/dcp_inspector">MOSAIC DCP Inspector</a> checks the CPL, PKL, ASSETMAP, hashes, reel structure, frame rate, audio layout, and timed-text references. Validation catches structural faults but does not replace cinema-server playback.</p>
+<p>A theater QC pass — on a DCI media block (Dolby, GDC, Sony, Barco Alchemy, Qube) and projector — is the only place to catch:</p>
+<ul>
+<li><strong>Ingest and validation</strong> errors, and Interop/SMPTE incompatibilities with a particular server generation.</li>
+<li><strong>Audio channel mapping</strong> — that center, surrounds, LFE, HI, and VI-N land where they should, not rotated or swapped.</li>
+<li><strong>Subtitle and caption rendering</strong> — timing, position, glyphs, and, for CCAP, that the captions actually reach the seat device in sync.</li>
+<li><strong>Framing and masking</strong> — the right aspect, no cropping, correct Flat/Scope container.</li>
+<li><strong>Frame-rate support</strong>, dropped frames, and audio-video sync across the whole runtime.</li>
+<li><strong>KDM validity</strong>, for encrypted packages — that the key opens on <em>that</em> server, within the window.</li>
+</ul>
+<p>Play it start to finish, listen to the full mix, and verify captions on the real device. Budget a theater QC session the way you budget a <a href="../production-workflow/#visual-effects-production_1">confidence package</a> for VFX — it is the same discipline, applied to the deliverable.</p>
+<h2 id="what-this-means-for-an-independent-production">What this means for an independent production</h2>
+<ul>
+<li><strong>Decide encryption early</strong>, and default to unencrypted for festivals unless a rights-holder demands otherwise.</li>
+<li><strong>Plan the accessibility deliverables ahead of time.</strong> OCAP/SDH captions and described audio are increasingly required, and they are valuable assets for the eventual sale of the film. Given enough lead time they are cheap to produce well — take the time to author quality timed-text files at the correct frame rate — so that a sudden festival request is not a scramble. Rushed against a deadline is where errors and unnecessary cost creep in.</li>
+<li><strong>Get each festival's exact spec first.</strong> "A DCP" is not a specification: Interop vs SMPTE, media and delivery method, naming, and which accessibility tracks all need to be settled before mastering.</li>
+<li><strong>QC on real hardware.</strong> A desktop player proves the package parses; only a cinema server proves it screens.</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:dcp-imf">
+<p>IMF (SMPTE ST 2067, first edition 2013) identifies its deliverable components with technology derived from the DCP standards — the same CPL / PKL / ASSETMAP and MXF track-file model SMPTE standardized for D-Cinema Packaging (ST 429) and released in 2009. IMF began as a studio requirements effort at USC's Entertainment Technology Center, submitted to SMPTE. <a href="https://en.wikipedia.org/wiki/Interoperable_Master_Format">Interoperable Master Format (Wikipedia)</a> and the <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000535.shtml">Library of Congress format description</a>.&#160;<a class="footnote-backref" href="#fnref:dcp-imf" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:dcp-dtdc">
+<p>DTDC (Deluxe Technicolor Digital Cinema), <em>Recommended Guidelines for Digital Cinema Source and DCP Content Delivery</em> v4.08 (2019) — Interop vs SMPTE differences, audio channel layouts, subtitle/caption XML and PNG rules, Hearing Impaired and sign-language accessibility tracks, DKDM/certificate identity, and physical vs electronic delivery. The DCP itself is defined by the SMPTE <strong>ST 428</strong> (DCDM) and <strong>ST 429</strong> (D-Cinema Packaging) standard families and the <a href="https://www.dcimovies.com/">DCI Digital Cinema System Specification</a>.&#160;<a class="footnote-backref" href="#fnref:dcp-dtdc" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:dcp-dtdc" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:dcp-cap">
+<p>Festival accessibility expectations summarized from Sundance and Toronto requirements and practitioner guidance (<a href="https://www.cinematiq.com/posts/things-to-consider-before-making-a-dcp-accessibility">Cinematiq — <em>Making a DCP: Accessibility</em></a>).&#160;<a class="footnote-backref" href="#fnref:dcp-cap" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:dcp-isdcf">
+<p>ISDCF, <a href="https://registry-page.isdcf.com/openandclosedcaptions/">Open and Closed Captions</a> and the <a href="https://registry-page.isdcf.com/">Digital Cinema Naming Convention</a>.&#160;<a class="footnote-backref" href="#fnref:dcp-isdcf" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:dcp-isdcf" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:dcp-drive">
+<p>EXT2/EXT3 with a <strong>128-byte inode size</strong> is the required delivery-drive format under the DCI specification and the <a href="https://www.isdcf.com/">ISDCF</a> recommendation; modern Linux tooling defaults to 256-byte inodes, which older Doremi/Dolby servers reject outright.&#160;<a class="footnote-backref" href="#fnref:dcp-drive" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:dcp-fest">
+<p>Unencrypted preference, KDM window rules, and delivery-media requirements from the 2024 festival technical specifications of the <a href="https://static.labiennale.org/files/cinema/2024/Documenti/specs-dcp-2024.pdf">Venice Biennale</a>, the <a href="https://www.berlinale.de/en/film-entry/technical-specifications/festival-media.html">Berlinale</a>, and <a href="https://www.sundance.org/wp-content/uploads/2022/11/Technical-Specifications-For-Festival-Presentation.pdf">Sundance</a>. Specs change yearly — confirm the current edition.&#160;<a class="footnote-backref" href="#fnref:dcp-fest" title="Jump back to footnote 6 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:dcp-fest" title="Jump back to footnote 6 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:dcp-fest" title="Jump back to footnote 6 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:dcp-fest" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:dcp-res">
+<p>The <a href="https://www.dcimovies.com/">DCI Digital Cinema System Specification</a> caps the JPEG 2000 image essence at <strong>250 Mbit/s</strong> for both 2K and 4K; JPEG 2000's wavelet resolution-scalability lets a 2K system extract a 2K image from a 4K codestream, so 2K and 4K DCPs are interoperable ("single inventory"). 4K is constrained to 24 fps.&#160;<a class="footnote-backref" href="#fnref:dcp-res" title="Jump back to footnote 7 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:dcp-res" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:dcp-audio">
+<p>Reference monitoring level (85 dB SPL per channel) and the cinema <strong>X-curve</strong> are standardized in SMPTE ST 202 / ISO 2969; DCP audio channel layouts (5.1, 7.1, and the HI/VI assignments) are covered in the DTDC delivery guidelines. Dolby Stereo Lt/Rt is the historical matrix-encoded two-channel theatrical format.&#160;<a class="footnote-backref" href="#fnref:dcp-audio" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../imf/" class="md-footer__link md-footer__link--prev" aria-label="Previous: IMF — The Interoperable Master Format">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                IMF — The Interoperable Master Format
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../distribution-deliverables/" class="md-footer__link md-footer__link--next" aria-label="Next: Distribution Deliverables for Independent Film">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Distribution Deliverables for Independent Film
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2016–2026 Tashi Trieu — licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/tashdor/divfx" target="_blank" rel="noopener" title="divfx on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:divfx@tashitrieu.com" target="_blank" rel="noopener" title="Questions, comments, and errata" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "toc.integrate", "search.suggest", "search.highlight", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": null}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/color-plot-embed.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,249 @@
+:root {
+  --md-text-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+
+/* Readable measure for a long-form text */
+.md-typeset {
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.md-typeset h1,
+.md-typeset h2 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.md-typeset h2 {
+  margin-top: 2.2em;
+  padding-top: 0.4em;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+/* Figures */
+.md-typeset figure {
+  margin: 2em auto;
+  max-width: 100%;
+}
+
+.md-typeset figure img {
+  border-radius: 3px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background: #fff;
+}
+
+.md-typeset figcaption {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: var(--md-default-fg-color--light);
+  max-width: 46rem;
+  margin: 0.7em auto 0;
+  text-align: center;
+}
+
+/* Tables should breathe and never overflow the page */
+.md-typeset table:not([class]) {
+  font-size: 0.7rem;
+  display: table;
+}
+
+.md-typeset__table {
+  overflow-x: auto;
+}
+
+/* Frame-numbering diagrams rely on monospace alignment */
+.md-typeset pre > code {
+  font-size: 0.68rem;
+}
+
+/* Landing page cards */
+.md-typeset .grid.cards > ul > li {
+  border-radius: 4px;
+}
+
+/* Tighten the footnote block */
+.md-typeset .footnote {
+  font-size: 0.72rem;
+}
+
+
+/* Interactive chromaticity embeds (progressive enhancement over the static SVG).
+   The static image shows by default (no-JS, print, or while/if the iframe fails);
+   .cp-embed-live is added by color-plot-embed.js once the iframe actually loads. */
+.cp-embed .cp-embed-mount {
+  position: relative;
+  display: block;
+  max-width: 620px;
+  margin: 0 auto;
+  /* Match the embed's plot aspect (the fragment view width/height) so the plot
+     canvas fills the iframe edge to edge. Any mismatch letterboxes, and the
+     embed's page background is dark regardless of theme, so a mismatch shows as
+     dark bars around a light plot. Per-figure override via --cp-embed-aspect. */
+  aspect-ratio: var(--cp-embed-aspect, 900 / 820);
+}
+/* The static SVG and the iframe both fill the aspect box, stacked. */
+.cp-embed-static {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Override the generic `figure img` white background/border: these plots are
+     theme-specific SVGs that already carry their own background, so a forced
+     white fill letterboxes as a bright halo in dark mode. */
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+/* The iframe overlays the static — never display:none (which would deadlock a
+   lazy iframe's load event) — starting transparent and fading in once it loads.
+   If it never loads (service down / no JS), the static shows through. */
+.cp-embed-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.cp-embed.cp-embed-live .cp-embed-frame { opacity: 1; }
+.cp-embed-hint { color: var(--md-default-fg-color--light); }
+
+/* Print never shows the iframe; keep the static figure. */
+@media print {
+  .cp-embed-frame { display: none !important; }
+}
+
+/* Frame-sequence diagrams — one colored cell per frame, so regions never
+   visually overlap or share a boundary frame. Pure HTML/CSS: renders
+   everywhere, no JS, and adapts to the theme. */
+.md-typeset .fseq-fig { margin: 1.4em 0; }
+.md-typeset .fseq {
+  display: flex;
+  flex-wrap: nowrap;               /* one continuous strip, never wraps */
+  gap: 2px;
+  overflow-x: auto;               /* scroll horizontally if it exceeds the column */
+  max-width: 100%;
+  padding-bottom: 3px;            /* room for the scrollbar */
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.64rem;
+  line-height: 1.2;
+}
+.md-typeset .fseq .fcell {
+  flex: 0 0 auto;                 /* keep width; don't shrink or wrap */
+  min-width: 2.6em;
+  text-align: center;
+  padding: 4px 5px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  color: var(--md-default-fg-color);
+}
+.md-typeset .fseq .h { background: #e0912f26; border-color: #e0912f8c; }  /* handle */
+.md-typeset .fseq .e { background: #4c7ef526; border-color: #4c7ef58c; }  /* edit   */
+.md-typeset .fseq .s { background: #7a869544; border-color: #7a8695aa; }  /* slate  */
+.md-typeset .fseq-key { margin: .5em 0 0; font-size: .64rem; color: var(--md-default-fg-color--light); }
+.md-typeset .fseq-key .sw {
+  display: inline-block; width: .8em; height: .8em; border-radius: 2px;
+  vertical-align: -1px; margin: 0 .3em 0 .9em; border: 1px solid;
+}
+.md-typeset .fseq-key .sw:first-child { margin-left: 0; }
+
+/* The di|vfx wordmark is solid black, and the header/nav drawer are black in BOTH
+   themes (primary: black), so invert the logo to white everywhere it sits on them. */
+.md-logo img,
+.md-header__button.md-logo img,
+.md-nav__button.md-logo img {
+  filter: invert(1);
+}
+
+/* Drop the long site title from the primary navigation sidebar / drawer (the header
+   still carries the logo and title). */
+.md-nav--primary > .md-nav__title {
+  display: none;
+}
+
+/* Mermaid workflow diagrams — Material themes the palette; these polish the
+   geometry (rounder corners, slightly heavier links, tidier labels). */
+.md-typeset .mermaid {
+  margin: 1.6em 0;
+  text-align: center;
+}
+.md-typeset .mermaid .node rect,
+.md-typeset .mermaid .node path,
+.md-typeset .mermaid .node polygon {
+  rx: 8px;
+  ry: 8px;
+}
+.md-typeset .mermaid .cluster rect {
+  rx: 12px;
+  ry: 12px;
+}
+.md-typeset .mermaid .flowchart-link {
+  stroke-width: 1.6px;
+}
+.md-typeset .mermaid .edgeLabel {
+  font-size: 0.68rem;
+}
+/* Caption paragraph immediately after a diagram */
+.md-typeset .mermaid + p em {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.72rem;
+}
+
+/* Contact form (Formspree) — theme-aware. The form is an elevated card so the
+   page-coloured fields read as inset panels (they'd otherwise vanish against the
+   body background), and the CTA uses the amber accent instead of the near-black
+   primary that disappeared on the dark theme. */
+.md-typeset .contact-form {
+  max-width: 42rem; margin: 1.8em 0;
+  padding: 1.6rem 1.6rem 1.5rem;
+  background: color-mix(in srgb, var(--md-default-fg-color) 3.5%, var(--md-default-bg-color));
+  border: 1px solid color-mix(in srgb, var(--md-default-fg-color) 12%, transparent);
+  border-radius: 12px;
+}
+.md-typeset .contact-form .cf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.md-typeset .contact-form .cf-grid .cf-field { margin-bottom: 0; }
+.md-typeset .contact-form .cf-field { display: block; margin-bottom: 1rem; }
+.md-typeset .contact-form .cf-field > span {
+  display: block; font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--md-default-fg-color--light); margin-bottom: .45rem;
+}
+.md-typeset .contact-form input,
+.md-typeset .contact-form textarea {
+  width: 100%; box-sizing: border-box; padding: .65rem .8rem; font: inherit; font-size: .8rem; line-height: 1.5;
+  color: var(--md-default-fg-color);
+  background: var(--md-default-bg-color);
+  border: 1px solid color-mix(in srgb, var(--md-default-fg-color) 20%, transparent);
+  border-radius: 7px; transition: border-color .15s ease, box-shadow .15s ease;
+}
+.md-typeset .contact-form input::placeholder,
+.md-typeset .contact-form textarea::placeholder { color: var(--md-default-fg-color--light); opacity: 1; }
+.md-typeset .contact-form textarea { resize: vertical; min-height: 7rem; }
+.md-typeset .contact-form input:hover,
+.md-typeset .contact-form textarea:hover { border-color: color-mix(in srgb, var(--md-default-fg-color) 38%, transparent); }
+.md-typeset .contact-form input:focus,
+.md-typeset .contact-form textarea:focus {
+  outline: none; border-color: var(--md-accent-fg-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--md-accent-fg-color) 25%, transparent);
+}
+.md-typeset .contact-form .cf-submit {
+  appearance: none; cursor: pointer; margin-top: .4rem;
+  padding: .7rem 1.7rem; font: inherit; font-size: .8rem; font-weight: 700; letter-spacing: .01em;
+  color: #17130a; background: var(--md-accent-fg-color);
+  border: none; border-radius: 7px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .18);
+  transition: filter .15s ease, transform .05s ease, box-shadow .15s ease;
+}
+.md-typeset .contact-form .cf-submit:hover { filter: brightness(1.07); box-shadow: 0 3px 10px color-mix(in srgb, var(--md-accent-fg-color) 40%, transparent); }
+.md-typeset .contact-form .cf-submit:active { transform: translateY(1px); box-shadow: 0 1px 2px rgba(0, 0, 0, .18); }
+.md-typeset .contact-form .cf-submit[disabled] { opacity: .6; cursor: default; filter: none; }
+.md-typeset .contact-form .cf-success { margin: 0; font-weight: 700; color: var(--md-typeset-color); }
+.md-typeset .contact-form .cf-error { margin: .6rem 0 0; font-size: .7rem; color: #c65a5a; }
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .contact-form { padding: 1.2rem; }
+  .md-typeset .contact-form .cf-grid { grid-template-columns: 1fr; gap: 0; }
+  .md-typeset .contact-form .cf-grid .cf-field { margin-bottom: 1rem; }
+}

@@ -1,0 +1,2066 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A production handbook on digital intermediate finishing and visual effects workflows for independent film production, by Tashi Trieu.">
+      
+      
+        <meta name="author" content="Tashi Trieu">
+      
+      
+        <link rel="canonical" href="https://divfx.tashitrieu.com/wiki/v1.1-notes/">
+      
+      
+        <link rel="prev" href="../changelog/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../icons/favicon-32x32.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Notes for v1.1 - Digital Intermediates and VFX for Modern Independent Film Production</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/mosaic-tokens.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#notes-for-v11" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Digital Intermediates and VFX for Modern Independent Film Production" class="md-header__button md-logo" aria-label="Digital Intermediates and VFX for Modern Independent Film Production" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Digital Intermediates and VFX for Modern Independent Film Production
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Notes for v1.1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Follow system theme"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Follow system theme" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Digital Intermediates and VFX for Modern Independent Film Production" class="md-nav__button md-logo" aria-label="Digital Intermediates and VFX for Modern Independent Film Production" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    Digital Intermediates and VFX for Modern Independent Film Production
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../production-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generalized Production Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-intermediates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    An Overview of Digital Intermediates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scene-referred/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scene-Referred vs. Display-Referred Imagery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color Spaces and Transfer Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../luts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Look Up Tables (LUTs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working-formats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common Working Formats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resolutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working and Delivery Resolutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color Management
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Color Management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACES
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color Management and OpenColorIO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../application-native-color-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application-Native Color Management (DaVinci, FilmLight)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color-management-comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choosing a Color Management Approach
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hdr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HDR Mastering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Editorial & Visual Effects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Editorial & Visual Effects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../turnover-di/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Editorial Turnover for Digital Intermediates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../turnover-vfx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Editorial Turnover for VFX Plate Pulls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-quality-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Effects Quality Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vfx-production-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Effects Production Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mastering & Delivery
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mastering & Delivery
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IMF — The Interoperable Master Format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DCP — The Digital Cinema Package
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distribution-deliverables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Distribution Deliverables for Independent Film
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archival/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archival
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supplemental Reading & Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Change List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes for v1.1
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes for v1.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#clarifications-original-text-is-correct" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clarifications — original text is correct
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clarifications — original text is correct">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dci-xyz-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DCI X'Y'Z' encoding
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#out-of-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Out of date
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Out of date">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cameras-and-raw-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cameras and RAW formats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codecs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codecs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#review-and-delivery-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Review and delivery platforms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rec2020-display-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rec.2020 display coverage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#univisium-and-2001" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Univisium and 2.00:1
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-cross-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source cross-check
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Source cross-check">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#housekeeping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Housekeeping
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Housekeeping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dead-and-redirected-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dead and redirected links
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">errata</span>
+      
+    
+  </nav>
+
+
+
+<h1 id="notes-for-v11">Notes for v1.1</h1>
+<p>This page tracks what remains from the v1.0.1 → 2.0 port. The factual corrections, the
+straightforward tool/vendor updates, and the ACES, OpenColorIO, HDR, IMF, and DCP gaps have already
+been <strong>folded into the chapters</strong> and removed from here. What is left is the material still to
+reconcile:</p>
+<ul>
+<li><strong>Clarifications</strong> — statements that are correct but terse and worth expanding.</li>
+<li><strong>Out of date</strong> — 2017-era statements about cameras, codecs, and vendors that still need updating
+  in the chapters.</li>
+<li><strong>Gaps / other candidates</strong> — new topics a 2026 edition could add.</li>
+</ul>
+<p>Every claim below was verified against primary sources in July 2026. Where a finding is
+uncertain, that is stated explicitly.</p>
+<hr />
+<h2 id="clarifications-original-text-is-correct">Clarifications — original text is correct</h2>
+<p>Items here were flagged in an earlier draft of this page as errors. Checking them against
+primary sources showed the handbook was right and the correction was wrong. They are kept
+because the original wording is terse enough to be worth expanding, not because it is mistaken.</p>
+<h3 id="dci-xyz-encoding">DCI X'Y'Z' encoding</h3>
+<blockquote>
+<p><strong>In <a href="../color/#dci-xyz">Color Spaces</a>:</strong> "implicitly encoded as gamma 2.6 with an additional
+compensation factor to increase the range of producible white points."</p>
+</blockquote>
+<p><strong>This is correct, including the stated reason.</strong> An earlier revision of this page claimed the
+"white points" rationale was wrong and that the constant was really about luminance headroom.
+That claim was itself wrong, and is retracted.</p>
+<p>The encoding, per SMPTE ST 428-1 and reproduced in <em>Color and Mastering for Digital Cinema</em>
+(Ch. 4, "Transfer Function"), is:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>CV(X&#39;) = INT[ 4095 × (X / 52.37)^(1/2.6) ]
+</code></pre></div>
+<p>and likewise for Y' and Z', with XYZ as tristimulus values above black in cd/m².</p>
+<p>The question is why the normalizing constant is 52.37 rather than the 48 cd/m² reference white
+that SMPTE D-Cinema specifies. <em>Color and Mastering for Digital Cinema</em> answers it directly:</p>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>"The reason for the use of the 52.37 is that the gamut of the encoding space is increased and
+in particular there are more white point color temperatures along the CIE D-Illuminant line on
+a chromaticity diagram that can be encoded at the maximum luminance, 48.00 cd/m²."</p>
+<p>"In order to provide headroom for possible changes in white point preference, the
+normalization factor was changed to allow the encoding of D65 at the maximum luminance of
+48 cd/m² … the D65 point is the point that forces the 52.37 constant because the D55 and the
+Equal Energy points are well inside the encoded gamut."</p>
+</div>
+<p>That is precisely "to increase the range of producible white points."</p>
+<p>The mechanism is worth spelling out, because it is the part the original sentence leaves implicit.
+Normalize by 48 and the encoding white point — equal, maximum code values [4095 4095 4095] —
+lands at XYZ = [48 48 48], chromaticity x = y = &#8531;. On the 48 cd/m² plane that gamut encloses
+D55, the Equal Energy point, and the DCI reference projector white point, <strong>but not D61 or D65</strong>.
+D65 fails because its Z tristimulus at Y = 48 exceeds 48:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Z(D65) at Y = 48  =  48 × (1 − 0.3127 − 0.3290) / 0.3290  ≈  52.3
+</code></pre></div>
+<p>Choosing 52.37 pulls D65 inside the encodable set. The often-quoted consequence — that Y' is
+capped at code value 3960 while X' and Z' may reach 4095 — follows <em>from</em> that choice rather than
+causing it. As the same text notes, X' and Z' are allowed the higher range precisely "because they
+carry no luminance information."</p>
+<p><strong>Done:</strong> the D65 derivation and the Equal Energy white-point distinction are now folded into
+<a href="../color/#dci-xyz">Color Spaces and Transfer Functions</a>. This entry is retained only as a record of
+the retraction (see <a href="#what-this-changed">What this changed</a>).</p>
+<hr />
+<h2 id="out-of-date">Out of date</h2>
+<h3 id="cameras-and-raw-formats">Cameras and RAW formats</h3>
+<p>The camera table in <a href="../digital-intermediates/#camera-raw">An Overview of Digital Intermediates</a>
+is now almost entirely legacy. Notable changes:</p>
+<table>
+<thead>
+<tr>
+<th>2017 entry</th>
+<th>2026 status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ARRI ALEXA (ARRIRAW)</td>
+<td>ARRIRAW still current; bodies are now ALEXA 35 / 35 Xtreme / Mini LF / 265</td>
+</tr>
+<tr>
+<td>RED (R3D)</td>
+<td>R3D still current; <strong>RED was acquired by Nikon</strong>, completed 8 April 2024. DSMC2/WEAPON/RANGER discontinued Dec 2022; original KOMODO discontinued Dec 2025. Current: V-RAPTOR [X] / XL / XE, KOMODO-X</td>
+</tr>
+<tr>
+<td>Sony F5/F55/F65</td>
+<td>All legacy. Current: VENICE 2, BURANO (16-bit X-OCN)</td>
+</tr>
+<tr>
+<td>Canon C500 (Canon RAW)</td>
+<td>Legacy. Current: EOS C400, C500 Mark II, C80/C70 — "Cinema RAW Light" LT/ST/HQ</td>
+</tr>
+<tr>
+<td>Panasonic VariCam 35/LT (VRAW)</td>
+<td>No longer a mainstream flagship option</td>
+</tr>
+<tr>
+<td>Blackmagic (CinemaDNG)</td>
+<td><strong>Wrong for 2026.</strong> CinemaDNG was removed from Blackmagic cameras in the Camera 6.2 update; replaced by <strong>Blackmagic RAW (BRAW)</strong>, announced IBC September 2018</td>
+</tr>
+</tbody>
+</table>
+<p>Additional items for a v1.1 camera section:</p>
+<ul>
+<li><strong>LogC4 / ARRI Wide Gamut 4</strong>, introduced with the ALEXA 35 (2022, ALEV 4 sensor, 17 stops).
+  LogC4 is EI-independent, with mid-gray at roughly 28% code value (1140/4095) versus LogC3's
+  ~39%. AWG4 is larger than Rec.2020 but sits fully inside ACES AP0 to limit virtual colors. Part
+  of ARRI REVEAL color science. LogC3/AWG3 remains correct for ALEXA Mini, AMIRA, and
+  ALEXA LF/Mini LF.</li>
+<li><strong>ARRICORE</strong>, announced 31 July 2025 with the ALEXA 35 Xtreme — an RGB (not Bayer) codec at
+  roughly half ARRIRAW's data rate, with sensitivity, white balance, and tint still not baked in.</li>
+</ul>
+<p><strong>House style:</strong> the company brands itself <strong>ARRI</strong> (all caps), with products styled ALEXA,
+ARRIRAW, AMIRA, ARRICORE. The 2017 text uses "Arri" and "Alexa" throughout. This port has
+normalized to ARRI/ALEXA; confirm that matches your preference.</p>
+<h3 id="codecs">Codecs</h3>
+<ul>
+<li><strong>ProRes RAW</strong> (2018) postdates this edition and should be covered. In 2026 it is recorded
+  in-camera and via Atomos recorders; Windows support requires Apple's separate decoder
+  package.</li>
+<li><strong>OpenEXR</strong> is now at 3.4.x. Changes worth citing since 2017: the OpenEXRCore C API (3.1) for
+  thread-safe non-blocking access; DWAA/DWAB lossy compression; HTJ2K lossless compression
+  (3.4); ID Manifest attributes (3.0); and new standard camera/lens/production metadata
+  attributes including <code>colorInteropID</code> (3.2). Note that the <strong>ACES container (SMPTE ST 2065-4) is
+  a constrained subset of EXR</strong> — ST 2065-4:2023 §8.19 requires <code>compression = 0</code> (uncompressed),
+  in both the 2013 and 2023 editions. But that rule is specifically about the ST 2065-4 container,
+  which §1 scopes to <strong>ACES2065-1 (AP0)</strong> interchange/archival images (its <code>chromaticities</code>
+  attribute is fixed to AP0, so ACEScg can't live in one). ACEScg working files, VFX plates, and
+  renders are ordinary EXRs and compress normally (ZIP/PIZ/DWA) — they are not ST 2065-4
+  containers. See <a href="../aces/#container">Drafts → ACES</a> for the full note.</li>
+<li><strong>Avid DNx</strong>: at IBC 2025 Avid rebranded the family to simply "Avid DNx", dropping the
+  HD/HR/GX suffixes in favor of the five quality levels. The 2025 revision of SMPTE ST 2019-1
+  (VC-3) folded most of DNx GX into the core spec.</li>
+<li>The Apple ProRes white paper URL cited in the original still resolves.</li>
+</ul>
+<h3 id="review-and-delivery-platforms">Review and delivery platforms</h3>
+<table>
+<thead>
+<tr>
+<th>2017 text</th>
+<th>2026 status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frame.io</td>
+<td>Acquired by Adobe, closed 7 October 2021 ($1.275B). Frame.io V4 GA October 2024, bundled with Creative Cloud</td>
+</tr>
+<tr>
+<td>Wipster.io "a Vimeo product"</td>
+<td><strong>Never a Vimeo product</strong> (see above). Still independent and operating</td>
+</tr>
+<tr>
+<td>Hightail</td>
+<td>Acquired by <strong>OpenText</strong>, February 2018. Still sold as "Hightail by OpenText"; free tier cut back in 2023</td>
+</tr>
+<tr>
+<td>PIX</td>
+<td>Acquired by <strong>Autodesk</strong> from X2X, closed 15 March 2024 (~$270M). Being merged with Moxion under the <strong>Autodesk Flow Capture</strong> brand</td>
+</tr>
+<tr>
+<td>DAX</td>
+<td>Acquired by Prime Focus Technologies (2014), <strong>rebranded to CLEAR</strong> in February 2020. "DAX Production Cloud" survives as a CLEAR module</td>
+</tr>
+<tr>
+<td>Wiredrive</td>
+<td>Still operating. <em>(Ownership not verified — only operational status confirmed.)</em></td>
+</tr>
+<tr>
+<td>Codex Backbone</td>
+<td><strong>Not a listed current product.</strong> Codex's 2026 lineup is hardware/firmware only. <em>(No formal EOL announcement found; this rests on absence from the current product and documentation lineup.)</em></td>
+</tr>
+<tr>
+<td>Technicolor PULSE</td>
+<td><strong>Defunct.</strong> <code>pulse.technicolor.com</code> no longer resolves</td>
+</tr>
+<tr>
+<td>Aspera / Signiant / Sohonet FileRunner</td>
+<td>Still accurate. Aspera remains IBM-owned and active; Signiant's line has expanded well beyond Media Shuttle to Jet, Flight Deck, and Media Engine; Sohonet FileRunner is still a current product</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="admonition-title">Technicolor</p>
+<p>Technicolor Group collapsed in <strong>February 2025</strong>, citing severe financial challenges. US
+operations of The Mill, MPC, and Mikros were shut down; Technicolor Creative Studios UK
+filed for administration and the French entities entered receivership. Assets were dispersed
+— TransPerfect took Technicolor Games and the French MPC/Mill operations, Rodeo FX took
+Mikros Animation, and ex-Mill US staff founded ARC Creative. (Technicolor's <em>post-production</em>
+division had been sold separately to Streamland Media in 2021, before the collapse.)</p>
+<p>Any reference to Technicolor as a going concern needs revisiting.</p>
+</div>
+<h3 id="rec2020-display-coverage">Rec.2020 display coverage</h3>
+<p>The 2017 claim that few displays can reproduce Rec.2020 is <strong>still substantially accurate</strong> — no
+consumer or reference display covers the full gamut (its primaries are monochromatic), and
+high-end 2025–26 OLED and QD-OLED panels measure roughly 75–85% BT.2020 while hitting ~97–99%
+DCI-P3, per public measurement (RTINGS). Coverage is measurement-space-dependent (higher in CIE
+1931 <em>xy</em> than CIE 1976 <em>u′v′</em>). See <a href="../hdr/#mastering-in-practice">Drafts → HDR</a> for the
+cited figures.</p>
+<p>What the passage lacks is the practical nuance: Rec.2020 functions as a <strong>container</strong> gamut. HDR
+is mastered in <strong>P3-D65 limited inside a Rec.2100/Rec.2020 encoding</strong>, not graded to true
+Rec.2020 primaries.</p>
+<h3 id="univisium-and-2001">Univisium and 2.00:1</h3>
+<p>The <a href="../resolutions/#high-definition">Univisium reference</a> is accurate — 2.00:1 is indeed
+Storaro's advocated format, and <em>Jurassic World</em> (2015) was shot and released 2.00:1 (the DP
+wanted 2.40, Spielberg pushed for 1.85 headroom for the dinosaurs, and they compromised at
+2.00:1 inside a 1.85 DCP container).</p>
+<p>What needs updating is the framing: 2.00:1 is now mainstream across streaming originals, not a
+recent indie curiosity.</p>
+<hr />
+<h2 id="source-cross-check">Source cross-check</h2>
+<p>Every claim on this page was re-checked against primary sources — ITU, SMPTE, and Academy (AMPAS)
+documents, Dolby's grading guides, and the books listed in <a href="../resources/">Supplemental Reading &amp; Resources</a>.
+Results:</p>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Verdict</th>
+<th>Checked against</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DCI X'Y'Z' "compensation factor … white points"</td>
+<td><strong>Retracted my correction — the handbook is right</strong></td>
+<td><em>Color and Mastering for Digital Cinema</em>, Ch. 4</td>
+</tr>
+<tr>
+<td>Rec.709 OETF/EOTF conflation</td>
+<td><strong>Confirmed</strong>, wording tightened</td>
+<td>ITU-R BT.2390-7 §3.1; ITU-R BT.1886</td>
+</tr>
+<tr>
+<td>ACES component names and encodings</td>
+<td><strong>Confirmed</strong></td>
+<td>AMPAS TB-2014-012, S-2014-003, S-2014-004, S-2013-001</td>
+</tr>
+<tr>
+<td>AP0 primaries, white point, binary16 encoding</td>
+<td><strong>Confirmed against the standard</strong></td>
+<td>SMPTE ST 2065-1:2021 §4.3.2.1, Table (RGB primaries / white)</td>
+</tr>
+<tr>
+<td>AP0 / AP1 chromaticities</td>
+<td><strong>Confirmed</strong></td>
+<td>TB-2014-004, S-2014-004</td>
+</tr>
+<tr>
+<td>ACES white point is "D60-like", not CIE D60</td>
+<td><strong>Confirmed</strong> — worth stating in v1.1</td>
+<td>TB-2018-001 §4.1, §4.3</td>
+</tr>
+<tr>
+<td>"Output Transform concatenated since ACES 1.1"</td>
+<td><strong>Corrected</strong> — the renaming is ACES 1.0</td>
+<td>TB-2014-012 §5.2</td>
+</tr>
+<tr>
+<td>BT.2100 primaries, bit depth, PQ/HLG</td>
+<td><strong>Confirmed</strong></td>
+<td>ITU-R BT.2100-2, Tables 1 &amp; 3</td>
+</tr>
+<tr>
+<td>ST 2084 / ST 2086 / ST 2094 roles</td>
+<td><strong>Confirmed</strong></td>
+<td>SMPTE ST 2084:2014, ST 2086:2014, ST 2094-1:2016</td>
+</tr>
+<tr>
+<td>IMF App #2E purpose and essence coding</td>
+<td><strong>Confirmed</strong></td>
+<td>SMPTE ST 2067-21 §1</td>
+</tr>
+<tr>
+<td>ACES container compression</td>
+<td><strong>Confirmed uncompressed-only</strong> (ST 2065-4:2023 §8.19), scoped to the ACES2065-1/AP0 container (§1, §8.17); not a rule for ACEScg working EXRs</td>
+<td>SMPTE ST 2065-1:2021; ST 2065-4:2023</td>
+</tr>
+<tr>
+<td>CinemaScope 2.35 → 2.39 standards history</td>
+<td><strong>Not corroborated — web-only</strong></td>
+<td>No SMPTE PH22.106 in library; DCI Scope = 2.39 confirmed via RDD 52 and DTDC guidelines</td>
+</tr>
+<tr>
+<td>H.264 / H.265 bit-depth profiles</td>
+<td><strong>Not corroborated — web-only</strong></td>
+<td>No codec specifications in library</td>
+</tr>
+<tr>
+<td>ACES 2.0 (2025)</td>
+<td><strong>Not corroborated — web-only</strong></td>
+<td>Newest ACES document in library is 2018</td>
+</tr>
+<tr>
+<td>Product and ownership changes since 2017</td>
+<td><strong>Not corroborated — web-only</strong></td>
+<td>Out of scope for a technical library</td>
+</tr>
+</tbody>
+</table>
+<h3 id="what-this-changed">What this changed</h3>
+<p>One published claim was <strong>wrong and has been retracted</strong> — see
+<a href="#dci-xyz-encoding">DCI X'Y'Z' encoding</a>. It was listed as a factual error in the handbook when
+the handbook was in fact correct, and the replacement wording I proposed misattributed the
+purpose of the 52.37 constant. That is the failure mode worth guarding against in this kind of
+review: a plausible-sounding derivation that is arithmetically true (52.37 ≈ 48 × (4095/3960)^2.6
+does hold) but causally backwards. The code-value ceiling of 3960 is a <em>consequence</em> of choosing
+52.37 to enclose D65, not the reason for it.</p>
+<p>Claims marked web-only are not necessarily wrong — most are well-supported by current
+manufacturer and standards-body sources. They simply have not been checked against a primary
+document, and should be before anything goes to print.</p>
+<hr />
+<h2 id="housekeeping">Housekeeping</h2>
+<h3 id="dead-and-redirected-links">Dead and redirected links</h3>
+<table>
+<thead>
+<tr>
+<th>Link</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pulse.technicolor.com</code></td>
+<td>Dead (NXDOMAIN)</td>
+</tr>
+<tr>
+<td><code>codex.online/products/backbone</code></td>
+<td>Product no longer listed</td>
+</tr>
+<tr>
+<td><code>lattice.videovillage.co</code></td>
+<td>Redirects to videovillage.com/lattice — updated in this port</td>
+</tr>
+<tr>
+<td><code>goo.gl/eL5pqE</code> (camera comparison)</td>
+<td>Google URL shortener was discontinued; link removed in this port</td>
+</tr>
+<tr>
+<td><code>avid.force.com</code> / <code>avid.com/~/media/...</code> DNx white papers</td>
+<td>Restructured; replaced with a generic reference in this port</td>
+</tr>
+<tr>
+<td><code>imaxprojection.pixar.com</code></td>
+<td>Not verified</td>
+</tr>
+<tr>
+<td><code>arrirental.com/pdf/frameleader35mm_2009-08.pdf</code></td>
+<td>Not verified</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../changelog/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Change List">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Change List
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2016–2026 Tashi Trieu — licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/tashdor/divfx" target="_blank" rel="noopener" title="divfx on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:divfx@tashitrieu.com" target="_blank" rel="noopener" title="Questions, comments, and errata" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "toc.integrate", "search.suggest", "search.highlight", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": null}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/color-plot-embed.js"></script>
+      
+    
+  </body>
+</html>
